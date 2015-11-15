@@ -1,0 +1,1 @@
+var mstEquipSkill = JSON.parse('[{"equipId":1,"num":1,"skillId":980001,"condLv":0},{"equipId":1,"num":2,"skillId":980002,"condLv":0},{"equipId":1,"num":3,"skillId":980003,"condLv":0}]');

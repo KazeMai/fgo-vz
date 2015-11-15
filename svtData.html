@@ -1,0 +1,614 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="common/css/common.css" rel="stylesheet" type="text/css" />
+<link href="common/css/detail_info.css" rel="stylesheet" type="text/css" />
+<title>英靈資料查詢</title>
+<script type='text/javascript' src='common/js/mstSvt.js'></script>
+<script type='text/javascript' src='common/js/mstClass.js'></script>
+<script type='text/javascript' src='common/js/mstItem.js'></script>
+<script type='text/javascript' src='common/js/mstCombineSkill.js'></script>
+<script type='text/javascript' src='common/js/mstCombineLimit.js'></script>
+<script type='text/javascript' src='common/js/mstSvtExp.js'></script>
+<script type='text/javascript' src='common/js/mstSvtLimit.js'></script>
+<script type='text/javascript' src='common/js/mstSvtComment.js'></script>
+<script type='text/javascript' src='common/js/mstQuest.js'></script>
+<script type='text/javascript' src='common/js/mstSvtCard.js'></script>
+<script type='text/javascript' src='common/js/mstCv.js'></script>
+<script type='text/javascript' src='common/js/mstIllustrator.js'></script>
+<script type='text/javascript' src='common/js/mstSvtSkill.js'></script>
+<script type='text/javascript' src='common/js/mstSkill.js'></script>
+<script type='text/javascript' src='common/js/mstSkillDetail.js'></script>
+<script type='text/javascript' src='common/js/mstSkillLv.js'></script>
+<script type='text/javascript' src='common/js/mstSvtTreasureDevice.js'></script>
+<script type='text/javascript' src='common/js/mstTreasureDevice.js'></script>
+<script type='text/javascript' src='common/js/mstTreasureDeviceDetail.js'></script>
+<script type='text/javascript' src='common/js/mstTreasureDeviceLv.js'></script>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<style type="text/css">
+	ul, li {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	.abgne_tab {
+	clear: left;
+	width: 100%;
+	margin: 5px 0;
+	}
+	ul.tabs {
+		width: 100%;
+		height: 32px;
+		border-bottom: 1px solid #999;
+		border-left: 1px solid #999;
+	}
+	ul.tabs li {
+		width: 10%;
+		float: left;
+		height: 31px;
+		line-height: 31px;
+		overflow: hidden;
+		position: relative;
+		margin-bottom: -1px;	/* 讓 li 往下移來遮住 ul 的部份 border-bottom */
+		border: 1px solid #999;
+		border-left: none;
+		color: #fff;
+		font-weight: bold;
+		text-align: center;
+		text-align: center;
+		text-shadow:1px 1px 4px #000000;
+		border: 1px solid #fff;
+		background: no-repeat 2% center, rgb(2,41,88); /* Old browsers */
+		background: no-repeat 2% center, -moz-linear-gradient(top,  rgba(2,41,88,1) 0%, rgba(9,77,157,1) 87%, rgba(9,77,157,1) 100%); /* FF3.6+ */
+		background: no-repeat 2% center, -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(2,41,88,1)), color-stop(87%,rgba(9,77,157,1)), color-stop(100%,rgba(9,77,157,1))); /* 	Chrome,Safari4+ */
+		background: no-repeat 2% center, -webkit-linear-gradient(top,  rgba(2,41,88,1) 0%,rgba(9,77,157,1) 87%,rgba(9,77,157,1) 100%); /* Chrome10+,Safari5.1+ */
+		background: no-repeat 2% center, -o-linear-gradient(top,  rgba(2,41,88,1) 0%,rgba(9,77,157,1) 87%,rgba(9,77,157,1) 100%); /* Opera 11.10+ */
+		background: no-repeat 2% center, -ms-linear-gradient(top,  rgba(2,41,88,1) 0%,rgba(9,77,157,1) 87%,rgba(9,77,157,1) 100%); /* IE10+ */
+		background: no-repeat 2% center, linear-gradient(to bottom,  rgba(2,41,88,1) 0%,rgba(9,77,157,1) 87%,rgba(9,77,157,1) 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#022958', endColorstr='#094d9d',GradientType=0 ); /* IE6-9 */
+	}
+	ul.tabs li a {
+		display: block;
+		padding: 0 20px;
+		color: #fff;
+		font-weight: bold;
+		text-align: center;
+		text-shadow:1px 1px 4px #000000;
+		border: 1px solid #fff;
+		text-decoration: none;
+	}
+	ul.tabs li a:hover {
+		background: #bf2312;
+	}
+	ul.tabs li.active  {
+		background: #d48227;
+		border-bottom: 1px solid #fff;
+	}
+	ul.tabs li.active a:hover {
+		background: #d48227;
+	}
+	div.tab_container {
+		clear: left;
+		width: 100%;
+		border: 1px solid #999;
+		border-top: none;
+	}
+	div.tab_container .tab_content {
+		padding: 10px;
+	}
+	div.tab_container .tab_content h2 {
+		margin: 0 0 20px;
+	}
+.style1 {
+}
+</style>
+<script type="text/javascript">
+	$(function(){
+		// 預設顯示第一個 Tab
+		var _showTab = 0;
+		$('ul.tabs li').eq(_showTab).addClass('active');
+		$('.tab_content').hide().eq(_showTab).show();
+		
+		// 當 li 頁籤被點擊時...
+		// 若要改成滑鼠移到 li 頁籤就切換時, 把 click 改成 mouseover
+		$('ul.tabs li').mouseover(function() {
+			// 找出 li 中的超連結 href(#id)
+			var $this = $(this),
+				_index = $this.index();
+			// 把目前點擊到的 li 頁籤加上 .active
+			// 並把兄弟元素中有 .active 的都移除 class
+			$this.addClass('active').siblings('.active').removeClass('active');
+			// 淡入相對應的內容並隱藏兄弟元素
+			$('.tab_content').eq(_index).stop(false, true).fadeIn().siblings().hide();
+
+			return false;
+		}).find('a').focus(function(){
+			this.blur();
+		});
+	});
+</script>
+<script type="text/javascript">
+
+mstSvt = mstSvt.sort(sortByElmentNo);
+function sortByElmentNo(a,b)
+{
+	return a.collectionNo-b.collectionNo;
+}
+function svtDataTable(svtId)
+{
+	var personalityList = ["","善","惡","?","狂","中庸"];
+	var policyList = ["","中立","混沌","秩序"];
+	var attriList = ["","人","天","地","星","獸"];
+	var genderTypeList = ["","男性","女性","無"];
+	var cardList = ["","0000ff","ff0000","00ff00"];
+	var svtStatusList = ["","A","B","C","D","E","EX","?","?","?"];
+	var svtStatusPlusList = ["","","+","++","?","?","?","?","?","?"];
+	var c;
+	
+	var i;
+	for(i=0;i<mstSvt.length;i++)
+	{
+		if(mstSvt[i].id==svtId)break;
+	}
+	var j;
+	for(j=0;j<mstSvtLimit.length;j++)
+	{
+		if(mstSvtLimit[j].svtId==svtId)break;
+	}
+	
+	var svtNrmlDataTxt="";
+	svtNrmlDataTxt="<tr><td rowspan=6><img src=https://sites.google.com/site/fategovz/"+svtId+"_status_servant_2.png></td><th><b>編號</b></th><th><b>星數</b></th><th colspan=2><b>名稱</b></th><th><b>職階</b></th><th><b>特性</b></th></tr><tr align=\"center\"><td>No."+mstSvt[i].collectionNo+"</td><td class=\"star\">";
+	for(c=0;c<mstSvtLimit[j].rarity;c++)
+		svtNrmlDataTxt+="★";
+	svtNrmlDataTxt+="</td><td colspan=2>"+mstSvt[i].name+"</td>";
+	for(c=0;c<mstClass.length;c++)
+		if(mstClass[c].id==mstSvt[i].classId) {svtNrmlDataTxt+="<td>"+mstClass[c].name+"</td>";break;}
+	
+	svtNrmlDataTxt+="<td>"+attriList[mstSvt[i].attri]+"</td></tr><tr><th><b>HP</b></th><th><b>ATK</b></th><th><b>繪師</b></th><th><b>CV</b></th><th><b>屬性</b></th><th><b>性別</b></th></tr><tr align=\"center\"><td>"+mstSvtLimit[j].hpBase+" / "+mstSvtLimit[j].hpMax+"</td><td>"+mstSvtLimit[j].atkBase+" / "+mstSvtLimit[j].atkMax+"</td>";
+	for(c=0;c<mstIllustrator.length;c++)
+		if(mstIllustrator[c].id==mstSvt[i].illustratorId) {svtNrmlDataTxt+="<td>"+mstIllustrator[c].name+"</td>";break;}
+	for(c=0;c<mstCv.length;c++)
+		if(mstCv[c].id==mstSvt[i].cvId) {svtNrmlDataTxt+="<td>"+mstCv[c].name+"</td>";break;}
+	svtNrmlDataTxt+="<td>"+policyList[mstSvtLimit[j].policy]+"・"+personalityList[mstSvtLimit[j].personality]+"</td><td>"+genderTypeList[mstSvt[i].genderType]+"</td></tr>";
+	document.getElementById("svtNrmlData").innerHTML=svtNrmlDataTxt;
+	
+	var svtCtrlDataTxt="";
+	svtCtrlDataTxt+="<tr><th rowspan=2><b>指令卡</b></th><th><font color=\"#0099FF\"><b>Arts</b></font></th><th><font color=\"#ff0000\"><b>Buster</b></font></th><th><font color=\"#00ff00\"><b>Quick</b></font></th><th><b>Extra</b></th><th rowspan=2><b>隱藏數值</b></th><th><b>Star Rate</b></th><th><b>Death Rate</b></th><th><b>Critical Weight</b></th></tr><tr align=\"center\">";
+	for(var k=1;k<=4;k++)
+	{
+		var cardCount=0;
+		for(c=0;c<mstSvt[i].cardIds.length;c++)
+			if(mstSvt[i].cardIds[c]==k) cardCount++;
+		for(c=0;c<mstSvtCard.length;c++)
+		{
+			if(mstSvtCard[c].svtId==mstSvt[i].id&&mstSvtCard[c].cardId==k){
+				svtCtrlDataTxt+="<td>";
+				if(k!=4) svtCtrlDataTxt+=cardCount+"張 各";
+				svtCtrlDataTxt+=mstSvtCard[c].normalDamage.length+"Hit";
+				if(mstSvtCard[c].normalDamage.length>1) svtCtrlDataTxt+="s";
+				svtCtrlDataTxt+="</td>";
+			}
+		}
+	}
+	svtCtrlDataTxt+="<td>"+mstSvt[i].starRate/10+"%</td><td>"+mstSvt[i].deathRate/10+"%</td><td>"+mstSvtLimit[j].criticalWeight+"</td></tr>";
+	document.getElementById("svtCtrlData").innerHTML=svtCtrlDataTxt;
+	
+	var svtSkTdDataTxt="";
+	var skillText="";
+	var skillrowCount=0;
+	for(c=0;c<mstSvtSkill.length;c++)
+	{
+		if(mstSvtSkill[c].svtId==mstSvt[i].id){
+			skillrowCount++;
+			for(var k=0;k<mstSkill.length;k++){
+				if(mstSvtSkill[c].skillId==mstSkill[k].id){skillText+="<td><img src=https://sites.google.com/site/fategovz/SkillIcon_"+mstSkill[k].iconId+".png width=55]</td><td><b>"+mstSkill[k].name+"</b></td>"; break;}
+			}
+
+			for(var k=0;k<mstSkillLv.length;k++){
+				if(mstSvtSkill[c].skillId==mstSkillLv[k].skillId&&mstSkillLv[k].lv==1){
+					skillText+="<td>冷卻"+mstSkillLv[k].chargeTurn+"回合</td>";//break;
+				}
+			}
+			
+			skillText+="<td>";
+			if(mstSvtSkill[c].condLimitCount!=0) skillText+="靈基再臨第"+mstSvtSkill[c].condLimitCount+"階段解放";
+			skillText+="</td></tr>";
+			
+			for(var k=0;k<mstSkillDetail.length;k++){
+				if(mstSvtSkill[c].skillId==mstSkillDetail[k].id){
+					mstSkillDetail[k].detail=mstSkillDetail[k].detail.replace(/ /g,"");
+					var skillDetailArray = new Array();
+					//if(mstSkillDetail[k].detail.search(/＆|＋/)!=-1)
+						skillDetailArray = mstSkillDetail[k].detail.split(/＆|＋/);
+					//else skillDetailArray[0]=mstSkillDetail[k].detail;
+					skillrowCount+=skillDetailArray.length;
+					for(var d=0;d<skillDetailArray.length;d++){
+						var isLvUp = skillDetailArray[d].search(/\{0\}/);
+						
+						//skillDetailArray[d]=skillDetailArray[d].replace(/\(/,"\n\(");
+						skillDetailArray[d]=skillDetailArray[d].replace(/\{0\}/g,"Lv.");
+						skillText+="<tr><td colspan=2>"+skillDetailArray[d]+"</td><td colspan=2>";
+						if(isLvUp!=-1) 
+						{
+							skillText+="<table width=100%]<tr>";
+							for(var m=0;m<10;m++)
+								skillText+="<td>待補</td>";
+							skillText+="</tr></table>";
+						}
+						else skillText+="待補";
+						skillText+="</td></tr>";
+					}
+				}
+			}
+		}
+	}
+	svtSkTdDataTxt+="<tr><th rowspan="+skillrowCount+"]<b>保有技能</b></th>"+skillText+"";
+		
+	skillText="";
+	skillrowCount=0;
+	for(c=0;c<mstSvt[i].classPassive.length;c++)
+	{
+		skillrowCount++;
+		for(var k=0;k<mstSkill.length;k++){
+			if(mstSvt[i].classPassive[c]==mstSkill[k].id){skillText+="<td><img src=https://sites.google.com/site/fategovz/SkillIcon_"+mstSkill[k].iconId+".png width=55]</td><td><b>"+mstSkill[k].name+"</b></td>"; break;}
+		}
+		for(var k=0;k<mstSkillDetail.length;k++){
+			if(mstSvt[i].classPassive[c]==mstSkillDetail[k].id){
+				skillText+="<td colspan=2>"+mstSkillDetail[k].detail+"：";
+				
+				for(var g=0;g<mstSkillLv.length;g++){
+					if(mstSvt[i].classPassive[c]==mstSkillLv[g].skillId)
+					{
+						var array2 = new Array();
+						array2 = String(mstSkillLv[g].svals).replace("[", "").replace("]", "").split(',');
+						skillText+=array2[array2.length-1]+"</td></tr>";
+						break;
+					}
+				}
+				
+				break;
+			}
+		}
+	}
+	svtSkTdDataTxt+="<tr><th rowspan="+mstSvt[i].classPassive.length+"]<b>職階技能</b></th>"+skillText+"";
+	
+	skillText="";
+	skillrowCount=0;
+	for(c=0;c<mstTreasureDevice.length;c++)
+	{
+		if(mstTreasureDevice[c].seqId==mstSvt[i].id){
+			skillrowCount+=2;
+			
+			skillText+="<th colspan=2><b>名稱</b></th><th><b>等級</b></th><th><b>種類</b></th></tr>";
+			
+			skillText+="<tr align=\"center\"><td colspan=2><font size=\"1\">"+mstTreasureDevice[c].ruby+"</font><br>";
+			for(var k=0;k<mstSvtTreasureDevice.length;k++){
+				if(mstTreasureDevice[c].seqId==mstSvtTreasureDevice[k].svtId){
+					skillText+="<b><font color=\"#"+cardList[mstSvtTreasureDevice[k].cardId]+"\">"+mstTreasureDevice[c].name+"</font></b></td>"; break;}
+			}
+			skillText+="<td>"+mstTreasureDevice[c].rank+"</td><td>"+mstTreasureDevice[c].typeText+"</td></tr>";
+			for(var k=0;k<mstTreasureDeviceDetail.length;k++){
+				if(mstTreasureDevice[c].id==mstTreasureDeviceDetail[k].id){
+					mstTreasureDeviceDetail[k].detail=mstTreasureDeviceDetail[k].detail.replace(/ /g,"");
+					var skillDetailArray = new Array();
+					//if(mstTreasureDeviceDetail[k].detail.search(/＆|＋/)!=-1)
+						skillDetailArray = mstTreasureDeviceDetail[k].detail.split(/＆|＋/);
+					//else skillDetailArray[0]=mstTreasureDeviceDetail[k].detail;
+					
+					skillrowCount+=skillDetailArray.length;
+					for(var d=0;d<skillDetailArray.length;d++){
+						var isLvUp = skillDetailArray[d].search(/\{0\}/);
+						var isOCUp = skillDetailArray[d].search(/</);
+						skillDetailArray[d]=skillDetailArray[d].replace(/\{0\}/g,"Lv.");
+						skillDetailArray[d]=skillDetailArray[d].replace(/</g,"<br><");
+						//skillDetailArray[d]=skillDetailArray[d].replace(/\(/,"\n\(");
+						skillText+="<tr><td colspan=2>"+skillDetailArray[d]+"</td><td colspan=2>";
+						if(isLvUp!=-1||isOCUp!=-1) 
+						{
+							skillText+="<table width=100%]<tr>";
+							for(var m=0;m<5;m++)
+								skillText+="<td>待補</td>";
+							skillText+="</tr></table>";
+						}
+						else skillText+="待補";
+						skillText+="</td></tr>";
+					}
+				}
+			}
+		}
+	}
+	svtSkTdDataTxt+="<tr><th rowspan="+skillrowCount+"]<b>寶具</b></th>"+skillText+"";
+	document.getElementById("svtSkTdData").innerHTML=svtSkTdDataTxt;
+	
+	var svtInfoDataTxt="";
+	svtInfoDataTxt="<tr><td rowspan=2></td><th><b>筋力</b></th><th><b>耐久</b></th><th><b>敏捷</b></th><th><b>魔力</b></th><th><b>幸運</b></th><th><b>寶具</b></th></tr><tr align=\"center\"><td>"+svtStatusList[Math.floor(mstSvtLimit[j].power/10)]+svtStatusPlusList[mstSvtLimit[j].power%10]+"</td><td>"+svtStatusList[Math.floor(mstSvtLimit[j].defense/10)]+svtStatusPlusList[mstSvtLimit[j].defense%10]+"</td><td>"+svtStatusList[Math.floor(mstSvtLimit[j].agility/10)]+svtStatusPlusList[mstSvtLimit[j].agility%10]+"</td><td>"+svtStatusList[Math.floor(mstSvtLimit[j].magic/10)]+svtStatusPlusList[mstSvtLimit[j].magic%10]+"</td><td>"+svtStatusList[Math.floor(mstSvtLimit[j].luck/10)]+svtStatusPlusList[mstSvtLimit[j].luck%10]+"</td><td>"+svtStatusList[Math.floor(mstSvtLimit[j].treasureDevice/10)]+svtStatusPlusList[mstSvtLimit[j].treasureDevice%10]+"</td></tr>";
+	for(c=0;c<mstSvtComment.length;c++)
+	{
+		var tdColor=""; if(c%2==0) tdColor=" bgcolor=\" #ECF2F3\"";
+		if(mstSvt[i].id==mstSvtComment[c].svtId)
+		{	svtInfoDataTxt+="<tr><th>";
+			if(mstSvtComment[c].condValue==0) svtInfoDataTxt+="<b>角色詳細</b>";
+			else if(mstSvtComment[c].condValue<6) svtInfoDataTxt+="<b>絆等級"+mstSvtComment[c].condValue+"</b>";
+			else if(mstSvtComment[c].condType==1){
+				for(var k=0;k<mstQuest.length;k++){
+					if(mstSvtComment[c].condValue==mstQuest[k].id){svtInfoDataTxt+="<b>通過任務 "+mstQuest[k].name+"<b>";break;}
+				}
+			}
+			svtInfoDataTxt+="</th>";
+			if(mstSvtComment[c].condValue%2==0) tdColor=" bgcolor=\" #ECF2F3\""; else tdColor="";
+			svtInfoDataTxt+="<td colspan=6"+tdColor+">"+mstSvtComment[c].comment.replace(/\n/g,"<br>");+"</td></tr>";
+			if(mstSvtComment[c].condType==1) break;
+		}
+	}
+	document.getElementById("svtInfoData").innerHTML=svtInfoDataTxt;
+
+	var svtCmbnDataTxt="";
+	svtCmbnDataTxt="<tr><th rowspan=4><b>靈基再臨</b></th>";
+
+	for(var m=0;m<4;m++){
+		var tdColor=""; if(m%2==0) tdColor=" bgcolor=\" #ECF2F3\"";
+		if(m!=0) svtCmbnDataTxt+="<tr>";
+		svtCmbnDataTxt+="<td"+tdColor+">第"+(m+1)+"階段</td><td"+tdColor+">";
+		for(c=0;c<mstCombineLimit.length;c++)
+		{
+			if(mstCombineLimit[c].id==mstSvt[i].id&&mstCombineLimit[c].svtLimit==m)
+			{
+				
+				for(var k=0;k<mstCombineLimit[c].itemIds.length;k++)
+				{
+					svtCmbnDataTxt+=findItemName(mstCombineLimit[c].itemIds[k]) + "x" + mstCombineLimit[c].itemNums[k] + " + ";
+				}
+				svtCmbnDataTxt+= addCommas(mstCombineLimit[c].qp) + "QP";
+			}
+	}svtCmbnDataTxt+="</td></tr>";}
+	svtCmbnDataTxt+="<tr><th rowspan=9><b>技能強化</b></th>";
+	for(c=0;c<mstCombineSkill.length;c++)
+	{
+		var tdColor=""; if(c%2==0) tdColor=" bgcolor=\" #ECF2F3\"";
+		if(mstCombineSkill[c].id==mstSvt[i].id)
+		{
+			if(mstCombineSkill[c].skillLv!=1) svtCmbnDataTxt+="<tr>";
+			svtCmbnDataTxt+="<td"+tdColor+">Lv."+mstCombineSkill[c].skillLv+"→Lv."+(mstCombineSkill[c].skillLv+1)+"</td><td"+tdColor+">";
+			for(var k=0;k<mstCombineSkill[c].itemIds.length;k++)
+			{
+				svtCmbnDataTxt+=findItemName(mstCombineSkill[c].itemIds[k]) + "x" + mstCombineSkill[c].itemNums[k] + " + ";
+			}
+			svtCmbnDataTxt+= addCommas(mstCombineSkill[c].qp) + "QP</td></tr>";
+		}
+	}
+	document.getElementById("svtCmbnData").innerHTML=svtCmbnDataTxt;
+
+	document.getElementById("svtImgData").innerHTML="<tr><td><img src=https://sites.google.com/site/fategovz/"+svtId+"a.png><br><img src=https://sites.google.com/site/fategovz/"+svtId+"b.png></td></tr>";
+	
+	var svtLvDataTxt="<tr><th>等級</th><th>ATK</th><th>HP</th><th>上升幅度</th></tr>";
+	for(c=0;c<mstSvt[i].rewardLv;c++)
+	{
+		for(var m=0;m<mstSvtExp.length;m++)
+		{
+			if(mstSvt[i].expType==mstSvtExp[m].type&&mstSvtExp[m].lv==c+1)
+			{
+				var tdColor=""; if(mstSvtExp[m].lv%2==1) tdColor=" bgcolor=\" #ECF2F3\"";
+				svtLvDataTxt+="<tr align=\"center\"><td"+tdColor+">Lv."+(mstSvtExp[m].lv)+"</td><td"+tdColor+">"+Math.floor(mstSvtLimit[j].atkBase+(mstSvtLimit[j].atkMax-mstSvtLimit[j].atkBase)*mstSvtExp[m].curve/1000)+"</td><td"+tdColor+">"+Math.floor(mstSvtLimit[j].hpBase+(mstSvtLimit[j].hpMax-mstSvtLimit[j].hpBase)*mstSvtExp[m].curve/1000)+"</td><td"+tdColor+">"+(mstSvtExp[m].curve-mstSvtExp[m-1].curve)/10+"%</td></tr>";
+				break;
+			}
+		}
+	}
+	document.getElementById("svtLvData").innerHTML=svtLvDataTxt;
+}
+function addCommas(nStr) {
+	nStr += '';
+	x = nStr.split('.');
+	x1 = x[0];
+	x2 = x.length > 1 ? '.' + x[1] : '';
+	var rgx = /(\d+)(\d{3})/;
+	while (rgx.test(x1)) {
+		x1 = x1.replace(rgx, '$1' + ',' + '$2');
+	}
+	return x1 + x2;
+}
+function classidChange()
+{
+	var i;
+	for(i=svtid.options.length-1;i>=0;i--)
+    {
+        svtid.remove(i);
+    }
+	if(classid.value==0)
+	{
+		for(i=0;i<mstSvt.length;i++)
+		{
+			if(mstSvt[i].type==1||mstSvt[i].type==2||mstSvt[i].type==5) svtid.options.add(new Option("No." + mstSvt[i].collectionNo + " " + mstSvt[i].name,mstSvt[i].id));
+		}
+	}
+	else
+	{
+		for(i=0;i<mstSvt.length;i++)
+		{
+			if(mstSvt[i].classId==classid.value)
+				{if(mstSvt[i].type==1||mstSvt[i].type==2||mstSvt[i].type==5) svtid.options.add(new Option("No." + mstSvt[i].collectionNo + " " + mstSvt[i].name,mstSvt[i].id));}
+		}
+	}
+	svtidChange();
+}
+function svtidChange()
+{
+	var i;
+	for(i=svtlv.options.length-1;i>=0;i--)
+    {
+        svtlv.remove(i);
+    }
+	for(i=0;i<mstSvt.length;i++)
+	{
+		if(mstSvt[i].id==svtid.value)
+		{
+			for(var j=1;j<=mstSvt[i].rewardLv;j++)
+			{
+				svtlv.options.add(new Option("Lv."+j,j));
+			}
+			break;
+		}
+	}
+	svtlvChange();
+	svtDataTable(svtid.value);drawChart();
+}
+function svtlvChange()
+{
+	var i;
+	for(i=0;i<mstSvtLimit.length;i++)
+	{
+		if(mstSvtLimit[i].svtId==svtid.value)
+		{	
+			for(var k=0;k<mstSvt.length;k++)
+			{
+				if (mstSvt[k].id==svtid.value)
+				{
+					for(var j=0;j<mstSvtExp.length;j++)
+					{
+						if(mstSvt[k].expType==mstSvtExp[j].type&&mstSvtExp[j].lv==svtlv.value)
+						{
+							atk.value=Math.floor(mstSvtLimit[i].atkBase+(mstSvtLimit[i].atkMax-mstSvtLimit[i].atkBase)*mstSvtExp[j].curve/1000);
+							atkp.value=parseInt(atk.value)+990;
+							hp.value=Math.floor(mstSvtLimit[i].hpBase+(mstSvtLimit[i].hpMax-mstSvtLimit[i].hpBase)*mstSvtExp[j].curve/1000);
+							hpp.value=parseInt(hp.value)+990;
+							break;
+						}
+					}
+				break;
+				}
+			}
+			break;
+		}
+	}
+}
+function findItemName(itemid)
+{
+	for(var i=0;i<mstItem.length;i++)
+	{
+		if(mstItem[i].id==itemid) {return mstItem[i].name;break;}
+	}
+	return "未知道具"+itemid;
+}
+function findSvtNameZh(searchId)
+{
+	var svtNameZh = [[100100,"阿爾托莉亞・潘德拉剛"],[100200,"阿爾托莉亞・潘德拉剛〔Alter〕"],[100300,"阿爾托莉亞・潘德拉剛〔Lily〕"],[100500,"尼祿・克勞狄烏斯"],[100800,"齊格飛"],[100900,"莫德雷德"],[101300,"蓋烏斯・尤利烏斯・凱撒"],[101800,"阿提拉"],[102200,"吉爾・德・雷"],[102600,"夏爾・德翁"],[200100,"Emiya"],[200200,"吉爾伽美什"],[200300,"羅賓漢"],[200500,"阿塔蘭塔"],[200600,"大衛"],[200900,"俄里翁"],[201200,"尤瑞艾莉"],[201300,"阿拉什"],[300100,"庫・夫林"],[300500,"伊莉莎白・巴托里"],[300600,"武蔵坊弁慶"],[300700,"庫・夫林〔Prototype〕"],[300900,"雷奧尼達一世"],[301000,"羅慕路斯"],[301300,"斯卡哈"],[301600,"赫克特"],[400100,"美杜莎"],[400300,"弗朗西斯・德雷克"],[400400,"阿斯托爾福"],[400600,"聖喬治"],[400800,"愛德華・蒂奇"],[400900,"安妮・伯妮＆瑪莉・瑞德"],[401100,"布狄卡"],[401300,"斯卡哈"],[401400,"牛若丸"],[401500,"亞歷山大"],[401700,"瑪莉・安東尼"],[401900,"瑪爾大"],[500100,"美狄亞"],[500200,"吉爾・德・雷"],[500300,"玉藻前"],[500500,"漢斯・克里斯蒂安・安徒生"],[500700,"威廉・莎士比亞"],[501400,"梅菲斯托費勒斯"],[501500,"沃夫岡・阿瑪迪斯・莫札特"],[501700,"美狄亞〔Lily〕"],[501900,"諸葛孔明〔埃爾梅羅II世〕"],[502100,"庫・夫林"],[502600,"伊莉莎白・巴托里〔萬聖節〕"],[600100,"佐佐木小次郎"],[600200,"咒腕的哈桑"],[600300,"百貌的哈桑"],[601000,"絲西娜"],[601100,"荊軻"],[601200,"夏爾＝亨利・桑松"],[601300,"歌劇魅影"],[601400,"瑪塔・哈里"],[601700,"卡米拉"],[700100,"海克力斯"],[700200,"蘭斯洛特"],[700300,"呂布奉先"],[700500,"斯巴達克斯"],[700600,"坂田金時"],[700700,"弗拉德三世"],[700900,"阿斯忒里歐"],[701000,"卡利古拉"],[701100,"大流士三世"],[701300,"清姬"],[701500,"血斧・埃里克"],[701600,"玉藻貓"],[800100,"瑪琇・基利艾拉特"],[900100,"貞德"],[900300,"貞德〔Alter〕"]];
+	var i;
+	for(i=0;i<svtNameZh.length;i++)
+		if(svtNameZh[i][0]==searchId) return svtNameZh[i][1];
+	if(i==svtNameZh.length) mstSvt[findName(mstSvt,searchId)].name;
+}
+</script>
+  <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1','packages':['corechart'], 'language': 'zh' }]}"></script>
+  <script type="text/javascript">
+    //google.load('visualization', '1.1', { 'packages': ['corechart'], 'language': 'zh' });
+    google.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', '等級');
+      data.addColumn('number', 'ATK');
+      data.addColumn('number', 'HP');
+
+	var i;
+	for(i=0;i<mstSvt.length;i++)
+	{
+		if(mstSvt[i].id==svtid.value)break;
+	}
+	var j;
+	for(j=0;j<mstSvtLimit.length;j++)
+	{
+		if(mstSvtLimit[j].svtId==svtid.value)break;
+	}
+	var c;
+	for(c=0;c<mstSvtExp.length;c++){
+		if(mstSvt[i].expType==mstSvtExp[c].type&&mstSvtExp[c].lv<=mstSvt[i].rewardLv&&mstSvtExp[c].lv>0)
+			data.addRows([[mstSvtExp[c].lv,Math.floor(mstSvtLimit[j].atkBase+(mstSvtLimit[j].atkMax-mstSvtLimit[j].atkBase)*mstSvtExp[c].curve/1000),Math.floor(mstSvtLimit[j].hpBase+(mstSvtLimit[j].hpMax-mstSvtLimit[j].hpBase)*mstSvtExp[c].curve/1000)]]);
+	}
+      var options = {
+          title: '二圍曲線圖',
+          curveType: 'function',
+          legend: { position: 'bottom' },
+		  hAxis: {title: '等級'},
+        width: 900,
+        height: 500
+      };
+
+		var container = document.getElementById('chart_div');
+		var chart = new window.google.visualization.LineChart(container);
+
+      chart.draw(data, options);
+    }
+  </script>
+
+<body onload="classidChange();">
+<div class="container">
+<article class="content textsize">
+<h1 class="headline3"><dl><dt class="date">11/5</dt><dd>新增尤瑞艾莉、大衛、赫克特、弗朗西斯・德雷克、安妮・伯妮＆瑪莉・瑞德、美狄亞〔Lily〕</dd></dl></h1>
+<p id="p1"><strong><font color="#a21b20">◆</font>選擇職階<font color="#a21b20">◆</font></strong>
+	<select id="classid" onchange="classidChange()">
+		<option value="0">全部</option>
+		<option value="1">Saber</option>
+		<option value="2">Archer</option>
+		<option value="3">Lancer</option>
+		<option value="4">Rider</option>
+		<option value="5">Caster</option>
+		<option value="6">Assassin</option>
+		<option value="7">Berserker</option>
+		<option value="8">Shielder</option>
+		<option value="9">Ruler</option>
+	</select>
+</p>
+<p id="p2"><strong><font color="#a21b20">◆</font>選擇英靈<font color="#a21b20">◆</font></strong>
+	<select id="svtid" onchange="svtidChange()"></select>
+</p>
+<p id="p3"><strong><font color="#a21b20">◆</font>選擇等級<font color="#a21b20">◆</font></strong>
+	<select id="svtlv" onchange="svtlvChange()"></select>
+</p>
+<p><strong><font color="#094a98">◆</font>ATK</strong>
+  <input id="atk" type="text" size="5" readonly/>
+  <strong><font color="#094a98">◆</font>HP</strong>
+  <input id="hp" type="text" size="5"  readonly/>
+  <strong>各可強化至+990➩</strong>
+  <strong><font color="#094a98">◆</font>ATK</strong>
+  <input id="atkp" type="text" size="5" readonly/>
+  <strong><font color="#094a98">◆</font>HP</strong>
+  <input id="hpp" type="text" size="5"  readonly/>
+</p>
+
+<table id="svtNrmlData" width=100%><tr><td></td></tr></table>
+<table id="svtCtrlData" width=100%><tr><td></td></tr></table>
+<div class="abgne_tab">
+	<ul class="tabs">
+		<li class="style1">技能寶具</a></li>
+		<li class="style1">人物介紹</a></li>
+		<li class="style1">強化素材</a></li>
+		<li class="style1">各等二圍</a></li>
+		<li class="style1">卡圖一覽</a></li>
+	</ul>
+<div class="tab_container">
+	<div id="tab1" class="tab_content">
+		<table id="svtSkTdData"><tr><td></td></tr></table>
+	</div>
+	<div id="tab2" class="tab_content">
+		<table id="svtInfoData"><tr><td></td></tr></table>
+	</div>
+	<div id="tab3" class="tab_content">
+		<table id="svtCmbnData"><tr><td></td></tr></table>
+	</div>
+	<div id="tab4" class="tab_content">
+		<div id="chart_div"></div>
+		<table id="svtLvData"><tr><td></td></tr></table>
+	</div>
+	<div id="tab5" class="tab_content">
+		<table id="svtImgData"><tr><td></td></tr></table>
+	</div>
+</div></div>
+
+<hr>
+<p><a href="http://goo.gl/Nw8bbF" target="_blank">意見提供</a></p>
+</article>
+</div>
+</body>
+</html>

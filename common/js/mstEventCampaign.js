@@ -1,0 +1,1 @@
+var mstEventCampaign = JSON.parse('[{"eventId":70000,"target":12,"value":500,"calcType":2,"updatedAt":1447218133,"createdAt":946652400}]');
