@@ -203,7 +203,7 @@ function svtDataTable(svtId)
 		if(mstSvtSkill[c].svtId==mstSvt[i].id){
 			skillrowCount++;
 			for(var k=0;k<mstSkill.length;k++){
-				if(mstSvtSkill[c].skillId==mstSkill[k].id){skillText+="<td><img src=https://sites.google.com/site/fategovz/SkillIcon_"+mstSkill[k].iconId+".png width=55]</td><td><b>"+mstSkill[k].name+"</b></td>"; break;}
+				if(mstSvtSkill[c].skillId==mstSkill[k].id){skillText+="<td><img src=common/images/SkillIcon/SkillIcon_"+mstSkill[k].iconId+".png width=55></td><td><b>"+mstSkill[k].name+"</b></td>"; break;}
 			}
 
 			for(var k=0;k<mstSkillLv.length;k++){
@@ -252,7 +252,7 @@ function svtDataTable(svtId)
 	{
 		skillrowCount++;
 		for(var k=0;k<mstSkill.length;k++){
-			if(mstSvt[i].classPassive[c]==mstSkill[k].id){skillText+="<td><img src=https://sites.google.com/site/fategovz/SkillIcon_"+mstSkill[k].iconId+".png width=55]</td><td><b>"+mstSkill[k].name+"</b></td>"; break;}
+			if(mstSvt[i].classPassive[c]==mstSkill[k].id){skillText+="<td><img src=common/images/SkillIcon/SkillIcon_"+mstSkill[k].iconId+".png width=55]</td><td><b>"+mstSkill[k].name+"</b></td>"; break;}
 		}
 		for(var k=0;k<mstSkillDetail.length;k++){
 			if(mstSvt[i].classPassive[c]==mstSkillDetail[k].id){
@@ -380,7 +380,7 @@ function svtDataTable(svtId)
 	}
 	document.getElementById("svtCmbnData").innerHTML=svtCmbnDataTxt;
 
-	document.getElementById("svtImgData").innerHTML="<tr><td><img src=https://sites.google.com/site/fategovz/"+svtId+"a.png><br><img src=https://sites.google.com/site/fategovz/"+svtId+"b.png></td></tr>";
+	document.getElementById("svtImgData").innerHTML="<tr><td><img src=common/images/CharaGraph/"+svtId+"a.png><br><img src=common/images/CharaGraph/"+svtId+"b.png></td></tr>";
 	
 	var svtLvDataTxt="<tr><th>等級</th><th>ATK</th><th>HP</th><th>上升幅度</th></tr>";
 	for(c=0;c<mstSvt[i].rewardLv;c++)
