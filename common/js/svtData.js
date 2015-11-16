@@ -80,9 +80,10 @@ function svtDataTable(svtId)
 			}
 			
 			skillText+="<td>";
-			if(mstSvtSkill[c].condLimitCount==0&&mstSvtSkill[c].condQuestId==0) skillText+="初期";
+			if(mstSvtSkill[c].condLimitCount==0&&mstSvtSkill[c].condQuestId==0&&mstSvtSkill[c].condLv==0) skillText+="初期";
 			else if(mstSvtSkill[c].condLimitCount!=0) skillText+="靈基再臨第"+mstSvtSkill[c].condLimitCount+"階段解放";
 			else if(mstSvtSkill[c].condQuestId!=0) skillText+="通過任務「"+mstQuest[findName(mstQuest,mstSvtSkill[c].condQuestId)].name+"」解放";
+			else if(mstSvtSkill[c].condLv!=0) skillText+="Lv."+mstSvtSkill[c].condLv+"解放";
 			skillText+="</td></tr>";
 			
 			for(var k=0;k<mstSkillDetail.length;k++){
@@ -113,8 +114,9 @@ function svtDataTable(svtId)
 			}
 		}
 	}
-	svtSkTdDataTxt+="<tr><th rowspan="+skillrowCount+"]<b>保有技能</b></th>"+skillText+"";
+	svtSkTdDataTxt+="<tr><th rowspan="+skillrowCount+"><b>保有技能</b></th>"+skillText+"";
 		
+	if(mstSvt[i].classPassive.length!=0){
 	skillText="";
 	skillrowCount=0;
 	for(c=0;c<mstSvt[i].classPassive.length;c++)
@@ -141,7 +143,7 @@ function svtDataTable(svtId)
 			}
 		}
 	}
-	svtSkTdDataTxt+="<tr><th rowspan="+mstSvt[i].classPassive.length+"]<b>職階技能</b></th>"+skillText+"";
+	svtSkTdDataTxt+="<tr><th rowspan="+mstSvt[i].classPassive.length+"><b>職階技能</b></th>"+skillText+"";}
 	
 	skillText="";
 	skillrowCount=0;
@@ -156,9 +158,13 @@ function svtDataTable(svtId)
 			for(var k=0;k<mstSvtTreasureDevice.length;k++){
 				if(mstTreasureDevice[c].id==mstSvtTreasureDevice[k].treasureDeviceId){
 					skillText+="<b><font color=\"#"+cardList[mstSvtTreasureDevice[k].cardId]+"\">"+mstTreasureDevice[c].name+"</font></b></td><td>"+mstTreasureDevice[c].rank+"</td><td>"+mstTreasureDevice[c].typeText+"</td><td>";
-					if(mstSvtTreasureDevice[k].condQuestId==0) skillText+="初期"
+					
+					if(mstSvtTreasureDevice[k].condQuestId==0&&mstSvtTreasureDevice[k].condLv==0&&mstSvtTreasureDevice[k].condFriendshipRank==0) skillText+="初期"
 					else if(findName(mstQuest,mstSvtTreasureDevice[k].condQuestId)!=null) skillText+=mstQuest[findName(mstQuest,mstSvtTreasureDevice[k].condQuestId)].name;
+					else if(mstSvtTreasureDevice[k].condLv!=0) skillText+="Lv."+mstSvtTreasureDevice[k].condLv+"解放";
+					else if(mstSvtTreasureDevice[k].condFriendshipRank!=0) skillText+="絆等級"+mstSvtTreasureDevice[k].condFriendshipRank+"解放";
 					else skillText+="未開放";
+					
 					skillText+="</td></tr>"; break;}
 			}
 
@@ -192,7 +198,7 @@ function svtDataTable(svtId)
 			}
 		}
 	}
-	svtSkTdDataTxt+="<tr><th rowspan="+skillrowCount+"]<b>寶具</b></th>"+skillText+"";
+	svtSkTdDataTxt+="<tr><th rowspan="+skillrowCount+"><b>寶具</b></th>"+skillText+"";
 	document.getElementById("svtSkTdData").innerHTML=svtSkTdDataTxt;
 	
 	var svtInfoDataTxt="";
