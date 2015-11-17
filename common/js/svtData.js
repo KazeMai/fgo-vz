@@ -29,7 +29,11 @@ function svtDataTable(svtId)
 	svtNrmlDataTxt="<tr><td rowspan=6><img src=https://sites.google.com/site/fategovz/"+svtId+"_status_servant_2.png></td><th><b>編號</b></th><th><b>星數</b></th><th colspan=2><b>名稱</b></th><th><b>職階</b></th><th><b>特性</b></th></tr><tr align=\"center\"><td>No."+mstSvt[i].collectionNo+"</td><td class=\"star\">";
 	for(c=0;c<mstSvtLimit[j].rarity;c++)
 		svtNrmlDataTxt+="★";
-	svtNrmlDataTxt+="</td><td colspan=2>"+mstSvt[i].name+"</td>";
+	svtNrmlDataTxt+="</td><td colspan=2>";
+	var svtNameZh = findSvtNameZh(mstSvt[i].id);
+	if(svtNameZh) svtNrmlDataTxt+="<font size=\"1\">" + mstSvt[i].name + "</font><br>" + svtNameZh;
+	else svtNrmlDataTxt+=mstSvt[i].name;
+	svtNrmlDataTxt+="</td>";
 	for(c=0;c<mstClass.length;c++)
 		if(mstClass[c].id==mstSvt[i].classId) {svtNrmlDataTxt+="<td>"+mstClass[c].name+"</td>";break;}
 	
@@ -42,7 +46,7 @@ function svtDataTable(svtId)
 	document.getElementById("svtNrmlData").innerHTML=svtNrmlDataTxt;
 	
 	var svtCtrlDataTxt="";
-	svtCtrlDataTxt+="<tr><th rowspan=2><b>指令卡</b></th><th><font color=\"#0099FF\"><b>Arts</b></font></th><th><font color=\"#ff0000\"><b>Buster</b></font></th><th><font color=\"#00ff00\"><b>Quick</b></font></th><th><b>Extra</b></th><th rowspan=2><b>隱藏數值</b></th><th><b>Star Rate</b></th><th><b>Death Rate</b></th><th><b>Critical Weight</b></th></tr><tr align=\"center\">";
+	svtCtrlDataTxt+="<tr><th rowspan=2><b>指令卡</b></th><th><font color=\"#0099FF\"><b>Arts</b></font></th><th><font color=\"#ff0000\"><b>Buster</b></font></th><th><font color=\"#00ff00\"><b>Quick</b></font></th><th><b>Extra</b></th><th rowspan=2><b>隱藏數值</b></th><th><b>Star Rate</b></th><th><b>Death Rate</b></th><th><b>Critical Weight</b></th><th><b>Base NP(Atk / Def)</b></th></tr><tr align=\"center\">";
 	for(var k=1;k<=4;k++)
 	{
 		var cardCount=0;
@@ -59,7 +63,11 @@ function svtDataTable(svtId)
 			}
 		}
 	}
-	svtCtrlDataTxt+="<td>"+mstSvt[i].starRate/10+"%</td><td>"+mstSvt[i].deathRate/10+"%</td><td>"+mstSvtLimit[j].criticalWeight+"</td></tr>";
+	svtCtrlDataTxt+="<td>"+mstSvt[i].starRate/10+"%</td><td>"+mstSvt[i].deathRate/10+"%</td><td>"+mstSvtLimit[j].criticalWeight+"</td><td>";
+	for(c=0;c<mstTreasureDeviceLv.length;c++)
+	if(Math.floor(mstTreasureDeviceLv[c].treaureDeviceId/100)==Math.floor(mstSvt[i].id/100))
+		{svtCtrlDataTxt+=mstTreasureDeviceLv[c].tdPoint/100+"% / "+mstTreasureDeviceLv[c].tdPointDef/100+"%";break;}
+	svtCtrlDataTxt+="</td></tr>";
 	document.getElementById("svtCtrlData").innerHTML=svtCtrlDataTxt;
 	
 	var svtSkTdDataTxt="";
@@ -123,7 +131,7 @@ function svtDataTable(svtId)
 	{
 		skillrowCount++;
 		for(var k=0;k<mstSkill.length;k++){
-			if(mstSvt[i].classPassive[c]==mstSkill[k].id){skillText+="<td><img src=common/images/SkillIcon/SkillIcon_"+mstSkill[k].iconId+".png width=55]</td><td><b>"+mstSkill[k].name+"</b></td>"; break;}
+			if(mstSvt[i].classPassive[c]==mstSkill[k].id){skillText+="<td><img src=common/images/SkillIcon/SkillIcon_"+mstSkill[k].iconId+".png width=55></td><td><b>"+mstSkill[k].name+"</b></td>"; break;}
 		}
 		for(var k=0;k<mstSkillDetail.length;k++){
 			if(mstSvt[i].classPassive[c]==mstSkillDetail[k].id){
@@ -151,11 +159,11 @@ function svtDataTable(svtId)
 	{
 		if(mstTreasureDevice[c].seqId==mstSvt[i].id){
 			skillrowCount+=2;
-			
+			var k=0;
 			skillText+="<th colspan=2><b>名稱</b></th><th><b>等級</b></th><th><b>種類</b></th><th><b>解放任務</b></th></tr>";
 			
 			skillText+="<tr align=\"center\"><td colspan=2><font size=\"1\">"+mstTreasureDevice[c].ruby+"</font><br>";
-			for(var k=0;k<mstSvtTreasureDevice.length;k++){
+			for(k=0;k<mstSvtTreasureDevice.length;k++){
 				if(mstTreasureDevice[c].id==mstSvtTreasureDevice[k].treasureDeviceId){
 					skillText+="<b><font color=\"#"+cardList[mstSvtTreasureDevice[k].cardId]+"\">"+mstTreasureDevice[c].name+"</font></b></td><td>"+mstTreasureDevice[c].rank+"</td><td>"+mstTreasureDevice[c].typeText+"</td><td>";
 					
@@ -167,38 +175,42 @@ function svtDataTable(svtId)
 					
 					skillText+="</td></tr>"; break;}
 			}
-
-			for(var k=0;k<mstTreasureDeviceDetail.length;k++){
-				if(mstTreasureDevice[c].id==mstTreasureDeviceDetail[k].id){
-					mstTreasureDeviceDetail[k].detail=mstTreasureDeviceDetail[k].detail.replace(/ /g,"");
-					var skillDetailArray = new Array();
-					//if(mstTreasureDeviceDetail[k].detail.search(/＆|＋/)!=-1)
-						skillDetailArray = mstTreasureDeviceDetail[k].detail.split(/＆|＋/);
-					//else skillDetailArray[0]=mstTreasureDeviceDetail[k].detail;
+			var tdDetailTxt = new Array();
+			for(k=0;k<tdDetail.length;k++){
+				if(mstTreasureDevice[c].id==tdDetail[k][0]){
+					tdDetailTxt = tdDetail[k];
+				}
+			}
+			if(!tdDetailTxt[1])
+				for(k=0;k<mstTreasureDeviceDetail.length;k++){
+					if(mstTreasureDevice[c].id==mstTreasureDeviceDetail[k].id){
+						tdDetailTxt[1] = mstTreasureDeviceDetail[k].detail;
+					}
+				}
+					tdDetailTxt[1]=tdDetailTxt[1].replace(/ /g,"");
+					var tdDetailArray = new Array();
+						tdDetailArray = tdDetailTxt[1].split(/＆|＋/);
 					
-					skillrowCount+=skillDetailArray.length;
-					for(var d=0;d<skillDetailArray.length;d++){
-						var isLvUp = skillDetailArray[d].search(/\{0\}/);
-						var isOCUp = skillDetailArray[d].search(/</);
-						skillDetailArray[d]=skillDetailArray[d].replace(/\{0\}/g,"Lv.");
-						skillDetailArray[d]=skillDetailArray[d].replace(/</g,"<br><");
-						//skillDetailArray[d]=skillDetailArray[d].replace(/\(/,"\n\(");
-						skillText+="<tr><td colspan=2 width=30%>"+skillDetailArray[d]+"</td><td colspan=3>";
-						if(isLvUp!=-1||isOCUp!=-1) 
+					skillrowCount+=tdDetailArray.length;
+					for(var d=0;d<tdDetailArray.length;d++){
+						var isLvUp = tdDetailArray[d].search(/\{0\}/);
+						var isOCUp = tdDetailArray[d].search(/</);
+						tdDetailArray[d]=tdDetailArray[d].replace(/\{0\}/g,"Lv.");
+						tdDetailArray[d]=tdDetailArray[d].replace(/</g,"<br>< ");
+						tdDetailArray[d]=tdDetailArray[d].replace(/>/g," >");
+						skillText+="<tr><td colspan=2 width=30%>"+tdDetailArray[d]+"</td><td colspan=3>";
+						if(tdDetailTxt[2+d]!=null) 
 						{
-							skillText+="<table width=100%]<tr>";
-							for(var m=0;m<5;m++)
-								skillText+="<td>待補</td>";
-							skillText+="</tr></table>";
+							skillText+=tdDetailTxt[2+d];
 						}
 						else skillText+="待補";
 						skillText+="</td></tr>";
 					}
-				}
-			}
+
 		}
 	}
 	svtSkTdDataTxt+="<tr><th rowspan="+skillrowCount+"><b>寶具</b></th>"+skillText+"";
+	//svtSkTdDataTxt+="<tr><td colspan=6><p class=\"notice\">※若未註明效果的對象，則與跟前一個效果對象相同。</p></td></tr>";
 	document.getElementById("svtSkTdData").innerHTML=svtSkTdDataTxt;
 	
 	var svtInfoDataTxt="";
@@ -298,7 +310,10 @@ function classidChange()
 	{
 		for(i=0;i<mstSvt.length;i++)
 		{
-			if(mstSvt[i].type==1||mstSvt[i].type==2||mstSvt[i].type==5) svtid.options.add(new Option("No." + mstSvt[i].collectionNo + " " + mstSvt[i].name,mstSvt[i].id));
+			if(mstSvt[i].type==1||mstSvt[i].type==2||mstSvt[i].type==5){
+				var svtNameZh = findSvtNameZh(mstSvt[i].id);
+				if(svtNameZh) svtid.options.add(new Option("No." + mstSvt[i].collectionNo + " " + svtNameZh,mstSvt[i].id));
+				else svtid.options.add(new Option("No." + mstSvt[i].collectionNo + " " + mstSvt[i].name,mstSvt[i].id));}
 		}
 	}
 	else
@@ -306,7 +321,10 @@ function classidChange()
 		for(i=0;i<mstSvt.length;i++)
 		{
 			if(mstSvt[i].classId==classid.value)
-				{if(mstSvt[i].type==1||mstSvt[i].type==2||mstSvt[i].type==5) svtid.options.add(new Option("No." + mstSvt[i].collectionNo + " " + mstSvt[i].name,mstSvt[i].id));}
+				{if(mstSvt[i].type==1||mstSvt[i].type==2||mstSvt[i].type==5){
+				var svtNameZh = findSvtNameZh(mstSvt[i].id);
+				if(svtNameZh) svtid.options.add(new Option("No." + mstSvt[i].collectionNo + " " + svtNameZh,mstSvt[i].id));
+				else svtid.options.add(new Option("No." + mstSvt[i].collectionNo + " " + mstSvt[i].name,mstSvt[i].id));}}
 		}
 	}
 	svtidChange();
