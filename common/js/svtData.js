@@ -94,32 +94,35 @@ function svtDataTable(svtId)
 			else if(mstSvtSkill[c].condLv!=0) skillText+="Lv."+mstSvtSkill[c].condLv+"解放";
 			skillText+="</td></tr>";
 			
-			for(var k=0;k<mstSkillDetail.length;k++){
-				if(mstSvtSkill[c].skillId==mstSkillDetail[k].id){
-					mstSkillDetail[k].detail=mstSkillDetail[k].detail.replace(/ /g,"");
-					var skillDetailArray = new Array();
-					//if(mstSkillDetail[k].detail.search(/＆|＋/)!=-1)
-						skillDetailArray = mstSkillDetail[k].detail.split(/＆|＋/);
-					//else skillDetailArray[0]=mstSkillDetail[k].detail;
-					skillrowCount+=skillDetailArray.length;
-					for(var d=0;d<skillDetailArray.length;d++){
-						var isLvUp = skillDetailArray[d].search(/\{0\}/);
-						
-						//skillDetailArray[d]=skillDetailArray[d].replace(/\(/,"\n\(");
-						skillDetailArray[d]=skillDetailArray[d].replace(/\{0\}/g,"Lv.");
-						skillText+="<tr><td colspan=2>"+skillDetailArray[d]+"</td><td colspan=3>";
-						if(isLvUp!=-1) 
-						{
-							skillText+="<table width=100%]<tr>";
-							for(var m=0;m<10;m++)
-								skillText+="<td>待補</td>";
-							skillText+="</tr></table>";
-						}
-						else skillText+="待補";
-						skillText+="</td></tr>";
-					}
+			var skDetailTxt = new Array();
+			for(k=0;k<skDetail.length;k++){
+				if(mstSvtSkill[c].skillId==skDetail[k][0]){
+					skDetailTxt = skDetail[k];
 				}
 			}
+			if(!skDetailTxt[1])
+				for(k=0;k<mstSkillDetail.length;k++){
+					if(mstSvtSkill[c].skillId==mstSkillDetail[k].id){
+						skDetailTxt[1] = mstSkillDetail[k].detail;
+					}
+				}
+			skDetailTxt[1]=skDetailTxt[1].replace(/ /g,"");
+			var skDetailArray = new Array();
+				skDetailArray = skDetailTxt[1].split(/＆|＋/);
+			
+			skillrowCount+=skDetailArray.length;
+			for(var d=0;d<skDetailArray.length;d++){
+				var isLvUp = skDetailArray[d].search(/\{0\}/);
+				skDetailArray[d]=skDetailArray[d].replace(/\{0\}/g,"Lv.");
+				skillText+="<tr><td colspan=2 width=30%>"+skDetailArray[d]+"</td><td colspan=3>";
+				if(skDetailTxt[2+d]!=null) 
+				{
+					skillText+=skDetailTxt[2+d].replace(/\//g," / ");
+				}
+				else skillText+="待補";
+				skillText+="</td></tr>";
+			}
+
 		}
 	}
 	svtSkTdDataTxt+="<tr><th rowspan="+skillrowCount+"><b>保有技能</b></th>"+skillText+"";
@@ -135,18 +138,29 @@ function svtDataTable(svtId)
 		}
 		for(var k=0;k<mstSkillDetail.length;k++){
 			if(mstSvt[i].classPassive[c]==mstSkillDetail[k].id){
-				skillText+="<td colspan=3>"+mstSkillDetail[k].detail+"：";
-				
-				for(var g=0;g<mstSkillLv.length;g++){
-					if(mstSvt[i].classPassive[c]==mstSkillLv[g].skillId)
-					{
-						var array2 = new Array();
-						array2 = String(mstSkillLv[g].svals).replace("[", "").replace("]", "").split(',');
-						skillText+=array2[array2.length-1]+"</td></tr>";
-						break;
+				var skDetailTxt = new Array();
+				for(k=0;k<skDetail.length;k++){
+					if(mstSvt[i].classPassive[c]==skDetail[k][0]){
+						skDetailTxt = skDetail[k];
 					}
 				}
+				if(!skDetailTxt[1])
+					for(k=0;k<mstSkillDetail.length;k++){
+						if(mstSvt[i].classPassive[c]==mstSkillDetail[k].id){
+							skDetailTxt[1] = mstSkillDetail[k].detail;
+						}
+					}
 				
+				skillText+="<td colspan=3>"+skDetailTxt[1]+"：";
+				for(var d=2;d<skDetailTxt.length;d++){
+					if(skDetailTxt[d]) 
+					{
+						if(d!=2) skillText+=" / ";
+						skillText+=skDetailTxt[d].replace(/\//g," / ");
+					}
+					else break;
+				}
+				skillText+="</td></tr>";
 				break;
 			}
 		}
@@ -201,7 +215,7 @@ function svtDataTable(svtId)
 						skillText+="<tr><td colspan=2 width=30%>"+tdDetailArray[d]+"</td><td colspan=3>";
 						if(tdDetailTxt[2+d]!=null) 
 						{
-							skillText+=tdDetailTxt[2+d];
+							skillText+=tdDetailTxt[2+d].replace(/\//g," / ");
 						}
 						else skillText+="待補";
 						skillText+="</td></tr>";
