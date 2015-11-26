@@ -1,1 +1,1 @@
-var mstConstantStr = JSON.parse('[{"name":"USE_POLICY_VERSION","value":"1.0.0","updatedAt":1447218131,"createdAt":946652400}]');
+var mstConstantStr = JSON.parse('[{"name":"USE_POLICY_VERSION","value":"1.0.0","updatedAt":1447824777,"createdAt":946652400}]');

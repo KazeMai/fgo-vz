@@ -1,1 +1,1 @@
-var mstEventCampaign = JSON.parse('[{"eventId":70000,"target":12,"value":500,"calcType":2,"updatedAt":1447218133,"createdAt":946652400}]');
+var mstEventCampaign = JSON.parse('[{"eventId":20000,"target":4,"value":2000,"calcType":2,"updatedAt":1447824779,"createdAt":946652400},{"eventId":20000,"target":5,"value":2000,"calcType":2,"updatedAt":1447824779,"createdAt":946652400},{"eventId":30002,"target":18,"value":2000,"calcType":2,"updatedAt":1447824779,"createdAt":946652400},{"eventId":30002,"target":19,"value":2000,"calcType":2,"updatedAt":1447824779,"createdAt":946652400}]');

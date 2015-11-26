@@ -1,1 +1,1 @@
-var mstApRecover = JSON.parse('[{"id":1,"priority":20,"recoverType":2,"targetId":2},{"id":2,"priority":10,"recoverType":3,"targetId":100}]');
+var mstApRecover = JSON.parse('[{"id":1,"priority":60,"recoverType":2,"targetId":2},{"id":2,"priority":50,"recoverType":3,"targetId":100}]');

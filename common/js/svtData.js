@@ -151,11 +151,11 @@ function svtDataTable(svtId)
 						}
 					}
 				
-				skillText+="<td colspan=3>"+skDetailTxt[1]+"：";
-				for(var d=2;d<skDetailTxt.length;d++){
+				skillText+="<td colspan=3>"+skDetailTxt[1];
+				for(var d=2;skDetailTxt[d]&&d<skDetailTxt.length;d++){
 					if(skDetailTxt[d]) 
 					{
-						if(d!=2) skillText+=" / ";
+						if(d!=2) skillText+=" / ";else skillText+="：";
 						skillText+=skDetailTxt[d].replace(/\//g," / ");
 					}
 					else break;
