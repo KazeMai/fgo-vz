@@ -1,1 +1,0 @@
-var mstEventQuest = JSON.parse('[]');

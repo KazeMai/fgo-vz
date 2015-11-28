@@ -1,1 +1,0 @@
-var mstSvtRarity = JSON.parse('[{"rarity":1,"hpAdjustMax":99,"atkAdjustMax":99},{"rarity":2,"hpAdjustMax":99,"atkAdjustMax":99},{"rarity":3,"hpAdjustMax":99,"atkAdjustMax":99},{"rarity":4,"hpAdjustMax":99,"atkAdjustMax":99},{"rarity":5,"hpAdjustMax":99,"atkAdjustMax":99}]');

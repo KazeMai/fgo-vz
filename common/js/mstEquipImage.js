@@ -1,1 +1,0 @@
-var mstEquipImage = JSON.parse('[{"id":1,"offsetX":-236,"offsetY":0,"offsetXMyroom":602,"offsetYMyroom":12},{"id":2,"offsetX":-286,"offsetY":-20,"offsetXMyroom":552,"offsetYMyroom":-8}]');

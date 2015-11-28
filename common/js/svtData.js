@@ -48,7 +48,7 @@ function svtDataTable(svtId)
 	document.getElementById("svtNrmlData").innerHTML=svtNrmlDataTxt;
 	
 	var svtCtrlDataTxt="";
-	svtCtrlDataTxt+="<tr><th rowspan=2><b>指令卡</b></th><th><font color=\"#0099FF\"><b>Arts</b></font></th><th><font color=\"#ff0000\"><b>Buster</b></font></th><th><font color=\"#00ff00\"><b>Quick</b></font></th><th><b>Extra</b></th><th rowspan=2><b>隱藏數值</b></th><th><b>Star Rate</b></th><th><b>Death Rate</b></th><th><b>Critical Weight</b></th><th><b>Base NP(Atk / Def)</b></th></tr><tr align=\"center\">";
+	svtCtrlDataTxt+="<tr><th rowspan=2><b>指令卡</b></th><th><font color=\"#0099FF\"><b>Arts</b></font></th><th><font color=\"#ff0000\"><b>Buster</b></font></th><th><font color=\"#00ff00\"><b>Quick</b></font></th><th><b>Extra</b></th><th rowspan=2><b>隱藏數值</b></th><th><b>星星發生率</b></th><th><b>被即死率</b></th><th><b>星星分配比重</b></th><th><b>基本NP獲得率(Atk / Def)</b></th></tr><tr align=\"center\">";
 	for(var k=1;k<=4;k++)
 	{
 		var cardCount=0;
