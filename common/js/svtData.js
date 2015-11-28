@@ -10,8 +10,8 @@ function svtDataTable(svtId)
 	var attriList = ["","人","天","地","星","獸"];
 	var genderTypeList = ["","男性","女性","無"];
 	var cardList = ["","0000ff","ff0000","00ff00"];
-	var svtStatusList = ["","A","B","C","D","E","EX","?","?","?"];
-	var svtStatusPlusList = ["","","+","++","?","?","?","?","?","?"];
+	var svtStatusList = ["","A","B","C","D","E","EX","?","?","--"];
+	var svtStatusPlusList = ["","","+","++","?","?","?","?","?","-"];
 	var c;
 	
 	var i;
