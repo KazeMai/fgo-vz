@@ -108,7 +108,7 @@ function svtDataTable(svtId)
 						skDetailTxt[1] = master.mstSkillDetail[k].detail;
 					}
 				}
-			skDetailTxt[1]=skDetailTxt[1].replace(/ /g,"");
+			skDetailTxt[1]=skDetailTxt[1].replace(/ |　/g,"");
 			var skDetailArray = new Array();
 				skDetailArray = skDetailTxt[1].split(/＆|＋/);
 			
@@ -205,7 +205,7 @@ function svtDataTable(svtId)
 						tdDetailTxt[1] = master.mstTreasureDeviceDetail[k].detail;
 					}
 				}
-			tdDetailTxt[1]=tdDetailTxt[1].replace(/ /g,"");
+			tdDetailTxt[1]=tdDetailTxt[1].replace(/ |　/g,"");
 			var tdDetailArray = new Array();
 				tdDetailArray = tdDetailTxt[1].split(/＆|＋/);
 			

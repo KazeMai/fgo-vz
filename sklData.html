@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="common/css/common.css" rel="stylesheet" type="text/css" />
+<link href="common/css/detail_info.css" rel="stylesheet" type="text/css" />
+<title>技能效果一覽</title>
+<script type='text/javascript' src='common/js/mstClass.js'></script>
+<script type='text/javascript' src='common/js/master.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<link href="common/css/tab.css" rel="stylesheet" type="text/css" />
+<script type='text/javascript' src='common/js/transData.js'></script>
+<script type="text/javascript" src="common/js/smoothRollOver.js"></script>
+<script type="text/javascript" src="common/js/scrollTop.js"></script>
+<script type="text/javascript">
+function sklDataOut(searchData,searchId)
+{
+	var sklDataTxt="<tr><th>圖示</th><th>技能名</th><th>使用者</th><th>CD</th><th>效果</th><th>Lv.1</th><th>Lv.2</th><th>Lv.3</th><th>Lv.5</th><th>Lv.6</th><th>Lv.6</th><th>Lv.7</th><th>Lv.8</th><th>Lv.9</th><th>Lv.10</th></tr>";
+	var pasDataTxt="<tr><th>圖示</th><th>技能名</th><th>使用者</th><th>CD</th><th>效果</th><th colspan=10>倍率</th></tr>";
+	var eqpDataTxt="<tr><th>圖示</th><th>技能名</th><th>Master裝備</th><th>CD</th><th>效果</th><th>Lv.1</th><th>Lv.2</th><th>Lv.3</th><th>Lv.5</th><th>Lv.6</th><th>Lv.6</th><th>Lv.7</th><th>Lv.8</th><th>Lv.9</th><th>Lv.10</th></tr>";
+	var skillText="";
+	var skillrowCount=0;
+	for(var c=0;c<master.mstSkill.length;c++)
+	{
+		if(master.mstSkill[c].id<950000||(master.mstSkill[c].id>980000&&master.mstSkill[c].id<990000)){
+			skillrowCount=0;
+			skillText="";
+			var skDetailTxt = new Array();
+			for(var k=0;k<skDetail.length;k++){
+				if(master.mstSkill[c].id==skDetail[k][0]){
+					skDetailTxt = skDetail[k];break;
+				}
+			}
+			if(!skDetailTxt[0])
+				for(k=0;k<master.mstSkillDetail.length;k++){
+					if(master.mstSkill[c].id==master.mstSkillDetail[k].id){
+						skDetailTxt[0] = master.mstSkillDetail[k].id;
+						skDetailTxt[1] = master.mstSkillDetail[k].detail;break;
+					}
+				}
+			skDetailTxt[1]=skDetailTxt[1].replace(/ |　/g,"");
+			var skDetailArray = new Array();
+				skDetailArray = skDetailTxt[1].split(/＆|＋/);
+			
+			skillrowCount+=skDetailArray.length;
+			for(var d=0;d<skDetailArray.length;d++){
+				var isLvUp = skDetailArray[d].search(/\{0\}/);
+				skDetailArray[d]=skDetailArray[d].replace(/\{0\}/g,"Lv.");
+				skDetailArray[d]=skDetailArray[d].replace(/\[Lv.]/g,"<font color=\"#CC00CC \">[Lv.]</font>");
+				if(d!=0) skillText+="<tr>"
+				skillText+="<td>"+skDetailArray[d]+"</td>";
+				
+				if(isLvUp&&skDetailTxt[2+d].search(/\//)!=-1){
+					var skLvArray = new Array();
+						skLvArray = skDetailTxt[2+d].split(/\//);
+					for(k in skLvArray)
+						skillText+="<td align=center>"+skLvArray[k]+"</td>";
+				}
+				else{
+					skillText+="<td colspan=10>";
+					if(skDetailTxt[2+d].length==0)
+						skillText+=("　---");
+					else if(skDetailTxt[2+d]!=null) 
+					{
+						skillText+="　"+skDetailTxt[2+d].replace(/\//g," / ");
+					}
+					else skillText+="待補";
+				}
+				skillText+="</td></tr>";
+			}
+			var sklTxt="";
+			sklTxt+="<tr><td rowspan="+skillrowCount+"><img src=common/images/SkillIcon/SkillIcon_"+master.mstSkill[c].iconId+".png width=55></td><td rowspan="+skillrowCount+"><b>"+master.mstSkill[c].name+"</b></td>";
+			
+			sklTxt+="<td rowspan="+skillrowCount+">";
+			for(k in master.mstSvtSkill)
+			{
+				if(master.mstSkill[c].id==master.mstSvtSkill[k].skillId)
+					for(d=0;d<svtName.length;d++)
+						if(svtName[d][0]==master.mstSvtSkill[k].svtId){sklTxt+=svtName[d][1]+"<br>";break;}
+			}
+			if(k==master.mstSvtSkill.length-1)
+				for(k in master.mstSvt)
+					for(var t in master.mstSvt[k].classPassive)
+						if(master.mstSvt[k].classPassive[t]==master.mstSkill[c].id)
+							for(d in svtName)
+								if(svtName[d][0]==master.mstSvt[k].id){sklTxt+=svtName[d][1]+"<br>";break;}
+			if(k==master.mstSvt.length-1)
+				for(k in master.mstEquipSkill)
+					if(master.mstEquipSkill[k].skillId==master.mstSkill[c].id)
+						for(d in master.mstEquip)
+							if(master.mstEquipSkill[k].equipId==master.mstEquip[d].id){sklTxt+=master.mstEquip[d].name+"<br>";break;}
+			sklTxt+="</td>";
+			
+			sklTxt+="<td rowspan="+skillrowCount+" align=center>";
+			for(k=0;k<master.mstSkillLv.length;k++)
+			{
+				if(master.mstSkill[c].id==master.mstSkillLv[k].skillId&&master.mstSkillLv[k].lv==1)
+					{sklTxt+=master.mstSkillLv[k].chargeTurn;break;}
+			}
+			sklTxt+="</td>";
+			
+			if(master.mstSkill[c].id>980000&&master.mstSkill[c].id<990000) eqpDataTxt+=sklTxt+skillText;
+			else if(master.mstSkill[c].type==1) sklDataTxt+=sklTxt+skillText;
+			else if(master.mstSkill[c].type==2) pasDataTxt+=sklTxt+skillText;
+		}
+	}
+	document.getElementById("eqpData").innerHTML=eqpDataTxt;
+	document.getElementById("sklData").innerHTML=sklDataTxt;
+	document.getElementById("pasData").innerHTML=pasDataTxt;
+}
+function findName(searchData,searchId)
+{
+	for(var i=0;i<searchData.length;i++)
+		if(searchData[i].id==searchId) return i;
+	return null;
+}
+</script>
+</head>
+<body onload="sklDataOut();">
+<div class="container">
+<article class="content textsize">
+<h1>裝備技能</h1>
+<table id="eqpData" width=100%><tr><td></td></tr></table>
+<h1>保有技能</h1>
+<table id="sklData" width=100%><tr><td></td></tr></table>
+<h1>職階技能</h1>
+<table id="pasData"><tr><td></td></tr></table>
+<hr>
+<p><a href="http://goo.gl/Nw8bbF" target="_blank">意見提供</a></p>
+</article>
+</div>
+<div id="gotop"><a href="#"><img src="common/images/btn_gotop_off.jpg" width="47" height="47" alt="返回頂端" /></a></div>
+</body>
+</html>

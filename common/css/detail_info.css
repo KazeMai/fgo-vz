@@ -136,7 +136,7 @@ table th:last-child {
 }
 
 table tr td {
-	padding: 8px 15px;
+	/*padding: 8px 15px;*/padding: 5px 5px;
 	border-bottom: 1px solid #666666;
 	border-left: 1px solid #666666;
 }
@@ -323,4 +323,12 @@ table.table_yellow tr:last-child td {
 	color: #FFD500;
 	text-shadow: 1px 1px 1px #000000;
 	font-size: 110%;
+}
+
+#gotop {
+	position:fixed;
+	right:0px;
+	bottom:69px;
+	z-index:1000;
+	box-shadow:0px 0px 3px #000;
 }
