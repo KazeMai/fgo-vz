@@ -34,7 +34,7 @@ function svtDataTable(svtId)
 	svtNrmlDataTxt+="</td><td colspan=2>";
 	var svtNameZh = findSvtNameZh(master.mstSvt[i].id);
 	if(svtNameZh) svtNrmlDataTxt+="<font size=\"1\">" + master.mstSvt[i].name + "</font><br>" + svtNameZh;
-	else svtNrmlDataTxt+=master.mstSvt[i].name;
+	else svtNrmlDataTxt+="<font size=\"1\">" + master.mstSvt[i].ruby + "</font><br>" + master.mstSvt[i].name;
 	svtNrmlDataTxt+="</td>";
 	for(c=0;c<mstClass.length;c++)
 		if(mstClass[c].id==master.mstSvt[i].classId) {svtNrmlDataTxt+="<td>"+mstClass[c].name+"</td>";break;}
@@ -109,6 +109,7 @@ function svtDataTable(svtId)
 					}
 				}
 			skDetailTxt[1]=skDetailTxt[1].replace(/ |　/g,"");
+			skDetailTxt[1]=skDetailTxt[1].replace(/＆/g,"＆┗");
 			var skDetailArray = new Array();
 				skDetailArray = skDetailTxt[1].split(/＆|＋/);
 			
@@ -117,6 +118,7 @@ function svtDataTable(svtId)
 				var isLvUp = skDetailArray[d].search(/\{0\}/);
 				skDetailArray[d]=skDetailArray[d].replace(/\{0\}/g,"Lv.");
 				skDetailArray[d]=skDetailArray[d].replace(/\[Lv.]/g,"<font color=\"#CC00CC \">[Lv.]</font>");
+				skDetailArray[d]=skDetailArray[d].replace(/【副作用】/g,"<font color=\"#006400 \">【副作用】</font>");
 				skillText+="<tr><td colspan=2>"+skDetailArray[d]+"</td>";
 				
 				if(isLvUp&&skDetailTxt[2+d].search(/\//)!=-1){
@@ -194,7 +196,7 @@ function svtDataTable(svtId)
 			skillText+="<tr align=\"center\"><td colspan=2><font size=\"1\">"+master.mstTreasureDevice[c].ruby+"</font><br>";
 			for(k=0;k<master.mstSvtTreasureDevice.length;k++){
 				if(master.mstTreasureDevice[c].id==master.mstSvtTreasureDevice[k].treasureDeviceId){
-					skillText+="<b><font color=\"#"+cardList[master.mstSvtTreasureDevice[k].cardId]+"\">"+master.mstTreasureDevice[c].name+"</font></b></td><td colspan=2>"+master.mstTreasureDevice[c].rank+"</td><td colspan=3>"+master.mstTreasureDevice[c].typeText+"</td><td colspan=5>";
+					skillText+="<b><font color=\"#"+cardList[master.mstSvtTreasureDevice[k].cardId]+"\">"+master.mstTreasureDevice[c].name+"</font></b></td><td colspan=2>"+master.mstTreasureDevice[c].rank+"</td><td colspan=3>"+master.mstTreasureDevice[c].typeText.replace(/対/g,"對").replace(/宝/g,"寶").replace(/剣/g,"劍").replace(/悪/g,"惡").replace(/奥/g,"奧")+"</td><td colspan=5>";
 					
 					if(master.mstSvtTreasureDevice[k].condQuestId==0&&master.mstSvtTreasureDevice[k].condLv==0&&master.mstSvtTreasureDevice[k].condFriendshipRank==0) skillText+="初期"
 					else if(findName(master.mstQuest,master.mstSvtTreasureDevice[k].condQuestId)!=null) skillText+=master.mstQuest[findName(master.mstQuest,master.mstSvtTreasureDevice[k].condQuestId)].name;
@@ -217,6 +219,7 @@ function svtDataTable(svtId)
 					}
 				}
 			tdDetailTxt[1]=tdDetailTxt[1].replace(/ |　/g,"");
+			tdDetailTxt[1]=tdDetailTxt[1].replace(/＆/g,"＆┗");
 			var tdDetailArray = new Array();
 				tdDetailArray = tdDetailTxt[1].split(/＆|＋/);
 			
@@ -225,6 +228,7 @@ function svtDataTable(svtId)
 				var isLvUp = tdDetailArray[d].search(/\{0\}/);
 				var isOCUp = tdDetailArray[d].search(/</);
 				tdDetailArray[d]=tdDetailArray[d].replace(/\{0\}/g,"Lv.");
+				tdDetailArray[d]=tdDetailArray[d].replace(/【副作用】/g,"<font color=\"#006400 \">【副作用】</font>");
 				tdDetailArray[d]=tdDetailArray[d].replace(/\[Lv.]/g,"<font color=\"#CC00CC \">[Lv.]</font>");
 				tdDetailArray[d]=tdDetailArray[d].replace(/<O/g,"<br><font color=\"#CC6600\">< O");
 				tdDetailArray[d]=tdDetailArray[d].replace(/P>/g,"P ></font>");

@@ -43,6 +43,7 @@ function trdvDataOut(searchData,searchId)
 							}
 						}
 					tdDetailTxt[1]=tdDetailTxt[1].replace(/ |　/g,"");
+					tdDetailTxt[1]=tdDetailTxt[1].replace(/＆/g,"＆┗");
 					var tdDetailArray = new Array();
 						tdDetailArray = tdDetailTxt[1].split(/＆|＋/);
 					
@@ -50,6 +51,7 @@ function trdvDataOut(searchData,searchId)
 					for(var d=0;d<tdDetailArray.length;d++){
 						var isLvUp = tdDetailArray[d].search(/\{0\}/);
 						tdDetailArray[d]=tdDetailArray[d].replace(/\{0\}/g,"Lv.");
+						tdDetailArray[d]=tdDetailArray[d].replace(/【副作用】/g,"<font color=\"#006400 \">【副作用】</font>");
 						tdDetailArray[d]=tdDetailArray[d].replace(/\[Lv.]/g,"<font color=\"#CC00CC \">[Lv.]</font>");
 						tdDetailArray[d]=tdDetailArray[d].replace(/<O/g,"<br><font color=\"#CC6600\">< O");
 						tdDetailArray[d]=tdDetailArray[d].replace(/P>/g,"P ></font>");
@@ -79,7 +81,7 @@ function trdvDataOut(searchData,searchId)
 					for(d in master.mstSvtTreasureDevice)
 						if(master.mstTreasureDevice[k].id==master.mstSvtTreasureDevice[d].treasureDeviceId){
 							sklTxt+="<b><font color=\"#"+cardList[master.mstSvtTreasureDevice[d].cardId]+"\">"+master.mstTreasureDevice[k].name+"</font></b>";break;}
-					sklTxt+="</td><td align=center rowspan="+skillrowCount+">"+master.mstTreasureDevice[k].rank+"</td><td align=center rowspan="+skillrowCount+">"+master.mstTreasureDevice[k].typeText+"</td>"+skillText;
+					sklTxt+="</td><td align=center rowspan="+skillrowCount+">"+master.mstTreasureDevice[k].rank+"</td><td align=center rowspan="+skillrowCount+">"+master.mstTreasureDevice[k].typeText.replace(/対/g,"對").replace(/宝/g,"寶").replace(/剣/g,"劍").replace(/悪/g,"惡").replace(/奥/g,"奧")+"</td>"+skillText;
 					
 					svtTrdvrowCount+=skillrowCount;
 				}
@@ -87,7 +89,7 @@ function trdvDataOut(searchData,searchId)
 			
 			trdvDataTxt+="<tr><td rowspan="+svtTrdvrowCount+">";
 				for(d in svtName)
-					if(svtName[d][0]==master.mstSvt[c].id){trdvDataTxt+=svtName[d][1]+"<br>";break;}
+					if(svtName[d][0]==master.mstSvt[c].id){trdvDataTxt+=svtName[d][2]+"<br>";break;}
 			trdvDataTxt+="</td>";
 			trdvDataTxt+=sklTxt;//alert(trdvDataTxt);
 		}

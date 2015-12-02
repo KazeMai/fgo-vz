@@ -39,6 +39,7 @@ function sklDataOut(searchData,searchId)
 					}
 				}
 			skDetailTxt[1]=skDetailTxt[1].replace(/ |　/g,"");
+			skDetailTxt[1]=skDetailTxt[1].replace(/＆/g,"＆┗");
 			var skDetailArray = new Array();
 				skDetailArray = skDetailTxt[1].split(/＆|＋/);
 			
@@ -47,6 +48,7 @@ function sklDataOut(searchData,searchId)
 				var isLvUp = skDetailArray[d].search(/\{0\}/);
 				skDetailArray[d]=skDetailArray[d].replace(/\{0\}/g,"Lv.");
 				skDetailArray[d]=skDetailArray[d].replace(/\[Lv.]/g,"<font color=\"#CC00CC \">[Lv.]</font>");
+				skDetailArray[d]=skDetailArray[d].replace(/【副作用】/g,"<font color=\"#006400 \">【副作用】</font>");
 				if(d!=0) skillText+="<tr>"
 				skillText+="<td>"+skDetailArray[d]+"</td>";
 				
@@ -76,14 +78,14 @@ function sklDataOut(searchData,searchId)
 			{
 				if(master.mstSkill[c].id==master.mstSvtSkill[k].skillId)
 					for(d=0;d<svtName.length;d++)
-						if(svtName[d][0]==master.mstSvtSkill[k].svtId){sklTxt+=svtName[d][1]+"<br>";break;}
+						if(svtName[d][0]==master.mstSvtSkill[k].svtId){sklTxt+=svtName[d][2]+"<br>";break;}
 			}
 			if(k==master.mstSvtSkill.length-1)
 				for(k in master.mstSvt)
 					for(var t in master.mstSvt[k].classPassive)
 						if(master.mstSvt[k].classPassive[t]==master.mstSkill[c].id)
 							for(d in svtName)
-								if(svtName[d][0]==master.mstSvt[k].id){sklTxt+=svtName[d][1]+"<br>";break;}
+								if(svtName[d][0]==master.mstSvt[k].id){sklTxt+=svtName[d][2]+"<br>";break;}
 			if(k==master.mstSvt.length-1)
 				for(k in master.mstEquipSkill)
 					if(master.mstEquipSkill[k].skillId==master.mstSkill[c].id)
