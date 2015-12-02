@@ -85,11 +85,11 @@ function svtDataTable(svtId)
 
 			for(var k=0;k<master.mstSkillLv.length;k++){
 				if(master.mstSvtSkill[c].skillId==master.mstSkillLv[k].skillId&&master.mstSkillLv[k].lv==1){
-					skillText+="<td colspan=2>冷卻"+master.mstSkillLv[k].chargeTurn+"回合</td>";//break;
+					skillText+="<td colspan=5>冷卻"+master.mstSkillLv[k].chargeTurn+"回合</td>";//break;
 				}
 			}
 			
-			skillText+="<td>";
+			skillText+="<td colspan=5>";
 			if(master.mstSvtSkill[c].condLimitCount==0&&master.mstSvtSkill[c].condQuestId==0&&master.mstSvtSkill[c].condLv==0) skillText+="初期";
 			else if(master.mstSvtSkill[c].condLimitCount!=0) skillText+="靈基再臨第"+master.mstSvtSkill[c].condLimitCount+"階段解放";
 			else if(master.mstSvtSkill[c].condQuestId!=0) skillText+="通過任務「"+master.mstQuest[findName(master.mstQuest,master.mstSvtSkill[c].condQuestId)].name+"」解放";
@@ -116,14 +116,25 @@ function svtDataTable(svtId)
 			for(var d=0;d<skDetailArray.length;d++){
 				var isLvUp = skDetailArray[d].search(/\{0\}/);
 				skDetailArray[d]=skDetailArray[d].replace(/\{0\}/g,"Lv.");
-				skillText+="<tr><td colspan=2>"+skDetailArray[d]+"</td><td colspan=3>";
-				if(skDetailTxt[2+d].length==0)
-					skillText+=("---");
-				else if(skDetailTxt[2+d]!=null) 
-				{
-					skillText+=skDetailTxt[2+d].replace(/\//g," / ");
+				skDetailArray[d]=skDetailArray[d].replace(/\[Lv.]/g,"<font color=\"#CC00CC \">[Lv.]</font>");
+				skillText+="<tr><td colspan=2>"+skDetailArray[d]+"</td>";
+				
+				if(isLvUp&&skDetailTxt[2+d].search(/\//)!=-1){
+				var skLvArray = new Array();
+					skLvArray = skDetailTxt[2+d].split(/\//);
+				for(k in skLvArray)
+					skillText+="<td align=center>"+skLvArray[k]+"</td>";
 				}
-				else skillText+="待補";
+				else{
+					skillText+="<td colspan=10>";
+					if(skDetailTxt[2+d].length==0)
+						skillText+=("　---");
+					else if(skDetailTxt[2+d]!=null) 
+					{
+						skillText+="　"+skDetailTxt[2+d].replace(/\//g," / ");
+					}
+					else skillText+="待補";
+				}
 				skillText+="</td></tr>";
 			}
 
@@ -155,7 +166,7 @@ function svtDataTable(svtId)
 						}
 					}
 				
-				skillText+="<td colspan=3>"+skDetailTxt[1];
+				skillText+="<td colspan=10>"+skDetailTxt[1];
 				for(var d=2;skDetailTxt[d]&&d<skDetailTxt.length;d++){
 					if(skDetailTxt[d]) 
 					{
@@ -178,12 +189,12 @@ function svtDataTable(svtId)
 		if(master.mstTreasureDevice[c].seqId==master.mstSvt[i].id){
 			skillrowCount+=2;
 			var k=0;
-			skillText+="<th colspan=2><b>名稱</b></th><th><b>等級</b></th><th><b>種類</b></th><th><b>解放任務</b></th></tr>";
+			skillText+="<th colspan=2><b>名稱</b></th><th colspan=2><b>等級</b></th><th colspan=3><b>種類</b></th><th colspan=5><b>解放任務</b></th></tr>";
 			
 			skillText+="<tr align=\"center\"><td colspan=2><font size=\"1\">"+master.mstTreasureDevice[c].ruby+"</font><br>";
 			for(k=0;k<master.mstSvtTreasureDevice.length;k++){
 				if(master.mstTreasureDevice[c].id==master.mstSvtTreasureDevice[k].treasureDeviceId){
-					skillText+="<b><font color=\"#"+cardList[master.mstSvtTreasureDevice[k].cardId]+"\">"+master.mstTreasureDevice[c].name+"</font></b></td><td>"+master.mstTreasureDevice[c].rank+"</td><td>"+master.mstTreasureDevice[c].typeText+"</td><td>";
+					skillText+="<b><font color=\"#"+cardList[master.mstSvtTreasureDevice[k].cardId]+"\">"+master.mstTreasureDevice[c].name+"</font></b></td><td colspan=2>"+master.mstTreasureDevice[c].rank+"</td><td colspan=3>"+master.mstTreasureDevice[c].typeText+"</td><td colspan=5>";
 					
 					if(master.mstSvtTreasureDevice[k].condQuestId==0&&master.mstSvtTreasureDevice[k].condLv==0&&master.mstSvtTreasureDevice[k].condFriendshipRank==0) skillText+="初期"
 					else if(findName(master.mstQuest,master.mstSvtTreasureDevice[k].condQuestId)!=null) skillText+=master.mstQuest[findName(master.mstQuest,master.mstSvtTreasureDevice[k].condQuestId)].name;
@@ -214,17 +225,29 @@ function svtDataTable(svtId)
 				var isLvUp = tdDetailArray[d].search(/\{0\}/);
 				var isOCUp = tdDetailArray[d].search(/</);
 				tdDetailArray[d]=tdDetailArray[d].replace(/\{0\}/g,"Lv.");
-				tdDetailArray[d]=tdDetailArray[d].replace(/</g,"<br>< ");
-				tdDetailArray[d]=tdDetailArray[d].replace(/>/g," >");
-				skillText+="<tr><td colspan=2 width=35%>"+tdDetailArray[d]+"</td><td colspan=3>";
-				if(tdDetailTxt[2+d].length==0)
-					skillText+=("---");
-				else if(tdDetailTxt[2+d]!=null) 
-				{
-					skillText+=tdDetailTxt[2+d].replace(/\//g," / ");
-				}
-				else skillText+="待補";
-				skillText+="</td></tr>";
+				tdDetailArray[d]=tdDetailArray[d].replace(/\[Lv.]/g,"<font color=\"#CC00CC \">[Lv.]</font>");
+				tdDetailArray[d]=tdDetailArray[d].replace(/<O/g,"<br><font color=\"#CC6600\">< O");
+				tdDetailArray[d]=tdDetailArray[d].replace(/P>/g,"P ></font>");
+				if(d!=0) skillText+="<tr>"
+						skillText+="<td colspan=2>"+tdDetailArray[d]+"</td>";
+						
+						if(isLvUp&&tdDetailTxt[2+d].search(/\//)!=-1){
+							var skLvArray = new Array();
+								skLvArray = tdDetailTxt[2+d].split(/\//);
+							for(g in skLvArray)
+								skillText+="<td align=center colspan=2>"+skLvArray[g]+"</td>";
+						}
+						else{
+							skillText+="<td colspan=10>";
+							if(tdDetailTxt[2+d].length==0)
+								skillText+=("　---");
+							else if(tdDetailTxt[2+d]!=null) 
+							{
+								skillText+="　"+tdDetailTxt[2+d].replace(/\//g," / ");
+							}
+							else skillText+="待補";
+						}
+						skillText+="</td></tr>";
 			}
 		}
 	}
