@@ -32,14 +32,14 @@ function trdvDataOut(searchData,searchId)
 					var tdDetailTxt = new Array();
 					for(var g in tdDetail){
 						if(master.mstTreasureDevice[k].id==tdDetail[g][0]){
-							tdDetailTxt = tdDetail[g];break;
+							tdDetailTxt = tdDetail[g].slice(0);break;
 						}
-					}
-					if(!tdDetailTxt[0])
+					} 
+					if(document.getElementById('isJpTxt').checked||!tdDetailTxt[0])
 						for(g in master.mstTreasureDeviceDetail){
-							if(master.mstTreasureDevice[k].treasureDeviceId==master.mstTreasureDeviceDetail[g].id){
-								tdDetailTxt[0] = master.mstSkillDetail[k].id;
-								tdDetailTxt[1] = master.mstSkillDetail[k].detail;break;
+							if(master.mstTreasureDevice[k].id==master.mstTreasureDeviceDetail[g].id){
+								tdDetailTxt[0] = master.mstTreasureDeviceDetail[g].id;
+								tdDetailTxt[1] = master.mstTreasureDeviceDetail[g].detail;break;
 							}
 						}
 					tdDetailTxt[1]=tdDetailTxt[1].replace(/ |　/g,"");
@@ -51,28 +51,33 @@ function trdvDataOut(searchData,searchId)
 					for(var d=0;d<tdDetailArray.length;d++){
 						var isLvUp = tdDetailArray[d].search(/\{0\}/);
 						tdDetailArray[d]=tdDetailArray[d].replace(/\{0\}/g,"Lv.");
-						tdDetailArray[d]=tdDetailArray[d].replace(/【副作用】/g,"<font color=\"#006400 \">【副作用】</font>");
-						tdDetailArray[d]=tdDetailArray[d].replace(/\[Lv.]/g,"<font color=\"#CC00CC \">[Lv.]</font>");
-						tdDetailArray[d]=tdDetailArray[d].replace(/<O/g,"<br><font color=\"#CC6600\">< O");
+						tdDetailArray[d]=tdDetailArray[d].replace(/</g,"<br><font color=\"#CC6600\">< ");
 						tdDetailArray[d]=tdDetailArray[d].replace(/P>/g,"P ></font>");
-						if(d!=0) skillText+="<tr>"
-						skillText+="<td>"+tdDetailArray[d]+"</td>";
+						tdDetailArray[d]=tdDetailArray[d].replace(/【/g,"<font color=\"#006400 \">【");
+						tdDetailArray[d]=tdDetailArray[d].replace(/】/g,"】</font>");
+						tdDetailArray[d]=tdDetailArray[d].replace(/\[Lv.]/g,"<font color=\"#CC00CC \">[Lv.]</font>");
 						
-						if(isLvUp&&tdDetailTxt[2+d].search(/\//)!=-1){
-							var skLvArray = new Array();
-								skLvArray = tdDetailTxt[2+d].split(/\//);
-							for(g in skLvArray)
-								skillText+="<td align=center>"+skLvArray[g]+"</td>";
-						}
+						if(document.getElementById('isJpTxt').checked) skillText+="<td>"+tdDetailArray[d]+"</td><td colspan=5 align=center>---";
 						else{
-							skillText+="<td colspan=5>";
-							if(tdDetailTxt[2+d].length==0)
-								skillText+=("　---");
-							else if(tdDetailTxt[2+d]!=null) 
-							{
-								skillText+="　"+tdDetailTxt[2+d].replace(/\//g," / ");
+							if(d!=0) skillText+="<tr>"
+							skillText+="<td>"+tdDetailArray[d]+"</td>";
+							
+							if(isLvUp&&tdDetailTxt[2+d].search(/\//)!=-1){
+								var skLvArray = new Array();
+									skLvArray = tdDetailTxt[2+d].split(/\//);
+								for(g in skLvArray)
+									skillText+="<td align=center>"+skLvArray[g]+"</td>";
 							}
-							else skillText+="待補";
+							else{
+								skillText+="<td colspan=5>";
+								if(tdDetailTxt[2+d].length==0)
+									skillText+=("　---");
+								else if(tdDetailTxt[2+d]!=null) 
+								{
+									skillText+="　"+tdDetailTxt[2+d].replace(/\//g," / ");
+								}
+								else skillText+="待補";
+							}
 						}
 						skillText+="</td></tr>";
 					}
@@ -113,5 +118,6 @@ function findName(searchData,searchId)
 </article>
 </div>
 <div id="gotop"><a href="#"><img src="common/images/btn_gotop_off.jpg" width="47" height="47" alt="返回頂端" /></a></div>
+<div id="chkJp"><input type=checkbox id="isJpTxt" onchange="trdvDataOut();">顯示日文原文<br><span class="notice">※倍率會消失</span></div>
 </body>
 </html>

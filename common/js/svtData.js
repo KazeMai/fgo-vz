@@ -33,8 +33,8 @@ function svtDataTable(svtId)
 		svtNrmlDataTxt+="★";
 	svtNrmlDataTxt+="</td><td colspan=2>";
 	var svtNameZh = findSvtNameZh(master.mstSvt[i].id);
-	if(svtNameZh) svtNrmlDataTxt+="<font size=\"1\">" + master.mstSvt[i].name + "</font><br>" + svtNameZh;
-	else svtNrmlDataTxt+="<font size=\"1\">" + master.mstSvt[i].ruby + "</font><br>" + master.mstSvt[i].name;
+	if(svtNameZh&&!document.getElementById('isJpTxt').checked) svtNrmlDataTxt+="<font size=\"1\">" + master.mstSvt[i].name + "</font><br>" + svtNameZh;
+	else svtNrmlDataTxt+=master.mstSvt[i].name;
 	svtNrmlDataTxt+="</td>";
 	for(c=0;c<mstClass.length;c++)
 		if(mstClass[c].id==master.mstSvt[i].classId) {svtNrmlDataTxt+="<td>"+mstClass[c].name+"</td>";break;}
@@ -99,13 +99,13 @@ function svtDataTable(svtId)
 			var skDetailTxt = new Array();
 			for(k=0;k<skDetail.length;k++){
 				if(master.mstSvtSkill[c].skillId==skDetail[k][0]){
-					skDetailTxt = skDetail[k];
+					skDetailTxt = skDetail[k].slice(0);break;
 				}
 			}
-			if(!skDetailTxt[1])
+			if(document.getElementById('isJpTxt').checked||!skDetailTxt[1])
 				for(k=0;k<master.mstSkillDetail.length;k++){
 					if(master.mstSvtSkill[c].skillId==master.mstSkillDetail[k].id){
-						skDetailTxt[1] = master.mstSkillDetail[k].detail;
+						skDetailTxt[1] = master.mstSkillDetail[k].detail;break;
 					}
 				}
 			skDetailTxt[1]=skDetailTxt[1].replace(/ |　/g,"");
@@ -118,28 +118,33 @@ function svtDataTable(svtId)
 				var isLvUp = skDetailArray[d].search(/\{0\}/);
 				skDetailArray[d]=skDetailArray[d].replace(/\{0\}/g,"Lv.");
 				skDetailArray[d]=skDetailArray[d].replace(/\[Lv.]/g,"<font color=\"#CC00CC \">[Lv.]</font>");
-				skDetailArray[d]=skDetailArray[d].replace(/【副作用】/g,"<font color=\"#006400 \">【副作用】</font>");
-				skillText+="<tr><td colspan=2>"+skDetailArray[d]+"</td>";
+				skDetailArray[d]=skDetailArray[d].replace(/【/g,"<font color=\"#006400 \">【");
+				skDetailArray[d]=skDetailArray[d].replace(/】/g,"】</font>");
 				
-				if(isLvUp&&skDetailTxt[2+d].search(/\//)!=-1){
-				var skLvArray = new Array();
-					skLvArray = skDetailTxt[2+d].split(/\//);
-				for(k in skLvArray)
-					skillText+="<td align=center>"+skLvArray[k]+"</td>";
-				}
+				if(document.getElementById('isJpTxt').checked) skillText+="<tr><td colspan=12>"+skDetailArray[d]+"</td>";
+				
 				else{
-					skillText+="<td colspan=10>";
-					if(skDetailTxt[2+d].length==0)
-						skillText+=("　---");
-					else if(skDetailTxt[2+d]!=null) 
-					{
-						skillText+="　"+skDetailTxt[2+d].replace(/\//g," / ");
+					skillText+="<tr><td colspan=2>"+skDetailArray[d]+"</td>";
+					
+					if(!document.getElementById('isJpTxt').checked&&isLvUp&&skDetailTxt[2+d].search(/\//)!=-1){
+						var skLvArray = new Array();
+							skLvArray = skDetailTxt[2+d].split(/\//);
+						for(k in skLvArray)
+							skillText+="<td align=center>"+skLvArray[k]+"</td>";
 					}
-					else skillText+="待補";
+					else{
+						skillText+="<td colspan=10>";
+						if(skDetailTxt[2+d].length==0)
+							skillText+=("　---");
+						else if(skDetailTxt[2+d]!=null) 
+						{
+							skillText+="　"+skDetailTxt[2+d].replace(/\//g," / ");
+						}
+						else skillText+="待補";
+					}
 				}
 				skillText+="</td></tr>";
 			}
-
 		}
 	}
 	svtSkTdDataTxt+="<tr><th rowspan="+skillrowCount+"><b>保有技能</b></th>"+skillText+"";
@@ -158,13 +163,13 @@ function svtDataTable(svtId)
 				var skDetailTxt = new Array();
 				for(k=0;k<skDetail.length;k++){
 					if(master.mstSvt[i].classPassive[c]==skDetail[k][0]){
-						skDetailTxt = skDetail[k];
+						skDetailTxt = skDetail[k].slice(0);break;
 					}
 				}
-				if(!skDetailTxt[1])
+				if(document.getElementById('isJpTxt').checked||!skDetailTxt[1])
 					for(k=0;k<master.mstSkillDetail.length;k++){
 						if(master.mstSvt[i].classPassive[c]==master.mstSkillDetail[k].id){
-							skDetailTxt[1] = master.mstSkillDetail[k].detail;
+							skDetailTxt[1] = master.mstSkillDetail[k].detail;break;
 						}
 					}
 				
@@ -209,13 +214,13 @@ function svtDataTable(svtId)
 			var tdDetailTxt = new Array();
 			for(k=0;k<tdDetail.length;k++){
 				if(master.mstTreasureDevice[c].id==tdDetail[k][0]){
-					tdDetailTxt = tdDetail[k];
+					tdDetailTxt = tdDetail[k].slice(0);break;
 				}
 			}
-			if(!tdDetailTxt[1])
+			if(document.getElementById('isJpTxt').checked||!tdDetailTxt[1])
 				for(k=0;k<master.mstTreasureDeviceDetail.length;k++){
 					if(master.mstTreasureDevice[c].id==master.mstTreasureDeviceDetail[k].id){
-						tdDetailTxt[1] = master.mstTreasureDeviceDetail[k].detail;
+						tdDetailTxt[1] = master.mstTreasureDeviceDetail[k].detail;break;
 					}
 				}
 			tdDetailTxt[1]=tdDetailTxt[1].replace(/ |　/g,"");
@@ -228,30 +233,36 @@ function svtDataTable(svtId)
 				var isLvUp = tdDetailArray[d].search(/\{0\}/);
 				var isOCUp = tdDetailArray[d].search(/</);
 				tdDetailArray[d]=tdDetailArray[d].replace(/\{0\}/g,"Lv.");
-				tdDetailArray[d]=tdDetailArray[d].replace(/【副作用】/g,"<font color=\"#006400 \">【副作用】</font>");
-				tdDetailArray[d]=tdDetailArray[d].replace(/\[Lv.]/g,"<font color=\"#CC00CC \">[Lv.]</font>");
-				tdDetailArray[d]=tdDetailArray[d].replace(/<O/g,"<br><font color=\"#CC6600\">< O");
+				tdDetailArray[d]=tdDetailArray[d].replace(/</g,"<br><font color=\"#CC6600\">< ");
 				tdDetailArray[d]=tdDetailArray[d].replace(/P>/g,"P ></font>");
-				if(d!=0) skillText+="<tr>"
-						skillText+="<td colspan=2>"+tdDetailArray[d]+"</td>";
+				tdDetailArray[d]=tdDetailArray[d].replace(/【/g,"<font color=\"#006400 \">【");
+				tdDetailArray[d]=tdDetailArray[d].replace(/】/g,"】</font>");
+				tdDetailArray[d]=tdDetailArray[d].replace(/\[Lv.]/g,"<font color=\"#CC00CC \">[Lv.]</font>");
+				
+				if(document.getElementById('isJpTxt').checked) skillText+="<td colspan=12>"+tdDetailArray[d]+"</td>";
+				
+				else{
+					if(d!=0) skillText+="<tr>"
+					skillText+="<td colspan=2>"+tdDetailArray[d]+"</td>";
 						
-						if(isLvUp&&tdDetailTxt[2+d].search(/\//)!=-1){
-							var skLvArray = new Array();
-								skLvArray = tdDetailTxt[2+d].split(/\//);
-							for(g in skLvArray)
-								skillText+="<td align=center colspan=2>"+skLvArray[g]+"</td>";
+					if(isLvUp&&tdDetailTxt[2+d].search(/\//)!=-1){
+						var skLvArray = new Array();
+							skLvArray = tdDetailTxt[2+d].split(/\//);
+						for(g in skLvArray)
+							skillText+="<td align=center colspan=2>"+skLvArray[g]+"</td>";
+					}
+					else{
+						skillText+="<td colspan=10>";
+						if(tdDetailTxt[2+d].length==0)
+							skillText+=("　---");
+						else if(tdDetailTxt[2+d]!=null) 
+						{
+							skillText+="　"+tdDetailTxt[2+d].replace(/\//g," / ");
 						}
-						else{
-							skillText+="<td colspan=10>";
-							if(tdDetailTxt[2+d].length==0)
-								skillText+=("　---");
-							else if(tdDetailTxt[2+d]!=null) 
-							{
-								skillText+="　"+tdDetailTxt[2+d].replace(/\//g," / ");
-							}
-							else skillText+="待補";
-						}
-						skillText+="</td></tr>";
+						else skillText+="待補";
+					}
+				}
+				skillText+="</td></tr>";
 			}
 		}
 	}

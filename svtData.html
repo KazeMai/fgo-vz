@@ -33,8 +33,8 @@
 <body onload="classidChange();">
 <div class="container">
 <article class="content textsize">
-<h1 class="headline4"><dl><dt class="date">11/25</dt><dd><font color="#AAAAAA"><s>因官方更改設定檔加密方式，必須暫緩更新</s></font> 已解決</dd></dl></h1>
-<h1 class="headline3"><dl><dt class="date">11/28</dt><dd>新增No.68沖田總司、No.69織田信長</dd></dl></h1>
+<h1 class="headline4"><dl><dt class="date">12/3</dt><dd>新增顯示日文原文功能，倍率是與中文翻譯綁在一起所以會消失<br>人物介紹文字量多，尚無法提供中文翻譯</dd></dl></h1>
+<h1 class="headline3"><dl><dt class="date">11/28</dt><dd>新增No.68 沖田總司、No.69 織田信長</dd></dl></h1>
 <p id="p1"><strong><font color="#a21b20">◆</font>選擇職階<font color="#a21b20">◆</font></strong>
 	<select id="classid" onchange="classidChange()">
 		<option value="0">全部</option>
@@ -100,5 +100,6 @@
 </article>
 </div>
 <div id="gotop"><a href="#"><img src="common/images/btn_gotop_off.jpg" width="47" height="47" alt="返回頂端" /></a></div>
+<div id="chkJp"><input type=checkbox id="isJpTxt" onchange="svtDataTable(svtid.value)">顯示日文原文<br><span class="notice">※倍率會消失</span></div>
 </body>
 </html>

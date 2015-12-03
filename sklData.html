@@ -28,10 +28,10 @@ function sklDataOut(searchData,searchId)
 			var skDetailTxt = new Array();
 			for(var k=0;k<skDetail.length;k++){
 				if(master.mstSkill[c].id==skDetail[k][0]){
-					skDetailTxt = skDetail[k];break;
+					skDetailTxt = skDetail[k].slice(0);break;
 				}
 			}
-			if(!skDetailTxt[0])
+			if(document.getElementById('isJpTxt').checked||!skDetailTxt[0])
 				for(k=0;k<master.mstSkillDetail.length;k++){
 					if(master.mstSkill[c].id==master.mstSkillDetail[k].id){
 						skDetailTxt[0] = master.mstSkillDetail[k].id;
@@ -48,25 +48,31 @@ function sklDataOut(searchData,searchId)
 				var isLvUp = skDetailArray[d].search(/\{0\}/);
 				skDetailArray[d]=skDetailArray[d].replace(/\{0\}/g,"Lv.");
 				skDetailArray[d]=skDetailArray[d].replace(/\[Lv.]/g,"<font color=\"#CC00CC \">[Lv.]</font>");
-				skDetailArray[d]=skDetailArray[d].replace(/【副作用】/g,"<font color=\"#006400 \">【副作用】</font>");
-				if(d!=0) skillText+="<tr>"
-				skillText+="<td>"+skDetailArray[d]+"</td>";
+				skDetailArray[d]=skDetailArray[d].replace(/【/g,"<font color=\"#006400 \">【");
+				skDetailArray[d]=skDetailArray[d].replace(/】/g,"】</font>");
 				
-				if(isLvUp&&skDetailTxt[2+d].search(/\//)!=-1){
-					var skLvArray = new Array();
-						skLvArray = skDetailTxt[2+d].split(/\//);
-					for(k in skLvArray)
-						skillText+="<td align=center>"+skLvArray[k]+"</td>";
-				}
+				if(document.getElementById('isJpTxt').checked) skillText+="<td>"+skDetailArray[d]+"</td><td colspan=10 align=center>---";
+				
 				else{
-					skillText+="<td colspan=10>";
-					if(skDetailTxt[2+d].length==0)
-						skillText+=("　---");
-					else if(skDetailTxt[2+d]!=null) 
-					{
-						skillText+="　"+skDetailTxt[2+d].replace(/\//g," / ");
+					if(d!=0) skillText+="<tr>"
+					skillText+="<td>"+skDetailArray[d]+"</td>";
+					
+					if(isLvUp&&skDetailTxt[2+d].search(/\//)!=-1){
+						var skLvArray = new Array();
+							skLvArray = skDetailTxt[2+d].split(/\//);
+						for(k in skLvArray)
+							skillText+="<td align=center>"+skLvArray[k]+"</td>";
 					}
-					else skillText+="待補";
+					else{
+						skillText+="<td colspan=10>";
+						if(skDetailTxt[2+d].length==0)
+							skillText+=("　---");
+						else if(skDetailTxt[2+d]!=null) 
+						{
+							skillText+="　"+skDetailTxt[2+d].replace(/\//g," / ");
+						}
+						else skillText+="待補";
+					}
 				}
 				skillText+="</td></tr>";
 			}
@@ -132,5 +138,6 @@ function findName(searchData,searchId)
 </article>
 </div>
 <div id="gotop"><a href="#"><img src="common/images/btn_gotop_off.jpg" width="47" height="47" alt="返回頂端" /></a></div>
+<div id="chkJp"><input type=checkbox id="isJpTxt" onchange="sklDataOut();">顯示日文原文<br><span class="notice">※倍率會消失</span></div>
 </body>
 </html>
