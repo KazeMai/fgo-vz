@@ -13,8 +13,8 @@ h1, h2, h3, h4, h5, h6 {
 .container {
 	margin-top: 0;
 	margin-bottom: 0;
-	padding-right: 5%;
-	padding-left: 5%;
+	/*padding-right: 5%;
+	padding-left: 5%;*/
 }
 
 .content {
@@ -341,4 +341,82 @@ table.table_yellow tr:last-child td {
 	font-size: 0.9em;
 	text-align:right;
 	background-image: url(../images/detail_bg.png);
+}
+/* tablesorter */
+table.tablesorter {
+	font-size: 0.9em;
+	border-spacing: 0;
+}
+
+table.tablesorter th{
+	color: #fff;
+	padding: 8px 15px;
+	background-color: #094d9d;
+	font-weight: bold;
+	border-left:1px solid #666666;
+	border-top:1px solid #666666;
+	border-bottom:1px solid #666666;
+	line-height: 120%;
+	text-align: center;
+	text-shadow:1px 1px 4px #000000;
+	box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
+}
+
+table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+	color: #fff;
+	padding: 8px 15px;
+	background-color: #094d9d;
+	font-weight: bold;
+	border-left:1px solid #666666;
+	border-top:1px solid #666666;
+	border-bottom:1px solid #666666;
+	line-height: 120%;
+	text-align: center;
+	text-shadow:1px 1px 4px #000000;
+	box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
+}
+
+table.tablesorter th:last-child {
+	border-right:1px solid #666666;
+	box-shadow: 2px 2px 1px rgba(0,0,0,0.1),0px 1px 1px rgba(255,255,255,0.3) inset;
+}
+
+table.tablesorter tr td {
+	padding: 8px 15px;
+	border-bottom: 1px solid #666666;
+	border-left: 1px solid #666666;
+}
+
+table.tablesorter tr td:last-child {
+	border-right: 1px solid #666666;
+	box-shadow: 2px 2px 1px rgba(0,0,0,0.1);
+}
+
+table.tablesorter tr {
+	background: #fff;
+}
+
+table.tablesorter tr:last-child td {
+	box-shadow: 2px 2px 1px rgba(0,0,0,0.1);
+}
+table.tablesorter thead tr .header {
+	background-image: url(../images/tablesorter/bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+table.tablesorter tbody tr.odd td {
+	background-color:#F0F0F6;
+}
+table.tablesorter thead tr .headerSortUp {
+	background-image: url(../images/tablesorter/asc.gif);
+}
+table.tablesorter thead tr .headerSortDown {
+	background-image: url(../images/tablesorter/desc.gif);
+}
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+background-color: #d48227;
+}
+.ruby {
+	font-size: 0.7em;
 }

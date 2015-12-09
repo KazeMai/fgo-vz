@@ -30,11 +30,11 @@
 </script>
 
 </head>
-<body onload="classidChange();">
+<body onload="classidChange();urlId();">
 <div class="container">
 <article class="content textsize">
 <h1 class="headline4"><dl><dt class="date">12/3</dt><dd>新增顯示日文原文功能，倍率是與中文翻譯綁在一起所以會消失<br>人物介紹文字量多，尚無法提供中文翻譯</dd></dl></h1>
-<h1 class="headline3"><dl><dt class="date">11/28</dt><dd>新增No.68 沖田總司、No.69 織田信長</dd></dl></h1>
+<h1 class="headline3"><dl><dt class="date">12/9</dt><dd>新增<a href='svtData.html?no=70' class='headlinea'>No.70 斯卡哈</a>、<a href='svtData.html?no=71' class='headlinea'>No.71 迪爾姆德・奧德利暗</a>、<a href='svtData.html?no=72' class='headlinea'>No.72 弗格斯・馬克・羅伊</a></dd></dl></h1>
 <p id="p1"><strong><font color="#a21b20">◆</font>選擇職階<font color="#a21b20">◆</font></strong>
 	<select id="classid" onchange="classidChange()">
 		<option value="0">全部</option>
@@ -54,16 +54,15 @@
 </p>
 <p id="p3"><strong><font color="#a21b20">◆</font>選擇等級<font color="#a21b20">◆</font></strong>
 	<select id="svtlv" onchange="svtlvChange()"></select>
-</p>
-<p><strong><font color="#094a98">◆</font>ATK</strong>
-  <input id="atk" type="text" size="5" readonly/>
   <strong><font color="#094a98">◆</font>HP</strong>
   <input id="hp" type="text" size="5"  readonly/>
-  <strong>各可強化至+990➩</strong>
   <strong><font color="#094a98">◆</font>ATK</strong>
-  <input id="atkp" type="text" size="5" readonly/>
+  <input id="atk" type="text" size="5" readonly/>
+  <strong>各可強化至+990➩</strong>
   <strong><font color="#094a98">◆</font>HP</strong>
   <input id="hpp" type="text" size="5"  readonly/>
+  <strong><font color="#094a98">◆</font>ATK</strong>
+  <input id="atkp" type="text" size="5" readonly/>
 </p>
 
 <table id="svtNrmlData" width=95%><tr><td></td></tr></table>

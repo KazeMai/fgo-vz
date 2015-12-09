@@ -10,8 +10,8 @@ function svtDataTable(svtId)
 	var attriList = ["","人","天","地","星","獸"];
 	var genderTypeList = ["","男性","女性","無"];
 	var cardList = ["","0000ff","ff0000","00ff00"];
-	var svtStatusList = ["","A","B","C","D","E","EX","?","?","--"];
-	var svtStatusPlusList = ["","","+","++","?","?","?","?","?","-"];
+	var svtStatusList = ["","A","B","C","D","E","EX","?","?","－"];
+	var svtStatusPlusList = ["","","+","++","?","?","?","?","?",""];
 	var c;
 	
 	var i;
@@ -26,14 +26,14 @@ function svtDataTable(svtId)
 	}
 	
 	var svtNrmlDataTxt="";
-	svtNrmlDataTxt="<tr><td rowspan=6>";
+	svtNrmlDataTxt="<tr><td rowspan=6 align=center>";
 	if(master.mstSvt[i].type!=5) svtNrmlDataTxt+="<img src=https://sites.google.com/site/fategovz/"+svtId+"_status_servant_2.png>";
 	svtNrmlDataTxt+="</td><th><b>編號</b></th><th><b>星數</b></th><th colspan=2><b>名稱</b></th><th><b>職階</b></th><th><b>特性</b></th></tr><tr align=\"center\"><td>No."+master.mstSvt[i].collectionNo+"</td><td class=\"star\">";
 	for(c=0;c<master.mstSvtLimit[j].rarity;c++)
 		svtNrmlDataTxt+="★";
 	svtNrmlDataTxt+="</td><td colspan=2>";
 	var svtNameZh = findSvtNameZh(master.mstSvt[i].id);
-	if(svtNameZh&&!document.getElementById('isJpTxt').checked) svtNrmlDataTxt+="<font size=\"1\">" + master.mstSvt[i].name + "</font><br>" + svtNameZh;
+	if(svtNameZh&&!document.getElementById('isJpTxt').checked) svtNrmlDataTxt+="<div class=ruby>" + master.mstSvt[i].name + "</div>" + svtNameZh;
 	else svtNrmlDataTxt+=master.mstSvt[i].name;
 	svtNrmlDataTxt+="</td>";
 	for(c=0;c<mstClass.length;c++)
@@ -108,10 +108,15 @@ function svtDataTable(svtId)
 						skDetailTxt[1] = master.mstSkillDetail[k].detail;break;
 					}
 				}
-			skDetailTxt[1]=skDetailTxt[1].replace(/ |　/g,"");
-			skDetailTxt[1]=skDetailTxt[1].replace(/＆/g,"＆┗");
+				
 			var skDetailArray = new Array();
+			if(!document.getElementById('isJpTxt').checked)
+			{
+				skDetailTxt[1]=skDetailTxt[1].replace(/ |　/g,"");
+				skDetailTxt[1]=skDetailTxt[1].replace(/＆/g,"＆┗");
 				skDetailArray = skDetailTxt[1].split(/＆|＋/);
+			}
+			else skDetailArray[0] = skDetailTxt[1].slice(0);
 			
 			skillrowCount+=skDetailArray.length;
 			for(var d=0;d<skDetailArray.length;d++){
@@ -126,7 +131,7 @@ function svtDataTable(svtId)
 				else{
 					skillText+="<tr><td colspan=2>"+skDetailArray[d]+"</td>";
 					
-					if(!document.getElementById('isJpTxt').checked&&isLvUp&&skDetailTxt[2+d].search(/\//)!=-1){
+					if(!document.getElementById('isJpTxt').checked&&isLvUp&&skDetailTxt[2+d]&&skDetailTxt[2+d].search(/\//)!=-1){
 						var skLvArray = new Array();
 							skLvArray = skDetailTxt[2+d].split(/\//);
 						for(k in skLvArray)
@@ -134,13 +139,15 @@ function svtDataTable(svtId)
 					}
 					else{
 						skillText+="<td colspan=10>";
-						if(skDetailTxt[2+d].length==0)
-							skillText+=("　---");
-						else if(skDetailTxt[2+d]!=null) 
-						{
-							skillText+="　"+skDetailTxt[2+d].replace(/\//g," / ");
+						if(skDetailTxt[2+d]){
+							if(skDetailTxt[2+d].length==0)
+								skillText+=("　---");
+							else if(skDetailTxt[2+d]!=null) 
+							{
+								skillText+="　"+skDetailTxt[2+d].replace(/\//g," / ");
+							}
 						}
-						else skillText+="待補";
+						else skillText+="　---";
 					}
 				}
 				skillText+="</td></tr>";
@@ -198,7 +205,7 @@ function svtDataTable(svtId)
 			var k=0;
 			skillText+="<th colspan=2><b>名稱</b></th><th colspan=2><b>等級</b></th><th colspan=3><b>種類</b></th><th colspan=5><b>解放任務</b></th></tr>";
 			
-			skillText+="<tr align=\"center\"><td colspan=2><font size=\"1\">"+master.mstTreasureDevice[c].ruby+"</font><br>";
+			skillText+="<tr align=\"center\"><td colspan=2><div class=ruby>"+master.mstTreasureDevice[c].ruby+"</div>";
 			for(k=0;k<master.mstSvtTreasureDevice.length;k++){
 				if(master.mstTreasureDevice[c].id==master.mstSvtTreasureDevice[k].treasureDeviceId){
 					skillText+="<b><font color=\"#"+cardList[master.mstSvtTreasureDevice[k].cardId]+"\">"+master.mstTreasureDevice[c].name+"</font></b></td><td colspan=2>"+master.mstTreasureDevice[c].rank+"</td><td colspan=3>"+master.mstTreasureDevice[c].typeText.replace(/対/g,"對").replace(/宝/g,"寶").replace(/剣/g,"劍").replace(/悪/g,"惡").replace(/奥/g,"奧")+"</td><td colspan=5>";
@@ -223,17 +230,22 @@ function svtDataTable(svtId)
 						tdDetailTxt[1] = master.mstTreasureDeviceDetail[k].detail;break;
 					}
 				}
-			tdDetailTxt[1]=tdDetailTxt[1].replace(/ |　/g,"");
-			tdDetailTxt[1]=tdDetailTxt[1].replace(/＆/g,"＆┗");
 			var tdDetailArray = new Array();
+			if(!document.getElementById('isJpTxt').checked)
+			{
+				tdDetailTxt[1]=tdDetailTxt[1].replace(/ |　/g,"");
+				tdDetailTxt[1]=tdDetailTxt[1].replace(/＆/g,"＆┗");
 				tdDetailArray = tdDetailTxt[1].split(/＆|＋/);
+			}
+			else tdDetailArray[0] = tdDetailTxt[1].slice(0);
 			
 			skillrowCount+=tdDetailArray.length;
 			for(var d=0;d<tdDetailArray.length;d++){
 				var isLvUp = tdDetailArray[d].search(/\{0\}/);
 				var isOCUp = tdDetailArray[d].search(/</);
 				tdDetailArray[d]=tdDetailArray[d].replace(/\{0\}/g,"Lv.");
-				tdDetailArray[d]=tdDetailArray[d].replace(/</g,"<br><font color=\"#CC6600\">< ");
+				tdDetailArray[d]=tdDetailArray[d].replace(/</g,"<font color=\"#CC6600\">< ");
+				tdDetailArray[d]=tdDetailArray[d].replace(/< O/g,"<br>< O");
 				tdDetailArray[d]=tdDetailArray[d].replace(/P>/g,"P ></font>");
 				tdDetailArray[d]=tdDetailArray[d].replace(/【/g,"<font color=\"#006400 \">【");
 				tdDetailArray[d]=tdDetailArray[d].replace(/】/g,"】</font>");
@@ -245,7 +257,7 @@ function svtDataTable(svtId)
 					if(d!=0) skillText+="<tr>"
 					skillText+="<td colspan=2>"+tdDetailArray[d]+"</td>";
 						
-					if(isLvUp&&tdDetailTxt[2+d].search(/\//)!=-1){
+					if(isLvUp&&tdDetailTxt[2+d]&&tdDetailTxt[2+d].search(/\//)!=-1){
 						var skLvArray = new Array();
 							skLvArray = tdDetailTxt[2+d].split(/\//);
 						for(g in skLvArray)
@@ -253,13 +265,15 @@ function svtDataTable(svtId)
 					}
 					else{
 						skillText+="<td colspan=10>";
-						if(tdDetailTxt[2+d].length==0)
-							skillText+=("　---");
-						else if(tdDetailTxt[2+d]!=null) 
-						{
-							skillText+="　"+tdDetailTxt[2+d].replace(/\//g," / ");
+						if(tdDetailTxt[2+d]){
+							if(tdDetailTxt[2+d].length==0)
+								skillText+=("　---");
+							else if(tdDetailTxt[2+d]!=null) 
+							{
+								skillText+="　"+tdDetailTxt[2+d].replace(/\//g," / ");
+							}
 						}
-						else skillText+="待補";
+						else skillText+="　---";
 					}
 				}
 				skillText+="</td></tr>";
@@ -276,12 +290,14 @@ function svtDataTable(svtId)
 	{
 		var tdColor="";
 		if(master.mstSvt[i].id==master.mstSvtComment[c].svtId)
-		{	svtInfoDataTxt+="<tr><th>";
+		{	svtInfoDataTxt+="<tr><th width=150>";
 			if(master.mstSvtComment[c].condValue==0) svtInfoDataTxt+="<b>角色詳細</b>";
 			else if(master.mstSvtComment[c].condValue<6) svtInfoDataTxt+="<b>絆等級"+master.mstSvtComment[c].condValue+"</b>";
 			else if(master.mstSvtComment[c].condType==1){
+				svtInfoDataTxt+="<b>通過任務</b><br>";
 				for(var k=0;k<master.mstQuest.length;k++){
-					if(master.mstSvtComment[c].condValue==master.mstQuest[k].id){svtInfoDataTxt+="<b>通過任務<br>"+master.mstQuest[k].name+"<b>";break;}
+					if(master.mstSvtComment[c].condValue==master.mstQuest[k].id){svtInfoDataTxt+="<b>"+master.mstQuest[k].name+"</b>";break;}
+					if(k==master.mstQuest.length-1) svtInfoDataTxt+="<b>？？？</b>"
 				}
 			}
 			svtInfoDataTxt+="</th>";
@@ -450,4 +466,38 @@ function findName(searchData,searchId)
 	for(var i=0;i<searchData.length;i++)
 		if(searchData[i].id==searchId) return i;
 	return null;
+}
+function getUrl(getStr)
+{
+	var url=window.location.toString(); //取得當前網址   
+	var str=""; //參數中等號左邊的值   
+	var str_value=""; //參數中等號右邊的值   
+	if(url.indexOf("?")!=-1){   
+		//如果網址有"?"符號   
+		var ary=url.split("?")[1].split("&");   
+		//取得"?"右邊網址後利用"&"分割字串存入ary陣列 ["a=1","b=2","c=3"]   
+		for(var i in ary){   
+			//取得陣列長度去跑迴圈，如:網址有三個參數，則會跑三次   
+			str=ary[i].split("=")[0];   
+			//取得參數"="左邊的值存入str變數中   
+			if (str == getStr) {   
+			//若str等於想要抓取參數 如:b   
+				str_value = decodeURI(ary[i].split("=")[1]);   
+				//取得b等號右邊的值並經過中文轉碼後存入str_value   
+			}   
+		}   
+	}
+	return str_value;
+}
+function urlId()
+{
+	var getSvtId = "1";
+	if(getUrl("no")) getSvtId = getUrl("no");
+	if(getSvtId){
+		for(i in master.mstSvt)
+			if((master.mstSvt[i].type==1||master.mstSvt[i].type==2||master.mstSvt[i].type==5)&&getSvtId==master.mstSvt[i].collectionNo)
+			{		$("#svtid").val(master.mstSvt[i].id);break;}
+		//if(i==master.mstSvt.length-1) alert("找不到與輸入的id有關之資料，請確認網址無誤");
+	}
+	svtidChange();
 }

@@ -150,7 +150,15 @@ header, section, footer, aside, article, figure {
 	width: 91%;
 	margin-top: 10px;
 	padding-right: 10px;
+	a:link {color:#BB0000;}
+
 }
+a.headlinea:link {color:#FFD98A;}
+a.headlinea:visited {color:#d48227;}
+a.headlinea:hover{color:#FFD500;text-decoration:underline;}
+a.headlinea:active {color:red;}
+
+
 
 .notice {
 	color: #FF0057;
@@ -222,4 +230,18 @@ body {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#022958', endColorstr='#094d9d',GradientType=0 ); /* IE6-9 */
 	width: 91%;
 	margin-top: 10px;
+}
+div.large
+{
+	margin: 0px;
+	padding: 0px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px; 
+	width: 83px;
+	height: 90px;
+	background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+	background-position: top left, center center, center 1.5px, center center;
+	background-size: 25px 25px, 83px 90px, 80px 80px, 83px 90px; 
 }
