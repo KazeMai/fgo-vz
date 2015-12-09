@@ -4,7 +4,7 @@
     function drawChart() {
 
       var data = new google.visualization.DataTable();
-      data.addColumn('number', '等級');
+      data.addColumn('number', 'Lv');
       data.addColumn('number', 'ATK');
       data.addColumn('number', 'HP');
 
@@ -29,7 +29,7 @@
           title: '二圍曲線圖',
           curveType: 'function',
           //legend: { position: 'bottom' },
-		  hAxis: {title: '等級'},
+		  hAxis: {title: 'Lv',minValue:0,format:'0'},
         width: 900,
         height: 500
       };
