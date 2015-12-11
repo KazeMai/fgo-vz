@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>禮裝資料查詢</title>
+<link href="common/css/common.css" rel="stylesheet" type="text/css" />
+<link href="common/css/detail_info.css" rel="stylesheet" type="text/css" />
+<link href="common/css/sidebar.css" rel="stylesheet" type="text/css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type='text/javascript' src='common/js/sidebar.js'></script>
+<script type='text/javascript' src='common/js/master.js'></script>
+<script type='text/javascript' src='common/js/transData.js'></script>
+<script type="text/javascript" src="common/js/smoothRollOver.js"></script>
+<script type="text/javascript" src="common/js/scrollTop.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1','packages':['corechart'], 'language': 'zh' }]}"></script>
+<script type='text/javascript' src='common/js/chart.js'></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-70142247-1', 'auto');
+  ga('require', 'linkid');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+</script>
+<script type="text/javascript">
+master.mstSvt = master.mstSvt.sort(sortByElmentNo);
+function sortByElmentNo(a,b)
+{
+	return a.collectionNo-b.collectionNo;
+}
+function svtDataTable(svtId)
+{
+	for(var i in master.mstSvt)
+	{
+		if(master.mstSvt[i].id==svtId)break;
+	}
+	for(var j in master.mstSvtLimit)
+	{
+		if(master.mstSvtLimit[j].svtId==svtId)break;
+	}
+	var svtDatatxt = "<tr><td width=300 align=center rowspan=7><img src=common/images/CharaGraph/"+svtId+"a.png width=300></img></td><th>編號</th><th>星數</th><th>名稱</th><th>HP</th><th>ATK</th><th>繪師</th></tr><tr align=\"center\"><td>No."+master.mstSvt[i].collectionNo+"</td><td class=\"star\">";
+	for(var c=0;c<master.mstSvtLimit[j].rarity;c++)
+		svtDatatxt+="★";
+	svtDatatxt+="</td><td>"+master.mstSvt[i].name+"</td><td>"+master.mstSvtLimit[j].hpBase+" / "+master.mstSvtLimit[j].hpMax+"</td><td>"+master.mstSvtLimit[j].atkBase+" / "+master.mstSvtLimit[j].atkMax+"</td>";
+	for(c in master.mstIllustrator)
+		if(master.mstIllustrator[c].id==master.mstSvt[i].illustratorId) {svtDatatxt+="<td>"+master.mstIllustrator[c].name+"</td>";break;}
+	svtDatatxt+="</tr><tr><th colspan=6>保有技能</th></tr>";
+	for(c in master.mstSvtSkill){
+		if(master.mstSvtSkill[c].svtId==master.mstSvt[i].id&&master.mstSvtSkill[c].condLimitCount==0)
+		{
+			for(var d in master.mstSkill)
+				if(master.mstSkill[d].id==master.mstSvtSkill[c].skillId)
+				{	svtDatatxt+="<tr><th><img src=common/images/SkillIcon/SkillIcon_"+master.mstSkill[d].iconId+".png width=55></td>";break;
+				}
+			/*for(d in master.mstSkillDetail)
+				if(master.mstSkillDetail[d].id==master.mstSvtSkill[c].skillId)
+				{	svtDatatxt+="<td colspan=5>"+master.mstSkillDetail[d].detail/*.replace(/ /g,"").replace(/＋/g,"<br>")+"</td></tr>";break;
+				}*/
+			svtDatatxt+="<td colspan=5>"+findSkDetailZh(master.mstSvtSkill[c].skillId)+"</td></tr>";
+			svtDatatxt+="<tr><th>最大<br>解放</th><td colspan=5>";
+		}
+		if(master.mstSvtSkill[c].svtId==master.mstSvt[i].id&&master.mstSvtSkill[c].condLimitCount==4)
+			svtDatatxt+=findSkDetailZh(master.mstSvtSkill[c].skillId);
+	}
+	svtDatatxt+="</td></tr>"
+	svtDatatxt+="<tr><th colspan=6>解說</th></tr><tr><td colspan=6>";
+	for(c in master.mstSvtComment)
+		if(master.mstSvtComment[c].svtId==master.mstSvt[i].id)
+			svtDatatxt+=master.mstSvtComment[c].comment.replace(/\n/g,"<br>");
+	svtDatatxt+="</td></tr>"
+	document.getElementById("svtNrmlData").innerHTML=svtDatatxt;
+}
+function optionInit()
+{
+	for(var i in master.mstSvt)
+	{
+		if(master.mstSvt[i].type==6){
+			svtid.options.add(new Option("No." + master.mstSvt[i].collectionNo + " " + master.mstSvt[i].name,master.mstSvt[i].id));}
+	}
+	var getSvtId = "1";
+	if(getUrl("no")) getSvtId = getUrl("no");
+	if(getSvtId){
+		for(i in master.mstSvt)
+			if((master.mstSvt[i].type==6)&&getSvtId==master.mstSvt[i].collectionNo)
+			{		$("#svtid").val(master.mstSvt[i].id);break;}
+		//if(i==master.mstSvt.length-1) alert("找不到與輸入的id有關之資料，請確認網址無誤");
+	}
+	svtidChange();
+}
+function svtidChange()
+{
+	var i;
+	for(i=svtlv.options.length-1;i>=0;i--)
+    {
+        svtlv.remove(i);
+    }
+	for(i in master.mstSvtLimit)
+	{
+		if(master.mstSvtLimit[i].svtId==svtid.value&&master.mstSvtLimit[i].limitCount==4)
+		{
+			for(var j=1;j<=master.mstSvtLimit[i].lvMax;j++)
+			{
+				svtlv.options.add(new Option("Lv."+j,j));
+			}
+			break;
+		}
+	}
+	svtlvChange();
+	svtDataTable(svtid.value);drawChart();
+}
+function svtlvChange()
+{
+	var i;
+	for(i in master.mstSvtLimit)
+	{
+		if(master.mstSvtLimit[i].svtId==svtid.value)
+		{	
+			for(var k in master.mstSvt)
+			{
+				if (master.mstSvt[k].id==svtid.value)
+				{
+					for(var j in master.mstSvtExp)
+					{
+						if(master.mstSvt[k].expType==master.mstSvtExp[j].type&&master.mstSvtExp[j].lv==svtlv.value)
+						{
+							atk.value=Math.floor(master.mstSvtLimit[i].atkBase+(master.mstSvtLimit[i].atkMax-master.mstSvtLimit[i].atkBase)*master.mstSvtExp[j].curve/1000);
+							hp.value=Math.floor(master.mstSvtLimit[i].hpBase+(master.mstSvtLimit[i].hpMax-master.mstSvtLimit[i].hpBase)*master.mstSvtExp[j].curve/1000);
+							break;
+						}
+					}
+				break;
+				}
+			}
+			break;
+		}
+	}
+}
+function findSkDetailZh(searchId)
+{
+	var skDetailTxt;
+	for(var k in skDetail){
+		if(searchId==skDetail[k][0]){
+			skDetailTxt = skDetail[k][1];break;
+		}
+	}
+	if(document.getElementById('isJpTxt').checked||!skDetailTxt)
+		for(k=0;k<master.mstSkillDetail.length;k++){
+			if(searchId==master.mstSkillDetail[k].id){
+				skDetailTxt = master.mstSkillDetail[k].detail;break;
+			}
+		}
+	return skDetailTxt;
+}
+function getUrl(getStr)
+{
+	var url=window.location.toString(); //取得當前網址   
+	var str=""; //參數中等號左邊的值   
+	var str_value=""; //參數中等號右邊的值   
+	if(url.indexOf("?")!=-1){   
+		//如果網址有"?"符號   
+		var ary=url.split("?")[1].split("&");   
+		//取得"?"右邊網址後利用"&"分割字串存入ary陣列 ["a=1","b=2","c=3"]   
+		for(var i in ary){   
+			//取得陣列長度去跑迴圈，如:網址有三個參數，則會跑三次   
+			str=ary[i].split("=")[0];   
+			//取得參數"="左邊的值存入str變數中   
+			if (str == getStr) {   
+			//若str等於想要抓取參數 如:b   
+				str_value = decodeURI(ary[i].split("=")[1]);   
+				//取得b等號右邊的值並經過中文轉碼後存入str_value   
+			}   
+		}   
+	}
+	return str_value;
+}
+</script>
+</head>
+<body onload="loadsidebar();optionInit();">
+<!--二欄橫幅主要區塊開始-->
+<div style='position:relative;'>
+    <!--選單區塊開始-->
+    <div id="div_right_sidebar"></div>
+    <!--選單區塊結束-->
+    <!--主要內容區塊開始-->
+    <div id="div_content">
+<div class="container">
+<article class="content textsize">
+<p id="p2"><strong><font color="#a21b20">◆</font>選擇禮裝<font color="#a21b20">◆</font></strong>
+	<select id="svtid" onchange="svtidChange()"></select>
+</p>
+<p id="p3"><strong><font color="#a21b20">◆</font>選擇等級<font color="#a21b20">◆</font></strong>
+	<select id="svtlv" onchange="svtlvChange()"></select>
+<strong><font color="#094a98">◆</font>ATK</strong>
+  <input id="atk" type="text" size="5" readonly/>
+  <strong><font color="#094a98">◆</font>HP</strong>
+  <input id="hp" type="text" size="5"  readonly/>
+</p>
+
+<table id="svtNrmlData" width=900><tr><td></td></tr></table>
+<div id="chart_div"></div>
+</article>
+</div>
+<div id="gotop"><a href="#"><img src="common/images/btn_gotop_off.jpg" width="47" height="47" alt="返回頂端" /></a></div>
+<div id="chkJp"><input type=checkbox id="isJpTxt" onchange="svtidChange();">顯示日文原文<br></div>
+    </div>
+    <!--主要內容區塊結束-->
+</div>
+<!--二欄橫幅主要區塊結束-->
+</body>
+</html>

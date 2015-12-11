@@ -1,5 +1,5 @@
-﻿    //google.load('visualization', '1.1', { 'packages': ['corechart'], 'language': 'zh' });
-    google.setOnLoadCallback(drawChart);
+﻿    google.load('visualization', '1.1', { 'packages': ['corechart'], 'language': 'zh' });
+    //google.setOnLoadCallback(drawChart);
 
     function drawChart() {
 
@@ -29,7 +29,7 @@
           title: '二圍曲線圖',
           curveType: 'function',
           //legend: { position: 'bottom' },
-		  hAxis: {title: 'Lv',minValue:0,format:'0'},
+		  hAxis: {format: 'Lv###',},
         width: 900,
         height: 500
       };

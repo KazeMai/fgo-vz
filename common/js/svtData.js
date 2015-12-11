@@ -203,12 +203,12 @@ function svtDataTable(svtId)
 		if(master.mstTreasureDevice[c].seqId==master.mstSvt[i].id){
 			skillrowCount+=2;
 			var k=0;
-			skillText+="<th colspan=2><b>名稱</b></th><th colspan=2><b>等級</b></th><th colspan=3><b>種類</b></th><th colspan=5><b>解放任務</b></th></tr>";
+			skillText+="<th colspan=2><b>名稱</b></th><th colspan=2><b>等級</b></th><th colspan=3><b>種類</b></th><th colspan=3><b>解放任務</b></th><th colspan=2>攻擊次數</th></tr>";
 			
 			skillText+="<tr align=\"center\"><td colspan=2><div class=ruby>"+master.mstTreasureDevice[c].ruby+"</div>";
 			for(k=0;k<master.mstSvtTreasureDevice.length;k++){
 				if(master.mstTreasureDevice[c].id==master.mstSvtTreasureDevice[k].treasureDeviceId){
-					skillText+="<b><font color=\"#"+cardList[master.mstSvtTreasureDevice[k].cardId]+"\">"+master.mstTreasureDevice[c].name+"</font></b></td><td colspan=2>"+master.mstTreasureDevice[c].rank+"</td><td colspan=3>"+master.mstTreasureDevice[c].typeText.replace(/対/g,"對").replace(/宝/g,"寶").replace(/剣/g,"劍").replace(/悪/g,"惡").replace(/奥/g,"奧")+"</td><td colspan=5>";
+					skillText+="<b><font color=\"#"+cardList[master.mstSvtTreasureDevice[k].cardId]+"\">"+master.mstTreasureDevice[c].name+"</font></b></td><td colspan=2>"+master.mstTreasureDevice[c].rank+"</td><td colspan=3>"+master.mstTreasureDevice[c].typeText.replace(/対/g,"對").replace(/宝/g,"寶").replace(/剣/g,"劍").replace(/悪/g,"惡").replace(/奥/g,"奧")+"</td><td colspan=3>";
 					
 					if(master.mstSvtTreasureDevice[k].condQuestId==0&&master.mstSvtTreasureDevice[k].condLv==0&&master.mstSvtTreasureDevice[k].condFriendshipRank==0) skillText+="初期"
 					else if(findName(master.mstQuest,master.mstSvtTreasureDevice[k].condQuestId)!=null) skillText+=master.mstQuest[findName(master.mstQuest,master.mstSvtTreasureDevice[k].condQuestId)].name;
@@ -216,20 +216,30 @@ function svtDataTable(svtId)
 					else if(master.mstSvtTreasureDevice[k].condFriendshipRank!=0) skillText+="絆等級"+master.mstSvtTreasureDevice[k].condFriendshipRank+"解放";
 					else skillText+="未開放";
 					
-					skillText+="</td></tr>"; break;}
+					skillText+="</td>"; break;}
 			}
 			var tdDetailTxt = new Array();
-			for(k=0;k<tdDetail.length;k++){
-				if(master.mstTreasureDevice[c].id==tdDetail[k][0]){
-					tdDetailTxt = tdDetail[k].slice(0);break;
+			for(d in tdDetail){
+				if(master.mstTreasureDevice[c].id==tdDetail[d][0]){
+					tdDetailTxt = tdDetail[d].slice(0);break;
 				}
 			}
 			if(document.getElementById('isJpTxt').checked||!tdDetailTxt[1])
-				for(k=0;k<master.mstTreasureDeviceDetail.length;k++){
-					if(master.mstTreasureDevice[c].id==master.mstTreasureDeviceDetail[k].id){
-						tdDetailTxt[1] = master.mstTreasureDeviceDetail[k].detail;break;
+				for(d in master.mstTreasureDeviceDetail){
+					if(master.mstTreasureDevice[c].id==master.mstTreasureDeviceDetail[d].id){
+						tdDetailTxt[1] = master.mstTreasureDeviceDetail[d].detail;break;
 					}
 				}
+			
+			skillText+="<td colspan=2>";
+			if(tdDetailTxt[1].search(/攻擊[^力]|攻撃[^力]/)==-1) skillText+="－";
+			else
+			{
+				skillText+=master.mstSvtTreasureDevice[k].damage.length+"Hit";
+				if(master.mstSvtTreasureDevice[k].damage.length>1) skillText+="s";
+			}
+			skillText+="</td></tr>";
+			
 			var tdDetailArray = new Array();
 			if(!document.getElementById('isJpTxt').checked)
 			{

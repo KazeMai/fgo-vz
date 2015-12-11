@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>二圍比較</title>
+<link href="common/css/common.css" rel="stylesheet" type="text/css" />
+<link href="common/css/detail_info.css" rel="stylesheet" type="text/css" />
+<link href="common/css/sidebar.css" rel="stylesheet" type="text/css" />
+<link href="common/css/sidebar.css" rel="stylesheet" type="text/css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type='text/javascript' src='common/js/sidebar.js'></script>
+<script type='text/javascript' src='common/js/mstClass.js'></script>
+<script type='text/javascript' src='common/js/master.js'></script>
+<script type='text/javascript' src='common/js/transData.js'></script>
+<script type="text/javascript" src="common/js/smoothRollOver.js"></script>
+<script type="text/javascript" src="common/js/scrollTop.js"></script>
+<script type="text/javascript" src="common/js/jquery.tablesorter.min.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-70142247-1', 'auto');
+  ga('require', 'linkid');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+</script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+google.load('visualization', '1.1', { 'packages': ['corechart'], 'language': 'zh' });
+//google.setOnLoadCallback(drawChart);
+var statusList;
+var svtCount = 4;
+
+master.mstSvt = master.mstSvt.sort(sortByElmentNo);
+function sortByElmentNo(a,b)
+{
+	return a.collectionNo-b.collectionNo;
+}
+function svtAdd()
+{
+	svtCount++;
+	var num = document.getElementById("statusCompare").rows.length;
+	var Tr = document.getElementById("statusCompare").insertRow(num);
+	Td = Tr.insertCell(Tr.cells.length);
+	Td.innerHTML="<select name=\"svtCls\" id=\"svtCls"+svtCount+"\" onchange=\"clsidChange(this.options[this.selectedIndex].value,"+svtCount+");\"></select>";
+	Td = Tr.insertCell(Tr.cells.length);
+	Td.innerHTML="<form name=\"svtId"+svtCount+"\" id=\"svtIds"+svtCount+"\"><select name=\"svtId\" id=\"svtId"+svtCount+"\"></select></form>";
+	Td = Tr.insertCell(Tr.cells.length);
+	Td.innerHTML="<form name=\"svtSta"+svtCount+"\" id=\"svtSta"+svtCount+"\"><select name=\"Sta\"></select></form>";
+	
+	tableInit(svtCount-1);
+}
+function svtDel()
+{
+	var num = document.getElementById("statusCompare").rows.length;
+	if(num >6)
+	{
+		svtCount--;
+		document.getElementById("statusCompare").deleteRow(-1);
+	}
+}
+function statusListInit()
+{
+	statusList = new Array();
+	for(var i=0;i<=90;i++){
+		statusList[i] = new Array();
+		if(i!=0) statusList[i][0] = i;
+	}
+	statusList[0][0]='Lv.';
+}
+function tableInit(startIndex)
+{
+	var cl=document.getElementsByName("svtCls");
+	for(var i=startIndex;i<cl.length;i++)
+	{
+		cl[i].options.add(new Option("全部",0));
+		cl[i].options.add(new Option("Saber",1));
+		cl[i].options.add(new Option("Archer",2));
+		cl[i].options.add(new Option("Lancer",3));
+		cl[i].options.add(new Option("Rider",4));
+		cl[i].options.add(new Option("Caster",5));
+		cl[i].options.add(new Option("Assassin",6));
+		cl[i].options.add(new Option("Berserker",7));
+		cl[i].options.add(new Option("Shielder",8));
+		cl[i].options.add(new Option("Ruler",9));
+	}
+	cl=document.getElementsByName("Sta");
+	for(i=startIndex;i<cl.length;i++)
+	{
+		cl[i].options.add(new Option("HP",1));
+		cl[i].options.add(new Option("ATK",2));
+	}
+	cl=document.getElementsByName("svtId");
+	for(i=startIndex;i<cl.length;i++)
+	{
+		setSvtOption(0,cl[i]);
+	}
+}
+function clsidChange(clsId,clId)
+{
+	var cl=document.getElementById("svtId"+clId);
+	setSvtOption(clsId,cl);
+}
+function setSvtOption(clsId,cl)
+{
+	var i;
+	for(i=cl.options.length-1;i>=0;i--)
+    {
+        cl.remove(i);
+    }
+	cl.options.add(new Option("請選擇",0));
+	if(clsId==0)
+	{
+		for(i=0;i<master.mstSvt.length;i++)
+		{
+			if(master.mstSvt[i].type==1||master.mstSvt[i].type==2||master.mstSvt[i].type==5){
+				var svtNameZh = findSvtNameZh(master.mstSvt[i].id);
+				if(svtNameZh) cl.options.add(new Option("No." + master.mstSvt[i].collectionNo + " " + svtNameZh,master.mstSvt[i].id));
+				else cl.options.add(new Option("No." + master.mstSvt[i].collectionNo + " " + master.mstSvt[i].name,master.mstSvt[i].id));}
+		}
+	}
+	else
+	{
+		for(i=0;i<master.mstSvt.length;i++)
+		{
+			if(master.mstSvt[i].classId==clsId)
+				{if(master.mstSvt[i].type==1||master.mstSvt[i].type==2||master.mstSvt[i].type==5){
+				var svtNameZh = findSvtNameZh(master.mstSvt[i].id);
+				if(svtNameZh) cl.options.add(new Option("No." + master.mstSvt[i].collectionNo + " " + svtNameZh,master.mstSvt[i].id));
+				else cl.options.add(new Option("No." + master.mstSvt[i].collectionNo + " " + master.mstSvt[i].name,master.mstSvt[i].id));}}
+		}
+	}
+}
+function readForm()
+{
+	statusListInit();
+	
+	for(var i = 1; i <= svtCount; i++){//比較的個數
+		var svtId = document.forms["svtId" + i].elements["svtId"].value;
+		var svtSta = document.forms["svtSta" + i].elements["Sta"].value;
+		setStatusList(svtId,svtSta);//alert(svtId+","+svtSta);
+	}
+	if(statusList[1].length==1) alert("請選擇想比較的Servant");
+	else{
+		var options = {
+			title: '二圍比較圖',
+			curveType: 'function',
+			//legend: { position: 'bottom' },
+			hAxis: {format: 'Lv ###',},
+			width: 800,
+			height: 800
+		};
+		var statusData = google.visualization.arrayToDataTable(statusList);
+		var chart = new window.google.visualization.LineChart(document.getElementById('chart_div'));
+		chart.draw(statusData, options);
+	}
+}
+function setStatusList(svtId,svtSta)
+{
+	if(svtId!=0){
+		for(var i in master.mstSvt)
+		{
+			if(master.mstSvt[i].id==svtId)break;
+		}
+		for(var j in master.mstSvtLimit)
+		{
+			if(master.mstSvtLimit[j].svtId==svtId&&master.mstSvtLimit[j].limitCount==4)break;
+		}
+		
+		var svtName=findSvtNameZh2(svtId);
+		if(!svtName) svtName=master.mstSvt[findName(master.mstSvt,svtId)].battleName;
+		
+		if(svtSta==1) statusList[0].push(svtName+" HP");
+		else if (svtSta==2) statusList[0].push(svtName+" ATK");
+		
+		for(var c in master.mstSvtExp){
+			if(master.mstSvt[i].expType==master.mstSvtExp[c].type&&master.mstSvtExp[c].lv>0&&master.mstSvtExp[c].lv<=90)
+			{
+				if(master.mstSvtExp[c].lv<=master.mstSvtLimit[j].lvMax)
+				{
+					var pushValue;
+					if(svtSta==1)
+						pushValue=(Math.floor(master.mstSvtLimit[j].hpBase+(master.mstSvtLimit[j].hpMax-master.mstSvtLimit[j].hpBase)*master.mstSvtExp[c].curve/1000));
+					else if (svtSta==2)
+						pushValue=(Math.floor(master.mstSvtLimit[j].atkBase+(master.mstSvtLimit[j].atkMax-master.mstSvtLimit[j].atkBase)*master.mstSvtExp[c].curve/1000));
+						
+					statusList[master.mstSvtExp[c].lv].push(pushValue);
+				}
+				else statusList[master.mstSvtExp[c].lv].push(null);
+			}
+		}
+	}
+}
+function findName(searchData,searchId)
+{
+	for(var i=0;i<searchData.length;i++)
+		if(searchData[i].id==searchId) return i;
+	return null;
+}
+</script>
+</head>
+<body onload="loadsidebar();tableInit(0);">
+<!--二欄橫幅主要區塊開始-->
+<div style='position:relative;'>
+    <!--選單區塊開始-->
+    <div id="div_right_sidebar"></div>
+    <!--選單區塊結束-->
+    <!--主要內容區塊開始-->
+    <div id="div_content">
+<div class="container">
+<article class="content textsize">
+<table width=450 id="statusCompare">
+<tr align="center">
+<td colspan="3">
+<input type="button" value="新增欄位" onclick="svtAdd();">
+<input type="button" value="刪除欄位" onclick="svtDel();">
+<input type="button" value="開始比較" onclick="readForm();">
+</td>
+</tr>
+<tr>
+<th>職階</th>
+<th>Servant</th>
+<th>比較值</th>
+</tr>
+<tr>
+<td><select name="svtCls" id="svtCls1" onchange="clsidChange(this.options[this.selectedIndex].value,1);"></select></td>
+<td><form name="svtId1" id="svtIds1"><select name="svtId" id="svtId1"></select></form></td>
+<td><form name="svtSta1" id="svtSta1"><select name="Sta"></select></form></td>
+</tr>
+<tr>
+<td><select name="svtCls" id="svtCls2" onchange="clsidChange(this.options[this.selectedIndex].value,2);"></select></td>
+<td><form name="svtId2" id="svtIds2"><select name="svtId" id="svtId2"></select></form></td>
+<td><form name="svtSta2" id="svtSta2"><select name="Sta"></select></form></td>
+</tr>
+<tr>
+<td><select name="svtCls" id="svtCls3" onchange="clsidChange(this.options[this.selectedIndex].value,3);"></select></td>
+<td><form name="svtId3" id="svtIds3"><select name="svtId" id="svtId3"></select></form></td>
+<td><form name="svtSta3" id="svtSta3"><select name="Sta"></select></form></td>
+</tr>
+<tr>
+<td><select name="svtCls" id="svtCls4" onchange="clsidChange(this.options[this.selectedIndex].value,4);"></select></td>
+<td><form name="svtId4" id="svtIds4"><select name="svtId" id="svtId4"></select></form></td>
+<td><form name="svtSta4" id="svtSta4"><select name="Sta"></select></form></td>
+</tr>
+</table>
+<div id="chart_div"></div>
+</article>
+</div>
+<div id="gotop"><a href="#"><img src="common/images/btn_gotop_off.jpg" width="47" height="47" alt="返回頂端" /></a></div>
+    </div>
+    <!--主要內容區塊結束-->
+</div>
+<!--二欄橫幅主要區塊結束-->
+</body>
+</html>
