@@ -36,7 +36,7 @@ function crtTableOut(searchData,searchId)
 				{if(master.mstSvtLimit[j].svtId==master.mstSvt[i].id)break;}
 			
 			crtTableTxt+="<tr align=\"center\"><td><a href='ceData.html?no="+master.mstSvt[i].collectionNo+"'>";
-			crtTableTxt+="<img src='common/images/icon/faces/"+master.mstSvt[i].id+".png' onerror=\"javascript:this.src='common/images/icon/faces/0.png'\" width=80></img>";
+			crtTableTxt+="<img src='common/images/icon/faces/"+master.mstSvt[i].id+".png' onerror=javascript:this.src='common/images/icon/faces/0.png' width=80></img>";
 			crtTableTxt+="</a></td>";
 			
 			crtTableTxt+="<td>"+master.mstSvt[i].collectionNo+"</td><td class=\"star\">";
@@ -60,7 +60,7 @@ function crtTableOut(searchData,searchId)
 				{
 					for(var d in master.mstSkill)
 						if(master.mstSkill[d].id==master.mstSvtSkill[c].skillId)
-						{	crtTableTxt+="<td><img src=common/images/SkillIcon/SkillIcon_"+master.mstSkill[d].iconId+".png width=55></td>";break;
+						{	crtTableTxt+="<td><img src=common/images/SkillIcon/SkillIcon_"+master.mstSkill[d].iconId+".png onerror=javascript:this.src='common/images/SkillIcon/SkillIcon_999999.png' width=55></img></td>";break;
 						}
 					crtTableTxt+="<td>"+findSkDetailZh(master.mstSvtSkill[c].skillId)+"<br>";
 					crtTableTxt+="<font color=#CC00CC>";

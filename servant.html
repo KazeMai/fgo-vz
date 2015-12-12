@@ -40,7 +40,7 @@ function svtTableOut(searchData,searchId)
 				{if(master.mstSvtLimit[j].svtId==master.mstSvt[i].id)break;}
 			
 			svtTableTxt+="<tr align=\"center\"><td><a href='svtData.html?no="+master.mstSvt[i].collectionNo+"'>";
-			svtTableTxt+="<img src='common/images/icon/faces/"+master.mstSvt[i].id+"0.png' onerror=\"javascript:this.src='common/images/icon/faces/0.png'\" width=80></img>";
+			svtTableTxt+="<img src='common/images/icon/faces/"+master.mstSvt[i].id+"0.png' onerror=javascript:this.src='common/images/icon/faces/0.png' width=80></img>";
 			svtTableTxt+="</a></td>";
 			
 			svtTableTxt+="<td>"+master.mstSvt[i].collectionNo+"</td><td class=\"star\">";
@@ -67,7 +67,7 @@ function svtTableOut(searchData,searchId)
 			for(c=0;c<master.mstSvt[i].cardIds.length;c++){
 				svtTableTxt+="<img src='common/images/icon/cmdCard/icon_cmdCard_"+master.mstSvt[i].cardIds[c]+".png' width=60";
 				if(c!=master.mstSvt[i].cardIds.length-1)svtTableTxt+=" style='margin-right: -30px;'"
-				svtTableTxt+=">";
+				svtTableTxt+="></img>";
 			}
 			for(c=0;c<master.mstSvt[i].cardIds.length;c++)
 				svtTableTxt+="<span style='display:none'>"+master.mstSvt[i].cardIds[c]+"</span>";
@@ -76,7 +76,7 @@ function svtTableOut(searchData,searchId)
 			svtTableTxt+="<td>";
 			for(c in master.mstSvtTreasureDevice){
 				if(master.mstSvt[i].id==master.mstSvtTreasureDevice[c].svtId)
-					{svtTableTxt+="<img src='common/images/icon/cmdCard/icon_cmdCard_"+master.mstSvtTreasureDevice[c].cardId+".png' width=60>";
+					{svtTableTxt+="<img src='common/images/icon/cmdCard/icon_cmdCard_"+master.mstSvtTreasureDevice[c].cardId+".png' width=60></img>";
 					svtTableTxt+="<span style='display:none'>"+master.mstSvtTreasureDevice[c].cardId+"</span>";
 					break;}
 			}

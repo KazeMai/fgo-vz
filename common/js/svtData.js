@@ -27,7 +27,7 @@ function svtDataTable(svtId)
 	
 	var svtNrmlDataTxt="";
 	svtNrmlDataTxt="<tr><td rowspan=6 align=center>";
-	if(master.mstSvt[i].type!=5) svtNrmlDataTxt+="<img src=https://sites.google.com/site/fategovz/"+svtId+"_status_servant_2.png>";
+	if(master.mstSvt[i].type!=5) svtNrmlDataTxt+="<img src=common/images/Servant/"+svtId+"_status_servant_2.png></img>";
 	svtNrmlDataTxt+="</td><th><b>編號</b></th><th><b>星數</b></th><th colspan=2><b>名稱</b></th><th><b>職階</b></th><th><b>特性</b></th></tr><tr align=\"center\"><td>No."+master.mstSvt[i].collectionNo+"</td><td class=\"star\">";
 	for(c=0;c<master.mstSvtLimit[j].rarity;c++)
 		svtNrmlDataTxt+="★";
@@ -80,7 +80,7 @@ function svtDataTable(svtId)
 		if(master.mstSvtSkill[c].svtId==master.mstSvt[i].id){
 			skillrowCount++;
 			for(var k=0;k<master.mstSkill.length;k++){
-				if(master.mstSvtSkill[c].skillId==master.mstSkill[k].id){skillText+="<td><img src=common/images/SkillIcon/SkillIcon_"+master.mstSkill[k].iconId+".png width=55></td><td><b>"+master.mstSkill[k].name+"</b></td>"; break;}
+				if(master.mstSvtSkill[c].skillId==master.mstSkill[k].id){skillText+="<td><img src=common/images/SkillIcon/SkillIcon_"+master.mstSkill[k].iconId+".png onerror=javascript:this.src='common/images/SkillIcon/SkillIcon_999999.png' width=55></img></td><td><b>"+master.mstSkill[k].name+"</b></td>"; break;}
 			}
 
 			for(var k=0;k<master.mstSkillLv.length;k++){
@@ -163,7 +163,7 @@ function svtDataTable(svtId)
 	{
 		skillrowCount++;
 		for(var k=0;k<master.mstSkill.length;k++){
-			if(master.mstSvt[i].classPassive[c]==master.mstSkill[k].id){skillText+="<td><img src=common/images/SkillIcon/SkillIcon_"+master.mstSkill[k].iconId+".png width=55></td><td><b>"+master.mstSkill[k].name+"</b></td>"; break;}
+			if(master.mstSvt[i].classPassive[c]==master.mstSkill[k].id){skillText+="<td><img src=common/images/SkillIcon/SkillIcon_"+master.mstSkill[k].iconId+".png onerror=javascript:this.src='common/images/SkillIcon/SkillIcon_999999.png' width=55></img></td><td><b>"+master.mstSkill[k].name+"</b></td>"; break;}
 		}
 		for(var k=0;k<master.mstSkillDetail.length;k++){
 			if(master.mstSvt[i].classPassive[c]==master.mstSkillDetail[k].id){
@@ -355,7 +355,7 @@ function svtDataTable(svtId)
 	document.getElementById("svtCmbnData").innerHTML=svtCmbnDataTxt;
 
 	document.getElementById("svtImgData").innerHTML="";
-	if(master.mstSvt[i].type!=5) document.getElementById("svtImgData").innerHTML="<tr><td><img src=common/images/CharaGraph/"+svtId+"a.png><br><img src=common/images/CharaGraph/"+svtId+"b.png></td></tr>";
+	if(master.mstSvt[i].type!=5) document.getElementById("svtImgData").innerHTML="<tr><td><img src=common/images/Servant/"+svtId+"_card_servant_1.png></img><img src=common/images/Servant/"+svtId+"_card_servant_2.png></img><img src=common/images/Servant/"+svtId+"_card_servant_3.png></img><br><img src=common/images/CharaGraph/"+svtId+"a.png></img><br><img src=common/images/CharaGraph/"+svtId+"b.png></img></td></tr>";
 	
 	var svtLvDataTxt="<tr><th>等級</th><th>ATK</th><th>HP</th><th>上升幅度</th></tr>";
 	for(c=0;c<master.mstSvt[i].rewardLv;c++)
