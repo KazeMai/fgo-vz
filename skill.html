@@ -27,9 +27,9 @@
 <script type="text/javascript">
 function sklDataOut(searchData,searchId)
 {
-	var sklDataTxt="<tr><th>圖示</th><th>技能名</th><th>使用者</th><th>CD</th><th>效果</th><th>Lv.1</th><th>Lv.2</th><th>Lv.3</th><th>Lv.5</th><th>Lv.6</th><th>Lv.6</th><th>Lv.7</th><th>Lv.8</th><th>Lv.9</th><th>Lv.10</th></tr>";
+	var sklDataTxt="<tr><th>圖示</th><th>技能名</th><th>使用者</th><th>CD</th><th>效果</th><th>Lv.1</th><th>Lv.2</th><th>Lv.3</th><th>Lv.4</th><th>Lv.5</th><th>Lv.6</th><th>Lv.7</th><th>Lv.8</th><th>Lv.9</th><th>Lv.10</th></tr>";
 	var pasDataTxt="<tr><th>圖示</th><th>技能名</th><th>使用者</th><th>CD</th><th>效果</th><th colspan=10>倍率</th></tr>";
-	var eqpDataTxt="<tr><th>圖示</th><th>技能名</th><th>Master裝備</th><th>CD</th><th>效果</th><th>Lv.1</th><th>Lv.2</th><th>Lv.3</th><th>Lv.5</th><th>Lv.6</th><th>Lv.6</th><th>Lv.7</th><th>Lv.8</th><th>Lv.9</th><th>Lv.10</th></tr>";
+	var eqpDataTxt="<tr><th>圖示</th><th>技能名</th><th>Master裝備</th><th>CD</th><th>效果</th><th>Lv.1</th><th>Lv.2</th><th>Lv.3</th><th>Lv.4</th><th>Lv.5</th><th>Lv.6</th><th>Lv.7</th><th>Lv.8</th><th>Lv.9</th><th>Lv.10</th></tr>";
 	var skillText="";
 	var skillrowCount=0;
 	for(var c=0;c<master.mstSkill.length;c++)
@@ -150,12 +150,16 @@ function findName(searchData,searchId)
     <!--選單區塊結束-->
     <!--主要內容區塊開始-->
     <div id="div_content"><div class="container">
+
 <article class="content textsize">
-<h1>裝備技能</h1>
+	<a href="#equip_skill"><div class="bkmk">裝備技能</div></a>
+	<a href="#svt_skill"><div class="bkmk">保有技能</div></a>
+	<a href="#passive_skill"><div class="bkmk">職階技能</div></a>
+<h1 id="equip_skill" style="clear:left;">裝備技能</h1>
 <table id="eqpData" width=1100><tr><td></td></tr></table>
-<h1>保有技能</h1>Lv.6＆Lv.10各減少CD一回合
+<h1 id="svt_skill">保有技能</h1>Lv.6＆Lv.10各減少CD一回合
 <table id="sklData" width=1100><tr><td></td></tr></table>
-<h1>職階技能</h1>
+<h1 id="passive_skill">職階技能</h1>
 <table id="pasData"><tr><td></td></tr></table>
 </article>
 </div>

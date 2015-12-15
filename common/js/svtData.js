@@ -49,6 +49,7 @@ function svtDataTable(svtId)
 	
 	var svtCtrlDataTxt="";
 	svtCtrlDataTxt+="<tr><th rowspan=2><b>指令卡</b></th><th><font color=\"#0099FF\"><b>Arts</b></font></th><th><font color=\"#ff0000\"><b>Buster</b></font></th><th><font color=\"#00ff00\"><b>Quick</b></font></th><th><b>Extra</b></th><th rowspan=2><b>隱藏數值</b></th><th><b>星星發生率</b></th><th><b>被即死率</b></th><th><b>星星分配比重</b></th><th><b>基本NP獲得率(Atk / Def)</b></th></tr><tr align=\"center\">";
+	var artHit,busterHit,quickHit,exHit;
 	for(var k=1;k<=4;k++)
 	{
 		var cardCount=0;
@@ -62,6 +63,11 @@ function svtDataTable(svtId)
 				svtCtrlDataTxt+=master.mstSvtCard[c].normalDamage.length+"Hit";
 				if(master.mstSvtCard[c].normalDamage.length>1) svtCtrlDataTxt+="s";
 				svtCtrlDataTxt+="</td>";
+				
+				if(master.mstSvtCard[c].cardId==1) artHit=master.mstSvtCard[c].normalDamage.length;
+				else if(master.mstSvtCard[c].cardId==2) busterHit=master.mstSvtCard[c].normalDamage.length;
+				else if(master.mstSvtCard[c].cardId==3) quickHit=master.mstSvtCard[c].normalDamage.length;
+				else if(master.mstSvtCard[c].cardId==4) exHit=master.mstSvtCard[c].normalDamage.length;
 			}
 		}
 	}
@@ -71,6 +77,13 @@ function svtDataTable(svtId)
 		{svtCtrlDataTxt+=master.mstTreasureDeviceLv[c].tdPoint/100+"% / "+master.mstTreasureDeviceLv[c].tdPointDef/100+"%";break;}
 	svtCtrlDataTxt+="</td></tr>";
 	document.getElementById("svtCtrlData").innerHTML=svtCtrlDataTxt;
+	
+	/*var npbase = master.mstTreasureDeviceLv[c].tdPoint;
+	var npDataTxt="<tr><td colspan=8><h3>被攻擊時每Hit增加NP</h3>"+master.mstTreasureDeviceLv[c].tdPointDef/100+"% x (100+NP獲得量提升)%</td></tr><tr><td colspan=8><h3>攻擊時增加NP</h3><span class=notice>※ 若有卡片性能提升效果，再 +［首張卡非Arts數值 x (100+卡片性能提升)%］<br>※ 若有NP獲得量提升效果，再 x (100+NP獲得量提升)%<br>※ 若有Critical，再 x 2<br>※ 若有Overkill，再 x 1.5</span></td></tr><tr><th>NP增加量<br>第1/2/3張</th><th><font color=#0099FF>Arts</font></th><th><font color=#ff0000>Buster</font></th><th><font color=#00ff00>Quick</font></th><th>Extra</th></tr><tr align=center><th>首張卡非Arts</th><td>"+npbase*artHit*3/100+" / "+npbase*artHit*3*3/200+" / "+npbase*artHit*3*2/100+"</td><td>0</td><td>"+npbase*quickHit/100+" / "+npbase*quickHit*3/200+" / "+npbase*quickHit*2/100+"</td><td>"+npbase*exHit/100+"</td></tr><tr align=center><th>首張卡為Arts</th><td>";
+	
+	npDataTxt+=npbase*(artHit*3+1)/100+" / "+npbase*(artHit*3*3+2)/200+" / "+npbase*(artHit*3*2+1)/100+"</td><td>"+npbase*busterHit/100+"</td><td>"+npbase*(quickHit+1)/100+" / "+npbase*(quickHit*3+2)/200+" / "+npbase*(quickHit*2+1)/100+"</td><td>"+npbase*(exHit+1)/100+"</td></tr>";
+	
+	document.getElementById("npData").innerHTML=npDataTxt;*/
 	
 	var svtSkTdDataTxt="";
 	var skillText="";
