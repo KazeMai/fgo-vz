@@ -1,0 +1,199 @@
+@charset "utf-8";
+body {
+	font: 100%/1.4 "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS P Gothic", sans-serif;
+	margin: 0;
+	padding: 0;
+	color: #FFF;
+	background-image: url(../images/bg_02.jpg?t=20150930);
+	height: auto;
+	background-repeat: repeat;
+	background-size: 30px 30px;
+	-webkit-text-size-adjust: 100%!important ;
+	}
+
+ul, ol, dl {
+	padding: 0;
+	margin: 0;
+}
+
+ul li{
+list-style: none;
+}
+
+table {
+	border-spacing: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+a img {
+	border: none;
+}
+
+a:link {
+	text-decoration: none;
+}
+
+a:visited {
+	text-decoration: none;
+}
+
+a:hover, a:active, a:focus {
+	text-decoration: none;
+}
+
+.container {
+	margin: 0 auto;
+}
+
+.content {
+	padding-top: 20px;
+	padding-right: 5%;
+	padding-left: 5%;
+	padding-bottom: 5px;
+}
+
+header, section, footer, aside, article, figure {
+	display: block;
+}
+
+.container .content .table tr {
+	margin-bottom: 10px;
+}
+
+.container .content .table {
+	border-spacing: 0px 0px;
+}
+
+.container .content .table {
+	width: 100%;
+}
+
+.container .content .table tr .width90 {
+	width: 90%;
+	color: #ffe4a3 !important;
+	font-weight: bolder;
+	text-shadow: 2px 2px #000000;
+}
+
+.container .content .base tbody tr td .table tr .width10 {
+	width: 10%;
+	padding-left: 5px;
+}
+
+.container .content .base {
+	color: #FFFFFF;
+	margin-bottom: 10px;
+	background-attachment: fixed;
+}
+
+.headline1 {
+	width:auto;
+	padding:3px 0 3px 10px;
+	border-top:1px solid #bbb;
+	border-bottom:1px solid #999;
+	background:-webkit-gradient(linear, 0% 0%, 0% 80%, from(#fff), to(#bbb));
+	text-shadow:1px 1px 1px #fff;
+}
+
+.headline2 {
+	display: inline-block;
+	font-size: 0.9em;
+	font-weight: bold;
+	color: #ffffff;
+	text-shadow: 1px 1px 4px #000000;
+	letter-spacing: 0;
+	border: none;
+	box-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+	border-radius: 5px;
+	padding-top: 10px;
+	padding-left: 35px;
+	padding-bottom: 10px;
+	background: url("../images/img_bgmark_logo.png?t=20150728") no-repeat 2% center, rgb(2,41,88); /* Old browsers */
+	background: url("../images/img_bgmark_logo.png?t=20150728") no-repeat 2% center, -moz-linear-gradient(top,  rgba(2,41,88,1) 0%, rgba(9,77,157,1) 87%, rgba(9,77,157,1) 100%); /* FF3.6+ */
+	background: url("../images/img_bgmark_logo.png?t=20150728") no-repeat 2% center, -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(2,41,88,1)), color-stop(87%,rgba(9,77,157,1)), color-stop(100%,rgba(9,77,157,1))); /* 	Chrome,Safari4+ */
+	background: url("../images/img_bgmark_logo.png?t=20150728") no-repeat 2% center, -webkit-linear-gradient(top,  rgba(2,41,88,1) 0%,rgba(9,77,157,1) 87%,rgba(9,77,157,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: url("../images/img_bgmark_logo.png?t=20150728") no-repeat 2% center, -o-linear-gradient(top,  rgba(2,41,88,1) 0%,rgba(9,77,157,1) 87%,rgba(9,77,157,1) 100%); /* Opera 11.10+ */
+	background: url("../images/img_bgmark_logo.png?t=20150728") no-repeat 2% center, -ms-linear-gradient(top,  rgba(2,41,88,1) 0%,rgba(9,77,157,1) 87%,rgba(9,77,157,1) 100%); /* IE10+ */
+	background: url("../images/img_bgmark_logo.png?t=20150728") no-repeat 2% center, linear-gradient(to bottom,  rgba(2,41,88,1) 0%,rgba(9,77,157,1) 87%,rgba(9,77,157,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#022958', endColorstr='#094d9d',GradientType=0 ); /* IE6-9 */
+	width: 90%;
+	margin-top: 10px;
+	padding-right: 10px;
+}
+
+.headline3 {
+	display: inline-block;
+	font-size: 0.9em;
+	font-weight: bold;
+	color: #ffffff;
+	text-shadow: 1px 1px 4px #000000;
+	letter-spacing: 0;
+	border: none;
+	box-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+	border-radius: 5px;
+	padding-top: 10px;
+	padding-left: 35px;
+	padding-bottom: 10px;
+	background: url("../images/img_bgmark_logo.png?t=20150728") no-repeat 2% center, rgb(2,41,88); /* Old browsers */
+	background: url("../images/img_bgmark_logo.png?t=20150728") no-repeat 2% center, -moz-linear-gradient(top,  rgba(2,41,88,1) 0%, rgba(9,77,157,1) 87%, rgba(9,77,157,1) 100%); /* FF3.6+ */
+	background: url("../images/img_bgmark_logo.png?t=20150728") no-repeat 2% center, -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(2,41,88,1)), color-stop(87%,rgba(9,77,157,1)), color-stop(100%,rgba(9,77,157,1))); /* 	Chrome,Safari4+ */
+	background: url("../images/img_bgmark_logo.png?t=20150728") no-repeat 2% center, -webkit-linear-gradient(top,  rgba(2,41,88,1) 0%,rgba(9,77,157,1) 87%,rgba(9,77,157,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: url("../images/img_bgmark_logo.png?t=20150728") no-repeat 2% center, -o-linear-gradient(top,  rgba(2,41,88,1) 0%,rgba(9,77,157,1) 87%,rgba(9,77,157,1) 100%); /* Opera 11.10+ */
+	background: url("../images/img_bgmark_logo.png?t=20150728") no-repeat 2% center, -ms-linear-gradient(top,  rgba(2,41,88,1) 0%,rgba(9,77,157,1) 87%,rgba(9,77,157,1) 100%); /* IE10+ */
+	background: url("../images/img_bgmark_logo.png?t=20150728") no-repeat 2% center, linear-gradient(to bottom,  rgba(2,41,88,1) 0%,rgba(9,77,157,1) 87%,rgba(9,77,157,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#022958', endColorstr='#094d9d',GradientType=0 ); /* IE6-9 */
+	width: 91%;
+	margin-top: 10px;
+	padding-right: 10px;
+}
+
+.notice {
+	color: #ffb601;
+	font-weight: bold;
+}
+
+.notice1 {
+	color: #02509F;
+	font-weight: bold;
+	margin-left: 10px;
+}
+
+.att {
+	padding-left: 1em;
+	text-indent: -1em;
+	}
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	height: 0;
+	visibility: hidden;
+}
+
+.clearfix {
+	min-height: 1px;
+}
+
+* html .clearfix {
+	height: 1px;
+	/*¥*//*/
+	height: auto;
+	overflow: hidden;
+	/**/
+}
+
+/* 長押し禁止 */
+body {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+}
+
+*:not(input){
+	-webkit-user-select: none;
+}
