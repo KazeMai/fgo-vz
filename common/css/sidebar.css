@@ -235,3 +235,8 @@ table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSo
 .news {
 	font-size: 1.2em;
 }
+.classS {
+	height: 20px;
+	width: 20px;
+	vertical-align: middle;
+}
