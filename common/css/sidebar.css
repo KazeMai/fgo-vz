@@ -240,3 +240,8 @@ table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSo
 	width: 20px;
 	vertical-align: middle;
 }
+.classF {
+	height: 50px;
+	width: 50px;
+	vertical-align: middle;
+}

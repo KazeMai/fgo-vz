@@ -29,16 +29,50 @@
 <script type="text/javascript">
 function svtTableOut(searchData,searchId)
 {
+	var classarray = new Array();
+	var getClassId = "1,2,3,4,5,6,7,8,9";
+	if(getUrl("class")) getClassId = getUrl("class");
+	if(getClassId){
+		classarray = getClassId.split(/,/).slice(0);
+	}
+	
+	var cl=document.getElementsByClassName("classF");
+	for(var i=0;i<cl.length;i++)
+	{
+		for(j in classarray){
+			if(classarray[j]==cl[i].src[cl[i].src.indexOf("_4.png")-1]) break;
+			if(j==classarray.length-1) classOff(cl[i]);
+		}
+	}
+	var rarityarray = new Array();
+	var getRarity = "1,2,3,4,5";
+	if(getUrl("rarity")) getRarity = getUrl("rarity");
+	if(getRarity){
+		rarityarray = getRarity.split(/,/).slice(0);
+	}
+	
+	cl=document.getElementsByClassName("rarityF");
+	for(i=0;i<cl.length;i++)
+	{
+		for(j in rarityarray){
+			if(cl[i].id=="rarity"+rarityarray[j]) {cl[i].checked=true;break;}
+		}
+	}
+	
 	var svtTableTxt="<thead><tr><th>圖示</th><th>編號</th><th>星數</th><th>名稱</th><th>職階</th><th>Cost</th><th>基本<br>HP</th><th>最大<br>HP</th><th>基本<br>ATK</th><th>最大<br>ATK</th><th>指令卡</th><th>寶具</th><th>幸運</th></tr></thead><tbody>";
 	var svtStatusList = ["","A","B","C","D","E","EX","?","?","－"];
 	var svtStatusPlusList = ["","","+","++","?","?","?","?","?",""];
-	for(var i in master.mstSvt)
+	for(i in master.mstSvt)
 	{
 		if(master.mstSvt[i].type==1||master.mstSvt[i].type==2||master.mstSvt[i].type==5)
 		{
+		for(var t in classarray){
+			if (classarray[t]==master.mstSvt[i].classId){
+
 			for(var j in master.mstSvtLimit)
 				{if(master.mstSvtLimit[j].svtId==master.mstSvt[i].id)break;}
-			
+				for(var h in rarityarray){
+					if (rarityarray[h]==master.mstSvtLimit[j].rarity){
 			svtTableTxt+="<tr align=\"center\"><td><a href='svtData.html?no="+master.mstSvt[i].collectionNo+"'>";
 			svtTableTxt+="<img src='common/images/icon/faces/"+master.mstSvt[i].id+"0.png' onerror=javascript:this.src='common/images/icon/faces/0.png' width=80></img>";
 			svtTableTxt+="</a></td>";
@@ -85,7 +119,8 @@ function svtTableOut(searchData,searchId)
 			svtTableTxt+="<td>"+svtStatusList[Math.floor(master.mstSvtLimit[j].luck/10)]+svtStatusPlusList[master.mstSvtLimit[j].luck%10]+"</td>";
 			
 			svtTableTxt+="</tr>";
-		}
+			break;}}
+		break;}}}
 		
 	
 	}
@@ -99,6 +134,61 @@ function findName(searchData,searchId)
 		if(searchData[i].id==searchId) return i;
 	return null;
 }
+function classOff(imgC)
+{
+	imgC.src=imgC.src.replace("_4.png","_1.png");
+	imgC.onclick = Function("classOn(this);");
+}
+function classOn(imgC)
+{
+	imgC.src=imgC.src.replace("_1.png","_4.png");
+	imgC.onclick = Function("classOff(this);");
+}
+function classFilter()
+{
+	var urltxt="servant.html"
+	var cl=document.getElementsByClassName("classF");
+	var classarray = new Array();
+	for(var i=0;i<cl.length;i++)
+	{
+		if(cl[i].src.search("_4.png")!=-1) classarray.push(cl[i].src[cl[i].src.indexOf("_4.png")-1]);
+	}
+	var rarityarray = new Array();
+	cl=document.getElementsByClassName("rarityF");
+	for(i=0;i<cl.length;i++)
+	{
+		if(cl[i].checked==true) rarityarray.push(cl[i].value);
+	}
+	var classUrl = false; if(classarray!="1,2,3,4,5,6,7,8,9") classUrl=true;
+	var rarityUrl = false; if(rarityarray!="1,2,3,4,5") rarityUrl=true;
+	if(classUrl||rarityUrl) urltxt+="?";
+	if(classUrl) urltxt+="class="+classarray;
+	if(classUrl&&rarityUrl) urltxt+="&";
+	if(rarityUrl) urltxt+="rarity="+rarityarray;
+	window.location = urltxt;
+}
+function getUrl(getStr)
+{
+	var url=window.location.toString(); //取得當前網址   
+	var str=""; //參數中等號左邊的值   
+	var str_value=""; //參數中等號右邊的值   
+	if(url.indexOf("?")!=-1){   
+		//如果網址有"?"符號   
+		var ary=url.split("?")[1].split("&");   
+		//取得"?"右邊網址後利用"&"分割字串存入ary陣列 ["a=1","b=2","c=3"]   
+		for(var i in ary){   
+			//取得陣列長度去跑迴圈，如:網址有三個參數，則會跑三次   
+			str=ary[i].split("=")[0];   
+			//取得參數"="左邊的值存入str變數中   
+			if (str == getStr) {   
+			//若str等於想要抓取參數 如:b   
+				str_value = decodeURI(ary[i].split("=")[1]);   
+				//取得b等號右邊的值並經過中文轉碼後存入str_value   
+			}   
+		}   
+	}
+	return str_value;
+}
 </script>
 </head>
 <body onload="loadsidebar();svtTableOut();">
@@ -111,6 +201,26 @@ function findName(searchData,searchId)
     <div id="div_content">
 <div class="container">
 <article class="content textsize">
+<form>
+  <fieldset style="width:500px;text-align:center;">
+    <legend>篩選條件</legend>
+    <img src="common/images/icon/class/class_1_4.png" title="Saber" onclick="classOff(this);" class="classF"/>
+	<img src="common/images/icon/class/class_2_4.png" title="Archer" onclick="classOff(this);" class="classF"/>
+	<img src="common/images/icon/class/class_3_4.png" title="Lancer" onclick="classOff(this);" class="classF"/>
+	<img src="common/images/icon/class/class_4_4.png" title="Rider" onclick="classOff(this);" class="classF"/>
+	<img src="common/images/icon/class/class_5_4.png" title="Caster" onclick="classOff(this);" class="classF"/>
+	<img src="common/images/icon/class/class_6_4.png" title="Assassin" onclick="classOff(this);" class="classF"/>
+	<img src="common/images/icon/class/class_7_4.png" title="Berserker" onclick="classOff(this);" class="classF"/>
+	<img src="common/images/icon/class/class_8_4.png" title="Shielder" onclick="classOff(this);" class="classF"/>
+	<img src="common/images/icon/class/class_9_4.png" title="Ruler" onclick="classOff(this);" class="classF"/>
+	<input type="checkbox" id="rarity1" class="rarityF" value="1"/><span class="star">★</span>
+	<input type="checkbox" id="rarity2" class="rarityF" value="2"/><span class="star">★★</span>
+	<input type="checkbox" id="rarity3" class="rarityF" value="3"/><span class="star">★★★</span>
+	<input type="checkbox" id="rarity4" class="rarityF" value="4"/><span class="star">★★★★</span>
+	<input type="checkbox" id="rarity5" class="rarityF" value="5"/><span class="star">★★★★★</span>
+	<br><input type="button" value="開始篩選" onclick="classFilter();">
+  </fieldset>
+</form>
 <table onload="" id="svtTable" class="tablesorter" width=1270><tr><td></td></tr></table>
 </article>
 </div>
