@@ -12,6 +12,7 @@ function svtDataTable(svtId)
 	var cardList = ["","0000ff","ff0000","00ff00"];
 	var svtStatusList = ["","A","B","C","D","E","EX","?","?","－"];
 	var svtStatusPlusList = ["","","+","++","?","?","?","?","?",""];
+	var individualityList = [[2000,"神性"],[2001,"人型"],[2002,"龍"],[2004,"羅馬"],[2005,"猛獸"],[2008,"被「天地乖離開辟之星」所剋"],[2009,"騎乘"],[2010,"亞瑟"],[2011,"被「人類神話・雷電降臨」所剋"]];
 	var c;
 	
 	var i;
@@ -26,9 +27,9 @@ function svtDataTable(svtId)
 	}
 	
 	var svtNrmlDataTxt="";
-	svtNrmlDataTxt="<tr><td rowspan=6 align=center>";
-	if(master.mstSvt[i].type!=5) svtNrmlDataTxt+="<img src=common/images/Servant/"+svtId+"_status_servant_2.png></img>";
-	svtNrmlDataTxt+="</td><th><b>編號</b></th><th><b>星數</b></th><th colspan=2><b>名稱</b></th><th><b>職階</b></th><th><b>特性</b></th></tr><tr align=\"center\"><td>No."+master.mstSvt[i].collectionNo+"</td><td class=\"star\">";
+	svtNrmlDataTxt="<tr><td rowspan=7 align=center>";
+	svtNrmlDataTxt+="<img src=common/images/Servant/"+svtId+"_status_servant_2.png onerror=\"javascript:this.style='display:none'\"></img>";
+	svtNrmlDataTxt+="</td><th><b>編號</b></th><th><b>星數</b></th><th colspan=2><b>名稱</b></th><th><b>職階</b></th><th><b>分類</b></th></tr><tr align=\"center\"><td>No."+master.mstSvt[i].collectionNo+"</td><td class=\"star\">";
 	for(c=0;c<master.mstSvtLimit[j].rarity;c++)
 		svtNrmlDataTxt+="★";
 	svtNrmlDataTxt+="</td><td colspan=2>";
@@ -42,9 +43,19 @@ function svtDataTable(svtId)
 	svtNrmlDataTxt+="<td>"+attriList[master.mstSvt[i].attri]+"</td></tr><tr><th><b>HP</b></th><th><b>ATK</b></th><th><b>繪師</b></th><th><b>CV</b></th><th><b>屬性</b></th><th><b>性別</b></th></tr><tr align=\"center\"><td>"+master.mstSvtLimit[j].hpBase+" / "+master.mstSvtLimit[j].hpMax+"</td><td>"+master.mstSvtLimit[j].atkBase+" / "+master.mstSvtLimit[j].atkMax+"</td>";
 	for(c=0;c<master.mstIllustrator.length;c++)
 		if(master.mstIllustrator[c].id==master.mstSvt[i].illustratorId) {svtNrmlDataTxt+="<td>"+master.mstIllustrator[c].name+"</td>";break;}
+	
+	svtNrmlDataTxt+="<td>";
+	if(master.mstSvt[i].cvId!=-1)
 	for(c=0;c<master.mstCv.length;c++)
-		if(master.mstCv[c].id==master.mstSvt[i].cvId) {svtNrmlDataTxt+="<td>"+master.mstCv[c].name+"</td>";break;}
+		if(master.mstCv[c].id==master.mstSvt[i].cvId) {svtNrmlDataTxt+=master.mstCv[c].name;break;}
+	svtNrmlDataTxt+="</td>";
 	svtNrmlDataTxt+="<td>"+policyList[master.mstSvtLimit[j].policy]+"・"+personalityList[master.mstSvtLimit[j].personality]+"</td><td>"+genderTypeList[master.mstSvt[i].genderType]+"</td></tr>";
+	
+	var traitArray = new Array();
+	for(c in master.mstSvt[i].individuality)
+		for(var k in individualityList)
+			if(master.mstSvt[i].individuality[c]==individualityList[k][0]) traitArray.push(individualityList[k][1]);
+	svtNrmlDataTxt+="<tr><th>特性</th><td colspan=5 align=center>"+traitArray+"</td></tr>";
 	document.getElementById("svtNrmlData").innerHTML=svtNrmlDataTxt;
 	
 	var svtCtrlDataTxt="";
@@ -152,22 +163,16 @@ function svtDataTable(svtId)
 					}
 					else{
 						skillText+="<td colspan=10>";
-						if(skDetailTxt[2+d]){
-							if(skDetailTxt[2+d].length==0)
-								skillText+=("　---");
-							else if(skDetailTxt[2+d]!=null) 
-							{
-								skillText+="　"+skDetailTxt[2+d].replace(/\//g," / ");
-							}
-						}
-						else skillText+="　---";
+						if(skDetailTxt[2+d]) skillText+="　"+skDetailTxt[2+d].replace(/\//g," / ");
+						else if(typeof skDetailTxt[2+d] !== 'undefined'&&skDetailTxt[2+d].length==0) skillText+=("　---");
+						else skillText+="　待補";
 					}
 				}
 				skillText+="</td></tr>";
 			}
 		}
 	}
-	svtSkTdDataTxt+="<tr><th rowspan="+skillrowCount+"><b>保有技能</b></th>"+skillText+"";
+	if(skillText.length>0)svtSkTdDataTxt+="<tr><th rowspan="+skillrowCount+"><b>保有技能</b></th>"+skillText+"";
 		
 	if(master.mstSvt[i].classPassive.length!=0){
 	skillText="";
@@ -267,8 +272,8 @@ function svtDataTable(svtId)
 				var isLvUp = tdDetailArray[d].search(/\{0\}/);
 				var isOCUp = tdDetailArray[d].search(/</);
 				tdDetailArray[d]=tdDetailArray[d].replace(/\{0\}/g,"Lv.");
-				tdDetailArray[d]=tdDetailArray[d].replace(/</g,"<font color=\"#CC6600\">< ");
-				tdDetailArray[d]=tdDetailArray[d].replace(/< O/g,"<br>< O");
+				tdDetailArray[d]=tdDetailArray[d].replace(/</g,"<font color=\"#CC6600\"><");
+				tdDetailArray[d]=tdDetailArray[d].replace(/<O/g,"<br>< O");
 				tdDetailArray[d]=tdDetailArray[d].replace(/P>/g,"P ></font>");
 				tdDetailArray[d]=tdDetailArray[d].replace(/【/g,"<font color=\"#006400 \">【");
 				tdDetailArray[d]=tdDetailArray[d].replace(/】/g,"】</font>");
@@ -288,15 +293,9 @@ function svtDataTable(svtId)
 					}
 					else{
 						skillText+="<td colspan=10>";
-						if(tdDetailTxt[2+d]){
-							if(tdDetailTxt[2+d].length==0)
-								skillText+=("　---");
-							else if(tdDetailTxt[2+d]!=null) 
-							{
-								skillText+="　"+tdDetailTxt[2+d].replace(/\//g," / ");
-							}
-						}
-						else skillText+="　---";
+						if(tdDetailTxt[2+d]) skillText+="　"+tdDetailTxt[2+d].replace(/\//g," / ");
+						else if(typeof tdDetailTxt[2+d] !== 'undefined'&&tdDetailTxt[2+d].length==0) skillText+=("　---");
+						else skillText+="　待補";
 					}
 				}
 				skillText+="</td></tr>";
@@ -326,7 +325,7 @@ function svtDataTable(svtId)
 			svtInfoDataTxt+="</th>";
 			if(master.mstSvtComment[c].condValue%2==0) tdColor=" bgcolor=\" #ECF2F3\""; else tdColor="";
 			svtInfoDataTxt+="<td colspan=6"+tdColor+">"+master.mstSvtComment[c].comment.replace(/\n/g,"<br>");+"</td></tr>";
-			if(master.mstSvtComment[c].condType==1) break;
+			//if(master.mstSvtComment[c].condType==1) break;
 		}
 	}
 	document.getElementById("svtInfoData").innerHTML=svtInfoDataTxt;
@@ -350,7 +349,7 @@ function svtDataTable(svtId)
 				svtCmbnDataTxt+= addCommas(master.mstCombineLimit[c].qp) + "QP";
 			}
 	}svtCmbnDataTxt+="</td></tr>";}
-	svtCmbnDataTxt+="<tr><th rowspan=9><b>技能強化</b></th>";
+	svtCmbnDataTxt+="<tr><th rowspan=9><b>技能強化</b></th>";var combineCount = 0;
 	for(c=0;c<master.mstCombineSkill.length;c++)
 	{
 		var tdColor=""; if(c%2==0) tdColor=" bgcolor=\" #ECF2F3\"";
@@ -362,13 +361,14 @@ function svtDataTable(svtId)
 			{
 				svtCmbnDataTxt+=findItemName(master.mstCombineSkill[c].itemIds[k]) + "x" + master.mstCombineSkill[c].itemNums[k] + " + ";
 			}
-			svtCmbnDataTxt+= addCommas(master.mstCombineSkill[c].qp) + "QP</td></tr>";
+			svtCmbnDataTxt+= addCommas(master.mstCombineSkill[c].qp) + "QP</td></tr>";combineCount++;
 		}
 	}
+	if(combineCount==0) svtCmbnDataTxt+="<td colspan=2>無</td></tr>";
 	document.getElementById("svtCmbnData").innerHTML=svtCmbnDataTxt;
 
 	document.getElementById("svtImgData").innerHTML="";
-	if(master.mstSvt[i].type!=5) document.getElementById("svtImgData").innerHTML="<tr><td><img src=common/images/Servant/"+svtId+"_card_servant_1.png></img><img src=common/images/Servant/"+svtId+"_card_servant_2.png></img><img src=common/images/Servant/"+svtId+"_card_servant_3.png></img><br><img src=common/images/CharaGraph/"+svtId+"a.png></img><br><img src=common/images/CharaGraph/"+svtId+"b.png></img></td></tr>";
+	document.getElementById("svtImgData").innerHTML="<tr><td><img src=common/images/Servant/"+svtId+"_card_servant_1.png onerror=\"javascript:this.style='display:none'\"></img><img src=common/images/Servant/"+svtId+"_card_servant_2.png onerror=\"javascript:this.style='display:none'\"></img><img src=common/images/Servant/"+svtId+"_card_servant_3.png onerror=\"javascript:this.style='display:none'\"></img><br><img src=common/images/CharaGraph/"+svtId+"a.png onerror=\"javascript:this.style='display:none'\"></img><br><img src=common/images/CharaGraph/"+svtId+"b.png onerror=\"javascript:this.style='display:none'\"></img></td></tr>";
 	
 	var svtLvDataTxt="<tr><th>等級</th><th>ATK</th><th>HP</th><th>上升幅度</th></tr>";
 	for(c=0;c<master.mstSvt[i].rewardLv;c++)
@@ -407,7 +407,7 @@ function classidChange()
 	{
 		for(i=0;i<master.mstSvt.length;i++)
 		{
-			if(master.mstSvt[i].type==1||master.mstSvt[i].type==2||master.mstSvt[i].type==5){
+			if(master.mstSvt[i].type==1||master.mstSvt[i].type==2||master.mstSvt[i].type==5||master.mstSvt[i].type==9){
 				var svtNameZh = findSvtNameZh(master.mstSvt[i].id);
 				if(svtNameZh) svtid.options.add(new Option("No." + master.mstSvt[i].collectionNo + " " + svtNameZh,master.mstSvt[i].id));
 				else svtid.options.add(new Option("No." + master.mstSvt[i].collectionNo + " " + master.mstSvt[i].name,master.mstSvt[i].id));}
@@ -418,7 +418,7 @@ function classidChange()
 		for(i=0;i<master.mstSvt.length;i++)
 		{
 			if(master.mstSvt[i].classId==classid.value)
-				{if(master.mstSvt[i].type==1||master.mstSvt[i].type==2||master.mstSvt[i].type==5){
+				{if(master.mstSvt[i].type==1||master.mstSvt[i].type==2||master.mstSvt[i].type==5||master.mstSvt[i].type==9){
 				var svtNameZh = findSvtNameZh(master.mstSvt[i].id);
 				if(svtNameZh) svtid.options.add(new Option("No." + master.mstSvt[i].collectionNo + " " + svtNameZh,master.mstSvt[i].id));
 				else svtid.options.add(new Option("No." + master.mstSvt[i].collectionNo + " " + master.mstSvt[i].name,master.mstSvt[i].id));}}
@@ -518,7 +518,7 @@ function urlId()
 	if(getUrl("no")) getSvtId = getUrl("no");
 	if(getSvtId){
 		for(i in master.mstSvt)
-			if((master.mstSvt[i].type==1||master.mstSvt[i].type==2||master.mstSvt[i].type==5)&&getSvtId==master.mstSvt[i].collectionNo)
+			if((master.mstSvt[i].type==1||master.mstSvt[i].type==2||master.mstSvt[i].type==5||master.mstSvt[i].type==9)&&getSvtId==master.mstSvt[i].collectionNo)
 			{		$("#svtid").val(master.mstSvt[i].id);break;}
 		//if(i==master.mstSvt.length-1) alert("找不到與輸入的id有關之資料，請確認網址無誤");
 	}

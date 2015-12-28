@@ -33,7 +33,7 @@ function trdvDataOut(searchData,searchId)
 	var skillrowCount=0;
 	for(var c in master.mstSvt)
 	{
-		if(master.mstSvt[c].type==1||master.mstSvt[c].type==2||master.mstSvt[c].type==5){
+		if(master.mstSvt[c].type==1||master.mstSvt[c].type==2||master.mstSvt[c].type==5||master.mstSvt[c].type==9){
 			var svtTrdvrowCount=0;
 			var sklTxt="";
 			
@@ -80,7 +80,7 @@ function trdvDataOut(searchData,searchId)
 							if(d!=0) skillText+="<tr>"
 							skillText+="<td>"+tdDetailArray[d]+"</td>";
 							
-							if(isLvUp&&tdDetailTxt[2+d].search(/\//)!=-1){
+							if(isLvUp&&tdDetailTxt[2+d]&&tdDetailTxt[2+d].search(/\//)!=-1){
 								var skLvArray = new Array();
 									skLvArray = tdDetailTxt[2+d].split(/\//);
 								for(g in skLvArray)
@@ -88,13 +88,9 @@ function trdvDataOut(searchData,searchId)
 							}
 							else{
 								skillText+="<td colspan=5>";
-								if(tdDetailTxt[2+d].length==0)
-									skillText+=("　---");
-								else if(tdDetailTxt[2+d]!=null) 
-								{
-									skillText+="　"+tdDetailTxt[2+d].replace(/\//g," / ");
-								}
-								else skillText+="待補";
+								if(tdDetailTxt[2+d]) skillText+="　"+tdDetailTxt[2+d].replace(/\//g," / ");
+								else if(typeof tdDetailTxt[2+d] !== 'undefined'&&tdDetailTxt[2+d].length==0) skillText+=("　---");
+								else skillText+="　待補";
 							}
 						}
 						skillText+="</td></tr>";

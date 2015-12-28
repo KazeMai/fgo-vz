@@ -73,7 +73,7 @@ function sklDataOut(searchData,searchId)
 					if(d!=0) skillText+="<tr>"
 					skillText+="<td>"+skDetailArray[d]+"</td>";
 					
-					if(isLvUp&&skDetailTxt[2+d].search(/\//)!=-1){
+					if(skDetailTxt[2+d]&&isLvUp&&skDetailTxt[2+d].search(/\//)!=-1){
 						var skLvArray = new Array();
 							skLvArray = skDetailTxt[2+d].split(/\//);
 						for(k in skLvArray)
@@ -81,13 +81,9 @@ function sklDataOut(searchData,searchId)
 					}
 					else{
 						skillText+="<td colspan=10>";
-						if(skDetailTxt[2+d].length==0)
-							skillText+=("　---");
-						else if(skDetailTxt[2+d]!=null) 
-						{
-							skillText+="　"+skDetailTxt[2+d].replace(/\//g," / ");
-						}
-						else skillText+="待補";
+						if(skDetailTxt[2+d]) skillText+="　"+skDetailTxt[2+d].replace(/\//g," / ");
+						else if(typeof skDetailTxt[2+d] !== 'undefined'&&skDetailTxt[2+d].length==0) skillText+=("　---");
+						else skillText+="　待補";
 					}
 				}
 				skillText+="</td></tr>";
