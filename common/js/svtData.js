@@ -46,8 +46,10 @@ function svtDataTable(svtId)
 	
 	svtNrmlDataTxt+="<td>";
 	if(master.mstSvt[i].cvId!=-1)
-	for(c=0;c<master.mstCv.length;c++)
-		if(master.mstCv[c].id==master.mstSvt[i].cvId) {svtNrmlDataTxt+=master.mstCv[c].name;break;}
+		for(c=0;c<master.mstCv.length;c++){
+			if(master.mstCv[c].id==master.mstSvt[i].cvId) {svtNrmlDataTxt+=master.mstCv[c].name;break;}
+		}
+	else svtNrmlDataTxt+="？？？";
 	svtNrmlDataTxt+="</td>";
 	svtNrmlDataTxt+="<td>"+policyList[master.mstSvtLimit[j].policy]+"・"+personalityList[master.mstSvtLimit[j].personality]+"</td><td>"+genderTypeList[master.mstSvt[i].genderType]+"</td></tr>";
 	

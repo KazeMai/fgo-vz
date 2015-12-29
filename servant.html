@@ -30,7 +30,7 @@
 function svtTableOut(searchData,searchId)
 {
 	var classarray = new Array();
-	var getClassId = "1,2,3,4,5,6,7,8,9";
+	var getClassId = "1,2,3,4,5,6,7,8,9,17";
 	if(getUrl("class")) getClassId = getUrl("class");
 	if(getClassId){
 		classarray = getClassId.split(/,/).slice(0);
@@ -64,7 +64,7 @@ function svtTableOut(searchData,searchId)
 	var svtStatusPlusList = ["","","+","++","?","?","?","?","?",""];
 	for(i in master.mstSvt)
 	{
-		if(master.mstSvt[i].type==1||master.mstSvt[i].type==2||master.mstSvt[i].type==5)
+		if(master.mstSvt[i].type==1||master.mstSvt[i].type==2||master.mstSvt[i].type==5||master.mstSvt[i].type==9)
 		{
 		for(var t in classarray){
 			if (classarray[t]==master.mstSvt[i].classId){
@@ -159,7 +159,7 @@ function classFilter()
 	{
 		if(cl[i].checked==true) rarityarray.push(cl[i].value);
 	}
-	var classUrl = false; if(classarray!="1,2,3,4,5,6,7,8,9") classUrl=true;
+	var classUrl = false; if(classarray!="1,2,3,4,5,6,7,8,9,17") classUrl=true;
 	var rarityUrl = false; if(rarityarray!="1,2,3,4,5") rarityUrl=true;
 	if(classUrl||rarityUrl) urltxt+="?";
 	if(classUrl) urltxt+="class="+classarray;
