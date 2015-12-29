@@ -231,7 +231,29 @@ function svtDataTable(svtId)
 					skillText+="<b><font color=\"#"+cardList[master.mstSvtTreasureDevice[k].cardId]+"\">"+master.mstTreasureDevice[c].name+"</font></b></td><td colspan=2>"+master.mstTreasureDevice[c].rank+"</td><td colspan=3>"+master.mstTreasureDevice[c].typeText.replace(/対/g,"對").replace(/宝/g,"寶").replace(/剣/g,"劍").replace(/悪/g,"惡").replace(/奥/g,"奧")+"</td><td colspan=3>";
 					
 					if(master.mstSvtTreasureDevice[k].condQuestId==0&&master.mstSvtTreasureDevice[k].condLv==0&&master.mstSvtTreasureDevice[k].condFriendshipRank==0) skillText+="初期"
-					else if(findName(master.mstQuest,master.mstSvtTreasureDevice[k].condQuestId)!=null) skillText+=master.mstQuest[findName(master.mstQuest,master.mstSvtTreasureDevice[k].condQuestId)].name;
+					else if(findName(master.mstQuest,master.mstSvtTreasureDevice[k].condQuestId)!=null)
+					{
+						skillText+="<abbr title='";
+						var realseChp,realseLimit,realseFriend,realseBool;
+						for(var rea=0;rea<master.mstQuestRelease.length;rea++){
+							if(master.mstQuestRelease[rea].questId==master.mstSvtTreasureDevice[k].condQuestId){
+								if(master.mstQuestRelease[rea].type==1)
+									{if(master.mstQuestRelease[rea].targetId==0) realseBool=-1;else if(master.mstQuestRelease[rea].targetId<91000000)realseChp=master.mstQuestRelease[rea].targetId;}
+								if(master.mstQuestRelease[rea].type==7)
+									realseLimit=master.mstQuestRelease[rea].value;
+								if(master.mstQuestRelease[rea].type==9)
+									realseFriend=master.mstQuestRelease[rea].value;
+							}
+						}
+						if(realseBool==-1) skillText+="尚未開放";
+						else{
+							for(var war=0;war<master.mstWar.length;war++)
+								if(Math.floor(realseChp/100-10000)==master.mstWar[war].id-100)
+									{skillText+="開放條件：通過"+master.mstWar[war].name.replace(/点/g,"點")+"";break;}
+							skillText+="+靈基第"+realseLimit+"階段+絆等級"+realseFriend+"";
+						}
+						skillText+="'>"+master.mstQuest[findName(master.mstQuest,master.mstSvtTreasureDevice[k].condQuestId)].name+"</abbr>";
+					}
 					else if(master.mstSvtTreasureDevice[k].condLv!=0) skillText+="Lv."+master.mstSvtTreasureDevice[k].condLv+"解放";
 					else if(master.mstSvtTreasureDevice[k].condFriendshipRank!=0) skillText+="絆等級"+master.mstSvtTreasureDevice[k].condFriendshipRank+"解放";
 					else skillText+="未開放";
@@ -280,6 +302,7 @@ function svtDataTable(svtId)
 				tdDetailArray[d]=tdDetailArray[d].replace(/【/g,"<font color=\"#006400 \">【");
 				tdDetailArray[d]=tdDetailArray[d].replace(/】/g,"】</font>");
 				tdDetailArray[d]=tdDetailArray[d].replace(/\[Lv.]/g,"<font color=\"#CC00CC \">[Lv.]</font>");
+				tdDetailArray[d]=tdDetailArray[d].replace(/\n/g,"<br>");
 				
 				if(document.getElementById('isJpTxt').checked) skillText+="<td colspan=12>"+tdDetailArray[d]+"</td>";
 				
