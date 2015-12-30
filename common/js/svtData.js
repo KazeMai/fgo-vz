@@ -234,23 +234,26 @@ function svtDataTable(svtId)
 					else if(findName(master.mstQuest,master.mstSvtTreasureDevice[k].condQuestId)!=null)
 					{
 						skillText+="<abbr title='";
-						var realseChp,realseLimit,realseFriend,realseBool;
-						for(var rea=0;rea<master.mstQuestRelease.length;rea++){
-							if(master.mstQuestRelease[rea].questId==master.mstSvtTreasureDevice[k].condQuestId){
-								if(master.mstQuestRelease[rea].type==1)
-									{if(master.mstQuestRelease[rea].targetId==0) realseBool=-1;else if(master.mstQuestRelease[rea].targetId<91000000)realseChp=master.mstQuestRelease[rea].targetId;}
-								if(master.mstQuestRelease[rea].type==7)
-									realseLimit=master.mstQuestRelease[rea].value;
-								if(master.mstQuestRelease[rea].type==9)
-									realseFriend=master.mstQuestRelease[rea].value;
+						if(master.mstQuest[findName(master.mstQuest,master.mstSvtTreasureDevice[k].condQuestId)].type==3)
+						{
+							var realseChp,realseLimit,realseFriend,realseBool;
+							for(var rea=0;rea<master.mstQuestRelease.length;rea++){
+								if(master.mstQuestRelease[rea].questId==master.mstSvtTreasureDevice[k].condQuestId){
+									if(master.mstQuestRelease[rea].type==1)
+										{if(master.mstQuestRelease[rea].targetId==0) realseBool=-1;else if(master.mstQuestRelease[rea].targetId<91000000)realseChp=master.mstQuestRelease[rea].targetId;}
+									if(master.mstQuestRelease[rea].type==7)
+										realseLimit=master.mstQuestRelease[rea].value;
+									if(master.mstQuestRelease[rea].type==9)
+										realseFriend=master.mstQuestRelease[rea].value;
+								}
 							}
-						}
-						if(realseBool==-1) skillText+="尚未開放";
-						else{
-							for(var war=0;war<master.mstWar.length;war++)
-								if(Math.floor(realseChp/100-10000)==master.mstWar[war].id-100)
-									{skillText+="開放條件：通過"+master.mstWar[war].name.replace(/点/g,"點")+"";break;}
-							skillText+="+靈基第"+realseLimit+"階段+絆等級"+realseFriend+"";
+							if(realseBool==-1) skillText+="尚未開放";
+							else{
+								for(var war=0;war<master.mstWar.length;war++)
+									if(Math.floor(realseChp/100-10000)==master.mstWar[war].id-100)
+										{skillText+="開放條件：通過"+master.mstWar[war].name.replace(/点/g,"點")+"";break;}
+								skillText+="+靈基第"+realseLimit+"階段+絆等級"+realseFriend+"";
+							}
 						}
 						skillText+="'>"+master.mstQuest[findName(master.mstQuest,master.mstSvtTreasureDevice[k].condQuestId)].name+"</abbr>";
 					}

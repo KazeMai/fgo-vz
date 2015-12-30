@@ -14,7 +14,7 @@
 	}
 	for(var j in master.mstSvtLimit)
 	{
-		if(master.mstSvtLimit[j].svtId==svtid.value&&master.mstSvtLimit[j].limitCount==4)break;
+		if(master.mstSvtLimit[j].svtId==svtid.value&&master.mstSvtLimit[j].limitCount==master.mstSvt[i].limitMax)break;
 	}
 	if(j==master.mstSvtLimit.length-1)
 		for(var j in master.mstSvtLimit)
