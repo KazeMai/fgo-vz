@@ -7,7 +7,7 @@
   position:fixed;
   left:0px;
   overflow:auto;*/
-  width:250px;height:100%;position:fixed;top:8px;
+  width:255px;height:100%;position:fixed;top:8px;overflow:auto;
 }
 #div_content{
   /*height:auto;
