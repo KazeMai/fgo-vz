@@ -27,7 +27,7 @@
 <script type="text/javascript">
 function sklDataOut(searchData,searchId)
 {
-	var sklDataTxt="<tr><th>圖示</th><th>技能名</th><th>使用者</th><th>CD</th><th>效果</th><th>Lv.1</th><th>Lv.2</th><th>Lv.3</th><th>Lv.4</th><th>Lv.5</th><th>Lv.6</th><th>Lv.7</th><th>Lv.8</th><th>Lv.9</th><th>Lv.10</th></tr>";
+	var sklDataTxt="<tr><th width=6>圖示</th><th>技能名</th><th>使用者</th><th>CD</th><th>效果</th><th>Lv.1</th><th>Lv.2</th><th>Lv.3</th><th>Lv.4</th><th>Lv.5</th><th>Lv.6</th><th>Lv.7</th><th>Lv.8</th><th>Lv.9</th><th>Lv.10</th></tr>";
 	var pasDataTxt="<tr><th>圖示</th><th>技能名</th><th>使用者</th><th>CD</th><th>效果</th><th colspan=10>倍率</th></tr>";
 	var eqpDataTxt="<tr><th>圖示</th><th>技能名</th><th>Master裝備</th><th>CD</th><th>效果</th><th>Lv.1</th><th>Lv.2</th><th>Lv.3</th><th>Lv.4</th><th>Lv.5</th><th>Lv.6</th><th>Lv.7</th><th>Lv.8</th><th>Lv.9</th><th>Lv.10</th></tr>";
 	var skillText="";
@@ -96,15 +96,21 @@ function sklDataOut(searchData,searchId)
 			{
 				if(master.mstSkill[c].id==master.mstSvtSkill[k].skillId)
 					for(d=0;d<svtName.length;d++)
-						if(svtName[d][0]==master.mstSvtSkill[k].svtId){sklTxt+="<a href=svtData.html?no="+master.mstSvt[findName(master.mstSvt,master.mstSvtSkill[k].svtId)].collectionNo
-+">"+svtName[d][2]+"</a><br>";break;}
+						if(svtName[d][0]==master.mstSvtSkill[k].svtId){
+							if(master.mstSvt[findName(master.mstSvt,master.mstSvtSkill[k].svtId)].collectionNo==0) sklTxt+="<a href=svtData.html?id="+master.mstSvt[findName(master.mstSvt,master.mstSvtSkill[k].svtId)].id+">";
+							else sklTxt+="<a href=svtData.html?no="+master.mstSvt[findName(master.mstSvt,master.mstSvtSkill[k].svtId)].collectionNo
++">";
+							sklTxt+=svtName[d][2]+"</a><br>";break;}
 			}
 			if(k==master.mstSvtSkill.length-1)
 				for(k in master.mstSvt)
 					for(var t in master.mstSvt[k].classPassive)
 						if(master.mstSvt[k].classPassive[t]==master.mstSkill[c].id)
 							for(d in svtName)
-								if(svtName[d][0]==master.mstSvt[k].id){sklTxt+="<a href=svtData.html?no="+master.mstSvt[k].collectionNo+">"+svtName[d][2]+"</a><br>";break;}
+								if(svtName[d][0]==master.mstSvt[k].id){
+									if(master.mstSvt[k].collectionNo==0) sklTxt+="<a href=svtData.html?id="+master.mstSvt[k].id+">";
+									else sklTxt+="<a href=svtData.html?no="+master.mstSvt[k].collectionNo+">";
+									sklTxt+=svtName[d][2]+"</a><br>";break;}
 			if(k==master.mstSvt.length-1)
 				for(k in master.mstEquipSkill)
 					if(master.mstEquipSkill[k].skillId==master.mstSkill[c].id)

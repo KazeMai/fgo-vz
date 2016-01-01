@@ -29,7 +29,7 @@
 function trdvDataOut(searchData,searchId)
 {
 	var cardList = ["","0000ff","ff0000","00ff00"];
-	var trdvDataTxt="<tr><th>Servant</th><th>寶具名</th><th>等級</th><th>種類</th><th>攻擊次數</th><th>效果</th><th>Lv.1</th><th>Lv.2</th><th>Lv.3</th><th>Lv.4</th><th>Lv.5</th></tr>";
+	var trdvDataTxt="<tr><th>Servant</th><th>寶具名</th><th>等級</th><th>種類</th><th>Hit數</th><th>效果</th><th>Lv.1</th><th>Lv.2</th><th>Lv.3</th><th>Lv.4</th><th>Lv.5</th></tr>";
 	var skillText="";
 	var skillrowCount=0;
 	for(var c in master.mstSvt)
@@ -121,8 +121,8 @@ function trdvDataOut(searchData,searchId)
 					svtTrdvrowCount+=skillrowCount;
 				}
 			}
-			
-			trdvDataTxt+="<tr><td align=center rowspan="+svtTrdvrowCount+"><a href='svtData.html?no="+master.mstSvt[c].collectionNo+"'>";
+			if(master.mstSvt[c].collectionNo==0) trdvDataTxt+="<tr><td align=center rowspan="+svtTrdvrowCount+"><a href='svtData.html?id="+master.mstSvt[c].id+"'>";
+			else trdvDataTxt+="<tr><td align=center rowspan="+svtTrdvrowCount+"><a href='svtData.html?no="+master.mstSvt[c].collectionNo+"'>";
 				trdvDataTxt+="<img src='common/images/icon/faces/"+master.mstSvt[c].id+"0.png' onerror=\"javascript:this.src='common/images/icon/faces/0.png'\" width=80></img>";
 				/*for(d in svtName)
 					if(svtName[d][0]==master.mstSvt[c].id){trdvDataTxt+=svtName[d][2]+"<br>";break;}*/
@@ -149,7 +149,7 @@ function findName(searchData,searchId)
     <!--主要內容區塊開始-->
     <div id="div_content"><div class="container">
 <article class="content textsize">
-<table id="trdvData" width=1100><tr><td></td></tr></table>
+<table id="trdvData" style="width:1100px"><tr><td></td></tr></table>
 </article>
 </div>
 <div id="gotop"><a href="#"><img src="common/images/btn_gotop_off.jpg" width="47" height="47" alt="返回頂端" /></a></div>

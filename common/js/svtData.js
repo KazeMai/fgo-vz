@@ -543,11 +543,19 @@ function getUrl(getStr)
 function urlId()
 {
 	var getSvtId = "1";
+	var getSvtId2 = "";
 	if(getUrl("no")) getSvtId = getUrl("no");
+	if(getUrl("id")) getSvtId2 = getUrl("id");
 	if(getSvtId){
-		for(i in master.mstSvt)
-			if((master.mstSvt[i].type==1||master.mstSvt[i].type==2||master.mstSvt[i].type==5||master.mstSvt[i].type==9)&&getSvtId==master.mstSvt[i].collectionNo)
-			{		$("#svtid").val(master.mstSvt[i].id);break;}
+		if(getSvtId2.length!=0){
+			for(i in master.mstSvt)
+				if((master.mstSvt[i].type==1||master.mstSvt[i].type==2||master.mstSvt[i].type==5||master.mstSvt[i].type==9)&&getSvtId2==master.mstSvt[i].id)
+				{		$("#svtid").val(master.mstSvt[i].id);break;}
+		}
+		else
+			for(i in master.mstSvt)
+				if((master.mstSvt[i].type==1||master.mstSvt[i].type==2||master.mstSvt[i].type==5||master.mstSvt[i].type==9)&&getSvtId==master.mstSvt[i].collectionNo)
+				{		$("#svtid").val(master.mstSvt[i].id);break;}
 		//if(i==master.mstSvt.length-1) alert("找不到與輸入的id有關之資料，請確認網址無誤");
 	}
 	svtidChange();

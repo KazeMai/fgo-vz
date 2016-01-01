@@ -74,7 +74,8 @@ function svtTableOut(searchData,searchId)
 				{if(master.mstSvtLimit[j].svtId==master.mstSvt[i].id)break;}
 				for(var h in rarityarray){
 					if (rarityarray[h]==master.mstSvtLimit[j].rarity){
-			svtTableTxt+="<tr align=\"center\"><td><a href='svtData.html?no="+master.mstSvt[i].collectionNo+"'>";
+			if(master.mstSvt[i].collectionNo==0) svtTableTxt+="<tr align=\"center\"><td><a href='svtData.html?id="+master.mstSvt[i].id+"'>";
+			else svtTableTxt+="<tr align=\"center\"><td><a href='svtData.html?no="+master.mstSvt[i].collectionNo+"'>";
 			svtTableTxt+="<img src='common/images/icon/faces/"+master.mstSvt[i].id+"0.png' onerror=javascript:this.src='common/images/icon/faces/0.png' width=80></img>";
 			svtTableTxt+="</a></td>";
 			
@@ -83,7 +84,8 @@ function svtTableOut(searchData,searchId)
 				svtTableTxt+="★";
 			svtTableTxt+="</td>";
 			
-			svtTableTxt+="<td><a href='svtData.html?no="+master.mstSvt[i].collectionNo+"'>";
+			if(master.mstSvt[i].collectionNo==0) svtTableTxt+="<td><a href='svtData.html?id="+master.mstSvt[i].id+"'>";
+			else svtTableTxt+="<td><a href='svtData.html?no="+master.mstSvt[i].collectionNo+"'>";
 			var svtNameZh = findSvtNameZh(master.mstSvt[i].id);
 			if(svtNameZh) svtTableTxt+="<div class=ruby>"+master.mstSvt[i].ruby+"</div>"+svtNameZh;
 			else svtTableTxt+=master.mstSvt[i].name;
