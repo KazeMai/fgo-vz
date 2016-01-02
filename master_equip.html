@@ -40,7 +40,8 @@ function equipDataOut(searchData,searchId)
 		{
 			if(master.mstEquipExp[j].equipId==master.mstEquip[i].id&&equipCount==master.mstEquipExp[j].lv&&master.mstEquipExp[j].lv<lvMax)
 			{
-				equipDataTxt+="<td align=center>"+master.mstEquipExp[j].exp+"</td>";
+				if(j==0) equipDataTxt+="<td align=center>"+master.mstEquipExp[j].exp+"</td>";
+				else equipDataTxt+="<td align=center>"+(master.mstEquipExp[j].exp-master.mstEquipExp[j-1].exp)+"</td>";
 				equipCount++;
 			}
 		}
