@@ -34,14 +34,14 @@ function equipDataOut(searchData,searchId)
 	equipDataTxt="";
 	for(var i in master.mstEquip)
 	{
-		equipDataTxt+="<tr id='eqp"+master.mstEquip[i].id+"'><th rowspan=2 colspan=2 width=250>裝備</th><th rowspan=2 colspan=3>敘述</th><th colspan=9>升級所需Exp</th></tr><tr><th>Lv.1→2</th><th>Lv.2→3</th><th>Lv.3→4</th><th>Lv.4→5</th><th>Lv.5→6</th><th>Lv.6→7</th><th>Lv.7→8</th><th>Lv.8→9</th><th>Lv.9→10</th></tr><tr><td colspan=2 align=center><b>"+master.mstEquip[i].name+"</b><br><img src='common/images/icon/equip/"+master.mstEquip[i].maleImageId+".png'  onerror=javascript:this.src='common/images/icon/faces/0.png' width=75 /><img src='common/images/icon/equip/"+master.mstEquip[i].femaleImageId+".png'  onerror=javascript:this.src='common/images/icon/faces/0.png' width=75 /></td><td colspan=3>"+master.mstEquip[i].detail.replace(/\n/g,"<br>")+"</td>";
+		equipDataTxt+="<tr id='eqp"+master.mstEquip[i].id+"'><th rowspan=2 colspan=2 width=250>裝備</th><th rowspan=2 colspan=3>敘述</th><th colspan=9>升級所需Exp(累積)</th></tr><tr><th>Lv.1→2</th><th>Lv.2→3</th><th>Lv.3→4</th><th>Lv.4→5</th><th>Lv.5→6</th><th>Lv.6→7</th><th>Lv.7→8</th><th>Lv.8→9</th><th>Lv.9→10</th></tr><tr><td colspan=2 align=center><b>"+master.mstEquip[i].name+"</b><br><img src='common/images/icon/equip/"+master.mstEquip[i].maleImageId+".png'  onerror=javascript:this.src='common/images/icon/faces/0.png' width=75 /><img src='common/images/icon/equip/"+master.mstEquip[i].femaleImageId+".png'  onerror=javascript:this.src='common/images/icon/faces/0.png' width=75 /></td><td colspan=3>"+master.mstEquip[i].detail.replace(/\n/g,"<br>")+"</td>";
 		var equipCount=1;
 		for(var j in master.mstEquipExp)
 		{
 			if(master.mstEquipExp[j].equipId==master.mstEquip[i].id&&equipCount==master.mstEquipExp[j].lv&&master.mstEquipExp[j].lv<lvMax)
 			{
-				if(j==0) equipDataTxt+="<td align=center>"+master.mstEquipExp[j].exp+"</td>";
-				else equipDataTxt+="<td align=center>"+(master.mstEquipExp[j].exp-master.mstEquipExp[j-1].exp)+"</td>";
+				if(master.mstEquipExp[j].lv==1) equipDataTxt+="<td align=center>"+master.mstEquipExp[j].exp+"</td>";
+				else equipDataTxt+="<td align=center>"+(master.mstEquipExp[j].exp-master.mstEquipExp[j-1].exp)+"<br>("+master.mstEquipExp[j].exp+")</td>";
 				equipCount++;
 			}
 		}
