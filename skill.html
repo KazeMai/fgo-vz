@@ -61,7 +61,7 @@ function sklDataOut(searchData,searchId)
 			
 			skillrowCount+=skDetailArray.length;
 			for(var d=0;d<skDetailArray.length;d++){
-				var isLvUp = skDetailArray[d].search(/\{0\}/);
+				var isLvUp = skDetailArray[d].search(/\{0\}|Lv/);
 				skDetailArray[d]=skDetailArray[d].replace(/\{0\}/g,"Lv.");
 				skDetailArray[d]=skDetailArray[d].replace(/\[Lv.]/g,"<font color=\"#CC00CC \">[Lv.]</font>");
 				skDetailArray[d]=skDetailArray[d].replace(/【/g,"<font color=\"#006400 \">【");
@@ -73,7 +73,7 @@ function sklDataOut(searchData,searchId)
 					if(d!=0) skillText+="<tr>"
 					skillText+="<td>"+skDetailArray[d]+"</td>";
 					
-					if(skDetailTxt[2+d]&&isLvUp&&skDetailTxt[2+d].search(/\//)!=-1){
+					if(skDetailTxt[2+d]&&isLvUp!=-1&&skDetailTxt[2+d].search(/\//)!=-1){
 						var skLvArray = new Array();
 							skLvArray = skDetailTxt[2+d].split(/\//);
 						for(k in skLvArray)

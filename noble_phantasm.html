@@ -67,10 +67,11 @@ function trdvDataOut(searchData,searchId)
 					
 					skillrowCount+=tdDetailArray.length;
 					for(var d=0;d<tdDetailArray.length;d++){
-						var isLvUp = tdDetailArray[d].search(/\{0\}/);
+						var isLvUp = tdDetailArray[d].search(/\{0\}|Lv/);
+						var isOCUp = tdDetailArray[d].search(/<O|<オ/);
 						tdDetailArray[d]=tdDetailArray[d].replace(/\{0\}/g,"Lv.");
-						tdDetailArray[d]=tdDetailArray[d].replace(/</g,"<font color=\"#CC6600\">< ");
-						tdDetailArray[d]=tdDetailArray[d].replace(/< O/g,"<br>< O");
+						tdDetailArray[d]=tdDetailArray[d].replace(/<O/g,"<font color=\"#CC6600\"><br>< O");
+						tdDetailArray[d]=tdDetailArray[d].replace(/<オ/g,"<font color=\"#CC6600\"><オ");
 						tdDetailArray[d]=tdDetailArray[d].replace(/P>/g,"P ></font>");
 						tdDetailArray[d]=tdDetailArray[d].replace(/【/g,"<font color=\"#006400 \">【");
 						tdDetailArray[d]=tdDetailArray[d].replace(/】/g,"】</font>");
@@ -82,7 +83,7 @@ function trdvDataOut(searchData,searchId)
 							if(d!=0) skillText+="<tr>"
 							skillText+="<td>"+tdDetailArray[d]+"</td>";
 							
-							if(isLvUp&&tdDetailTxt[2+d]&&tdDetailTxt[2+d].search(/\//)!=-1){
+							if((isLvUp!=-1||isOCUp!=-1)&&tdDetailTxt[2+d]&&tdDetailTxt[2+d].search(/\//)!=-1){
 								var skLvArray = new Array();
 									skLvArray = tdDetailTxt[2+d].split(/\//);
 								for(g in skLvArray)

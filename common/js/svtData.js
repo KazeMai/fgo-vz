@@ -34,9 +34,11 @@ function svtDataTable(svtId)
 		svtNrmlDataTxt+="★";
 	svtNrmlDataTxt+="</td><td colspan=2>";
 	var svtNameZh = findSvtNameZh(master.mstSvt[i].id);
-	if(svtNameZh&&!document.getElementById('isJpTxt').checked) svtNrmlDataTxt+="<div class=ruby>" + master.mstSvt[i].name + "</div>" + svtNameZh;
-	else svtNrmlDataTxt+=master.mstSvt[i].name;
+	if(svtNameZh&&!document.getElementById('isJpTxt').checked)
+		{svtNrmlDataTxt+="<div class=ruby>" + master.mstSvt[i].name + "</div>" + svtNameZh;}
+	else {svtNrmlDataTxt+=master.mstSvt[i].name;}
 	svtNrmlDataTxt+="</td>";
+	document.title = findSvtNameZh2(svtId)+" - Servant資料查詢";
 	for(c=0;c<mstClass.length;c++)
 		if(mstClass[c].id==master.mstSvt[i].classId) {svtNrmlDataTxt+="<td>"+mstClass[c].name+"</td>";break;}
 	
@@ -146,7 +148,7 @@ function svtDataTable(svtId)
 			
 			skillrowCount+=skDetailArray.length;
 			for(var d=0;d<skDetailArray.length;d++){
-				var isLvUp = skDetailArray[d].search(/\{0\}/);
+				var isLvUp = skDetailArray[d].search(/\{0\}|Lv/);
 				skDetailArray[d]=skDetailArray[d].replace(/\{0\}/g,"Lv.");
 				skDetailArray[d]=skDetailArray[d].replace(/\[Lv.]/g,"<font color=\"#CC00CC \">[Lv.]</font>");
 				skDetailArray[d]=skDetailArray[d].replace(/【/g,"<font color=\"#006400 \">【");
@@ -157,7 +159,7 @@ function svtDataTable(svtId)
 				else{
 					skillText+="<tr><td colspan=2>"+skDetailArray[d]+"</td>";
 					
-					if(!document.getElementById('isJpTxt').checked&&isLvUp&&skDetailTxt[2+d]&&skDetailTxt[2+d].search(/\//)!=-1){
+					if(!document.getElementById('isJpTxt').checked&&isLvUp!=-1&&skDetailTxt[2+d]&&skDetailTxt[2+d].search(/\//)!=-1){
 						var skLvArray = new Array();
 							skLvArray = skDetailTxt[2+d].split(/\//);
 						for(k in skLvArray)
@@ -296,12 +298,12 @@ function svtDataTable(svtId)
 			
 			skillrowCount+=tdDetailArray.length;
 			for(var d=0;d<tdDetailArray.length;d++){
-				var isLvUp = tdDetailArray[d].search(/\{0\}/);
-				var isOCUp = tdDetailArray[d].search(/</);
+				var isLvUp = tdDetailArray[d].search(/\{0\}|Lv/);
+				var isOCUp = tdDetailArray[d].search(/<O|<オ/);
 				tdDetailArray[d]=tdDetailArray[d].replace(/\{0\}/g,"Lv.");
-				tdDetailArray[d]=tdDetailArray[d].replace(/</g,"<font color=\"#CC6600\"><");
-				tdDetailArray[d]=tdDetailArray[d].replace(/<O/g,"<br>< O");
-				tdDetailArray[d]=tdDetailArray[d].replace(/P>/g,"P ></font>");
+				tdDetailArray[d]=tdDetailArray[d].replace(/<O/g,"<font color=\"#CC6600\"><br>< O");
+				tdDetailArray[d]=tdDetailArray[d].replace(/<オ/g,"<font color=\"#CC6600\"><オ");
+				tdDetailArray[d]=tdDetailArray[d].replace(/P>/g,"P></font>");
 				tdDetailArray[d]=tdDetailArray[d].replace(/【/g,"<font color=\"#006400 \">【");
 				tdDetailArray[d]=tdDetailArray[d].replace(/】/g,"】</font>");
 				tdDetailArray[d]=tdDetailArray[d].replace(/\[Lv.]/g,"<font color=\"#CC00CC \">[Lv.]</font>");
@@ -313,7 +315,7 @@ function svtDataTable(svtId)
 					if(d!=0) skillText+="<tr>"
 					skillText+="<td colspan=2>"+tdDetailArray[d]+"</td>";
 						
-					if(isLvUp&&tdDetailTxt[2+d]&&tdDetailTxt[2+d].search(/\//)!=-1){
+					if((isLvUp!=-1||isOCUp!=-1)&&tdDetailTxt[2+d]&&tdDetailTxt[2+d].search(/\//)!=-1){
 						var skLvArray = new Array();
 							skLvArray = tdDetailTxt[2+d].split(/\//);
 						for(g in skLvArray)
@@ -321,7 +323,7 @@ function svtDataTable(svtId)
 					}
 					else{
 						skillText+="<td colspan=10>";
-						if(tdDetailTxt[2+d]) skillText+="　"+tdDetailTxt[2+d].replace(/\//g," / ");
+						if(tdDetailTxt[2+d]) skillText+="　"+tdDetailTxt[2+d]/*.replace(/\//g," / ")*/;
 						else if(typeof tdDetailTxt[2+d] !== 'undefined'&&tdDetailTxt[2+d].length==0) skillText+=("　---");
 						else skillText+="　待補";
 					}
