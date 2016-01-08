@@ -159,7 +159,7 @@ function svtDataTable(svtId)
 				else{
 					skillText+="<tr><td colspan=2>"+skDetailArray[d]+"</td>";
 					
-					if(!document.getElementById('isJpTxt').checked&&isLvUp!=-1&&skDetailTxt[2+d]&&skDetailTxt[2+d].search(/\//)!=-1){
+					if(skDetailTxt[2+d]&&skDetailTxt[2+d].split("/").length-1>1){
 						var skLvArray = new Array();
 							skLvArray = skDetailTxt[2+d].split(/\//);
 						for(k in skLvArray)
@@ -315,7 +315,7 @@ function svtDataTable(svtId)
 					if(d!=0) skillText+="<tr>"
 					skillText+="<td colspan=2>"+tdDetailArray[d]+"</td>";
 						
-					if((isLvUp!=-1||isOCUp!=-1)&&tdDetailTxt[2+d]&&tdDetailTxt[2+d].search(/\//)!=-1){
+					if(/*(isLvUp!=-1||isOCUp!=-1)&&*/tdDetailTxt[2+d]&&tdDetailTxt[2+d].split("/").length-1>1){
 						var skLvArray = new Array();
 							skLvArray = tdDetailTxt[2+d].split(/\//);
 						for(g in skLvArray)

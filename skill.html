@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>技能效果一覽</title>
+<link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon">
 <link href="common/css/common.css" rel="stylesheet" type="text/css" />
 <link href="common/css/detail_info.css" rel="stylesheet" type="text/css" />
 <link href="common/css/sidebar.css" rel="stylesheet" type="text/css" />
@@ -73,7 +74,7 @@ function sklDataOut(searchData,searchId)
 					if(d!=0) skillText+="<tr>"
 					skillText+="<td>"+skDetailArray[d]+"</td>";
 					
-					if(skDetailTxt[2+d]&&isLvUp!=-1&&skDetailTxt[2+d].search(/\//)!=-1){
+					if((skDetailTxt[2+d]&&skDetailTxt[2+d].split("/").length-1>1)){
 						var skLvArray = new Array();
 							skLvArray = skDetailTxt[2+d].split(/\//);
 						for(k in skLvArray)
