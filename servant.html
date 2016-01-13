@@ -76,7 +76,7 @@ function svtTableOut(searchData,searchId)
 					if (rarityarray[h]==master.mstSvtLimit[j].rarity){
 			if(master.mstSvt[i].collectionNo==0) svtTableTxt+="<tr align=\"center\"><td><a href='svtData.html?id="+master.mstSvt[i].id+"'>";
 			else svtTableTxt+="<tr align=\"center\"><td><a href='svtData.html?no="+master.mstSvt[i].collectionNo+"'>";
-			svtTableTxt+="<img src='common/images/icon/faces/"+master.mstSvt[i].id+"0.png' onerror=javascript:this.src='common/images/icon/faces/0.png' width=80></img>";
+			svtTableTxt+="<img src='common/images/icon/faces/"+master.mstSvt[i].id+"0.png' onerror=javascript:this.src='common/images/icon/faces/0.png' title='"+findSvtNameZh2(master.mstSvt[i].id)+"' width=80></img>";
 			svtTableTxt+="</a></td>";
 			
 			svtTableTxt+="<td>"+master.mstSvt[i].collectionNo+"</td><td class=\"star\">";
@@ -147,6 +147,22 @@ function classOn(imgC)
 	imgC.src=imgC.src.replace("_1.png","_4.png");
 	imgC.onclick = Function("classOff(this);");
 }
+function classAllOff()
+{
+	var cl=document.getElementsByClassName("classF");
+	for(var i=0;i<cl.length;i++)
+	{
+		classOff(cl[i]);
+	}
+}
+function classAllOn()
+{
+	var cl=document.getElementsByClassName("classF");
+	for(var i=0;i<cl.length;i++)
+	{
+		classOn(cl[i]);
+	}
+}
 function classFilter()
 {
 	var urltxt="servant.html"
@@ -207,6 +223,8 @@ function getUrl(getStr)
 <form>
   <fieldset style="width:500px;text-align:center;">
     <legend>篩選條件</legend>
+	<img src="common/images/icon/class/class_1001_4.png" title="全選" onclick="classAllOn();" class="classA"/>
+	<img src="common/images/icon/class/class_1001_1.png" title="全消" onclick="classAllOff();" class="classA"/><br>
     <img src="common/images/icon/class/class_1_4.png" title="Saber" onclick="classOff(this);" class="classF"/>
 	<img src="common/images/icon/class/class_2_4.png" title="Archer" onclick="classOff(this);" class="classF"/>
 	<img src="common/images/icon/class/class_3_4.png" title="Lancer" onclick="classOff(this);" class="classF"/>

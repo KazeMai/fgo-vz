@@ -18,7 +18,7 @@ ul, ol, dl {
 }
 
 ul li{
-list-style: none;
+/*list-style: none;*/
 }
 
 table {

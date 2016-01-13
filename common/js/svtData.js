@@ -94,9 +94,9 @@ function svtDataTable(svtId)
 	document.getElementById("svtCtrlData").innerHTML=svtCtrlDataTxt;
 	
 	/*var npbase = master.mstTreasureDeviceLv[c].tdPoint;
-	var npDataTxt="<tr><td colspan=8><h3>被攻擊時每Hit增加NP</h3>"+master.mstTreasureDeviceLv[c].tdPointDef/100+"% x (100+NP獲得量提升)%</td></tr><tr><td colspan=8><h3>攻擊時增加NP</h3><span class=notice>※ 若有卡片性能提升效果，再 +［首張卡非Arts數值 x (100+卡片性能提升)%］<br>※ 若有NP獲得量提升效果，再 x (100+NP獲得量提升)%<br>※ 若有Critical，再 x 2<br>※ 若有Overkill，再 x 1.5</span></td></tr><tr><th>NP增加量<br>第1/2/3張</th><th><font color=#0099FF>Arts</font></th><th><font color=#ff0000>Buster</font></th><th><font color=#00ff00>Quick</font></th><th>Extra</th></tr><tr align=center><th>首張卡非Arts</th><td>"+npbase*artHit*3/100+" / "+npbase*artHit*3*3/200+" / "+npbase*artHit*3*2/100+"</td><td>0</td><td>"+npbase*quickHit/100+" / "+npbase*quickHit*3/200+" / "+npbase*quickHit*2/100+"</td><td>"+npbase*exHit/100+"</td></tr><tr align=center><th>首張卡為Arts</th><td>";
+	var npDataTxt="<tr><td colspan=8><h3>被攻擊時每Hit增加NP</h3>"+master.mstTreasureDeviceLv[c].tdPointDef/100+"% x (100+NP獲得量提升)%</td></tr><tr><td colspan=8><h3>攻擊時增加NP</h3><span class=notice>※ 若有卡片性能提升效果，再 +［首張卡非Arts數值 x (100+卡片性能提升)%］<br>※ 若有NP獲得量提升效果，再 x (100+NP獲得量提升)%<br>※ 若有Critical，再 x 2<br>※ 若有Overkill，再 x 1.5</span></td></tr><tr><th>NP增加量<br>第1/2/3張</th><th><font color=#0099FF>Arts</font></th><th><font color=#ff0000>Buster</font></th><th><font color=#00ff00>Quick</font></th><th>Extra</th></tr><tr align=center><th>首張卡非Arts</th><td>"+"－ / "+npbase*artHit*3*3/200+" / "+npbase*artHit*3*2/100+"</td><td>0</td><td>"+npbase*quickHit/100+" / "+npbase*quickHit*3/200+" / "+npbase*quickHit*2/100+"</td><td>"+npbase*exHit/100+"</td></tr>";
 	
-	npDataTxt+=npbase*(artHit*3+1)/100+" / "+npbase*(artHit*3*3+2)/200+" / "+npbase*(artHit*3*2+1)/100+"</td><td>"+npbase*busterHit/100+"</td><td>"+npbase*(quickHit+1)/100+" / "+npbase*(quickHit*3+2)/200+" / "+npbase*(quickHit*2+1)/100+"</td><td>"+npbase*(exHit+1)/100+"</td></tr>";
+	npDataTxt+="<tr align=center><th>首張卡為Arts</th><td>"+npbase*artHit*(3+1)/100+" / "+npbase*artHit*(3*3+2)/200+" / "+npbase*artHit*(3*2+1)/100+"</td><td>"+npbase*busterHit/100+"</td><td>"+"－ / "+npbase*quickHit*(3+2)/200+" / "+npbase*quickHit*(2+1)/100+"</td><td>"+npbase*exHit*(1+1)/100+"</td></tr>";
 	
 	document.getElementById("npData").innerHTML=npDataTxt;*/
 	
@@ -398,7 +398,7 @@ function svtDataTable(svtId)
 	document.getElementById("svtCmbnData").innerHTML=svtCmbnDataTxt;
 
 	document.getElementById("svtImgData").innerHTML="";
-	document.getElementById("svtImgData").innerHTML="<tr><td><img src=common/images/Servant/"+svtId+"_card_servant_1.png onerror=\"javascript:this.style='display:none'\"></img><img src=common/images/Servant/"+svtId+"_card_servant_2.png onerror=\"javascript:this.style='display:none'\"></img><img src=common/images/Servant/"+svtId+"_card_servant_3.png onerror=\"javascript:this.style='display:none'\"></img><br><img src=common/images/CharaGraph/"+svtId+"a.png onerror=\"javascript:this.style='display:none'\"></img><br><img src=common/images/CharaGraph/"+svtId+"b.png onerror=\"javascript:this.style='display:none'\"></img></td></tr>";
+	document.getElementById("svtImgData").innerHTML="<tr><td><img src=common/images/Servant/"+svtId+"_card_servant_1.png onerror=\"this.style='display:none'\"></img><img src=common/images/Servant/"+svtId+"_card_servant_2.png onerror=\"this.style='display:none'\"></img><img src=common/images/Servant/"+svtId+"_card_servant_3.png onerror=\"this.style='display:none'\"></img><br><img src=common/images/CharaGraph/"+svtId+"a.png onerror=\"this.style='display:none'\"></img><br><img src=common/images/CharaGraph/"+svtId+"b.png onerror=\"this.style='display:none'\"></img></td></tr>";
 	
 	var svtLvDataTxt="<tr><th>等級</th><th>ATK</th><th>HP</th><th>上升幅度</th></tr>";
 	for(c=0;c<master.mstSvt[i].rewardLv;c++)
@@ -414,6 +414,11 @@ function svtDataTable(svtId)
 		}
 	}
 	document.getElementById("svtLvData").innerHTML=svtLvDataTxt;
+	
+	$("img").error(function () { 
+    //$(this).hide();
+    $(this).css({visibility:"hidden"}); 
+	});
 }
 function addCommas(nStr) {
 	nStr += '';

@@ -124,7 +124,7 @@ function trdvDataOut(searchData,searchId)
 			}
 			if(master.mstSvt[c].collectionNo==0) trdvDataTxt+="<tr><td align=center rowspan="+svtTrdvrowCount+"><a href='svtData.html?id="+master.mstSvt[c].id+"'>";
 			else trdvDataTxt+="<tr><td align=center rowspan="+svtTrdvrowCount+"><a href='svtData.html?no="+master.mstSvt[c].collectionNo+"'>";
-				trdvDataTxt+="<img src='common/images/icon/faces/"+master.mstSvt[c].id+"0.png' onerror=\"javascript:this.src='common/images/icon/faces/0.png'\" width=80></img>";
+				trdvDataTxt+="<img src='common/images/icon/faces/"+master.mstSvt[c].id+"0.png' onerror=\"javascript:this.src='common/images/icon/faces/0.png'\" title='"+findSvtNameZh2(master.mstSvt[c].id)+"' width=80></img>";
 				/*for(d in svtName)
 					if(svtName[d][0]==master.mstSvt[c].id){trdvDataTxt+=svtName[d][2]+"<br>";break;}*/
 			trdvDataTxt+="</a></td>";

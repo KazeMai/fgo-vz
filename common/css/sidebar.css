@@ -157,7 +157,7 @@ table.tablesorter {
 
 table.tablesorter th{
 	color: #fff;
-	padding: 8px 15px;
+	padding: 5px 5px;
 	background-color: #094d9d;
 	font-weight: bold;
 	border-left:1px solid #666666;
@@ -185,7 +185,7 @@ table.tablesorter thead tr th, table.tablesorter tfoot tr th {
 
 table.tablesorter th:last-child {
 	border-right:1px solid #666666;
-	box-shadow: 2px 2px 1px rgba(0,0,0,0.1),0px 1px 1px rgba(255,255,255,0.3) inset;
+	box-shadow: 2px 0px 1px rgba(0,0,0,0.1),0px 1px 1px rgba(255,255,255,0.3) inset;
 }
 
 table.tablesorter tr td {
@@ -196,7 +196,7 @@ table.tablesorter tr td {
 
 table.tablesorter tr td:last-child {
 	border-right: 1px solid #666666;
-	box-shadow: 2px 2px 1px rgba(0,0,0,0.1);
+	box-shadow: 2px 0px 1px rgba(0,0,0,0.1);
 }
 
 table.tablesorter tr {
@@ -233,7 +233,7 @@ table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSo
 	font-size: 0.7em;
 }
 .news {
-	font-size: 1.2em;
+	font-size: 12px;
 }
 .classS {
 	height: 20px;
@@ -245,7 +245,59 @@ table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSo
 	width: 50px;
 	vertical-align: middle;
 }
-.warIcon {
+.classA {
+	height: 50px;
+	width: 50px;
+	vertical-align: middle;
+}
+div.warIcon {
+	width:40px;
+	height:30px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: auto 30px;
+	float:left;
+}
+.itemS {
 	height: 30px;
 	vertical-align: middle;
+}
+.itemM {
+	height: 60px;
+	vertical-align: middle;
+}
+table .box{
+	background:#eee;
+	display:none;
+}
+td.red{
+	color: #FF0000;
+	font-weight: bold;
+}
+td.green{
+	color: #006400;
+	font-weight: bold;
+}
+
+div.spotname{
+	width:117px;
+	height:15px;
+	color: #FFF;
+	font-size: 12px;
+	font-weight: 400;
+	text-align: center;
+	padding: 5px 10px;
+	margin-top: 2px;
+	background-image: url("../images/icon/war/spot_name.png");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 130px 30px;
+	float:left;
+}
+div.questinfo{
+	height:15px;
+	text-align: center;
+	padding: 5px 5px;
+	margin-top: 2px;
+	float:left;
 }

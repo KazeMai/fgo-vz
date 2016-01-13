@@ -107,7 +107,7 @@ table {
 
 table th {
 	color: #fff;
-	padding: 8px 15px;
+	padding: 5px 5px;
 	background: no-repeat 2% center, rgb(2,41,88); /* Old browsers */
 	background: no-repeat 2% center, -moz-linear-gradient(top,  rgba(2,41,88,1) 0%, rgba(9,77,157,1) 87%, rgba(9,77,157,1) 100%); /* FF3.6+ */
 	background: no-repeat 2% center, -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(2,41,88,1)), color-stop(87%,rgba(9,77,157,1)), color-stop(100%,rgba(9,77,157,1))); /* 	Chrome,Safari4+ */
@@ -143,7 +143,7 @@ table tr td {
 
 table tr td:last-child {
 	border-right: 1px solid #666666;
-	box-shadow: 2px 2px 1px rgba(0,0,0,0.1);
+	box-shadow: 2px 0px 1px rgba(0,0,0,0.1);
 }
 
 table tr {
