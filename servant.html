@@ -178,7 +178,7 @@ function classFilter()
 	{
 		if(cl[i].checked==true) rarityarray.push(cl[i].value);
 	}
-	var classUrl = false; if(classarray!="1,2,3,4,5,6,7,8,9,17") classUrl=true;
+	var classUrl = false; if(classarray!="1,2,3,4,5,6,7,8,9") classUrl=true;
 	var rarityUrl = false; if(rarityarray!="1,2,3,4,5") rarityUrl=true;
 	if(classUrl||rarityUrl) urltxt+="?";
 	if(classUrl) urltxt+="class="+classarray;

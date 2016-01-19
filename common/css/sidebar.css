@@ -156,7 +156,7 @@ table.tablesorter {
 }
 
 table.tablesorter th{
-	color: #fff;
+	/*color: #fff;*/
 	padding: 5px 5px;
 	background-color: #094d9d;
 	font-weight: bold;
@@ -170,7 +170,7 @@ table.tablesorter th{
 }
 
 table.tablesorter thead tr th, table.tablesorter tfoot tr th {
-	color: #fff;
+	/*color: #fff;*/
 	padding: 8px 15px;
 	background-color: #094d9d;
 	font-weight: bold;
@@ -223,6 +223,9 @@ table.tablesorter thead tr .headerSortDown {
 }
 table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
 	background-color: #d48227;
+}
+table.tablesorter tr:nth-child(2n) {
+	background-color: #ECF2F3;
 }
 .star {
 	color: #FFD500;
@@ -300,4 +303,19 @@ div.questinfo{
 	padding: 5px 5px;
 	margin-top: 2px;
 	float:left;
+}
+table.nopadding th{
+	padding:0px 0px;
+}
+table.nopadding tr td{
+	padding:0px 0px;
+}
+th.red{
+	color: #FF0000;
+}
+th.green{
+	color: #00FF00;
+}
+th.blue{
+	color: #0099FF;
 }
