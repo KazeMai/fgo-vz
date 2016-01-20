@@ -102,7 +102,7 @@ function svtDataTable(svtId)
 	
 	var svtSkTdDataTxt="";
 	var skillText="";
-	var skillrowCount=0;
+	var skillrowCount=1;
 	for(c=0;c<master.mstSvtSkill.length;c++)
 	{
 		if(master.mstSvtSkill[c].svtId==master.mstSvt[i].id){
@@ -119,9 +119,9 @@ function svtDataTable(svtId)
 			
 			skillText+="<td colspan=5>";
 			if(master.mstSvtSkill[c].condLimitCount==0&&master.mstSvtSkill[c].condQuestId==0&&master.mstSvtSkill[c].condLv==0) skillText+="初期";
-			if(master.mstSvtSkill[c].condQuestId!=0) skillText+="通過任務「"+questRea(master.mstSvtSkill[c].condQuestId)+"」解放<br>";
-			if(master.mstSvtSkill[c].condLv!=0) skillText+="Lv."+master.mstSvtSkill[c].condLv+"解放<br>";
-			if(master.mstSvtSkill[c].condLimitCount!=0) skillText+="靈基再臨第"+master.mstSvtSkill[c].condLimitCount+"階段解放<br>";
+			if(master.mstSvtSkill[c].condLimitCount!=0) skillText+="靈基再臨第"+master.mstSvtSkill[c].condLimitCount+"階段<br>";
+			if(master.mstSvtSkill[c].condLv!=0) skillText+="Lv."+master.mstSvtSkill[c].condLv+"<br>";
+			if(master.mstSvtSkill[c].condQuestId!=0) skillText+="通過任務 "+questRea(master.mstSvtSkill[c].condQuestId)+"<br>";
 			skillText+="</td></tr>";
 			
 			var skDetailTxt = new Array();
@@ -176,7 +176,7 @@ function svtDataTable(svtId)
 			}
 		}
 	}
-	if(skillText.length>0)svtSkTdDataTxt+="<tr><th rowspan="+skillrowCount+"><b>保有技能</b></th>"+skillText+"";
+	if(skillText.length>0)svtSkTdDataTxt+="<tr><th rowspan="+skillrowCount+"><b>保有技能</b></th><th colspan=2>技能</th><th colspan=5>冷卻時間</th><th colspan=5>開放條件</th></tr><tr>"+skillText+"";
 		
 	if(master.mstSvt[i].classPassive.length!=0){
 	skillText="";
