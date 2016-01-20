@@ -103,7 +103,7 @@ function trdvDataOut(searchData,searchId)
 					for(d in master.mstSvtTreasureDevice)
 						if(master.mstTreasureDevice[k].id==master.mstSvtTreasureDevice[d].treasureDeviceId){
 							sklTxt+="<b><font color=\"#"+cardList[master.mstSvtTreasureDevice[d].cardId]+"\">"+master.mstTreasureDevice[k].name+"</font></b>";break;}
-					sklTxt+="</td><td align=center rowspan="+skillrowCount+">"+master.mstTreasureDevice[k].rank+"</td><td align=center rowspan="+skillrowCount+">"+master.mstTreasureDevice[k].typeText.replace(/対/g,"對").replace(/宝/g,"寶").replace(/剣/g,"劍").replace(/悪/g,"惡").replace(/奥/g,"奧")+"</td>";
+					sklTxt+="</td><td align=center rowspan="+skillrowCount+">"+master.mstTreasureDevice[k].rank+"</td><td align=center rowspan="+skillrowCount+">"+master.mstTreasureDevice[k].typeText.replace(/対/g,"對").replace(/宝/g,"寶").replace(/剣/g,"劍").replace(/悪/g,"惡").replace(/奥/g,"奧").replace(/セイバー/g,"Saber")+"</td>";
 					
 					sklTxt+="<td align=center rowspan="+skillrowCount+">";
 					if(tdDetailTxt[1].search(/攻擊[^力]|攻撃[^力]/)==-1) sklTxt+="－";

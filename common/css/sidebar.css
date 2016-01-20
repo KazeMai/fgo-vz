@@ -319,3 +319,7 @@ th.green{
 th.blue{
 	color: #0099FF;
 }
+abbr {
+	cursor: help;
+	border-bottom: 1px dotted;
+}

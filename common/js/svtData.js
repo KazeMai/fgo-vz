@@ -119,9 +119,9 @@ function svtDataTable(svtId)
 			
 			skillText+="<td colspan=5>";
 			if(master.mstSvtSkill[c].condLimitCount==0&&master.mstSvtSkill[c].condQuestId==0&&master.mstSvtSkill[c].condLv==0) skillText+="初期";
-			else if(master.mstSvtSkill[c].condLimitCount!=0) skillText+="靈基再臨第"+master.mstSvtSkill[c].condLimitCount+"階段解放";
-			else if(master.mstSvtSkill[c].condQuestId!=0) skillText+="通過任務「"+master.mstQuest[findName(master.mstQuest,master.mstSvtSkill[c].condQuestId)].name+"」解放";
+			else if(master.mstSvtSkill[c].condQuestId!=0) skillText+="通過任務「"+questRea(master.mstSvtSkill[c].condQuestId)+"」解放";
 			else if(master.mstSvtSkill[c].condLv!=0) skillText+="Lv."+master.mstSvtSkill[c].condLv+"解放";
+			else if(master.mstSvtSkill[c].condLimitCount!=0) skillText+="靈基再臨第"+master.mstSvtSkill[c].condLimitCount+"階段解放";
 			skillText+="</td></tr>";
 			
 			var skDetailTxt = new Array();
@@ -192,7 +192,9 @@ function svtDataTable(svtId)
 				var skDetailTxt = new Array();
 				for(k=0;k<skDetail.length;k++){
 					if(master.mstSvt[i].classPassive[c]==skDetail[k][0]){
-						skDetailTxt = skDetail[k].slice(0);break;
+						skDetailTxt = skDetail[k].slice(0);
+						skDetailTxt[1] = skDetailTxt[1].replace(/ /g,"").replace(/＋/g,"<br>").replace(/【/g,"<br>【");
+						break;
 					}
 				}
 				if(document.getElementById('isJpTxt').checked||!skDetailTxt[1])
@@ -230,34 +232,12 @@ function svtDataTable(svtId)
 			skillText+="<tr align=\"center\"><td colspan=2><div class=ruby>"+master.mstTreasureDevice[c].ruby+"</div>";
 			for(k=0;k<master.mstSvtTreasureDevice.length;k++){
 				if(master.mstTreasureDevice[c].id==master.mstSvtTreasureDevice[k].treasureDeviceId){
-					skillText+="<b><font color=\"#"+cardList[master.mstSvtTreasureDevice[k].cardId]+"\">"+master.mstTreasureDevice[c].name+"</font></b></td><td colspan=2>"+master.mstTreasureDevice[c].rank+"</td><td colspan=3>"+master.mstTreasureDevice[c].typeText.replace(/対/g,"對").replace(/宝/g,"寶").replace(/剣/g,"劍").replace(/悪/g,"惡").replace(/奥/g,"奧")+"</td><td colspan=3>";
+					skillText+="<b><font color=\"#"+cardList[master.mstSvtTreasureDevice[k].cardId]+"\">"+master.mstTreasureDevice[c].name+"</font></b></td><td colspan=2>"+master.mstTreasureDevice[c].rank+"</td><td colspan=3>"+master.mstTreasureDevice[c].typeText.replace(/対/g,"對").replace(/宝/g,"寶").replace(/剣/g,"劍").replace(/悪/g,"惡").replace(/奥/g,"奧").replace(/セイバー/g,"Saber")+"</td><td colspan=3>";
 					
 					if(master.mstSvtTreasureDevice[k].condQuestId==0&&master.mstSvtTreasureDevice[k].condLv==0&&master.mstSvtTreasureDevice[k].condFriendshipRank==0) skillText+="初期"
 					else if(findName(master.mstQuest,master.mstSvtTreasureDevice[k].condQuestId)!=null)
 					{
-						skillText+="<abbr title='";
-						if(master.mstQuest[findName(master.mstQuest,master.mstSvtTreasureDevice[k].condQuestId)].type==3)
-						{
-							var realseChp,realseLimit,realseFriend,realseBool;
-							for(var rea=0;rea<master.mstQuestRelease.length;rea++){
-								if(master.mstQuestRelease[rea].questId==master.mstSvtTreasureDevice[k].condQuestId){
-									if(master.mstQuestRelease[rea].type==1)
-										{if(master.mstQuestRelease[rea].targetId==0) realseBool=-1;else if(master.mstQuestRelease[rea].targetId<91000000)realseChp=master.mstQuestRelease[rea].targetId;}
-									if(master.mstQuestRelease[rea].type==7)
-										realseLimit=master.mstQuestRelease[rea].value;
-									if(master.mstQuestRelease[rea].type==9)
-										realseFriend=master.mstQuestRelease[rea].value;
-								}
-							}
-							if(realseBool==-1) skillText+="尚未開放";
-							else{
-								for(var war=0;war<master.mstWar.length;war++)
-									if(Math.floor(realseChp/100-10000)==master.mstWar[war].id-100)
-										{skillText+="開放條件：通過"+master.mstWar[war].name.replace(/点/g,"點")+"";break;}
-								skillText+="+靈基第"+realseLimit+"階段+絆等級"+realseFriend+"";
-							}
-						}
-						skillText+="'>"+master.mstQuest[findName(master.mstQuest,master.mstSvtTreasureDevice[k].condQuestId)].name+"</abbr>";
+						skillText+=questRea(master.mstSvtTreasureDevice[k].condQuestId);
 					}
 					else if(master.mstSvtTreasureDevice[k].condLv!=0) skillText+="Lv."+master.mstSvtTreasureDevice[k].condLv+"解放";
 					else if(master.mstSvtTreasureDevice[k].condFriendshipRank!=0) skillText+="絆等級"+master.mstSvtTreasureDevice[k].condFriendshipRank+"解放";
@@ -346,11 +326,7 @@ function svtDataTable(svtId)
 			if(master.mstSvtComment[c].condValue==0) svtInfoDataTxt+="<b>角色詳細</b>";
 			else if(master.mstSvtComment[c].condValue<6) svtInfoDataTxt+="<b>絆等級"+master.mstSvtComment[c].condValue+"</b>";
 			else if(master.mstSvtComment[c].condType==1){
-				svtInfoDataTxt+="<b>通過任務</b><br>";
-				for(var k=0;k<master.mstQuest.length;k++){
-					if(master.mstSvtComment[c].condValue==master.mstQuest[k].id){svtInfoDataTxt+="<b>"+master.mstQuest[k].name+"</b>";break;}
-					if(k==master.mstQuest.length-1) svtInfoDataTxt+="<b>？？？</b>"
-				}
+				svtInfoDataTxt+="<b>通過任務</b><br>"+questRea(master.mstSvtComment[c].condValue);
 			}
 			svtInfoDataTxt+="</th>";
 			if(master.mstSvtComment[c].condValue%2==0) tdColor=" bgcolor=\" #ECF2F3\""; else tdColor="";
@@ -419,6 +395,44 @@ function svtDataTable(svtId)
     //$(this).hide();
     $(this).css({visibility:"hidden"}); 
 	});
+}
+function questRea(qstId)
+{
+	var skillText="<abbr title='";
+	for(var k in master.mstQuest)
+	{
+		if(master.mstQuest[k].id==qstId)
+		{
+			if(master.mstQuest[k].type==1) skillText+="主線任務";
+			else if(master.mstQuest[k].type==2) skillText+="Free任務";
+			else if(master.mstQuest[k].type==3)
+			{
+				var realseChp,realseLimit,realseFriend,realseBool;
+				for(var rea=0;rea<master.mstQuestRelease.length;rea++){
+					if(master.mstQuestRelease[rea].questId==master.mstQuest[k].id){
+						if(master.mstQuestRelease[rea].type==1)
+							{if(master.mstQuestRelease[rea].targetId==0) realseBool=-1;else if(master.mstQuestRelease[rea].targetId<91000000)realseChp=master.mstQuestRelease[rea].targetId;}
+						if(master.mstQuestRelease[rea].type==7)
+							realseLimit=master.mstQuestRelease[rea].value;
+						if(master.mstQuestRelease[rea].type==9)
+							realseFriend=master.mstQuestRelease[rea].value;
+					}
+				}
+				if(realseBool==-1) skillText+="尚未開放";
+				else{
+					for(var war=0;war<master.mstWar.length;war++)
+						if(Math.floor(realseChp/100-10000)==master.mstWar[war].id-100)
+							{skillText+="開放條件：通過"+master.mstWar[war].name.replace(/点/g,"點")+"";break;}
+					skillText+="+靈基第"+realseLimit+"階段+絆等級"+realseFriend+"";
+				}
+			}
+			else if(master.mstQuest[k].type==5) skillText+="活動任務";
+			skillText+="'>"+master.mstQuest[k].name+"</abbr>";
+			break;
+		}
+	}
+	if(skillText=="<abbr title='") skillText="？？？";
+	return skillText;
 }
 function addCommas(nStr) {
 	nStr += '';

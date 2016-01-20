@@ -65,7 +65,7 @@ function svtTableOut(searchData,searchId)
 	var svtStatusPlusList = ["","","+","++","?","?","?","?","?",""];
 	for(i in master.mstSvt)
 	{
-		if(master.mstSvt[i].type==1||master.mstSvt[i].type==2||master.mstSvt[i].type==5||master.mstSvt[i].type==9)
+		if((master.mstSvt[i].type==1||master.mstSvt[i].type==2||master.mstSvt[i].type==5||master.mstSvt[i].type==9)&&master.mstSvt[i].collectionNo!=0)
 		{
 		for(var t in classarray){
 			if (classarray[t]==master.mstSvt[i].classId){
