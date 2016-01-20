@@ -119,9 +119,9 @@ function svtDataTable(svtId)
 			
 			skillText+="<td colspan=5>";
 			if(master.mstSvtSkill[c].condLimitCount==0&&master.mstSvtSkill[c].condQuestId==0&&master.mstSvtSkill[c].condLv==0) skillText+="初期";
-			else if(master.mstSvtSkill[c].condQuestId!=0) skillText+="通過任務「"+questRea(master.mstSvtSkill[c].condQuestId)+"」解放";
-			else if(master.mstSvtSkill[c].condLv!=0) skillText+="Lv."+master.mstSvtSkill[c].condLv+"解放";
-			else if(master.mstSvtSkill[c].condLimitCount!=0) skillText+="靈基再臨第"+master.mstSvtSkill[c].condLimitCount+"階段解放";
+			if(master.mstSvtSkill[c].condQuestId!=0) skillText+="通過任務「"+questRea(master.mstSvtSkill[c].condQuestId)+"」解放<br>";
+			if(master.mstSvtSkill[c].condLv!=0) skillText+="Lv."+master.mstSvtSkill[c].condLv+"解放<br>";
+			if(master.mstSvtSkill[c].condLimitCount!=0) skillText+="靈基再臨第"+master.mstSvtSkill[c].condLimitCount+"階段解放<br>";
 			skillText+="</td></tr>";
 			
 			var skDetailTxt = new Array();
