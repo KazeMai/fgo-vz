@@ -87,7 +87,7 @@ function svtTableOut(searchData,searchId)
 			if(master.mstSvt[i].collectionNo==0) svtTableTxt+="<td><a href='svtData.html?id="+master.mstSvt[i].id+"'>";
 			else svtTableTxt+="<td><a href='svtData.html?no="+master.mstSvt[i].collectionNo+"'>";
 			var svtNameZh = findSvtNameZh(master.mstSvt[i].id);
-			if(svtNameZh) svtTableTxt+="<div class=ruby>"+master.mstSvt[i].ruby+"</div>"+svtNameZh;
+			if(svtNameZh) svtTableTxt+="<div class=ruby>"+master.mstSvt[i].name+"</div>"+svtNameZh;
 			else svtTableTxt+=master.mstSvt[i].name;
 			svtTableTxt+="</a></td>";
 			
