@@ -93,13 +93,6 @@ function svtDataTable(svtId)
 	svtCtrlDataTxt+="</td></tr>";
 	document.getElementById("svtCtrlData").innerHTML=svtCtrlDataTxt;
 	
-	/*var npbase = master.mstTreasureDeviceLv[c].tdPoint;
-	var npDataTxt="<tr><td colspan=8><h3>被攻擊時每Hit增加NP</h3>"+master.mstTreasureDeviceLv[c].tdPointDef/100+"% x (100+NP獲得量提升)%</td></tr><tr><td colspan=8><h3>攻擊時增加NP</h3><span class=notice>※ 若有卡片性能提升效果，再 +［首張卡非Arts數值 x (100+卡片性能提升)%］<br>※ 若有NP獲得量提升效果，再 x (100+NP獲得量提升)%<br>※ 若有Critical，再 x 2<br>※ 若有Overkill，再 x 1.5</span></td></tr><tr><th>NP增加量<br>第1/2/3張</th><th><font color=#0099FF>Arts</font></th><th><font color=#ff0000>Buster</font></th><th><font color=#00ff00>Quick</font></th><th>Extra</th></tr><tr align=center><th>首張卡非Arts</th><td>"+"－ / "+npbase*artHit*3*3/200+" / "+npbase*artHit*3*2/100+"</td><td>0</td><td>"+npbase*quickHit/100+" / "+npbase*quickHit*3/200+" / "+npbase*quickHit*2/100+"</td><td>"+npbase*exHit/100+"</td></tr>";
-	
-	npDataTxt+="<tr align=center><th>首張卡為Arts</th><td>"+npbase*artHit*(3+1)/100+" / "+npbase*artHit*(3*3+2)/200+" / "+npbase*artHit*(3*2+1)/100+"</td><td>"+npbase*busterHit/100+"</td><td>"+"－ / "+npbase*quickHit*(3+2)/200+" / "+npbase*quickHit*(2+1)/100+"</td><td>"+npbase*exHit*(1+1)/100+"</td></tr>";
-	
-	document.getElementById("npData").innerHTML=npDataTxt;*/
-	
 	var svtSkTdDataTxt="";
 	var skillText="";
 	var skillrowCount=1;
@@ -163,7 +156,7 @@ function svtDataTable(svtId)
 						var skLvArray = new Array();
 							skLvArray = skDetailTxt[2+d].split(/\//);
 						for(k in skLvArray)
-							skillText+="<td align=center>"+skLvArray[k]+"</td>";
+							skillText+="<td align=center style='width:50px'>"+skLvArray[k]+"</td>";
 					}
 					else{
 						skillText+="<td colspan=10>";
@@ -176,7 +169,7 @@ function svtDataTable(svtId)
 			}
 		}
 	}
-	if(skillText.length>0)svtSkTdDataTxt+="<tr><th rowspan="+skillrowCount+"><b>保有技能</b></th><th colspan=2>技能</th><th colspan=5>冷卻時間</th><th colspan=5>開放條件</th></tr><tr>"+skillText+"";
+	if(skillText.length>0)svtSkTdDataTxt+="<tr><th rowspan="+skillrowCount+"><b>保有技能</b></th><th colspan=2 style='width:300px'>技能</th><th colspan=5 style='width:250px'>冷卻時間</th><th colspan=5 style='width:250px'>開放條件</th></tr><tr>"+skillText+"";
 		
 	if(master.mstSvt[i].classPassive.length!=0){
 	skillText="";
@@ -185,7 +178,7 @@ function svtDataTable(svtId)
 	{
 		skillrowCount++;
 		for(var k=0;k<master.mstSkill.length;k++){
-			if(master.mstSvt[i].classPassive[c]==master.mstSkill[k].id){skillText+="<td><img src=common/images/SkillIcon/SkillIcon_"+master.mstSkill[k].iconId+".png onerror=javascript:this.src='common/images/SkillIcon/SkillIcon_999999.png' width=55></img></td><td><b>"+master.mstSkill[k].name+"</b></td>"; break;}
+			if(master.mstSvt[i].classPassive[c]==master.mstSkill[k].id){skillText+="<td style='width:55px'><img src=common/images/SkillIcon/SkillIcon_"+master.mstSkill[k].iconId+".png onerror=javascript:this.src='common/images/SkillIcon/SkillIcon_999999.png' width=55></img></td><td><b>"+master.mstSkill[k].name+"</b></td>"; break;}
 		}
 		for(var k=0;k<master.mstSkillDetail.length;k++){
 			if(master.mstSvt[i].classPassive[c]==master.mstSkillDetail[k].id){
@@ -227,12 +220,12 @@ function svtDataTable(svtId)
 		if(master.mstTreasureDevice[c].seqId==master.mstSvt[i].id){
 			skillrowCount+=2;
 			var k=0;
-			skillText+="<th colspan=2><b>名稱</b></th><th colspan=2><b>等級</b></th><th colspan=3><b>種類</b></th><th colspan=3><b>解放任務</b></th><th colspan=2>攻擊次數</th></tr>";
+			skillText+="<th colspan=2><b>名稱</b></th><th colspan=2><b>等級</b></th><th colspan=2><b>種類</b></th><th colspan=4><b>解放任務</b></th><th colspan=2>攻擊次數</th></tr>";
 			
 			skillText+="<tr align=\"center\"><td colspan=2><div class=ruby>"+master.mstTreasureDevice[c].ruby+"</div>";
 			for(k=0;k<master.mstSvtTreasureDevice.length;k++){
 				if(master.mstTreasureDevice[c].id==master.mstSvtTreasureDevice[k].treasureDeviceId){
-					skillText+="<b><font color=\"#"+cardList[master.mstSvtTreasureDevice[k].cardId]+"\">"+master.mstTreasureDevice[c].name+"</font></b></td><td colspan=2>"+master.mstTreasureDevice[c].rank+"</td><td colspan=3>"+master.mstTreasureDevice[c].typeText.replace(/対/g,"對").replace(/宝/g,"寶").replace(/剣/g,"劍").replace(/悪/g,"惡").replace(/奥/g,"奧").replace(/セイバー/g,"Saber")+"</td><td colspan=3>";
+					skillText+="<b><font color=\"#"+cardList[master.mstSvtTreasureDevice[k].cardId]+"\">"+master.mstTreasureDevice[c].name+"</font></b></td><td colspan=2>"+master.mstTreasureDevice[c].rank+"</td><td colspan=2>"+master.mstTreasureDevice[c].typeText.replace(/対/g,"對").replace(/宝/g,"寶").replace(/剣/g,"劍").replace(/悪/g,"惡").replace(/奥/g,"奧").replace(/セイバー/g,"Saber")+"</td><td colspan=4>";
 					
 					if(master.mstSvtTreasureDevice[k].condQuestId==0&&master.mstSvtTreasureDevice[k].condLv==0&&master.mstSvtTreasureDevice[k].condFriendshipRank==0) skillText+="初期"
 					else if(findName(master.mstQuest,master.mstSvtTreasureDevice[k].condQuestId)!=null)
@@ -317,14 +310,22 @@ function svtDataTable(svtId)
 	document.getElementById("svtSkTdData").innerHTML=svtSkTdDataTxt;
 	
 	var svtInfoDataTxt="";
-	svtInfoDataTxt="<tr><th rowspan=2>能力值</th><th><b>筋力</b></th><th><b>耐久</b></th><th><b>敏捷</b></th><th><b>魔力</b></th><th><b>幸運</b></th><th><b>寶具</b></th></tr><tr align=\"center\"><td>"+svtStatusList[Math.floor(master.mstSvtLimit[j].power/10)]+svtStatusPlusList[master.mstSvtLimit[j].power%10]+"</td><td>"+svtStatusList[Math.floor(master.mstSvtLimit[j].defense/10)]+svtStatusPlusList[master.mstSvtLimit[j].defense%10]+"</td><td>"+svtStatusList[Math.floor(master.mstSvtLimit[j].agility/10)]+svtStatusPlusList[master.mstSvtLimit[j].agility%10]+"</td><td>"+svtStatusList[Math.floor(master.mstSvtLimit[j].magic/10)]+svtStatusPlusList[master.mstSvtLimit[j].magic%10]+"</td><td>"+svtStatusList[Math.floor(master.mstSvtLimit[j].luck/10)]+svtStatusPlusList[master.mstSvtLimit[j].luck%10]+"</td><td>"+svtStatusList[Math.floor(master.mstSvtLimit[j].treasureDevice/10)]+svtStatusPlusList[master.mstSvtLimit[j].treasureDevice%10]+"</td></tr>";
+	svtInfoDataTxt="<tr><th rowspan=2 style='width:250px'>能力值</th><th style='width:50px'>筋力</th><th style='width:50px'>耐久</th><th style='width:50px'>敏捷</th><th style='width:50px'>魔力</th><th style='width:50px'>幸運</th><th style='width:50px'>寶具</th></tr><tr align=\"center\"><td>"+svtStatusList[Math.floor(master.mstSvtLimit[j].power/10)]+svtStatusPlusList[master.mstSvtLimit[j].power%10]+"</td><td>"+svtStatusList[Math.floor(master.mstSvtLimit[j].defense/10)]+svtStatusPlusList[master.mstSvtLimit[j].defense%10]+"</td><td>"+svtStatusList[Math.floor(master.mstSvtLimit[j].agility/10)]+svtStatusPlusList[master.mstSvtLimit[j].agility%10]+"</td><td>"+svtStatusList[Math.floor(master.mstSvtLimit[j].magic/10)]+svtStatusPlusList[master.mstSvtLimit[j].magic%10]+"</td><td>"+svtStatusList[Math.floor(master.mstSvtLimit[j].luck/10)]+svtStatusPlusList[master.mstSvtLimit[j].luck%10]+"</td><td>"+svtStatusList[Math.floor(master.mstSvtLimit[j].treasureDevice/10)]+svtStatusPlusList[master.mstSvtLimit[j].treasureDevice%10]+"</td></tr>";
 	for(c=0;c<master.mstSvtComment.length;c++)
 	{
 		var tdColor="";
 		if(master.mstSvt[i].id==master.mstSvtComment[c].svtId)
 		{	svtInfoDataTxt+="<tr><th width=150>";
 			if(master.mstSvtComment[c].condValue==0) svtInfoDataTxt+="<b>角色詳細</b>";
-			else if(master.mstSvtComment[c].condValue<6) svtInfoDataTxt+="<b>絆等級"+master.mstSvtComment[c].condValue+"</b>";
+			else if(master.mstSvtComment[c].condValue<6) 
+			{
+				svtInfoDataTxt+="<b>絆等級"+master.mstSvtComment[c].condValue+"</b>";
+				/*for(d in master.mstFriendship)
+					if(master.mstFriendship[d].id==master.mstSvt[i].friendshipId&&master.mstFriendship[d].rank==master.mstSvtComment[c].condValue-1)
+					{
+						svtInfoDataTxt+="<br>("+master.mstFriendship[d].friendship+")";break;
+					}*/
+			}
 			else if(master.mstSvtComment[c].condType==1){
 				svtInfoDataTxt+="<b>通過任務</b><br>"+questRea(master.mstSvtComment[c].condValue);
 			}
@@ -395,55 +396,6 @@ function svtDataTable(svtId)
     //$(this).hide();
     $(this).css({visibility:"hidden"}); 
 	});
-}
-function questRea(qstId)
-{
-	var skillText="<abbr title='";
-	for(var k in master.mstQuest)
-	{
-		if(master.mstQuest[k].id==qstId)
-		{
-			if(master.mstQuest[k].type==1) skillText+="主線任務";
-			else if(master.mstQuest[k].type==2) skillText+="Free任務";
-			else if(master.mstQuest[k].type==3)
-			{
-				var realseChp,realseLimit,realseFriend,realseBool;
-				for(var rea=0;rea<master.mstQuestRelease.length;rea++){
-					if(master.mstQuestRelease[rea].questId==master.mstQuest[k].id){
-						if(master.mstQuestRelease[rea].type==1)
-							{if(master.mstQuestRelease[rea].targetId==0) realseBool=-1;else if(master.mstQuestRelease[rea].targetId<91000000)realseChp=master.mstQuestRelease[rea].targetId;}
-						if(master.mstQuestRelease[rea].type==7)
-							realseLimit=master.mstQuestRelease[rea].value;
-						if(master.mstQuestRelease[rea].type==9)
-							realseFriend=master.mstQuestRelease[rea].value;
-					}
-				}
-				if(realseBool==-1) skillText+="尚未開放";
-				else{
-					for(var war=0;war<master.mstWar.length;war++)
-						if(Math.floor(realseChp/100-10000)==master.mstWar[war].id-100)
-							{skillText+="開放條件：通過"+master.mstWar[war].name.replace(/点/g,"點")+"";break;}
-					skillText+="+靈基第"+realseLimit+"階段+絆等級"+realseFriend+"";
-				}
-			}
-			else if(master.mstQuest[k].type==5) skillText+="活動任務";
-			skillText+="'>"+master.mstQuest[k].name+"</abbr>";
-			break;
-		}
-	}
-	if(skillText=="<abbr title='") skillText="？？？";
-	return skillText;
-}
-function addCommas(nStr) {
-	nStr += '';
-	x = nStr.split('.');
-	x1 = x[0];
-	x2 = x.length > 1 ? '.' + x[1] : '';
-	var rgx = /(\d+)(\d{3})/;
-	while (rgx.test(x1)) {
-		x1 = x1.replace(rgx, '$1' + ',' + '$2');
-	}
-	return x1 + x2;
 }
 function classidChange()
 {
@@ -524,42 +476,6 @@ function svtlvChange()
 			break;
 		}
 	}
-}
-function findItemName(itemid)
-{
-	for(var i=0;i<master.mstItem.length;i++)
-	{
-		if(master.mstItem[i].id==itemid) {return master.mstItem[i].name;break;}
-	}
-	return "未知道具"+itemid;
-}
-function findName(searchData,searchId)
-{
-	for(var i=0;i<searchData.length;i++)
-		if(searchData[i].id==searchId) return i;
-	return null;
-}
-function getUrl(getStr)
-{
-	var url=window.location.toString(); //取得當前網址   
-	var str=""; //參數中等號左邊的值   
-	var str_value=""; //參數中等號右邊的值   
-	if(url.indexOf("?")!=-1){   
-		//如果網址有"?"符號   
-		var ary=url.split("?")[1].split("&");   
-		//取得"?"右邊網址後利用"&"分割字串存入ary陣列 ["a=1","b=2","c=3"]   
-		for(var i in ary){   
-			//取得陣列長度去跑迴圈，如:網址有三個參數，則會跑三次   
-			str=ary[i].split("=")[0];   
-			//取得參數"="左邊的值存入str變數中   
-			if (str == getStr) {   
-			//若str等於想要抓取參數 如:b   
-				str_value = decodeURI(ary[i].split("=")[1]);   
-				//取得b等號右邊的值並經過中文轉碼後存入str_value   
-			}   
-		}   
-	}
-	return str_value;
 }
 function urlId()
 {

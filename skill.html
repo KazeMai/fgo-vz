@@ -116,7 +116,7 @@ function sklDataOut(searchData,searchId)
 				for(k in master.mstEquipSkill)
 					if(master.mstEquipSkill[k].skillId==master.mstSkill[c].id)
 						for(d in master.mstEquip)
-							if(master.mstEquipSkill[k].equipId==master.mstEquip[d].id){sklTxt+=master.mstEquip[d].name+"<br>";break;}
+							if(master.mstEquipSkill[k].equipId==master.mstEquip[d].id){sklTxt+="<a href='master_equip.html#eqp"+master.mstEquip[d].id+"'>"+master.mstEquip[d].name+"</a><br>";break;}
 			sklTxt+="</td>";
 			
 			sklTxt+="<td rowspan="+skillrowCount+" align=center>";
@@ -136,12 +136,6 @@ function sklDataOut(searchData,searchId)
 	document.getElementById("eqpData").innerHTML=eqpDataTxt;
 	document.getElementById("sklData").innerHTML=sklDataTxt;
 	document.getElementById("pasData").innerHTML=pasDataTxt;
-}
-function findName(searchData,searchId)
-{
-	for(var i=0;i<searchData.length;i++)
-		if(searchData[i].id==searchId) return i;
-	return null;
 }
 </script>
 </head>

@@ -133,12 +133,6 @@ function trdvDataOut(searchData,searchId)
 	}
 	document.getElementById("trdvData").innerHTML=trdvDataTxt;
 }
-function findName(searchData,searchId)
-{
-	for(var i=0;i<searchData.length;i++)
-		if(searchData[i].id==searchId) return i;
-	return null;
-}
 </script>
 </head>
 <body onload="loadsidebar();trdvDataOut();">
