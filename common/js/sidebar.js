@@ -75,9 +75,8 @@ function classAllOn()
 		classOn(cl[i]);
 	}
 }
-function classFilter()
+function classFilter(urltxt)
 {
-	var urltxt="np_get.html"
 	var cl=document.getElementsByClassName("classF");
 	var classarray = new Array();
 	for(var i=0;i<cl.length;i++)
