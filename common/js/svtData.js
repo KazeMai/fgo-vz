@@ -277,6 +277,7 @@ function svtDataTable(svtId)
 				tdDetailArray[d]=tdDetailArray[d].replace(/<O/g,"<font color=\"#CC6600\"><br>< O");
 				tdDetailArray[d]=tdDetailArray[d].replace(/<オ/g,"<font color=\"#CC6600\"><オ");
 				tdDetailArray[d]=tdDetailArray[d].replace(/P>/g,"P></font>");
+				tdDetailArray[d]=tdDetailArray[d].replace(/プ>/g,"プ></font>");
 				tdDetailArray[d]=tdDetailArray[d].replace(/【/g,"<font color=\"#006400 \">【");
 				tdDetailArray[d]=tdDetailArray[d].replace(/】/g,"】</font>");
 				tdDetailArray[d]=tdDetailArray[d].replace(/\[Lv.]/g,"<font color=\"#CC00CC \">[Lv.]</font>");
@@ -320,11 +321,11 @@ function svtDataTable(svtId)
 			else if(master.mstSvtComment[c].condValue<6) 
 			{
 				svtInfoDataTxt+="<b>絆等級"+master.mstSvtComment[c].condValue+"</b>";
-				/*for(d in master.mstFriendship)
+				for(d in master.mstFriendship)
 					if(master.mstFriendship[d].id==master.mstSvt[i].friendshipId&&master.mstFriendship[d].rank==master.mstSvtComment[c].condValue-1)
 					{
 						svtInfoDataTxt+="<br>("+master.mstFriendship[d].friendship+")";break;
-					}*/
+					}
 			}
 			else if(master.mstSvtComment[c].condType==1){
 				svtInfoDataTxt+="<b>通過任務</b><br>"+questRea(master.mstSvtComment[c].condValue);

@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="Fate/Grand Order台灣中文資料站" />
+<meta name="keywords" content="Fate/Grand Order,FGO,Fate/GO,TYPE-MOON,Fate,Saber,Archer,Lancer,Rider,Caster,Assassin,Berserker,Shielder,Ruler" />
+<title>隱藏數值</title>
+<link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+<link href="common/css/common.css" rel="stylesheet" type="text/css" />
+<link href="common/css/detail_info.css" rel="stylesheet" type="text/css" />
+<link href="common/css/sidebar.css" rel="stylesheet" type="text/css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type='text/javascript' src='common/js/sidebar.js'></script>
+<script type='text/javascript' src='common/js/master.js'></script>
+<script type='text/javascript' src='common/js/transData.js'></script>
+<script type="text/javascript" src="common/js/smoothRollOver.js"></script>
+<script type="text/javascript" src="common/js/scrollTop.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-70142247-1', 'auto');
+  ga('require', 'linkid');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+</script>
+</script>
+<script type="text/javascript">
+function indiOut()
+{
+	var indiTxt="",indiId,conO;
+	var cl=document.getElementsByClassName("indiTd");
+	for(var k=0;k<cl.length;k++)
+	{
+		indiTxt="";
+		if(cl[k].id.search(/N/)==-1) conO=true; else conO=false;
+		indiId = cl[k].id.replace(/indi/g,"").replace(/N/g,"");
+		
+		for(var i in master.mstSvt)
+		{
+			if((master.mstSvt[i].type==1||master.mstSvt[i].type==2||master.mstSvt[i].type==5||master.mstSvt[i].type==9))
+			{
+				var indiO = false;
+				for(var j in master.mstSvt[i].individuality)
+				{
+					if(master.mstSvt[i].individuality[j]==indiId) indiO=true;
+				}
+				if((conO&&indiO)||(!conO&&!indiO))
+				{
+					indiTxt+="<a href='svtData.html?";
+					if(master.mstSvt[i].collectionNo==0) indiTxt+="id="+master.mstSvt[i].id;
+					else indiTxt+="no="+master.mstSvt[i].collectionNo;
+					indiTxt+="'><img src='common/images/icon/faces/"+master.mstSvt[i].id+"0.png' onerror=\"javascript:this.src='common/images/icon/faces/0.png'\" width=30 title='"+findSvtNameZh2(master.mstSvt[i].id)+"'></img></a>";
+				}
+			}
+		}
+		indiTxt+="<br>"+document.getElementById(cl[k].id).innerHTML
+		document.getElementById(cl[k].id).innerHTML=indiTxt;
+	}
+}
+</script>
+</head>
+<body onload="loadsidebar();indiOut();">
+<!--二欄橫幅主要區塊開始-->
+<div style='position:relative;'>
+    <!--選單區塊開始-->
+    <div id="div_right_sidebar"></div>
+    <!--選單區塊結束-->
+    <!--主要內容區塊開始-->
+    <div id="div_content"><div class="container">
+<article class="content textsize">
+<h1 id="class">職階相性</h1>
+<table style="text-align:center;">
+<tr><th colspan=2 rowspan=2>職階</th><th rowspan=2>傷害倍率</th><th colspan=12>防禦側</th></tr>
+<tr><th>Saber</th><th>Archer</th><th>Lancer</th><th>Rider</th><th>Caster</th><th>Assassin</th><th>Berserker</th><th>Shielder</th><th>Ruler</th><th>Alter Ego</th><th>Avenger</th><th>Beast</th></tr>
+<tr><th rowspan=12>攻擊側</th><th>Saber</th><td>－</td><td>－</td><td class="green">0.5</td><td class="red">2</td><td>－</td><td>－</td><td>－</td><td class="red">2</td><td>－</td><td class="green">0.5</td><td class="red">2</td><td class="red">2</td><td>－</td></tr>
+<tr><th>Archer</th><td>0.95</td><td class="red">2</td><td>－</td><td class="green">0.5</td><td>－</td><td>－</td><td>－</td><td class="red">2</td><td>－</td><td class="green">0.5</td><td class="red">2</td><td class="red">2</td><td>－</td></tr>
+<tr><th>Lancer</th><td>1.05</td><td class="green">0.5</td><td class="red">2</td><td>－</td><td>－</td><td>－</td><td>－</td><td class="red">2</td><td>－</td><td class="green">0.5</td><td class="red">2</td><td class="red">2</td><td>－</td></tr>
+<tr><th>Rider</th><td>－</td><td>－</td><td>－</td><td>－</td><td>－</td><td class="red">2</td><td class="green">0.5</td><td class="red">2</td><td>－</td><td class="green">0.5</td><td>－</td><td class="red">2</td><td class="red">2</td></tr>
+<tr><th>Caster</th><td>0.9</td><td>－</td><td>－</td><td>－</td><td class="green">0.5</td><td>－</td><td class="red">2</td><td class="red">2</td><td>－</td><td class="green">0.5</td><td>－</td><td class="red">2</td><td class="red">2</td></tr>
+<tr><th>Assassin</th><td>0.9</td><td>－</td><td>－</td><td>－</td><td class="red">2</td><td class="green">0.5</td><td>－</td><td class="red">2</td><td>－</td><td class="green">0.5</td><td>－</td><td class="red">2</td><td class="red">2</td></tr>
+<tr><th>Berserker</th><td>1.1</td><td class="red">1.5</td><td class="red">1.5</td><td class="red">1.5</td><td class="red">1.5</td><td class="red">1.5</td><td class="red">1.5</td><td class="red">1.5</td><td>－</td><td class="red">1.5</td><td class="red">1.5</td><td class="red">1.5</td><td class="red">1.5</td></tr>
+<tr><th>Shielder</th><td>－</td><td>－</td><td>－</td><td>－</td><td>－</td><td>－</td><td>－</td><td>－</td><td>－</td><td>－</td><td>－</td><td>－</td><td>－</td></tr>
+<tr><th>Ruler</th><td>1.1</td><td>－</td><td>－</td><td>－</td><td>－</td><td>－</td><td>－</td><td class="red">2</td><td>－</td><td>－</td><td>－</td><td class="red">2</td><td>－</td></tr>
+<tr><th>Alter Ego</th><td>－</td><td>－</td><td>－</td><td>－</td><td class="red">2</td><td class="red">2</td><td class="red">2</td><td class="red">2</td><td>－</td><td>－</td><td>－</td><td class="red">2</td><td>－</td></tr>
+<tr><th>Avenger</th><td>－</td><td>－</td><td>－</td><td>－</td><td>－</td><td>－</td><td>－</td><td class="red">2</td><td>－</td><td class="red">2</td><td class="red">2</td><td>－</td><td class="green">0.5</td></tr>
+<tr><th>Beast</th><td>－</td><td class="red">2</td><td class="red">2</td><td class="red">2</td><td>－</td><td>－</td><td>－</td><td class="red">2</td><td>－</td><td>－</td><td>－</td><td class="green">0.5</td><td>－</td></tr>
+</table>
+<hr>
+<h1 id="attribute">分類相性</h1>
+<div class="info_paragraph">
+<strong><font color="#094a98">◆</font>Emiya的幕間物語《Master的條件》<font color="#094a98">◆</font></strong>
+<div class="paragraph_details">
+<ul style='list-style-type:disc;list-style-position:outside;'>
+　<li>英靈大致有四個分類『人』『地』『天』以及『星』。</li>
+　<li>『人』是西元以後為人類貢獻的偉人，在死後被視為英雄，為普遍認知的角色。<br>也有從生前就已經是超人的例子，但基本上都是死後被大眾神格化的英靈。<br>舉例像安徒生和莎士比亞、羅賓漢、南丁格爾女士等人。</li>
+　<li>次に『地』のカテゴリ。これは土着の幻想伝承に語られる英雄</li>
+　<li>『星』是人類的希望。打破困難的象徵。<br>
+これはあらゆるカテゴリに対してマイナスを持たない<br>万能属性に見えるが、その本質は別にある。</li>
+　<li>存在著與『星』相剋的第五個分類</li>
+</ul>
+</div>
+</div>
+<table style="text-align:center;">
+<tr><th colspan=2 rowspan=2>分類</th><th colspan=5>防禦側</th></tr>
+<tr><th>人</th><th>天</th><th>地</th><th>星</th><th>獸</th></tr>
+<tr><th rowspan=5>攻擊側</th><th>人</th><td>－</td><td class="red">1.1</td><td class="green">0.9</td><td>－</td><td>－</td></tr>
+<tr><th>天</th><td class="green">0.9</td><td>－</td><td class="red">1.1</td><td>－</td><td>－</td></tr>
+<tr><th>地</th><td class="red">1.1</td><td class="green">0.9</td><td>－</td><td>－</td><td>－</td></tr>
+<tr><th>星</th><td>－</td><td>－</td><td>－</td><td>－</td><td class="red">1.1</td></tr>
+<tr><th>獸</th><td>－</td><td>－</td><td>－</td><td class="red">1.1</td><td>0</td></tr>
+</table>
+<table style="width:65%">
+<tr><th style="width:5%">分類</th><th style="width:60%">對象</th></tr>
+<tr><th>人</th><td id="indi202" class="indiTd">
+骸骨兵、古代兵、中世兵、近代兵、皮克特人、亞馬遜女戰士、Nobu</td></tr>
+<tr><th>天</th><td id="indi200" class="indiTd">
+鬼魂、惡魔、自動機械、魔像、蛇妖、咒語書、金錢加成、經驗值加成、人工生命體、魔神柱、ヘルタースケルター、聖誕之手、雪人</td></tr>
+<tr><th>地</th><td id="indi201" class="indiTd">
+龍牙兵、雙足飛龍(ワイバーン)、龍、半人馬、奇美拉、狼人、豹人、哥布林、鹿人</td></tr>
+<tr><th>星</th><td id="indi203" class="indiTd">
+</td></tr>
+</table>
+<hr>
+<h1 id="gender">性別</h1>
+<p>分為男性、女性、無性別。<br>
+容易搞錯的<a href='svtData.html?no=60'>俄里翁</a>實際為男性、<a href='svtData.html?no=10'>德翁</a>為無性別。<br>
+下表僅列出怪物性別</p>
+<table style="width:65%">
+<tr><th style="width:5%">性別</th><th style="width:60%">對象</th></tr>
+<tr><th>男性</th><td>
+古代兵、中世兵、近代兵、皮克特人、半人馬、狼人、豹人、哥布林、鹿人、雪人
+</td></tr>
+<tr><th>女性</th><td>
+亞馬遜女戰士、蛇妖
+</td></tr>
+<tr><th>無</th><td>
+骸骨兵、龍牙兵、鬼魂、自動機械、魔像、雙足飛龍(ワイバーン)、龍、奇美拉、咒語書、金錢加成、經驗值加成、人工生命體、魔神柱、ヘルタースケルター、Nobu、聖誕之手
+</td></tr>
+</table>
+<hr>
+<h1 id="individuality">特性</h1>
+<p>遊戲內存在著許多隱藏特性，用來讓AI行動基準或傷害特攻。<br>
+下表僅列出有傷害特攻的特性<br></p>
+<table style="width:65%">
+<tr><th style="width:20%">特性</th><th style="width:45%">對象</th></tr>
+<tr><th>惡</th><td id="indi304" class="indiTd">
+</td></tr>
+<tr><th>Servant</th><td>
+全部的Servant
+</td></tr>
+<tr><th>人類</th><td>
+古代兵、中世兵、近代兵、皮克特人、亞馬遜女戰士
+</td></tr>
+<tr><th>死靈</th><td>
+骸骨兵、鬼魂
+</td></tr>
+<tr><th>神性</th><td id="indi2000" class="indiTd">
+<tr><th>人型</th><td>
+全部的Servant
+<br>骸骨兵、古代兵、中世兵、近代兵、皮克特人、亞馬遜女戰士、蛇妖、半人馬、狼人、豹人、哥布林、Nobu、鹿人
+</td></tr>
+<tr><th>龍</th><td id="indi2002" class="indiTd">
+龍牙兵、雙足飛龍(ワイバーン)、龍
+</td></tr>
+<tr><th>羅馬</th><td id="indi2004" class="indiTd">
+<tr><th>猛獸</th><td id="indi2005" class="indiTd">
+奇美拉、狼人、豹人
+</td></tr>
+<tr><th>阿爾托莉亞臉</th><td id="indi2007" class="indiTd">
+</td></tr>
+<tr><th>被天地乖離開辟之星所剋<br>(沒有星之力的Servant)</th><td id="indiN2008" class="indiTd">
+僅列出沒此特性的Servant，斯卡哈與貞德雖是星分類但仍被剋制
+</td></tr>
+<tr><th>騎乘</th><td id="indi2009" class="indiTd">
+</td></tr>
+<tr><th>亞瑟</th><td id="indi2010" class="indiTd">
+</td></tr>
+<tr><th>被人類神話・雷電降臨所剋<br>(有天或地之力的Sevant)</th><td id="indi2011" class="indiTd">
+<tr><th>愛人</th><td id="indi2012" class="indiTd">
+</td></tr>
+</table>
+<hr>
+<h1 id="cmdDamage">指令卡傷害</h1>
+<p>卡片傷害 = 攻擊力 × [(首卡加成 + 卡片倍率 x (1 ± 卡片性能Buff)] × Extra加成 × 職階傷害倍率 × 職階相性 × 分類相性 × 0.23<br>
+ × (1 ± 攻擊力Buff ± 防禦力Buff) × [1 ± 特攻Buff ± Critical威力Buff(若有Critical)]<br>
+ × 若有Critical為2倍 × 隨機亂數(0.9~1.1)<br>
+ ± 傷害加成/減免 + Buster Chain加成</p>
+<h3>首卡加成</h3>
+<p>若第一張卡是<font color="#ff0000">Buster卡</font>的話為0.5，其餘為0</p>
+<h3>卡片倍率</h3>
+<p>Extra卡為100%<table style="text-align:center;">
+<tr><th>倍率</th><th><font color="#0099FF">Arts</font></th><th><font color="#ff0000">Buster</font></th><th><font color="#00ff00">Quick</font></th></tr>
+<tr><th>第1張</th><td>100%</td><td>150%</td><td>80%</td></tr>
+<tr><th>第2張</th><td>120%</td><td>180%</td><td>96%</td></tr>
+<tr><th>第3張</th><td>140%</td><td>210%</td><td>112%</td></tr>
+</table></p>
+<h3>卡片性能Buff</h3>
+<p><font color="#0099FF">Arts</font>/<font color="#ff0000">Buster</font>/<font color="#00ff00">Quick</font>卡性能提升的Buff</p>
+<h3>Extra加成</h3>
+<p>三張同人同色為3.5，三張同人非同色為2，其餘為1</p>
+<h3>Buster Chain加成</h3>
+<p>三張皆為<font color="#ff0000">Buster卡</font>的話最後傷害再加上攻擊力 x 0.2</p>
+<hr>
+<h1 id="tdDamage">寶具傷害</h1>
+<p>卡片傷害 = 攻擊力 × 寶具傷害倍率 × [(卡片倍率 x (1 ± 卡片性能Buff)] × 職階傷害倍率 × 職階相性 × 分類相性 × 0.23<br>
+ × (1 ± 攻擊力Buff ± 防禦力Buff) × (1 ± 特攻Buff ± 寶具威力Buff) × (1 ± 寶具特攻加成)<br>
+ × 隨機亂數(0.9~1.1)<br>
+ ± 傷害加成/減免 + Buster Chain加成</p>
+<h3>卡片倍率</h3>
+<p><table style="text-align:center;">
+<tr><th rowspan="2">倍率</th><th><font color="#0099FF">Arts</font></th><th><font color="#ff0000">Buster</font></th><th><font color="#00ff00">Quick</font></th></tr>
+<tr><td>100%</td><td>150%</td><td>80%</td></tr>
+</table></p>
+<h3>寶具特攻加成</h3>
+<p>寶具內建的特攻，與賦予的特攻Buff不同</p>
+<hr>
+<h1 id="npAtk">攻擊獲得NP</h1>
+<p>NP獲得量 = 基本NP獲得率(Atk) × [(首卡加成 + 卡片倍率 x (1 ± 卡片性能Buff)] × (1 + NP獲得量Buff)<br>
+ × Critical補正 × Overkill補正 * 攻擊Hit數</p>
+ <h3>首卡加成</h3>
+<p>若第一張卡是<font color="#0099FF">Arts卡</font>的話為1，其餘為0</p>
+<h3>卡片倍率</h3>
+<p>Extra卡為100%<table style="text-align:center;">
+<tr><th>倍率</th><th><font color="#0099FF">Arts</font></th><th><font color="#ff0000">Buster</font></th><th><font color="#00ff00">Quick</font></th></tr>
+<tr><th>第1張</th><td>300%</td><td>0%</td><td>100%</td></tr>
+<tr><th>第2張</th><td>450%</td><td>0%</td><td>150%</td></tr>
+<tr><th>第3張</th><td>600%</td><td>0%</td><td>200%</td></tr>
+</table></p>
+<h3>Critical補正</h3>
+<p>有Critical的話為2倍</p>
+<h3>Overkill補正</h3>
+<p>有Overkill的話為1.5倍</p>
+</p>
+<hr>
+<h1 id="npDef">被攻擊獲得NP</h1>
+<p>NP獲得量 = 基本NP獲得率(Def) * (1 + NP獲得量Buff) * 攻擊Hit數</p>
+<hr>
+<h1 id="starRate">星星發生率</h1>
+<p>每Hit的掉星率 = (星星發生率 + 首卡加成 + (卡片倍率 * (1 ± 卡片性能Buff)) + 伺服器機率 ± 星星發生率提升Buff + Critical補正) * Overkill補正 + Overkill加成</p>
+<h3>首卡加成</h3>
+<p>若第一張卡是<font color="#00ff00">Quick指令卡</font>的話為20%，其餘及寶具為0</p>
+<h3>卡片倍率</h3>
+<p><table style="text-align:center;">
+<tr><th>倍率</th><th><font color="#0099FF">Arts</font></th><th><font color="#ff0000">Buster</font></th><th><font color="#00ff00">Quick</font></th></tr>
+<tr><th>第1張</th><td>0%</td><td>10%</td><td>80%</td></tr>
+<tr><th>第2張</th><td>0%</td><td>15%</td><td>130%</td></tr>
+<tr><th>第3張</th><td>0%</td><td>20%</td><td>180%</td></tr>
+</table></p>
+<h3>伺服器機率</h3>
+<p>伺服器控制的參數，假設為0</p>
+<h3>Critical補正</h3>
+<p>有Critical的話為20%，其餘為0</p>
+<h3>Overkill補正</h3>
+<p>有Overkill的話為100%，其餘為100%(在新計算公式下已無差異)</p>
+<h3>Overkill加成</h3>
+<p>有Overkill的話為20%，其餘為0</p>
+<hr>
+<h1 id="criticalWeight">星星分配</h1>
+<p>當星星分配比重 × 星星集中率的值越高，越容易拿到星星<br></p>
+<hr>
+<h1 id="deathRate">弱體成功率</h1>
+<p>弱體成功率 = 弱體機率 + 弱體成功率提升 - 弱體耐性</p>
+<hr>
+<h1 id="deathRate">即死成功率</h1>
+<p>即死成功率 = 即死機率 × 被即死率</p>
+</article>
+<div id="gotop"><a href="#"><img src="common/images/btn_gotop_off.jpg" width="47" height="47" alt="返回頂端" /></a></div>
+    </div>
+    <!--主要內容區塊結束-->
+</div>
+<!--二欄橫幅主要區塊結束-->
+</body>
+</html>
