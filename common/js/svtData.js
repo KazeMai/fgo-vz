@@ -101,7 +101,7 @@ function svtDataTable(svtId)
 		if(master.mstSvtSkill[c].svtId==master.mstSvt[i].id){
 			skillrowCount++;
 			for(var k=0;k<master.mstSkill.length;k++){
-				if(master.mstSvtSkill[c].skillId==master.mstSkill[k].id){skillText+="<td><img src=common/images/SkillIcon/SkillIcon_"+master.mstSkill[k].iconId+".png onerror=javascript:this.src='common/images/SkillIcon/SkillIcon_999999.png' width=55></img></td><td><b>"+master.mstSkill[k].name+"</b></td>"; break;}
+				if(master.mstSvtSkill[c].skillId==master.mstSkill[k].id){skillText+="<td><img src=common/images/SkillIcon/SkillIcon_"+master.mstSkill[k].iconId+".png onerror=javascript:this.src='common/images/SkillIcon/SkillIcon_0.png' width=55></img></td><td><b>"+master.mstSkill[k].name+"</b></td>"; break;}
 			}
 
 			for(var k=0;k<master.mstSkillLv.length;k++){
@@ -169,7 +169,7 @@ function svtDataTable(svtId)
 			}
 		}
 	}
-	if(skillText.length>0)svtSkTdDataTxt+="<tr><th rowspan="+skillrowCount+"><b>保有技能</b></th><th colspan=2 style='width:300px'>技能</th><th colspan=5 style='width:250px'>冷卻時間</th><th colspan=5 style='width:250px'>開放條件</th></tr><tr>"+skillText+"";
+	if(skillText.length>0)svtSkTdDataTxt+="<tr><th style='width:60px' rowspan="+skillrowCount+"><b>保有技能</b></th><th colspan=2 style='width:300px'>技能</th><th colspan=5 style='width:250px'>冷卻時間</th><th colspan=5 style='width:250px'>開放條件</th></tr><tr>"+skillText+"";
 		
 	if(master.mstSvt[i].classPassive.length!=0){
 	skillText="";
@@ -178,7 +178,7 @@ function svtDataTable(svtId)
 	{
 		skillrowCount++;
 		for(var k=0;k<master.mstSkill.length;k++){
-			if(master.mstSvt[i].classPassive[c]==master.mstSkill[k].id){skillText+="<td style='width:55px'><img src=common/images/SkillIcon/SkillIcon_"+master.mstSkill[k].iconId+".png onerror=javascript:this.src='common/images/SkillIcon/SkillIcon_999999.png' width=55></img></td><td><b>"+master.mstSkill[k].name+"</b></td>"; break;}
+			if(master.mstSvt[i].classPassive[c]==master.mstSkill[k].id){skillText+="<td style='width:55px'><img src=common/images/SkillIcon/SkillIcon_"+master.mstSkill[k].iconId+".png onerror=javascript:this.src='common/images/SkillIcon/SkillIcon_0.png' width=55></img></td><td><b>"+master.mstSkill[k].name+"</b></td>"; break;}
 		}
 		for(var k=0;k<master.mstSkillDetail.length;k++){
 			if(master.mstSvt[i].classPassive[c]==master.mstSkillDetail[k].id){
