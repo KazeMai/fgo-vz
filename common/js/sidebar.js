@@ -1,6 +1,6 @@
 ﻿function loadsidebar()
 {
-	document.getElementById('div_right_sidebar').innerHTML="<img src='common/images/pc_logo.png' width=230></img><a href='index.html'><div class='sidebarl' style='background-image:url(common/images/sidebar01.png);'>首頁</div></a><a href='servant.html'><div class='sidebarl' style='background-image:url(common/images/sidebar05.png);'>Servant</div></a><a href='skill.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>技能</div></a><a href='noble_phantasm.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>寶具</div></a><a href='status_compare.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>二圍比較</div></a><a href='craft_essence.html'><div class='sidebarl' style='background-image:url(common/images/sidebar09.png);'>概念禮裝</div></a><a href='item_drop.html'><div class='sidebarl' style='background-image:url(common/images/sidebar15.png);'>素材道具</div></a><a href='master_equip.html'><div class='sidebarl' style='background-image:url(common/images/sidebar03.png);'>Master相關</div></a><a href='event_history.html'><div class='sidebarl' style='background-image:url(common/images/sidebar10.png);'>過去活動</div></a><a href='event_500wdl.html#midashi_06' title='「500萬DL記念召喚」'><div class='sidebar_event' style='background-image:url(common/images/2016/02/summon_20160203_izhr9.jpg);'></div></a><a href='event_500wdl.html' title='「500萬DL突破宣傳活動」'><div class='sidebar_event' style='background-image:url(common/images/2016/01/banner_1003079131.png);'></div></a><a href='http://goo.gl/Nw8bbF' target=_blank><div class='sidebarl' style='background-image:url(common/images/sidebar08.png);'>意見提供</div></a>";
+	document.getElementById('div_right_sidebar').innerHTML="<img src='common/images/pc_logo.png' width=230></img><a href='./'><div class='sidebarl' style='background-image:url(common/images/sidebar01.png);'>首頁</div></a><a href='servant.html'><div class='sidebarl' style='background-image:url(common/images/sidebar05.png);'>Servant</div></a><a href='skill.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>技能</div></a><a href='noble_phantasm.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>寶具</div></a><a href='status_compare.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>二圍比較</div></a><a href='craft_essence.html'><div class='sidebarl' style='background-image:url(common/images/sidebar09.png);'>概念禮裝</div></a><a href='item_drop.html'><div class='sidebarl' style='background-image:url(common/images/sidebar15.png);'>素材道具</div></a><a href='master_equip.html'><div class='sidebarl' style='background-image:url(common/images/sidebar03.png);'>Master相關</div></a><a href='event_history.html'><div class='sidebarl' style='background-image:url(common/images/sidebar10.png);'>過去活動</div></a><a href='event_500wdl.html#midashi_06' title='「500萬DL記念召喚」'><div class='sidebar_event' style='background-image:url(common/images/2016/02/summon_20160203_izhr9.jpg);'></div></a><a href='event_500wdl.html' title='「500萬DL突破宣傳活動」'><div class='sidebar_event' style='background-image:url(common/images/2016/01/banner_1003079131.png);'></div></a><a href='http://goo.gl/Nw8bbF' target=_blank><div class='sidebarl' style='background-image:url(common/images/sidebar08.png);'>意見提供</div></a>";
 }
 function addCommas(nStr) {
 	nStr += '';
@@ -134,4 +134,27 @@ function questRea(qstId)
 	}
 	if(skillText=="<span class='hint' title='") skillText="？？？";
 	return skillText;
+}
+function svtFace(svtId)
+{
+	var txt="";
+	for(var i in master.mstSvt)
+	{
+		if(master.mstSvt[i].id==svtId)
+		{
+			if(master.mstSvt[i].type==6)
+			{
+				txt+="<a href='ceData.html?no="+master.mstSvt[i].collectionNo+"'><img src='common/images/icon/faces/"+master.mstSvt[i].id+".png' onerror=\"javascript:this.src='common/images/icon/faces/0.png'\" class='itemM' title='"+master.mstSvt[i].name+"' /></a>";
+			}
+			else
+			{
+				txt+="<a href='svtData.html?";
+				if(master.mstSvt[i].collectionNo==0) txt+="id="+master.mstSvt[i].id;
+				else txt+="no="+master.mstSvt[i].collectionNo;
+				txt+="'><img src='common/images/icon/faces/"+master.mstSvt[i].id+"0.png' onerror=\"javascript:this.src='common/images/icon/faces/0.png'\" class='itemM' title='"+findSvtNameZh2(master.mstSvt[i].id)+"' /></a>";
+			}
+			break;
+		}
+	}
+	return txt;
 }

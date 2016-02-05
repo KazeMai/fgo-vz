@@ -93,6 +93,19 @@ background-position: 14px;
 .bkmk:hover{
   background-image:url("../images/bkmk_on.png");
 }
+.bkmkO{
+  background-image:url("../images/bkmk_on.png");
+  background-size:140px 40px;
+  background-repeat:no-repeat;
+  width:140px;
+  height:40px;
+  text-align:center;
+  line-height:40px;
+  color:#DDDDDD;
+  font-weight: bold;
+  font-size: 1.0em;
+  float:left;
+}
 .headline4 {
 	display: inline-block;
 	font-size: 0.9em;

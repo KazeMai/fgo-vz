@@ -44,12 +44,12 @@ function svtDataTable(svtId)
 	
 	svtNrmlDataTxt+="<td>"+attriList[master.mstSvt[i].attri]+"</td></tr><tr><th><b>HP</b></th><th><b>ATK</b></th><th><b>繪師</b></th><th><b>CV</b></th><th><b>屬性</b></th><th><b>性別</b></th></tr><tr align=\"center\"><td>"+master.mstSvtLimit[j].hpBase+" / "+master.mstSvtLimit[j].hpMax+"</td><td>"+master.mstSvtLimit[j].atkBase+" / "+master.mstSvtLimit[j].atkMax+"</td>";
 	for(c=0;c<master.mstIllustrator.length;c++)
-		if(master.mstIllustrator[c].id==master.mstSvt[i].illustratorId) {svtNrmlDataTxt+="<td>"+master.mstIllustrator[c].name+"</td>";break;}
+		if(master.mstIllustrator[c].id==master.mstSvt[i].illustratorId) {svtNrmlDataTxt+="<td><a href='illustrator.html#"+master.mstSvt[i].illustratorId+"'>"+master.mstIllustrator[c].name+"</a></td>";break;}
 	
 	svtNrmlDataTxt+="<td>";
 	if(master.mstSvt[i].cvId!=-1)
 		for(c=0;c<master.mstCv.length;c++){
-			if(master.mstCv[c].id==master.mstSvt[i].cvId) {svtNrmlDataTxt+=master.mstCv[c].name;break;}
+			if(master.mstCv[c].id==master.mstSvt[i].cvId) {svtNrmlDataTxt+="<a href='cv.html#"+master.mstSvt[i].cvId+"'>"+master.mstCv[c].name+"</a>";break;}
 		}
 	else svtNrmlDataTxt+="？？？";
 	svtNrmlDataTxt+="</td>";
@@ -352,7 +352,7 @@ function svtDataTable(svtId)
 				
 				for(var k=0;k<master.mstCombineLimit[c].itemIds.length;k++)
 				{
-					svtCmbnDataTxt+=findItemName(master.mstCombineLimit[c].itemIds[k]) + "x" + master.mstCombineLimit[c].itemNums[k] + " + ";
+					svtCmbnDataTxt+="<a href='item_drop.html#"+master.mstCombineLimit[c].itemIds[k]+"'><img src='common/images/icon/items/"+master.mstCombineLimit[c].itemIds[k]+".png' title='"+findItemName(master.mstCombineLimit[c].itemIds[k]) + "' onerror=\"javascript:this.src='common/images/icon/faces/0.png'\" class='itemM' /></a>x" + master.mstCombineLimit[c].itemNums[k] + "　";
 				}
 				svtCmbnDataTxt+= addCommas(master.mstCombineLimit[c].qp) + "QP";
 			}
@@ -367,7 +367,7 @@ function svtDataTable(svtId)
 			svtCmbnDataTxt+="<td"+tdColor+">Lv."+master.mstCombineSkill[c].skillLv+"→Lv."+(master.mstCombineSkill[c].skillLv+1)+"</td><td"+tdColor+">";
 			for(var k=0;k<master.mstCombineSkill[c].itemIds.length;k++)
 			{
-				svtCmbnDataTxt+=findItemName(master.mstCombineSkill[c].itemIds[k]) + "x" + master.mstCombineSkill[c].itemNums[k] + " + ";
+				svtCmbnDataTxt+="<a href='item_drop.html#"+master.mstCombineSkill[c].itemIds[k]+"'><img src='common/images/icon/items/"+master.mstCombineSkill[c].itemIds[k]+".png' title='"+findItemName(master.mstCombineSkill[c].itemIds[k]) + "' onerror=\"javascript:this.src='common/images/icon/faces/0.png'\" class='itemM' /></a>x" + master.mstCombineSkill[c].itemNums[k] + "　";
 			}
 			svtCmbnDataTxt+= addCommas(master.mstCombineSkill[c].qp) + "QP</td></tr>";combineCount++;
 		}
