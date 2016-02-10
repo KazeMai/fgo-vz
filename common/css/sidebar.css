@@ -244,6 +244,7 @@ table.tablesorter tr:nth-child(2n) {
 	color: #FFD500;
 	text-shadow: 1px 1px 1px #000000;
 	font-size: 110%;
+	text-align:center;
 }
 .ruby {
 	font-size: 0.7em;

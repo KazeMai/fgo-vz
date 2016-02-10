@@ -27,12 +27,12 @@
 <script type="text/javascript">
 function cvDataOut()
 {
-	var cvTxt="<tr><th>ＣＶ</th><th>Servant</th></tr>";
+	var cvTxt="<tr><th style='width:125px;'>ＣＶ</th><th>Servant</th></tr>";
 	for(var i in master.mstCv)
 	{
 		if(master.mstCv[i].id>1)
 		{
-			cvTxt+="<tr><td style='text-align:center;width:100px;' id='"+master.mstCv[i].id+"'>"+master.mstCv[i].name+"</td><td>";
+			cvTxt+="<tr><td style='text-align:center;' id='"+master.mstCv[i].id+"'>"+master.mstCv[i].name+"</td><td>";
 			for(var j in master.mstSvt)
 			{
 				if(master.mstSvt[j].cvId==master.mstCv[i].id)

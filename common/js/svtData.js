@@ -5,7 +5,7 @@ function sortByElmentNo(a,b)
 }
 function svtDataTable(svtId)
 {
-	var personalityList = ["","善","惡","?","狂","中庸"];
+	var personalityList = ["","善","惡","?","狂","中庸","?","花嫁"];
 	var policyList = ["","中立","混沌","秩序"];
 	var attriList = ["","人","天","地","星","獸"];
 	var genderTypeList = ["","男性","女性","無"];

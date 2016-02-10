@@ -27,12 +27,12 @@
 <script type="text/javascript">
 function cvDataOut()
 {
-	var cvTxt="<tr><th>繪師</th><th>Servant＆概念禮裝</th></tr>";
+	var cvTxt="<tr><th style='width:125px;'>繪師</th><th>Servant＆概念禮裝</th></tr>";
 	for(var i in master.mstIllustrator)
 	{
 		if(master.mstIllustrator[i].id>1)
 		{
-			cvTxt+="<tr><td style='text-align:center;width:100px;' id='"+master.mstIllustrator[i].id+"'>"+master.mstIllustrator[i].name.replace(/\(/g,"<br>(")+"</td><td>";
+			cvTxt+="<tr><td style='text-align:center;' id='"+master.mstIllustrator[i].id+"'>"+master.mstIllustrator[i].name.replace(/\(/g,"<br>(")+"</td><td>";
 			for(var j in master.mstSvt)
 			{
 				if(master.mstSvt[j].illustratorId==master.mstIllustrator[i].id)

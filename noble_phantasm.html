@@ -58,10 +58,10 @@ function trdvDataOut(searchData,searchId)
 						
 					var tdDetailArray = new Array();
 					if(!document.getElementById('isJpTxt').checked)
-					{
-						tdDetailTxt[1]=tdDetailTxt[1].replace(/ |　/g,"");
+					{	if(!tdDetailTxt[1]) {alert(master.mstTreasureDevice[k].seqId);tdDetailTxt[1]="";}
+						else {tdDetailTxt[1]=tdDetailTxt[1].replace(/ |　/g,"");
 						tdDetailTxt[1]=tdDetailTxt[1].replace(/＆/g,"＆┗");
-						tdDetailArray = tdDetailTxt[1].split(/＆|＋/);
+						tdDetailArray = tdDetailTxt[1].split(/＆|＋/);}
 					}
 					else tdDetailArray[0] = tdDetailTxt[1].slice(0);
 					
