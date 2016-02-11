@@ -47,7 +47,10 @@ function svtDataTable(svtId)
 		svtDatatxt+="★";
 	svtDatatxt+="</td><td>"+master.mstSvt[i].name+"</td><td>"+master.mstSvtLimit[j].hpBase+" / "+master.mstSvtLimit[j].hpMax+"</td><td>"+master.mstSvtLimit[j].atkBase+" / "+master.mstSvtLimit[j].atkMax+"</td>";
 	for(c in master.mstIllustrator)
-		if(master.mstIllustrator[c].id==master.mstSvt[i].illustratorId) {svtDatatxt+="<td>"+master.mstIllustrator[c].name+"</td>";break;}
+		if(master.mstIllustrator[c].id==master.mstSvt[i].illustratorId) {
+			if(master.mstIllustrator[c].id>1)svtDatatxt+="<td><a href='illustrator.html#"+master.mstIllustrator[c].id+"'>"+master.mstIllustrator[c].name+"</a></td>";
+			else svtDatatxt+="<td>"+master.mstIllustrator[c].name+"</td>";
+			break;}
 	svtDatatxt+="</tr><tr><th colspan=6>保有技能</th></tr>";
 	for(c in master.mstSvtSkill){
 		if(master.mstSvtSkill[c].svtId==master.mstSvt[i].id&&master.mstSvtSkill[c].condLimitCount==0)
