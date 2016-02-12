@@ -60,6 +60,19 @@ function svtDataTable(svtId)
 		for(var k in individualityList)
 			if(master.mstSvt[i].individuality[c]==individualityList[k][0]) traitArray.push(individualityList[k][1]);
 	svtNrmlDataTxt+="<tr><th>特性</th><td colspan=5 align=center>"+traitArray+"</td></tr>";
+	
+	/*svtNrmlDataTxt+="<tr><td colspan=6>";var tmpTxt="";
+	for(c in master.mstSvtVoice)
+	{
+		if(master.mstSvtVoice[c].id==master.mstSvt[i].id&&master.mstSvtVoice[c].type==3)
+			for(k in master.mstSvtVoice[c].scriptJson)
+			{
+				tmpTxt+=master.mstSvtVoice[c].scriptJson[k].infos.text;
+			}
+		if(tmpTxt!="")svtNrmlDataTxt+="「"+mpTxt+"」";
+		break;
+	}
+	svtNrmlDataTxt+="</tr>";*/
 	document.getElementById("svtNrmlData").innerHTML=svtNrmlDataTxt;
 	
 	var svtCtrlDataTxt="";
