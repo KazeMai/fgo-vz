@@ -42,7 +42,7 @@ function svtDataTable(svtId)
 	{
 		if(master.mstSvtLimit[j].svtId==svtId)break;
 	}
-	var svtDatatxt = "<tr><td width=300 align=center rowspan=7><img src=common/images/CharaGraph/"+svtId+"a.png width=300></img></td><th>編號</th><th>星數</th><th>名稱</th><th>HP</th><th>ATK</th><th>繪師</th></tr><tr align=\"center\"><td>No."+master.mstSvt[i].collectionNo+"</td><td class=\"star\">";
+	var svtDatatxt = "<tr><td width=300 align=center rowspan=7><img src=common/images/CharaGraph/"+svtId+"a.png  onerror=javascript:this.src='common/images/CharaGraph/0.png' width=300></img></td><th>編號</th><th>星數</th><th>名稱</th><th>HP</th><th>ATK</th><th>繪師</th></tr><tr align=\"center\"><td>No."+master.mstSvt[i].collectionNo+"</td><td class=\"star\">";
 	for(var c=0;c<master.mstSvtLimit[j].rarity;c++)
 		svtDatatxt+="★";
 	svtDatatxt+="</td><td>"+master.mstSvt[i].name+"</td><td>"+master.mstSvtLimit[j].hpBase+" / "+master.mstSvtLimit[j].hpMax+"</td><td>"+master.mstSvtLimit[j].atkBase+" / "+master.mstSvtLimit[j].atkMax+"</td>";
