@@ -35,7 +35,7 @@ function svtDataTable(svtId)
 	svtNrmlDataTxt+="</td><td colspan=2>";
 	var svtNameZh = findSvtNameZh(master.mstSvt[i].id);
 	if(svtNameZh&&!document.getElementById('isJpTxt').checked)
-		{svtNrmlDataTxt+="<div class=ruby>" + master.mstSvt[i].name + "</div>" + svtNameZh;}
+		{svtNrmlDataTxt+="<div class=ruby>" + master.mstSvt[i].ruby + "</div>" + svtNameZh;}
 	else {svtNrmlDataTxt+=master.mstSvt[i].name;}
 	svtNrmlDataTxt+="</td>";
 	document.title = findSvtNameZh2(svtId)+" - Servant資料查詢";
