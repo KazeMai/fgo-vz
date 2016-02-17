@@ -2,15 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>繪師一覽</title>
+<meta name="description" content="Fate/Grand Order台灣中文資料站" />
+<meta name="keywords" content="Fate/Grand Order,FGO,Fate/GO,TYPE-MOON,Fate,Saber,Archer,Lancer,Rider,Caster,Assassin,Berserker,Shielder,Ruler" />
+<title>【來自迦爾帝亞廣報局】關於合作活動</title>
 <link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon">
 <link href="common/css/common.css" rel="stylesheet" type="text/css" />
 <link href="common/css/detail_info.css" rel="stylesheet" type="text/css" />
 <link href="common/css/sidebar.css" rel="stylesheet" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script type='text/javascript' src='common/js/sidebar.js'></script>
-<script type='text/javascript' src='common/js/master.js'></script>
-<script type='text/javascript' src='common/js/transData.js'></script>
 <script type="text/javascript" src="common/js/smoothRollOver.js"></script>
 <script type="text/javascript" src="common/js/scrollTop.js"></script>
 <script>
@@ -24,44 +24,26 @@
   ga('require', 'displayfeatures');
   ga('send', 'pageview');
 </script>
-<script type="text/javascript">
-function cvDataOut()
-{
-	var cvTxt="<tr><th style='width:125px;'>繪師</th><th>Servant＆概念禮裝</th></tr>";
-	for(var i in master.mstIllustrator)
-	{
-		if(master.mstIllustrator[i].id>1)
-		{
-			cvTxt+="<tr><td style='text-align:center;' id='"+master.mstIllustrator[i].id+"'>"+master.mstIllustrator[i].name.replace(/\(/g,"<br>(")+"</td><td>";
-			for(var j in master.mstSvt)
-			{
-				if(master.mstSvt[j].illustratorId==master.mstIllustrator[i].id)
-				{
-					cvTxt+=svtFace(master.mstSvt[j].id);
-				}
-			}
-			cvTxt+="</td></tr>";
-		}
-	}
-	document.getElementById("cvData").innerHTML=cvTxt;
-}
-</script>
 </head>
-<body onload="loadsidebar();cvDataOut();">
+<body onload="loadsidebar();">
 <!--二欄橫幅主要區塊開始-->
 <div style='position:relative;'>
     <!--選單區塊開始-->
     <div id="div_right_sidebar"></div>
     <!--選單區塊結束-->
     <!--主要內容區塊開始-->
-    <div id="div_content">
-<div class="container">
+    <div id="div_content"><div class="container">
 <article class="content textsize">
-	<a href="servant.html"><div class="bkmk">Servant列表</div></a>
-	<a href="cv.html"><div class="bkmk">ＣＶ列表</div></a>
-	<div class="bkmkO">繪師列表</div>
-	<a href="craft_essence.html"><div class="bkmk">概念禮裝列表</div></a><div style="clear:left;"></div>
-<table id="cvData" style="width:100%"><tr><td></td></tr></table>
+<h1 class="headline3"><dl><dt class="date">2/17</dt><dd>【來自迦爾帝亞廣報局】關於合作活動</dd></dl></h1>
+<p>感謝使用「Fate/Grand Order」。</p>
+<p>在2月下旬將舉辦「Fate/Grand Order」首次的合作活動。</p>
+<p>關於合作活動的合作作品名稱，會在2月19日（五）23點00分～23點30分放送的動畫「Fate/Zero」節目內以電視廣告發表。</p>
+<p>【 「Fate/Grand Order 」電視廣告概要 】<br>
+■放送預定：2016年2月19日（五） 23:00～23:30 動畫版「Fate/Zero」節目内<br>
+■放送電視台：於TOKYO MX・とちぎテレビ・群馬テレビ・BS11全國同時放送</p>
+<p><img src="common/images/2016/02/site_160217_02.png" alt="site_160217_02" width="800" height="450" class="alignnone size-full wp-image-1536"></p>
+<p>關於其他的活動情報，會在電視廣告放送後，隨之發表。<br>
+今後也請多多指教「Fate/Grand Order」。</p>
 </article>
 </div>
 <div id="gotop"><a href="#"><img src="common/images/btn_gotop_off.jpg" width="47" height="47" alt="返回頂端" /></a></div>
