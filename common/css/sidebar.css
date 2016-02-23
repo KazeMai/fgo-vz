@@ -337,3 +337,12 @@ span.hint {
 	cursor: help;
 	border-bottom: 1px dotted;
 }
+table.noborder tr td
+{
+	border:0px;
+	box-shadow:0px 0px 0px;
+}
+table.noborder tr
+{
+	background:none;
+}
