@@ -6,7 +6,7 @@ function sortByElmentNo(a,b)
 function svtDataTable(svtId)
 {
 	var personalityList = ["","善","惡","?","狂","中庸","?","花嫁"];
-	var policyList = ["","中立","混沌","秩序"];
+	var policyList = ["","中立","混沌","秩序","?","?","中立"];
 	var attriList = ["","人","天","地","星","獸"];
 	var genderTypeList = ["","男性","女性","無"];
 	var cardList = ["","0000ff","ff0000","00ff00"];
@@ -28,7 +28,7 @@ function svtDataTable(svtId)
 	
 	var svtNrmlDataTxt="";
 	svtNrmlDataTxt="<tr><td rowspan=7 align=center>";
-	svtNrmlDataTxt+="<img src=common/images/Servant/"+svtId+"_status_servant_2.png onerror=\"javascript:this.style='display:none'\"></img>";
+	svtNrmlDataTxt+="<img src=common/images/Servant/"+svtId+"_status_servant_2.png onerror=\"javascript:this.style='display:none'\" width=256 height=256></img>";
 	svtNrmlDataTxt+="</td><th><b>編號</b></th><th><b>星數</b></th><th colspan=2><b>名稱</b></th><th><b>職階</b></th><th><b>分類</b></th></tr><tr align=\"center\"><td>No."+master.mstSvt[i].collectionNo+"</td><td class=\"star\">";
 	for(c=0;c<master.mstSvtLimit[j].rarity;c++)
 		svtNrmlDataTxt+="★";
