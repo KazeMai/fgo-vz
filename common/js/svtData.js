@@ -12,7 +12,7 @@ function svtDataTable(svtId)
 	var cardList = ["","0000ff","ff0000","00ff00"];
 	var svtStatusList = ["","A","B","C","D","E","EX","?","?","－"];
 	var svtStatusPlusList = ["","","+","++","?","?","?","?","?",""];
-	var individualityList = [[2000,"神性"],[2001,"人型"],[2002,"龍"],[2004,"羅馬"],[2005,"猛獸"],[2007,"阿爾托莉亞臉"],[2008,"被「天地乖離開辟之星」所剋"],[2009,"騎乘"],[2010,"亞瑟"],[2011,"被「人類神話・雷電降臨」所剋"],[2012,"愛人"]];
+	var individualityList = [[2000,"神性"],[2001,"人型"],[2002,"龍"],[2004,"羅馬"],[2005,"猛獸"],[2007,"阿爾托莉亞臉"],[2008,"被「天地乖離開辟之星」所剋"],[2009,"騎乘"],[2010,"亞瑟"],[2011,"被「人類神話・雷電降臨」所剋"],[2012,"愛人"],[2018,"死靈與惡魔"]];
 	var c;
 	
 	var i;
@@ -27,9 +27,9 @@ function svtDataTable(svtId)
 	}
 	
 	var svtNrmlDataTxt="";
-	svtNrmlDataTxt="<tr><td rowspan=7 align=center>";
+	svtNrmlDataTxt="<tr><td rowspan=7 align=center style='width:25%;'>";
 	svtNrmlDataTxt+="<img src=common/images/Servant/"+svtId+"_status_servant_2.png onerror=\"javascript:this.style='display:none'\" width=256 height=256></img>";
-	svtNrmlDataTxt+="</td><th><b>編號</b></th><th><b>星數</b></th><th colspan=2><b>名稱</b></th><th><b>職階</b></th><th><b>分類</b></th></tr><tr align=\"center\"><td>No."+master.mstSvt[i].collectionNo+"</td><td class=\"star\">";
+	svtNrmlDataTxt+="</td><th style='width:15%;'><b>編號</b></th><th style='width:15%;'><b>星數</b></th><th colspan=2 style='width:20%;'><b>名稱</b></th><th style='width:15%;'><b>職階</b></th><th style='width:15%;'><b>分類</b></th></tr><tr align=\"center\"><td>No."+master.mstSvt[i].collectionNo+"</td><td class=\"star\">";
 	for(c=0;c<master.mstSvtLimit[j].rarity;c++)
 		svtNrmlDataTxt+="★";
 	svtNrmlDataTxt+="</td><td colspan=2>";
@@ -42,7 +42,7 @@ function svtDataTable(svtId)
 	for(c=0;c<mstClass.length;c++)
 		if(mstClass[c].id==master.mstSvt[i].classId) {svtNrmlDataTxt+="<td>"+mstClass[c].name+"</td>";break;}
 	
-	svtNrmlDataTxt+="<td>"+attriList[master.mstSvt[i].attri]+"</td></tr><tr><th><b>HP</b></th><th><b>ATK</b></th><th><b>繪師</b></th><th><b>CV</b></th><th><b>屬性</b></th><th><b>性別</b></th></tr><tr align=\"center\"><td>"+master.mstSvtLimit[j].hpBase+" / "+master.mstSvtLimit[j].hpMax+"</td><td>"+master.mstSvtLimit[j].atkBase+" / "+master.mstSvtLimit[j].atkMax+"</td>";
+	svtNrmlDataTxt+="<td>"+attriList[master.mstSvt[i].attri]+"</td></tr><tr><th><b>HP</b></th><th><b>ATK</b></th><th style='width:10%;'><b>繪師</b></th><th style='width:10%;'><b>CV</b></th><th><b>屬性</b></th><th><b>性別</b></th></tr><tr align=\"center\"><td>"+master.mstSvtLimit[j].hpBase+" / "+master.mstSvtLimit[j].hpMax+"</td><td>"+master.mstSvtLimit[j].atkBase+" / "+master.mstSvtLimit[j].atkMax+"</td>";
 	for(c=0;c<master.mstIllustrator.length;c++)
 		if(master.mstIllustrator[c].id==master.mstSvt[i].illustratorId) {svtNrmlDataTxt+="<td><a href='illustrator.html#"+master.mstSvt[i].illustratorId+"'>"+master.mstIllustrator[c].name+"</a></td>";break;}
 	
@@ -61,18 +61,22 @@ function svtDataTable(svtId)
 			if(master.mstSvt[i].individuality[c]==individualityList[k][0]) traitArray.push(individualityList[k][1]);
 	svtNrmlDataTxt+="<tr><th>特性</th><td colspan=5 align=center>"+traitArray+"</td></tr>";
 	
-	/*svtNrmlDataTxt+="<tr><td colspan=6>";var tmpTxt="";
+	/*svtNrmlDataTxt+="<tr><th>召喚台詞</th><td colspan=5>";var tmpTxt="";
 	for(c in master.mstSvtVoice)
 	{
 		if(master.mstSvtVoice[c].id==master.mstSvt[i].id&&master.mstSvtVoice[c].type==3)
-			for(k in master.mstSvtVoice[c].scriptJson)
-			{
-				tmpTxt+=master.mstSvtVoice[c].scriptJson[k].infos.text;
+		{
+			if(master.mstSvtVoice[c].scriptJson[0])
+			{for(k in master.mstSvtVoice[c].scriptJson[0].infos)
+				{
+					tmpTxt+=master.mstSvtVoice[c].scriptJson[0].infos[k].text;
+				}
 			}
-		if(tmpTxt!="")svtNrmlDataTxt+="「"+mpTxt+"」";
-		break;
+			if(tmpTxt.length>0)svtNrmlDataTxt+="<span style='text-align:center;font-style: italic;'>「"+tmpTxt.replace(/\[r\]/g,"")+"」</span>";
+			break;
+		}
 	}
-	svtNrmlDataTxt+="</tr>";*/
+	svtNrmlDataTxt+="</td></tr>";*/
 	document.getElementById("svtNrmlData").innerHTML=svtNrmlDataTxt;
 	
 	var svtCtrlDataTxt="";
