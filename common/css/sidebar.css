@@ -287,15 +287,18 @@ table .box{
 	background:#eee;
 	display:none;
 }
-td.red{
+.red{
 	color: #FF0000;
 	font-weight: bold;
 }
-td.green{
+.green{
 	color: #006400;
 	font-weight: bold;
 }
-
+.blue{
+	color: #5555FF;
+	font-weight: bold;
+}
 div.spotname{
 	width:117px;
 	height:15px;

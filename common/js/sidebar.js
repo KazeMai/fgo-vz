@@ -81,7 +81,7 @@ function classFilter(urltxt)
 	var classarray = new Array();
 	for(var i=0;i<cl.length;i++)
 	{
-		if(cl[i].src.search("_4.png")!=-1) classarray.push(cl[i].src[cl[i].src.indexOf("_4.png")-1]);
+		if(cl[i].src.search("_4.png")!=-1) classarray.push(cl[i].src.substring(cl[i].src.indexOf("class_")+6,cl[i].src.indexOf("_4.png")));
 	}
 	var rarityarray = new Array();
 	cl=document.getElementsByClassName("rarityF");

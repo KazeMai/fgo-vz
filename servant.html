@@ -41,7 +41,7 @@ function svtTableOut(searchData,searchId)
 	for(var i=0;i<cl.length;i++)
 	{
 		for(j in classarray){
-			if(classarray[j]==cl[i].src[cl[i].src.indexOf("_4.png")-1]) break;
+			if(classarray[j]==cl[i].src.substring(cl[i].src.indexOf("class_")+6,cl[i].src.indexOf("_4.png"))) break;
 			if(j==classarray.length-1) classOff(cl[i]);
 		}
 	}
@@ -129,7 +129,7 @@ function svtTableOut(searchData,searchId)
 	}
 	svtTableTxt+="</tbody>";
 	document.getElementById("svtTable").innerHTML=svtTableTxt;
-	$("#svtTable").tablesorter({sortList: [[1,0]], headers: { 0:{sorter: false}, 3:{sorter: false}}});
+	$("#svtTable").tablesorter({sortList: [[1,1]], headers: { 0:{sorter: false}, 3:{sorter: false}}});
 }
 </script>
 </head>
@@ -160,6 +160,7 @@ function svtTableOut(searchData,searchId)
 	<img src="common/images/icon/class/class_7_4.png" title="Berserker" onclick="classOff(this);" class="classF"/>
 	<img src="common/images/icon/class/class_8_4.png" title="Shielder" onclick="classOff(this);" class="classF"/>
 	<img src="common/images/icon/class/class_9_4.png" title="Ruler" onclick="classOff(this);" class="classF"/>
+	
 	<input type="checkbox" id="rarity1" class="rarityF" value="1"/><span class="star">★</span>
 	<input type="checkbox" id="rarity2" class="rarityF" value="2"/><span class="star">★★</span>
 	<input type="checkbox" id="rarity3" class="rarityF" value="3"/><span class="star">★★★</span>
