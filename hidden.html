@@ -26,97 +26,14 @@
   ga('require', 'displayfeatures');
   ga('send', 'pageview');
 </script>
-</script>
 <script type="text/javascript">
-function indiOut()
-{
-	var indiTxt="",indiId,conO;
-	var cl=document.getElementsByClassName("indiTd");
-	for(var k=0;k<cl.length;k++)
-	{
-		indiTxt="";
-		if(cl[k].id.search(/N/)==-1) conO=true; else conO=false;
-		indiId = cl[k].id.replace(/indi/g,"").replace(/N/g,"");
-		
-		for(var i in master.mstSvt)
-		{
-			if((master.mstSvt[i].type==1||master.mstSvt[i].type==2||master.mstSvt[i].type==5||master.mstSvt[i].type==9))
-			{
-				var indiO = false;
-				for(var j in master.mstSvt[i].individuality)
-				{
-					if(master.mstSvt[i].individuality[j]==indiId) indiO=true;
-				}
-				if((conO&&indiO)||(!conO&&!indiO))
-				{
-					indiTxt+="<a href='svtData.html?";
-					if(master.mstSvt[i].collectionNo==0) indiTxt+="id="+master.mstSvt[i].id;
-					else indiTxt+="no="+master.mstSvt[i].collectionNo;
-					indiTxt+="'><img src='common/images/icon/faces/"+master.mstSvt[i].id+"0.png' onerror=\"javascript:this.src='common/images/icon/faces/0.png'\" width=50 title='"+findSvtNameZh2(master.mstSvt[i].id)+"'></img></a>";
-				}
-			}
-		}
-		indiTxt+="<br>"+document.getElementById(cl[k].id).innerHTML
-		document.getElementById(cl[k].id).innerHTML=indiTxt;
-	}
-}
-function classRelation()
-{
-	var classArr = new Array();var attackRate;
-	var cl=document.getElementsByClassName("classR");
-	for(var k=0;k<cl.length;k++)
-	{
-		classArr = cl[k].id.replace(/cr/g,"").split(/-/);attackRate=1000;
-		for(var i in master.mstClassRelation)
-		{
-			if(master.mstClassRelation[i].atkClass==classArr[0]&&master.mstClassRelation[i].defClass==classArr[1])
-			{
-				attackRate=master.mstClassRelation[i].attackRate;break;
-			}
-		}
-		if(attackRate==1000) document.getElementById(cl[k].id).innerHTML="－";
-		else if(attackRate>1000) document.getElementById(cl[k].id).innerHTML="<span class='red'>"+attackRate/1000+"</span>";
-		else if(attackRate<1000) document.getElementById(cl[k].id).innerHTML="<span class='blue'>"+attackRate/1000+"</span>";
-	}
-}
-function classAtk()
-{
-	var attackRate;
-	var cl=document.getElementsByClassName("classAtk");
-	for(var k=0;k<cl.length;k++)
-	{
-		attackRate=1000;
-		for(var i in master.mstClass)
-		{
-			if(master.mstClass[i].id==cl[k].id.replace(/cr/g,""))
-			{
-				attackRate=master.mstClass[i].attackRate;break;
-			}
-		}
-		if(attackRate==1000) document.getElementById(cl[k].id).innerHTML="－";
-		else if(attackRate>1000) document.getElementById(cl[k].id).innerHTML="<span class='red'>"+attackRate/1000+"</span>";
-		else if(attackRate<1000) document.getElementById(cl[k].id).innerHTML="<span class='blue'>"+attackRate/1000+"</span>";
-	}
-}
-function atrriRelation()
-{
-	var attriArr = new Array();var attackRate;
-	var cl=document.getElementsByClassName("attriR");
-	for(var k=0;k<cl.length;k++)
-	{
-		attriArr = cl[k].id.replace(/ar/g,"").split(/-/);attackRate=1000;
-		for(var i in master.mstAttriRelation)
-		{
-			if(master.mstAttriRelation[i].atkAttri==attriArr[0]&&master.mstAttriRelation[i].defAttri==attriArr[1])
-			{
-				attackRate=master.mstAttriRelation[i].attackRate;break;
-			}
-		}
-		if(attackRate==1000) document.getElementById(cl[k].id).innerHTML="－";
-		else if(attackRate>1000) document.getElementById(cl[k].id).innerHTML="<span class='red'>"+attackRate/1000+"</span>";
-		else if(attackRate<1000) document.getElementById(cl[k].id).innerHTML="<span class='blue'>"+attackRate/1000+"</span>";
-	}
-}
+function indiOut(){var c="",d=[],b=[],a,e,f,k,g,h=document.getElementsByClassName("indiTd");for(f=0;f<h.length;f++){c="";b.length=0;for(a in master.mstSvt)1!=master.mstSvt[a].type&&2!=master.mstSvt[a].type&&5!=master.mstSvt[a].type&&9!=master.mstSvt[a].type||b.push(master.mstSvt[a].id);d=h[f].id.replace(/indi/g,"").replace(/N/g,"").split(/-/);for(k in d)if(-1==h[f].id.search(/N/))for(a in master.mstSvt){if(1==master.mstSvt[a].type||2==master.mstSvt[a].type||5==master.mstSvt[a].type||9==master.mstSvt[a].type)for(e in master.mstSvt[a].individuality){if(master.mstSvt[a].individuality[e]==
+d[k])break;if(e==master.mstSvt[a].individuality.length-1)for(g in b)if(b[g]==master.mstSvt[a].id){delete b[g];break}}}else for(a in master.mstSvt)if(1==master.mstSvt[a].type||2==master.mstSvt[a].type||5==master.mstSvt[a].type||9==master.mstSvt[a].type)for(e in master.mstSvt[a].individuality)if(master.mstSvt[a].individuality[e]==d[k])for(g in b)if(b[g]==master.mstSvt[a].id){delete b[g];break}for(a in b)for(e in master.mstSvt)if(b[a]==master.mstSvt[e].id){c+="<a href='svtData.html?";c=0==master.mstSvt[e].collectionNo?
+c+("id="+master.mstSvt[e].id):c+("no="+master.mstSvt[e].collectionNo);c+="'><img src='common/images/icon/faces/"+master.mstSvt[e].id+"0.png' onerror=\"javascript:this.src='common/images/icon/faces/0.png'\" width=50 title='"+findSvtNameZh2(master.mstSvt[e].id)+"'></img></a>";break}c+="<br>"+document.getElementById(h[f].id).innerHTML;document.getElementById(h[f].id).innerHTML=c}}
+function classRelation(){for(var c=[],d,b=document.getElementsByClassName("classR"),a=0;a<b.length;a++){c=b[a].id.replace(/cr/g,"").split(/-/);d=1E3;for(var e in master.mstClassRelation)if(master.mstClassRelation[e].atkClass==c[0]&&master.mstClassRelation[e].defClass==c[1]){d=master.mstClassRelation[e].attackRate;break}1E3==d?document.getElementById(b[a].id).innerHTML="\uff0d":1E3<d?document.getElementById(b[a].id).innerHTML="<span class='red'>"+d/1E3+"</span>":1E3>d&&(document.getElementById(b[a].id).innerHTML=
+"<span class='blue'>"+d/1E3+"</span>")}}function classAtk(){for(var c,d=document.getElementsByClassName("classAtk"),b=0;b<d.length;b++){c=1E3;for(var a in master.mstClass)if(master.mstClass[a].id==d[b].id.replace(/cr/g,"")){c=master.mstClass[a].attackRate;break}1E3==c?document.getElementById(d[b].id).innerHTML="\uff0d":1E3<c?document.getElementById(d[b].id).innerHTML="<span class='red'>"+c/1E3+"</span>":1E3>c&&(document.getElementById(d[b].id).innerHTML="<span class='blue'>"+c/1E3+"</span>")}}
+function atrriRelation(){for(var c=[],d,b=document.getElementsByClassName("attriR"),a=0;a<b.length;a++){c=b[a].id.replace(/ar/g,"").split(/-/);d=1E3;for(var e in master.mstAttriRelation)if(master.mstAttriRelation[e].atkAttri==c[0]&&master.mstAttriRelation[e].defAttri==c[1]){d=master.mstAttriRelation[e].attackRate;break}1E3==d?document.getElementById(b[a].id).innerHTML="\uff0d":1E3<d?document.getElementById(b[a].id).innerHTML="<span class='red'>"+d/1E3+"</span>":1E3>d&&(document.getElementById(b[a].id).innerHTML=
+"<span class='blue'>"+d/1E3+"</span>")}};
 </script>
 </head>
 <body onload="loadsidebar();indiOut();classRelation();classAtk();atrriRelation();">
@@ -198,17 +115,16 @@ function atrriRelation()
 <hr>
 <h1 id="gender">性別</h1>
 <p>分為男性、女性、無性別。<br>
-容易搞錯的<a href='svtData.html?no=60'>俄里翁</a>實際為男性、<a href='svtData.html?no=10'>德翁</a>跟<a href='svtData.html?no=94'>阿斯托爾福</a>為無性別。<br>
-下表僅列出怪物性別</p>
+容易搞錯的<a href='svtData.html?no=60'>俄里翁</a>實際為男性、<a href='svtData.html?no=10'>德翁</a>跟<a href='svtData.html?no=94'>阿斯托爾福</a>為無性別。<br></p>
 <table style="width:800px">
 <tr><th style="width:220px">性別</th><th style="width:580px">對象</th></tr>
-<tr><th>男性</th><td>
+<tr><th>男性</th><td id="indi1" class="indiTd">
 古代兵、中世兵、近代兵、皮克特人、半人馬、狼人、豹人、哥布林、鹿人、雪人、屍人
 </td></tr>
-<tr><th>女性</th><td>
+<tr><th>女性</th><td id="indi2" class="indiTd">
 亞馬遜女戰士、蛇妖、七人御佐姬
 </td></tr>
-<tr><th>無</th><td>
+<tr><th>無</th><td id="indiN1-2" class="indiTd">
 骸骨兵、龍牙兵、鬼魂、自動機械、魔像、雙足飛龍(ワイバーン)、龍、奇美拉、咒語書、金錢加成、經驗值加成、人工生命體、魔神柱、ヘルタースケルター、阿信、聖誕之手、巨大鬼魂
 </td></tr>
 </table>

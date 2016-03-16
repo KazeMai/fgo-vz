@@ -31,7 +31,7 @@
 function svtTableOut(searchData,searchId)
 {
 	var classarray = new Array();
-	var getClassId = "1,2,3,4,5,6,7,8,9,17";
+	var getClassId = "1,2,3,4,5,6,7,8,9,11,17";
 	if(getUrl("class")) getClassId = getUrl("class");
 	if(getClassId){
 		classarray = getClassId.split(/,/).slice(0);
@@ -147,7 +147,7 @@ function svtTableOut(searchData,searchId)
 	<a href="cv.html"><div class="bkmk">ＣＶ列表</div></a>
 	<a href="illustrator.html"><div class="bkmk">繪師列表</div></a><div style="clear:left;"></div>
 <form>
-  <fieldset style="width:500px;text-align:center;">
+  <fieldset style="width:550px;text-align:center;">
     <legend>篩選條件</legend>
 	<img src="common/images/icon/class/class_1001_4.png" title="全選" onclick="classAllOn();" class="classA"/>
 	<img src="common/images/icon/class/class_1001_1.png" title="全消" onclick="classAllOff();" class="classA"/><br>
@@ -160,7 +160,7 @@ function svtTableOut(searchData,searchId)
 	<img src="common/images/icon/class/class_7_4.png" title="Berserker" onclick="classOff(this);" class="classF"/>
 	<img src="common/images/icon/class/class_8_4.png" title="Shielder" onclick="classOff(this);" class="classF"/>
 	<img src="common/images/icon/class/class_9_4.png" title="Ruler" onclick="classOff(this);" class="classF"/>
-	
+	<img src="common/images/icon/class/class_11_4.png" title="Avenger" onclick="classOff(this);" class="classF"/><br>
 	<input type="checkbox" id="rarity1" class="rarityF" value="1"/><span class="star">★</span>
 	<input type="checkbox" id="rarity2" class="rarityF" value="2"/><span class="star">★★</span>
 	<input type="checkbox" id="rarity3" class="rarityF" value="3"/><span class="star">★★★</span>
