@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="Fate/Grand Order台灣中文資料站" />
+<meta name="keywords" content="Fate/Grand Order,FGO,Fate/GO,TYPE-MOON,Fate,Saber,Archer,Lancer,Rider,Caster,Assassin,Berserker,Shielder,Ruler" />
+<title>NP獲得一覽</title>
+<link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+<link href="common/css/common.css" rel="stylesheet" type="text/css" />
+<link href="common/css/detail_info.css" rel="stylesheet" type="text/css" />
+<link href="common/css/sidebar.css" rel="stylesheet" type="text/css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type='text/javascript' src='common/js/sidebar.js'></script>
+<script type='text/javascript' src='common/js/mstClass.js'></script>
+<script type='text/javascript' src='common/js/master.js'></script>
+<script type='text/javascript' src='common/js/transData.js'></script>
+<script type="text/javascript" src="common/js/smoothRollOver.js"></script>
+<script type="text/javascript" src="common/js/scrollTop.js"></script>
+<script type="text/javascript" src="common/js/jquery.tablesorter.min.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-70142247-1', 'auto');
+  ga('require', 'linkid');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+</script>
+<script type="text/javascript">
+var npUp=0,artUp=0,busterUp=0,quickUp=0;var artHit=0,busterHit=0,quickHit=0,exHit=0,npbase=0;
+function svtTableOut(searchData,searchId)
+{
+	var classarray = new Array();
+	var getClassId = "1,2,3,4,5,6,7,8,9,11,17";
+	if(getUrl("class")) getClassId = getUrl("class");
+	if(getClassId){
+		classarray = getClassId.split(/,/).slice(0);
+	}
+	
+	var cl=document.getElementsByClassName("classF");
+	for(var i=0;i<cl.length;i++)
+	{
+		for(j in classarray){
+			if(classarray[j]==cl[i].src.substring(cl[i].src.indexOf("class_")+6,cl[i].src.indexOf("_4.png"))) break;
+			if(j==classarray.length-1) classOff(cl[i]);
+		}
+	}
+	var rarityarray = new Array();
+	var getRarity = "1,2,3,4,5";
+	if(getUrl("rarity")) getRarity = getUrl("rarity");
+	if(getRarity){
+		rarityarray = getRarity.split(/,/).slice(0);
+	}
+	
+	cl=document.getElementsByClassName("rarityF");
+	for(i=0;i<cl.length;i++)
+	{
+		for(j in rarityarray){
+			if(cl[i].id=="rarity"+rarityarray[j]) {cl[i].checked=true;break;}
+		}
+	}
+	
+	var svtTableTxt="<thead><tr><th>No.</th><th>Servant</th><th>職</th><th>★</th><th>NP%</th><th class='blue'>A↑</th><th class='blue'>AH</th><th class='blue'>A1+</th><th class='blue'>A2</th><th class='blue'>A2+</th><th class='blue'>A3</th><th class='blue'>A3+</th><th class='green'>Q↑</th><th class='green'>QH</th><th class='green'>Q1</th><th class='green'>Q2</th><th class='green'>Q2+</th><th class='green'>Q3</th><th class='green'>Q3+</th><th>ExH</th><th>Ex</th><th>Ex+</th><th class='red'>BH</th><th class='red'>B+</th></tr></thead><tbody>";
+	for(i in master.mstSvt)
+	{
+		if(master.mstSvt[i].type==1||master.mstSvt[i].type==2||master.mstSvt[i].type==5||master.mstSvt[i].type==9)
+		{
+			for(var t in classarray)
+			{
+				if (classarray[t]==master.mstSvt[i].classId)
+				{
+
+					for(var j in master.mstSvtLimit)
+					{if(master.mstSvtLimit[j].svtId==master.mstSvt[i].id)break;}
+					for(var h in rarityarray)
+					{
+						if(rarityarray[h]==master.mstSvtLimit[j].rarity)
+						{
+							artHit=0,busterHit=0,quickHit=0,exHit=0,npbase=0;npUp=0,artUp=0,busterUp=0,quickUp=0;
+							for(var c in master.mstSvtCard)
+							{
+								if(master.mstSvtCard[c].svtId==master.mstSvt[i].id){
+									if(master.mstSvtCard[c].cardId==1) artHit=master.mstSvtCard[c].normalDamage.length;
+									else if(master.mstSvtCard[c].cardId==2) busterHit=master.mstSvtCard[c].normalDamage.length;
+									else if(master.mstSvtCard[c].cardId==3) quickHit=master.mstSvtCard[c].normalDamage.length;
+									else if(master.mstSvtCard[c].cardId==4) exHit=master.mstSvtCard[c].normalDamage.length;
+								}
+								else if(artHit!=0&&busterHit!=0&&quickHit!=0&&exHit!=0) break;
+							}
+							for(c in master.mstTreasureDeviceLv)
+								if(Math.floor(master.mstTreasureDeviceLv[c].treaureDeviceId/100)==Math.floor(master.mstSvt[i].id/100))
+								{
+									npbase=master.mstTreasureDeviceLv[c].tdPoint;break;
+								}
+							for(c in master.mstSvt[i].classPassive)
+							{
+								for(var k in master.mstSkillLv)
+								{
+									if(master.mstSvt[i].classPassive[c]==master.mstSkillLv[k].skillId)
+									{
+										for(var g in master.mstSkillLv[k].funcId)
+										{
+											if(master.mstSkillLv[k].funcId[g]==100)
+											{
+												quickUp+=master.mstSkillLv[k].svals[g].replace(/\[|\]/g,"").split(/,/)[3];
+											}
+											if(master.mstSkillLv[k].funcId[g]==109)
+											{
+												artUp+=master.mstSkillLv[k].svals[g].replace(/\[|\]/g,"").split(/,/)[3];
+											}
+											if(master.mstSkillLv[k].funcId[g]==118)
+											{
+												busterUp+=master.mstSkillLv[k].svals[g].replace(/\[|\]/g,"").split(/,/)[3];
+											}
+										}
+										break;
+									}
+								}
+							}
+							
+							svtTableTxt+="<tr><td>"+master.mstSvt[i].collectionNo+"</td><td><a href='svtData.html?";
+							if(master.mstSvt[i].collectionNo==0) svtTableTxt+="id="+master.mstSvt[i].id;
+							else svtTableTxt+="no="+master.mstSvt[i].collectionNo;
+							svtTableTxt+="'>"+findSvtNameZh2(master.mstSvt[i].id)+"</td><td><span style='display:none'>"+master.mstSvt[i].classId+"</span><img src='common/images/icon/class/class_"+master.mstSvt[i].classId+"_3.png' title='"+findClassName(master.mstSvt[i].classId)+"' class='classS' /></td><td>"+master.mstSvtLimit[j].rarity+"</td><td>"+npbase/100+"</td><td>"+artUp/10+"</td><td>"+artHit+"</td><td>"+npCal(1,30,artUp,artHit)+"</td><td>"+npCal(0,45,artUp,artHit)+"</td><td>"+npCal(1,45,artUp,artHit)+"</td><td>"+npCal(0,60,artUp,artHit)+"</td><td>"+npCal(1,60,artUp,artHit)+"</td><td>"+quickUp/10+"</td><td>"+quickHit+"</td><td>"+npCal(0,10,quickUp,quickHit)+"</td><td>"+npCal(0,15,quickUp,quickHit)+"</td><td>"+npCal(1,15,quickUp,quickHit)+"</td><td>"+npCal(0,20,quickUp,quickHit)+"</td><td>"+npCal(1,20,quickUp,quickHit)+"</td><td>"+exHit+"</td><td>"+npCal(0,10,0,exHit)+"</td><td>"+npCal(1,10,0,exHit)+"</td><td>"/*+busterUp/10+"</td><td>"*/+busterHit+"</td><td>"+npCal(1,0,busterUp,busterHit)+"</td></tr>";
+						}
+					}
+					break;
+				}
+			}
+		}
+	}
+	svtTableTxt+="</tbody>";
+	document.getElementById("svtTable").innerHTML=svtTableTxt;
+	$("#svtTable").tablesorter({sortList: [[0,0]], headers: { 1:{sorter: false} }});
+}
+function npCal(ost,cardMulm,cardUp,cardHit)
+{
+	return formatFloat(npbase*(ost*10000+cardMulm*(1000+parseInt(cardUp)))*(1000+parseInt(npUp))*cardHit/1000000000,2);
+}
+function formatFloat(num, pos)
+{
+  var size = Math.pow(10, pos);
+  return Math.round(num * size) / size;
+}
+</script>
+</head>
+<body onload="loadsidebar();svtTableOut();">
+<!--二欄橫幅主要區塊開始-->
+<div style='position:relative;'>
+    <!--選單區塊開始-->
+    <div id="div_right_sidebar"></div>
+    <!--選單區塊結束-->
+    <!--主要內容區塊開始-->
+    <div id="div_content"><div class="container">
+<article class="content textsize">
+<form>
+  <fieldset style="width:550px;text-align:center;">
+    <legend>篩選條件</legend>
+	<img src="common/images/icon/class/class_1001_4.png" title="全選" onclick="classAllOn();" class="classA"/>
+	<img src="common/images/icon/class/class_1001_1.png" title="全消" onclick="classAllOff();" class="classA"/><br>
+    <img src="common/images/icon/class/class_1_4.png" title="Saber" onclick="classOff(this);" class="classF"/>
+	<img src="common/images/icon/class/class_2_4.png" title="Archer" onclick="classOff(this);" class="classF"/>
+	<img src="common/images/icon/class/class_3_4.png" title="Lancer" onclick="classOff(this);" class="classF"/>
+	<img src="common/images/icon/class/class_4_4.png" title="Rider" onclick="classOff(this);" class="classF"/>
+	<img src="common/images/icon/class/class_5_4.png" title="Caster" onclick="classOff(this);" class="classF"/>
+	<img src="common/images/icon/class/class_6_4.png" title="Assassin" onclick="classOff(this);" class="classF"/>
+	<img src="common/images/icon/class/class_7_4.png" title="Berserker" onclick="classOff(this);" class="classF"/>
+	<img src="common/images/icon/class/class_8_4.png" title="Shielder" onclick="classOff(this);" class="classF"/>
+	<img src="common/images/icon/class/class_9_4.png" title="Ruler" onclick="classOff(this);" class="classF"/>
+	<img src="common/images/icon/class/class_11_4.png" title="Avenger" onclick="classOff(this);" class="classF"/><br>
+	<input type="checkbox" id="rarity1" class="rarityF" value="1"/><span class="star">★</span>
+	<input type="checkbox" id="rarity2" class="rarityF" value="2"/><span class="star">★★</span>
+	<input type="checkbox" id="rarity3" class="rarityF" value="3"/><span class="star">★★★</span>
+	<input type="checkbox" id="rarity4" class="rarityF" value="4"/><span class="star">★★★★</span>
+	<input type="checkbox" id="rarity5" class="rarityF" value="5"/><span class="star">★★★★★</span>
+	<br><input type="button" value="開始篩選" onclick="classFilter('np_get.html');">
+  </fieldset>
+</form>
+<table onload="" id="svtTable" class="tablesorter nopadding" style="width:1400px;text-align:center;"><tr><td></td></tr></table>
+</article>
+<div id="gotop"><a href="#"><img src="common/images/btn_gotop_off.jpg" width="47" height="47" alt="返回頂端" /></a></div>
+    </div>
+    <!--主要內容區塊結束-->
+</div>
+<!--二欄橫幅主要區塊結束-->
+</body>
+</html>

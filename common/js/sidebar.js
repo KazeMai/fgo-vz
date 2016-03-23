@@ -1,6 +1,6 @@
 ﻿function loadsidebar()
 {
-	document.getElementById('div_right_sidebar').innerHTML="<a href='./'><div class='sidebarl' style='background-image:url(common/images/sidebar01.png);'>首頁</div></a><a href='http://goo.gl/HkTjzj' target=_blank><div class='sidebarl' style='background-image:url(common/images/sidebar08.png);'>留言討論區</div></a><a href='servant.html'><div class='sidebarl' style='background-image:url(common/images/sidebar05.png);'>Servant</div></a><a href='skill.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>技能</div></a><a href='noble_phantasm.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>寶具</div></a><a href='status_compare.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>二圍比較</div></a><a href='hidden.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>隱藏數値</div></a><a href='craft_essence.html'><div class='sidebarl' style='background-image:url(common/images/sidebar09.png);'>概念禮裝</div></a><a href='item_drop.html'><div class='sidebarl' style='background-image:url(common/images/sidebar15.png);'>素材道具</div></a><a href='master_equip.html'><div class='sidebarl' style='background-image:url(common/images/sidebar03.png);'>Master相關</div></a><a href='event_history.html'><div class='sidebarl' style='background-image:url(common/images/sidebar10.png);'>過去活動</div></a><a href='event_gankutsuou.html' title='期間限定・高難易度活動「監獄塔中復仇鬼慟哭」'><div class='sidebar_event' style='background-image:url(common/images/2016/03/banner_100371576.png);'></div></a><a href='news_igdi5b.html' title='活動預告＆舉辦主要關卡AP消費1/2宣傳活動'><div class='sidebar_event' style='background-image:url(common/images/2016/03/banner_100348654.png);'></div></a>";
+	document.getElementById('div_right_sidebar').innerHTML="<a href='./'><div class='sidebarl' style='background-image:url(common/images/sidebar01.png);'>首頁</div></a><a href='http://goo.gl/HkTjzj' target=_blank><div class='sidebarl' style='background-image:url(common/images/sidebar08.png);'>留言討論區</div></a><a href='servant.html'><div class='sidebarl' style='background-image:url(common/images/sidebar05.png);'>Servant</div></a><a href='skill.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>技能</div></a><a href='noble_phantasm.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>寶具</div></a><a href='status_compare.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>二圍比較</div></a><a href='hidden.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>隱藏數値</div></a><a href='craft_essence.html'><div class='sidebarl' style='background-image:url(common/images/sidebar09.png);'>概念禮裝</div></a><a href='item_drop.html'><div class='sidebarl' style='background-image:url(common/images/sidebar15.png);'>素材道具</div></a><a href='master_equip.html'><div class='sidebarl' style='background-image:url(common/images/sidebar03.png);'>Master相關</div></a><a href='event_history.html'><div class='sidebarl' style='background-image:url(common/images/sidebar10.png);'>過去活動</div></a><a href='news_y3w8ga.html' title='「AnimeJapan 2016」出展紀念宣傳活動'><div class='sidebar_event' style='background-image:url(common/images/2016/03/banner_100405198.png);'></div></a><a href='news_y3w8ga.html#midashi_04' title='「迦爾納・阿周那Pick Up召喚」'><div class='sidebar_event' style='background-image:url(common/images/2016/03/summon_20160323_xuuz8.jpg);'></div></a><a href='news_4b33gy.html' title='「Servant強化關卡 第1彈」'><div class='sidebar_event' style='background-image:url(common/images/2016/03/banner_100394215.png);'></div></a><a href='news_o0cybg.html' title='修練場AP消費1/2宣傳活動'><div class='sidebar_event' style='background-image:url(common/images/2016/03/banner_1003859461.png);'></div></a>";
 }
 function addCommas(nStr) {
 	nStr += '';
@@ -104,9 +104,10 @@ function questRea(qstId)
 	{
 		if(master.mstQuest[k].id==qstId)
 		{
-			if(master.mstQuest[k].type==1) skillText+="主線任務";
-			else if(master.mstQuest[k].type==2) skillText+="Free任務";
-			else if(master.mstQuest[k].type==3)
+			if(master.mstQuest[k].type==1) skillText+="主線關卡";
+			else if(master.mstQuest[k].type==2) skillText+="Free關卡";
+			else if(master.mstQuest[k].type==3) skillText+="幕間物語";
+			else if(master.mstQuest[k].type==5) skillText+="活動關卡";
 			{
 				var realseChp,realseLimit,realseFriend,realseBool;
 				for(var rea=0;rea<master.mstQuestRelease.length;rea++){
@@ -121,13 +122,18 @@ function questRea(qstId)
 				}
 				if(realseBool==-1) skillText+="尚未開放";
 				else{
+					var realseArr = new Array();
 					for(var war=0;war<master.mstWar.length;war++)
 						if(Math.floor(realseChp/100-10000)==master.mstWar[war].id-100)
-							{skillText+="開放條件：通過"+master.mstWar[war].name.replace(/点/g,"點")+"";break;}
-					skillText+="+靈基第"+realseLimit+"階段+絆等級"+realseFriend+"";
+							{realseArr.push("通過"+master.mstWar[war].name.replace(/点/g,"點")+"");break;}
+					if(realseLimit) realseArr.push("靈基第"+realseLimit+"階段");
+					if(realseFriend) realseArr.push("絆等級"+realseFriend+"");
+					
+					if(realseArr.length>0) skillText+="－開放條件：";
+					for(rea in realseArr)
+					{	if(rea!=0)  skillText+="+"; skillText+=realseArr[rea];}
 				}
 			}
-			else if(master.mstQuest[k].type==5) skillText+="活動任務";
 			skillText+="'>"+master.mstQuest[k].name+"</span>";
 			break;
 		}
