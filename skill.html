@@ -97,7 +97,7 @@ function sklDataOut(searchData,searchId)
 			{
 				if(master.mstSkill[c].id==master.mstSvtSkill[k].skillId)
 					for(d=0;d<svtName.length;d++)
-						if(svtName[d][0]==master.mstSvtSkill[k].svtId&&svtName[d][0]!=800101){
+						if(svtName[d][0]==master.mstSvtSkill[k].svtId&&findSvtNameZh(master.mstSvtSkill[k].svtId)){
 							if(master.mstSvt[findName(master.mstSvt,master.mstSvtSkill[k].svtId)].collectionNo==0) sklTxt+="<a href=svtData.html?id="+master.mstSvt[findName(master.mstSvt,master.mstSvtSkill[k].svtId)].id+">";
 							else sklTxt+="<a href=svtData.html?no="+master.mstSvt[findName(master.mstSvt,master.mstSvtSkill[k].svtId)].collectionNo
 +">";
