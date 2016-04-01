@@ -27,137 +27,23 @@
   ga('send', 'pageview');
 </script>
 <script type="text/javascript">
-master.mstSvt = master.mstSvt.sort(sortByElmentNo);
-function sortByElmentNo(a,b)
-{
-	return a.collectionNo-b.collectionNo;
-}
-function svtDataTable(svtId)
-{
-	for(var i in master.mstSvt)
-	{
-		if(master.mstSvt[i].id==svtId)break;
-	}
-	for(var j in master.mstSvtLimit)
-	{
-		if(master.mstSvtLimit[j].svtId==svtId)break;
-	}
-	var svtDatatxt = "<tr><td width=300 align=center rowspan=7><img src=common/images/CharaGraph/"+svtId+"a.png  onerror=javascript:this.src='common/images/CharaGraph/0.png' width=300></img></td><th>編號</th><th>星數</th><th>名稱</th><th>HP</th><th>ATK</th><th>繪師</th></tr><tr align=\"center\"><td>No."+master.mstSvt[i].collectionNo+"</td><td class=\"star\">";
-	for(var c=0;c<master.mstSvtLimit[j].rarity;c++)
-		svtDatatxt+="★";
-	svtDatatxt+="</td><td>"+master.mstSvt[i].name+"</td><td>"+master.mstSvtLimit[j].hpBase+" / "+master.mstSvtLimit[j].hpMax+"</td><td>"+master.mstSvtLimit[j].atkBase+" / "+master.mstSvtLimit[j].atkMax+"</td>";
-	for(c in master.mstIllustrator)
-		if(master.mstIllustrator[c].id==master.mstSvt[i].illustratorId) {
-			if(master.mstIllustrator[c].id>1)svtDatatxt+="<td><a href='illustrator.html#"+master.mstIllustrator[c].id+"'>"+master.mstIllustrator[c].name+"</a></td>";
-			else svtDatatxt+="<td>"+master.mstIllustrator[c].name+"</td>";
-			break;}
-	svtDatatxt+="</tr><tr><th colspan=6>保有技能</th></tr>";
-	for(c in master.mstSvtSkill){
-		if(master.mstSvtSkill[c].svtId==master.mstSvt[i].id&&master.mstSvtSkill[c].condLimitCount==0)
-		{
-			for(var d in master.mstSkill)
-				if(master.mstSkill[d].id==master.mstSvtSkill[c].skillId)
-				{	svtDatatxt+="<tr><th><img src=common/images/SkillIcon/SkillIcon_"+master.mstSkill[d].iconId+".png onerror=javascript:this.src='common/images/SkillIcon/SkillIcon_0.png' width=55></td>";break;
-				}
-			/*for(d in master.mstSkillDetail)
-				if(master.mstSkillDetail[d].id==master.mstSvtSkill[c].skillId)
-				{	svtDatatxt+="<td colspan=5>"+master.mstSkillDetail[d].detail/*.replace(/ /g,"").replace(/＋/g,"<br>")+"</td></tr>";break;
-				}*/
-			svtDatatxt+="<td colspan=5>"+findSkDetailZh(master.mstSvtSkill[c].skillId)+"</td></tr>";
-			svtDatatxt+="<tr><th>最大<br>解放</th><td colspan=5>";
-		}
-		if(master.mstSvtSkill[c].svtId==master.mstSvt[i].id&&master.mstSvtSkill[c].condLimitCount==4)
-			svtDatatxt+=findSkDetailZh(master.mstSvtSkill[c].skillId);
-	}
-	svtDatatxt+="</td></tr>"
-	svtDatatxt+="<tr><th colspan=6>解說</th></tr><tr><td colspan=6>";
-	for(c in master.mstSvtComment)
-		if(master.mstSvtComment[c].svtId==master.mstSvt[i].id)
-			svtDatatxt+=master.mstSvtComment[c].comment.replace(/\n/g,"<br>");
-	svtDatatxt+="</td></tr>"
-	document.getElementById("svtNrmlData").innerHTML=svtDatatxt;
-}
-function optionInit()
-{
-	for(var i in master.mstSvt)
-	{
-		if(master.mstSvt[i].type==6){
-			svtid.options.add(new Option("No." + master.mstSvt[i].collectionNo + " " + master.mstSvt[i].name,master.mstSvt[i].id));}
-	}
-	var getSvtId = "1";
-	if(getUrl("no")) getSvtId = getUrl("no");
-	if(getSvtId){
-		for(i in master.mstSvt)
-			if((master.mstSvt[i].type==6)&&getSvtId==master.mstSvt[i].collectionNo)
-			{		$("#svtid").val(master.mstSvt[i].id);break;}
-		//if(i==master.mstSvt.length-1) alert("找不到與輸入的id有關之資料，請確認網址無誤");
-	}
-	svtidChange();
-}
-function svtidChange()
-{
-	var i;
-	for(i=svtlv.options.length-1;i>=0;i--)
-    {
-        svtlv.remove(i);
-    }
-	for(i in master.mstSvtLimit)
-	{
-		if(master.mstSvtLimit[i].svtId==svtid.value&&master.mstSvtLimit[i].limitCount==4)
-		{
-			for(var j=1;j<=master.mstSvtLimit[i].lvMax;j++)
-			{
-				svtlv.options.add(new Option("Lv."+j,j));
-			}
-			break;
-		}
-	}
-	svtlvChange();
-	svtDataTable(svtid.value);drawChart();
-}
-function svtlvChange()
-{
-	var i;
-	for(i in master.mstSvtLimit)
-	{
-		if(master.mstSvtLimit[i].svtId==svtid.value)
-		{	
-			for(var k in master.mstSvt)
-			{
-				if (master.mstSvt[k].id==svtid.value)
-				{
-					for(var j in master.mstSvtExp)
-					{
-						if(master.mstSvt[k].expType==master.mstSvtExp[j].type&&master.mstSvtExp[j].lv==svtlv.value)
-						{
-							atk.value=Math.floor(master.mstSvtLimit[i].atkBase+(master.mstSvtLimit[i].atkMax-master.mstSvtLimit[i].atkBase)*master.mstSvtExp[j].curve/1000);
-							hp.value=Math.floor(master.mstSvtLimit[i].hpBase+(master.mstSvtLimit[i].hpMax-master.mstSvtLimit[i].hpBase)*master.mstSvtExp[j].curve/1000);
-							break;
-						}
-					}
-				break;
-				}
-			}
-			break;
-		}
-	}
-}
-function findSkDetailZh(searchId)
-{
-	var skDetailTxt;
-	for(var k in skDetail){
-		if(searchId==skDetail[k][0]){
-			skDetailTxt = skDetail[k][1];break;
-		}
-	}
-	if(document.getElementById('isJpTxt').checked||!skDetailTxt)
-		for(k=0;k<master.mstSkillDetail.length;k++){
-			if(searchId==master.mstSkillDetail[k].id){
-				skDetailTxt = master.mstSkillDetail[k].detail;break;
-			}
-		}
-	return skDetailTxt;
-}
+master.mstSvt=master.mstSvt.sort(sortByElmentNo);function sortByElmentNo(a,b){return a.collectionNo-b.collectionNo}
+function svtDataTable(a){for(var b in master.mstSvt)if(master.mstSvt[b].id==a)break;for(var c in master.mstSvtLimit)if(master.mstSvtLimit[c].svtId==a)break;a="<tr><td width=300 align=center rowspan=7><img src=common/images/CharaGraph/"+a+"a.png  onerror=javascript:this.src='common/images/CharaGraph/0.png' width=300></img></td><th>\u7de8\u865f</th><th>\u661f\u6578</th><th>\u540d\u7a31</th><th>HP</th><th>ATK</th><th>\u7e6a\u5e2b</th></tr><tr align=\"center\"><td>No."+master.mstSvt[b].collectionNo+'</td><td class="star">';
+for(var d=0;d<master.mstSvtLimit[c].rarity;d++)a+="\u2605";a+="</td><td>"+master.mstSvt[b].name+"</td><td>"+master.mstSvtLimit[c].hpBase+" / "+master.mstSvtLimit[c].hpMax+"</td><td>"+master.mstSvtLimit[c].atkBase+" / "+master.mstSvtLimit[c].atkMax+"</td>";document.title=master.mstSvt[b].name+" - \u79ae\u88dd\u8cc7\u6599\u67e5\u8a62";for(d in master.mstIllustrator)if(master.mstIllustrator[d].id==master.mstSvt[b].illustratorId){a=1<master.mstIllustrator[d].id?a+("<td><a href='illustrator.html#"+master.mstIllustrator[d].id+
+"'>"+master.mstIllustrator[d].name+"</a></td>"):a+("<td>"+master.mstIllustrator[d].name+"</td>");break}a+="</tr><tr><th colspan=6>\u4fdd\u6709\u6280\u80fd</th></tr>";for(d in master.mstSvtSkill){if(master.mstSvtSkill[d].svtId==master.mstSvt[b].id&&0==master.mstSvtSkill[d].condLimitCount){for(var e in master.mstSkill)if(master.mstSkill[e].id==master.mstSvtSkill[d].skillId){a+="<tr><th><img src=common/images/SkillIcon/SkillIcon_"+master.mstSkill[e].iconId+".png onerror=javascript:this.src='common/images/SkillIcon/SkillIcon_0.png' width=55></td>";
+break}a+="<td colspan=5>"+findSkDetailZh(master.mstSvtSkill[d].skillId)+"</td></tr>";a+="<tr><th>\u6700\u5927<br>\u89e3\u653e</th><td colspan=5>"}master.mstSvtSkill[d].svtId==master.mstSvt[b].id&&4==master.mstSvtSkill[d].condLimitCount&&(a+=findSkDetailZh(master.mstSvtSkill[d].skillId))}a+="</td></tr><tr><th colspan=6>\u89e3\u8aaa</th></tr><tr><td colspan=6>";for(d in master.mstSvtComment)master.mstSvtComment[d].svtId==master.mstSvt[b].id&&(a+=master.mstSvtComment[d].comment.replace(/\n/g,"<br>"));
+a+="</td></tr>";document.getElementById("svtNrmlData").innerHTML=a}function optionInit(){for(var a in master.mstSvt)6==master.mstSvt[a].type&&svtid.options.add(new Option("No."+master.mstSvt[a].collectionNo+" "+master.mstSvt[a].name,master.mstSvt[a].id));var b="1";getUrl("no")&&(b=getUrl("no"));if(b)for(a in master.mstSvt)if(6==master.mstSvt[a].type&&b==master.mstSvt[a].collectionNo){$("#svtid").val(master.mstSvt[a].id);break}svtidChange()}
+function svtidChange(){var a;for(a=svtlv.options.length-1;0<=a;a--)svtlv.remove(a);for(a in master.mstSvtLimit)if(master.mstSvtLimit[a].svtId==svtid.value&&4==master.mstSvtLimit[a].limitCount){for(var b=1;b<=master.mstSvtLimit[a].lvMax;b++)svtlv.options.add(new Option("Lv."+b,b));break}svtlvChange();svtDataTable(svtid.value);drawChart()}
+function svtlvChange(){for(var a in master.mstSvtLimit)if(master.mstSvtLimit[a].svtId==svtid.value){for(var b in master.mstSvt)if(master.mstSvt[b].id==svtid.value){for(var c in master.mstSvtExp)if(master.mstSvt[b].expType==master.mstSvtExp[c].type&&master.mstSvtExp[c].lv==svtlv.value){atk.value=Math.floor(master.mstSvtLimit[a].atkBase+(master.mstSvtLimit[a].atkMax-master.mstSvtLimit[a].atkBase)*master.mstSvtExp[c].curve/1E3);hp.value=Math.floor(master.mstSvtLimit[a].hpBase+(master.mstSvtLimit[a].hpMax-
+master.mstSvtLimit[a].hpBase)*master.mstSvtExp[c].curve/1E3);break}break}break}}function findSkDetailZh(a){var b,c;for(c in skDetail)if(a==skDetail[c][0]){b=skDetail[c][1];break}if(document.getElementById("isJpTxt").checked||!b)for(c=0;c<master.mstSkillDetail.length;c++)if(a==master.mstSkillDetail[c].id){b=master.mstSkillDetail[c].detail;break}return b}
+function svtlocation(a){a="";for(var b in master.mstSvt)if(master.mstSvt[b].id==svtid.value){a=0!=master.mstSvt[b].collectionNo?a+("?no="+master.mstSvt[b].collectionNo):a+("?id="+master.mstSvt[b].id);break}document.location.href="ceData.html"+a};</script>
+<script>
+$(function(){
+	$(".accordion dt.act").on("click", function() {
+		$(this).next("dd").slideToggle();
+		$(this).toggleClass("open");
+	});
+});
 </script>
 </head>
 <body onload="loadsidebar();optionInit();">
@@ -170,8 +56,18 @@ function findSkDetailZh(searchId)
     <div id="div_content">
 <div class="container">
 <article class="content textsize">
+<dl class="accordion"><dt class="act">
+<h1 class="headline3"><dl><dt class="date">★☆★</dt><dd>近期新增概念禮裝<span class="arrowAC">&nbsp;</span>
+</dd></dl></h1>
+</dt><dd class="acd"><p>
+<a href='ceData.html?no=175'><img src='common/images/icon/faces/9401310.png' class="itemM" title='理想の王聖' /></a>
+<a href='ceData.html?no=176'><img src='common/images/icon/faces/9401320.png' class="itemM" title='レコードホルダー' /></a>
+<a href='ceData.html?no=177'><img src='common/images/icon/faces/9401330.png' class="itemM" title='波濤の獣' /></a>
+<a href='ceData.html?no=178'><img src='common/images/icon/faces/9401340.png' class="itemM" title='パーソナル・トレーニング' /></a>
+<hr>
+</p></dd></dl>
 <p id="p2"><strong><font color="#a21b20">◆</font>選擇禮裝<font color="#a21b20">◆</font></strong>
-	<select id="svtid" onchange="svtidChange()"></select>
+	<select id="svtid" onchange="svtlocation(this.value)"></select>
 </p>
 <p id="p3"><strong><font color="#a21b20">◆</font>選擇等級<font color="#a21b20">◆</font></strong>
 	<select id="svtlv" onchange="svtlvChange()"></select>
