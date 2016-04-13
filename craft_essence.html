@@ -92,7 +92,7 @@ function findSkDetailZh(searchId)
 				skDetailTxt = master.mstSkillDetail[k].detail;break;
 			}
 		}
-	return skDetailTxt;
+	return skDetailTxt.replace(/<br><font color=#DDDDDD>.*<\/font>/g,"");
 }
 </script>
 </head>
