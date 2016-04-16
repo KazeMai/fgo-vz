@@ -168,3 +168,8 @@ function svtFace(svtId)
 	}
 	return txt;
 }
+function changeURL(url)
+{
+	//var url = document.getElementById('url').value;
+	window.history.pushState({},0,url);      
+}
