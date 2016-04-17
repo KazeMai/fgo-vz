@@ -433,3 +433,75 @@ h2 {
 	font-size: 1.1em;
 	text-shadow:1px 1px 1px #000000;
 }
+/* line 17, ../sass/view/_index.scss */
+.slick-initialized .slick-slide {
+  outline: none;
+}
+/* line 21, ../sass/view/_index.scss */
+.slide {
+  position: relative;
+  margin: auto;
+  width: 256px;
+  height: 256px;
+}
+/* line 25, ../sass/view/_index.scss */
+.slide .slick-arrow {
+  margin: auto;
+  top: 50px;
+  bottom: 0;
+}
+/* line 31, ../sass/view/_index.scss */
+.slide .slick-prev,
+.slide .slick-next,
+.slide .slick-prev:before,
+.slide .slick-next:before {
+  width: 45px;
+  height: 50px;
+  background-size: cover;
+}
+/* line 39, ../sass/view/_index.scss */
+.slide .slick-prev {
+  left: -25px;
+  z-index: 10;
+}
+/* line 43, ../sass/view/_index.scss */
+.slide .slick-next {
+  right: -25px;
+  z-index: 10;
+}
+/* line 47, ../sass/view/_index.scss */
+.slide .slick-prev:before,
+.slide .slick-next:before {
+  content: "";
+  opacity: 1;
+  display: block;
+}
+/* line 53, ../sass/view/_index.scss */
+.slide .slick-prev:before {
+  background-image: url('../images/left_btn.png?1449451608');
+}
+/* line 56, ../sass/view/_index.scss */
+.slide .slick-next:before {
+  background-image: url('../images/right_btn.png?1449451608');
+}
+/* line 60, ../sass/view/_index.scss */
+.slide .slick-slide img {
+  margin: 0 auto;
+  max-width: 800px;
+  height: auto;
+  /*width: 100%;*/
+}
+/* line 67, ../sass/view/_index.scss */
+.slide .slick-dots {
+  bottom: -30px;
+  }
+/* line 70, ../sass/view/_index.scss */
+.slide .slick-dots li button:before {
+  color: #bfbfbf;
+  opacity: 1;
+}
+/* line 74, ../sass/view/_index.scss */
+.slide .slick-dots li.slick-active button:before {
+  color: #19edff;
+  opacity: 1;
+}
