@@ -7,6 +7,7 @@
 <link href="common/css/common.css" rel="stylesheet" type="text/css" />
 <link href="common/css/detail_info.css" rel="stylesheet" type="text/css" />
 <link href="common/css/sidebar.css" rel="stylesheet" type="text/css" />
+<link href="common/shadowbox/shadowbox.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="common/js/jquery.min.js"></script>
 <script type="text/javascript" src="common/js/sidebar.js"></script>
 <script type='text/javascript' src='common/js/master.js'></script>
@@ -14,6 +15,7 @@
 <script type="text/javascript" src="common/js/smoothRollOver.js"></script>
 <script type="text/javascript" src="common/js/scrollTop.js"></script>
 <script type="text/javascript" src="common/js/jquery.tablesorter.min.js"></script>
+<script type="text/javascript" src="common/shadowbox/shadowbox.js" charset="utf-8"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -34,7 +36,7 @@ function equipDataOut(searchData,searchId)
 	equipDataTxt="";
 	for(var i in master.mstEquip)
 	{
-		equipDataTxt+="<tr id='eqp"+master.mstEquip[i].id+"'><th rowspan=2 colspan=2 width=250>裝備</th><th rowspan=2 colspan=3>敘述</th><th colspan=9>升級所需Exp(累積)</th></tr><tr><th>Lv.1→2</th><th>Lv.2→3</th><th>Lv.3→4</th><th>Lv.4→5</th><th>Lv.5→6</th><th>Lv.6→7</th><th>Lv.7→8</th><th>Lv.8→9</th><th>Lv.9→10</th></tr><tr><td colspan=2 align=center><b>"+master.mstEquip[i].name+"</b><br><img src='common/images/icon/equip/"+master.mstEquip[i].maleImageId+".png'  onerror=javascript:this.src='common/images/icon/faces/0.png' width=75 /><img src='common/images/icon/equip/"+master.mstEquip[i].femaleImageId+".png'  onerror=javascript:this.src='common/images/icon/faces/0.png' width=75 /></td><td colspan=3>"+master.mstEquip[i].detail.replace(/\n/g,"<br>")+"</td>";
+		equipDataTxt+="<tr id='eqp"+master.mstEquip[i].id+"'><th colspan=14 class='th_red'>"+master.mstEquip[i].name+"</th></tr><tr><td rowspan=4 colspan=5 style='width:30%;'><div class='clearfix' style='text-align:center;'><ul style='margin:0px auto;'><li><a href='common/images/icon/master/figure"+padLeft(master.mstEquip[i].maleImageId, 5)+".png' rel='shadowbox[eqp"+master.mstEquip[i].id+"]' title='"+master.mstEquip[i].name+"(男)' class='zoom1'><div style='display:inline;'><img src='common/images/icon/master/face"+padLeft(master.mstEquip[i].maleImageId, 5)+".png'  onerror=javascript:this.src='common/images/icon/faces/0.png' width=70 /><img src='common/images/icon/equip/"+master.mstEquip[i].maleImageId+".png'  onerror=javascript:this.src='common/images/icon/faces/0.png' width=70 /></div></a></li><li><a href='common/images/icon/master/figure"+padLeft(master.mstEquip[i].femaleImageId, 5)+".png' rel='shadowbox[eqp"+master.mstEquip[i].id+"]' title='"+master.mstEquip[i].name+"(女)' class='zoom1'><div style='display:inline;'><img src='common/images/icon/master/face"+padLeft(master.mstEquip[i].femaleImageId, 5)+".png'  onerror=javascript:this.src='common/images/icon/faces/0.png' width=70 /><img src='common/images/icon/equip/"+master.mstEquip[i].femaleImageId+".png'  onerror=javascript:this.src='common/images/icon/faces/0.png' width=70 /></div></a></li></ul></td><td colspan=9>"+master.mstEquip[i].detail.replace(/\n/g,"<br>")+"</td></tr><tr><th colspan=9>升級所需Exp(累積)</th></tr><tr><th>Lv.1→2</th><th>Lv.2→3</th><th>Lv.3→4</th><th>Lv.4→5</th><th>Lv.5→6</th><th>Lv.6→7</th><th>Lv.7→8</th><th>Lv.8→9</th><th colspan=2>Lv.9→10</th></tr><tr>";
 		var equipCount=1;
 		for(var j in master.mstEquipExp)
 		{
@@ -160,7 +162,7 @@ function expDataOut()
 }
 </script>
 </head>
-<body onload="loadsidebar();equipDataOut();expDataOut();">
+<body onload="loadsidebar();equipDataOut();expDataOut();shadowboxInit();">
 <!--二欄橫幅主要區塊開始-->
 <div style='position:relative;'>
     <!--選單區塊開始-->
@@ -178,7 +180,8 @@ function expDataOut()
 	<a href="#eqp20"><div class="bkmk">迦爾帝亞戰鬥服</div></a>
 	<a href="#eqp30"><div class="bkmk">魔術協會制服</div></a>
 	<a href="#eqp40"><div class="bkmk">阿特拉斯院制服</div></a>
-	<a href="#eqp50"><div class="bkmk">紀念・金髮女</div></a><div style="clear:left;"></div>
+	<a href="#eqp50"><div class="bkmk">紀念・金髮</div></a>
+	<a href="#eqp60"><div class="bkmk">王室名牌</div></a><div style="clear:left;"></div>
 <table id="eqpData" width=1100><tr><td></td></tr></table>
 <h1 id="user_exp">Master等級經驗</h1>
 	<a href="#lv1"><div class="bkmk">Lv.1~25</div></a>

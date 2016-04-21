@@ -1,6 +1,6 @@
 ﻿function loadsidebar()
 {
-	document.getElementById('div_right_sidebar').innerHTML="<a href='./'><div class='sidebarl' style='background-image:url(common/images/sidebar01.png);'>首頁</div></a><a href='http://goo.gl/HkTjzj' target='_blank'><div class='sidebarl' style='background-image:url(common/images/sidebar17.png);'>留言討論區</div></a><a href='servant.html'><div class='sidebarl' style='background-image:url(common/images/sidebar05.png);'>Servant</div></a><a href='skill.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>技能</div></a><a href='noble_phantasm.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>寶具</div></a><a href='status_compare.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>二圍比較</div></a><a href='hidden.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>隱藏數値</div></a><a href='craft_essence.html'><div class='sidebarl' style='background-image:url(common/images/sidebar09.png);'>概念禮裝</div></a><a href='item_drop.html'><div class='sidebarl' style='background-image:url(common/images/sidebar15.png);'>素材道具</div></a><a href='master_equip.html'><div class='sidebarl' style='background-image:url(common/images/sidebar03.png);'>Master相關</div></a><a href='donate.html'><div class='sidebarl' style='background-image:url(common/images/sidebar11.png);'>贊助支持</div></a><a onclick='alert(\"若非必要請盡量使用上面的留言討論區\");' href='https://goo.gl/forms/pW0CDVGfyg' target='_blank'><div class='sidebarl' style='background-image:url(common/images/sidebar08.png);'>意見回饋</div></a><a href='event_history.html'><div class='sidebarl' style='background-image:url(common/images/sidebar10.png);'>過去活動</div></a><a href='news_fypkfe.html' title='「Fate/Accel Zero Order」開幕前7大宣傳活動'><div class='sidebar_event' style='background-image:url(common/images/2016/04/banner_100443159.png);'></div></a><a href='event_zero.html' title='「Fate/Accel Zero Order」Fate/Zero×Fate/Grand Order特別活動'><div class='sidebar_event' style='background-image:url(common/images/2016/04/banner_100468521.png);'></div></a><a href='event_davinci.html' title='「達文西與七位贋品英靈」'><div class='sidebar_event' style='background-image:url(common/images/2016/04/banner_100438756_02.png);'></div></a><a href='event_davinci.html#midashi_06' title='「貞德〔Alter〕Pick Up召喚」'><div class='sidebar_event' style='background-image:url(common/images/2016/04/summon_20160411_igmzga.jpg);'></div></a>";
+	document.getElementById('div_right_sidebar').innerHTML="<a href='./'><div class='sidebarl' style='background-image:url(common/images/sidebar01.png);'>首頁</div></a><a href='http://goo.gl/HkTjzj' target='_blank'><div class='sidebarl' style='background-image:url(common/images/sidebar17.png);'>留言討論區</div></a><a href='servant.html'><div class='sidebarl' style='background-image:url(common/images/sidebar05.png);'>Servant</div></a><a href='skill.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>技能</div></a><a href='noble_phantasm.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>寶具</div></a><a href='status_compare.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>二圍比較</div></a><a href='hidden.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>隱藏數値</div></a><a href='craft_essence.html'><div class='sidebarl' style='background-image:url(common/images/sidebar09.png);'>概念禮裝</div></a><a href='item_drop.html'><div class='sidebarl' style='background-image:url(common/images/sidebar15.png);'>素材道具</div></a><a href='master_equip.html'><div class='sidebarl' style='background-image:url(common/images/sidebar03.png);'>Master相關</div></a><a href='donate.html'><div class='sidebarl' style='background-image:url(common/images/sidebar11.png);'><span class='red'>贊助支持</span></div></a><a onclick='alert(\"若非必要請盡量使用上面的留言討論區\");' href='https://goo.gl/forms/pW0CDVGfyg' target='_blank'><div class='sidebarl' style='background-image:url(common/images/sidebar08.png);'>意見回饋</div></a><a href='event_history.html'><div class='sidebarl' style='background-image:url(common/images/sidebar10.png);'>過去活動</div></a><a href='news_fypkfe.html' title='「Fate/Accel Zero Order」開幕前7大宣傳活動'><div class='sidebar_event' style='background-image:url(common/images/2016/04/banner_100443159.png);'></div></a><a href='event_zero.html' title='「Fate/Accel Zero Order」Fate/Zero×Fate/Grand Order特別活動'><div class='sidebar_event' style='background-image:url(common/images/2016/04/banner_100468521.png);'></div></a>";
 }
 function addCommas(nStr) {
 	nStr += '';
@@ -172,4 +172,20 @@ function changeURL(url)
 {
 	//var url = document.getElementById('url').value;
 	window.history.pushState({},0,url);      
+}
+function padLeft(str, len) {
+	str = '' + str;
+	if (str.length >= len) {
+		return str;
+	} else {
+		return padLeft("0" + str, len);
+	}
+}
+function shadowboxInit()
+{
+	Shadowbox.init({
+		overlayColor:"#333333",
+		overlayOpacity:0.9,
+		players: ['img', 'html', 'iframe', 'qt', 'wmp', 'swf', 'flv']
+	});
 }
