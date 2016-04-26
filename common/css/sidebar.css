@@ -349,6 +349,15 @@ table.noborder tr
 {
 	background:none;
 }
+table.table_non tr td
+{
+	border:0px;
+	box-shadow:0px 0px 0px;
+}
+table.table_non tr
+{
+	background:none;
+}
 .headline5 {
 	display: inline-block;
 	font-size: 0.9em;
@@ -554,4 +563,7 @@ th.th_red  {
 	text-align: center;
 	text-shadow:1px 1px 4px #000000;
 	box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
+}
+table.mouseover tr:hover {
+	background-color: #bdd2d5;
 }
