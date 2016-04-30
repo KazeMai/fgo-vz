@@ -195,3 +195,12 @@ function rateLimit(rate,rateMax)
 	else if(rate<0&&rate<-rateMax) return -rateMax;
 	return rate;
 }
+function accInit()
+{
+$(function(){
+	$(".accordion dt.act").on("click", function() {
+		$(this).next("dd").slideToggle();
+		$(this).toggleClass("open");
+	});
+});
+}

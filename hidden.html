@@ -47,7 +47,8 @@ function atrriRelation(){for(var c=[],d,b=document.getElementsByClassName("attri
 	<a href="#class"><div class="bkmk">職階相性</div></a>
 	<a href="#attribute"><div class="bkmk">分類相性</div></a>
 	<a href="#gender"><div class="bkmk">性別</div></a>
-	<a href="#individuality"><div class="bkmk">特性</div></a><div style="clear:left;"></div>
+	<a href="#individuality"><div class="bkmk">特性</div></a>
+	<a href="#npAtk"><div class="bkmk">攻擊獲得NP</div></a><div style="clear:left;"></div>
 <article class="content textsize" style="width:1000px;">
 <span class="notice">本頁為遊戲程式實際情況敘述，與介紹文本不符處並非錯誤</span>
 <h1 id="class">職階相性</h1>
@@ -194,6 +195,27 @@ function atrriRelation(){for(var c=[],d,b=document.getElementsByClassName("attri
 <tr><th>〔魔性〕</th><td id="indi2019">
 骸骨兵、鬼魂、惡魔、狼人、豹人、哥布林、雙角獸、凝視者、噬魂者、屍人、七人御佐姬、巨大鬼魂</td></tr>
 </table>
+<hr>
+<h1 id="npAtk">攻擊獲得NP</h1>
+<p>NP獲得量 = 基本NP獲得率(Atk) × [(首卡加成 + 卡片倍率 x (1 ± 卡片性能Buff)] × (1 + NP獲得量Buff)<br>
+ × Critical補正 × Overkill補正 × 攻擊Hit數 × 伺服器控制參數(假設為1)</p>
+<div style="float:left;">
+<h3>首卡加成</h3>
+<p>若第一張卡是<font color="#0099FF">Arts卡</font>的話為1，其餘為0，寶具卡不受此加成</p>
+<h3>卡片倍率</h3>
+<p>Extra卡為1，寶具卡視為各顏色第1張<table style="text-align:center;">
+<tr><th>倍率</th><th><font color="#0099FF">Arts</font></th><th><font color="#ff0000">Buster</font></th><th><font color="#00ff00">Quick</font></th></tr>
+<tr><th>第1張</th><td>3</td><td>0</td><td>1</td></tr>
+<tr><th>第2張</th><td>4</td><td>0</td><td>1.5</td></tr>
+<tr><th>第3張</th><td>6</td><td>0</td><td>2</td></tr>
+</table></p>
+<h3>Critical補正</h3>
+<p>有Critical的話為2倍</p>
+<h3>Overkill補正</h3>
+<p>有Overkill的話為1.5倍</p>
+</div>
+<a href="np_get.html"><div class='sidebar' style='background-image:url(common/images/sidebar00.png);float:left;ma'>前往計算</div></a></div>
+<div style="clear:left;"></div>
 </article>
 <div id="gotop"><a href="#"><img src="common/images/btn_gotop_off.jpg" width="47" height="47" alt="返回頂端" /></a></div>
     </div>

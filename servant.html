@@ -60,7 +60,7 @@ function svtTableOut(searchData,searchId)
 		}
 	}
 	
-	var svtTableTxt="<thead><tr><th>圖示</th><th>編號</th><th>星數</th><th>名稱</th><th>職階</th><th>Cost</th><th>基本<br>HP</th><th>最大<br>HP</th><th>基本<br>ATK</th><th>最大<br>ATK</th><th>指令卡</th><th>寶具</th><th>幸運</th></tr></thead><tbody>";
+	var svtTableTxt="<thead><tr><th>圖示</th><th>編號</th><th>星數</th><th>名稱</th><th>職階</th><th>基本<br>HP</th><th>最大<br>HP</th><th>基本<br>ATK</th><th>最大<br>ATK</th><th>指令卡</th><th>寶具</th><th>Cost</th></tr></thead><tbody>";
 	var svtStatusList = ["","A","B","C","D","E","EX","?","?","－"];
 	var svtStatusPlusList = ["","","+","++","?","?","?","?","?",""];
 	for(i in master.mstSvt)
@@ -91,12 +91,8 @@ function svtTableOut(searchData,searchId)
 			else svtTableTxt+=master.mstSvt[i].name;
 			svtTableTxt+="</a></td>";
 			
-			svtTableTxt+="<td>";
-			for(c in mstClass)
-				if(mstClass[c].id==master.mstSvt[i].classId) {svtTableTxt+="<span style='display:none'>"+master.mstSvt[i].classId+"</span>"+mstClass[c].name;break;}
-			svtTableTxt+="</td>";
+			svtTableTxt+="<td><span style='display:none'>"+master.mstSvt[i].classId+"</span><img src='common/images/icon/class/class_"+findClassImageId(master.mstSvt[i].classId)+"_"+master.mstSvtLimit[j].rarity+".png' title='"+findClassName(master.mstSvt[i].classId)+"' class='itemS' /></td>";
 			
-			svtTableTxt+="<td>"+master.mstSvt[i].cost+"</td>";
 			
 			svtTableTxt+="<td>"+master.mstSvtLimit[j].hpBase+"</td><td>"+master.mstSvtLimit[j].hpMax+"</td><td>"+master.mstSvtLimit[j].atkBase+"</td><td>"+master.mstSvtLimit[j].atkMax+"</td>";
 			
@@ -119,8 +115,8 @@ function svtTableOut(searchData,searchId)
 			}
 			svtTableTxt+="</td>";
 			
-			svtTableTxt+="<td>"+svtStatusList[Math.floor(master.mstSvtLimit[j].luck/10)]+svtStatusPlusList[master.mstSvtLimit[j].luck%10]+"</td>";
-			
+			//svtTableTxt+="<td>"+svtStatusList[Math.floor(master.mstSvtLimit[j].luck/10)]+svtStatusPlusList[master.mstSvtLimit[j].luck%10]+"</td>";
+			svtTableTxt+="<td>"+master.mstSvt[i].cost+"</td>";
 			svtTableTxt+="</tr>";
 			break;}}
 		break;}}}
@@ -169,7 +165,7 @@ function svtTableOut(searchData,searchId)
 	<br><input type="button" value="開始篩選" onclick="classFilter('servant.html');">
   </fieldset>
 </form>
-<table onload="" id="svtTable" class="tablesorter" width=1270><tr><td></td></tr></table>
+<table onload="" id="svtTable" class="tablesorter mouseover" width=1270><tr><td></td></tr></table>
 </article>
 </div>
 <div id="gotop"><a href="#"><img src="common/images/btn_gotop_off.jpg" width="47" height="47" alt="返回頂端" /></a></div>
