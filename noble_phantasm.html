@@ -27,14 +27,14 @@
 </script>
 <script type="text/javascript">
 function trdvDataOut(searchData,searchId)
-{
+{	sortByElmentNoN(master.mstSvt);
 	var cardList = ["","0000ff","ff0000","00ff00"];
 	var trdvDataTxt="<tr><th>Servant</th><th>寶具名</th><th>等級</th><th>種類</th><th>Hit數</th><th>效果</th><th>Lv.1</th><th>Lv.2</th><th>Lv.3</th><th>Lv.4</th><th>Lv.5</th></tr>";
 	var skillText="";
 	var skillrowCount=0;
 	for(var c in master.mstSvt)
 	{
-		if(master.mstSvt[c].type==1||master.mstSvt[c].type==2||master.mstSvt[c].type==5||master.mstSvt[c].type==9){
+		if(master.mstSvt[c].type==1||master.mstSvt[c].type==2||master.mstSvt[c].type==5||master.mstSvt[c].type==9||master.mstSvt[c].type==99){
 			var svtTrdvrowCount=0;
 			var sklTxt="";
 			

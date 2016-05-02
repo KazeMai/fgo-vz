@@ -65,7 +65,7 @@ function svtTableOut(searchData,searchId)
 	var svtStatusPlusList = ["","","+","++","?","?","?","?","?",""];
 	for(i in master.mstSvt)
 	{
-		if((master.mstSvt[i].type==1||master.mstSvt[i].type==2||master.mstSvt[i].type==5||master.mstSvt[i].type==9)&&master.mstSvt[i].collectionNo!=0)
+		if((master.mstSvt[i].type==1||master.mstSvt[i].type==2||master.mstSvt[i].type==5||master.mstSvt[i].type==9||master.mstSvt[i].type==99)&&master.mstSvt[i].collectionNo!=0)
 		{
 		for(var t in classarray){
 			if (classarray[t]==master.mstSvt[i].classId){
@@ -73,13 +73,14 @@ function svtTableOut(searchData,searchId)
 			for(var j in master.mstSvtLimit)
 				{if(master.mstSvtLimit[j].svtId==master.mstSvt[i].id)break;}
 				for(var h in rarityarray){
-					if (rarityarray[h]==master.mstSvtLimit[j].rarity){
+					if (rarityarray[h]==master.mstSvtLimit[j].rarity||master.mstSvtLimit[j].rarity==0){
 			if(master.mstSvt[i].collectionNo==0) svtTableTxt+="<tr align=\"center\"><td><a href='svtData.html?id="+master.mstSvt[i].id+"'>";
 			else svtTableTxt+="<tr align=\"center\"><td><a href='svtData.html?no="+master.mstSvt[i].collectionNo+"'>";
 			svtTableTxt+="<img src='common/images/icon/faces/"+master.mstSvt[i].id+"0.png' onerror=javascript:this.src='common/images/icon/faces/0.png' title='"+findSvtNameZh2(master.mstSvt[i].id)+"' width=80></img>";
 			svtTableTxt+="</a></td>";
 			
 			svtTableTxt+="<td>"+master.mstSvt[i].collectionNo+"</td><td class=\"star\">";
+			if(master.mstSvtLimit[j].rarity==0) svtTableTxt+="－";
 			for(var c=0;c<master.mstSvtLimit[j].rarity;c++)
 				svtTableTxt+="★";
 			svtTableTxt+="</td>";

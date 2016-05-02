@@ -31,7 +31,7 @@ function crtTableOut(searchData,searchId)
 	var crtTableTxt="<thead><tr><th width=60>圖示</th><th width=35>編號</th><th width=35>星數</th><th width=150>名稱</th><th width=30>Cost</th><th width=30>基本<br>HP</th><th width=30>最大<br>HP</th><th width=30>基本<br>ATK</th><th width=30>最大<br>ATK</th><th colspan=2 width=500>禮裝技能效果</th></tr></thead><tbody>";
 	for(var i in master.mstSvt)
 	{
-		if(master.mstSvt[i].type==6)
+		if(master.mstSvt[i].type==6||master.mstSvt[i].type==98)
 		{
 			for(var j in master.mstSvtLimit)
 				{if(master.mstSvtLimit[j].svtId==master.mstSvt[i].id)break;}

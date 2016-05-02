@@ -33,12 +33,12 @@ function sklDataOut(searchData,searchId)
 	var eqpDataTxt="<tr><th>圖示</th><th>技能名</th><th>Master裝備</th><th>CD</th><th>效果</th><th>Lv.1</th><th>Lv.2</th><th>Lv.3</th><th>Lv.4</th><th>Lv.5</th><th>Lv.6</th><th>Lv.7</th><th>Lv.8</th><th>Lv.9</th><th>Lv.10</th></tr>";
 	var skillText="";
 	var skillrowCount=0;
-	for(var c=0;c<master.mstSkill.length;c++)
+	for(var c=master.mstSkill.length-1;c>=0;c--)
 	{
-		if(master.mstSkill[c].id<900000||(master.mstSkill[c].id>940000&&master.mstSkill[c].id<950000)||(master.mstSkill[c].id>980000&&master.mstSkill[c].id<990000)){
+		if(master.mstSkill[c].id<900000||(master.mstSkill[c].id>940000&&master.mstSkill[c].id<950000)||(master.mstSkill[c].id>980000&&master.mstSkill[c].id<990000)||master.mstSkill[c].id>999900){
 			skillrowCount=0;
 			skillText="";
-			var skDetailTxt = new Array();
+			var skDetailTxt = new Array();skDetailTxt[0]=0;skDetailTxt[1]="";
 			for(var k=0;k<skDetail.length;k++){
 				if(master.mstSkill[c].id==skDetail[k][0]){
 					skDetailTxt = skDetail[k].slice(0);break;
@@ -56,7 +56,7 @@ function sklDataOut(searchData,searchId)
 			{
 				skDetailTxt[1]=skDetailTxt[1].replace(/ |　/g,"");
 				skDetailTxt[1]=skDetailTxt[1].replace(/＆/g,"＆┗");
-				skDetailArray = skDetailTxt[1].split(/＆|＋/);
+				skDetailArray = skDetailTxt[1].split(/＆|＋|\+/);
 			}
 			else skDetailArray[0] = skDetailTxt[1].slice(0);
 			
@@ -123,7 +123,8 @@ function sklDataOut(searchData,searchId)
 			for(k=0;k<master.mstSkillLv.length;k++)
 			{
 				if(master.mstSkill[c].id==master.mstSkillLv[k].skillId&&master.mstSkillLv[k].lv==1)
-					{if(master.mstSkillLv[k].chargeTurn!=0)sklTxt+=master.mstSkillLv[k].chargeTurn;
+					{
+					if(master.mstSkillLv[k].chargeTurn!=0)sklTxt+=master.mstSkillLv[k].chargeTurn;
 					else sklTxt+="－";break;}
 			}
 			sklTxt+="</td>";
