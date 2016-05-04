@@ -117,7 +117,7 @@ function setSvtOption(clsId,cl)
 	{
 		for(i=0;i<master.mstSvt.length;i++)
 		{
-			if(master.mstSvt[i].type==1||master.mstSvt[i].type==2||master.mstSvt[i].type==5){
+			if(master.mstSvt[i].type==1||master.mstSvt[i].type==2||master.mstSvt[i].type==5||master.mstSvt[i].type==9){
 				var svtNameZh = findSvtNameZh(master.mstSvt[i].id);
 				if(svtNameZh) cl.options.add(new Option("No." + master.mstSvt[i].collectionNo + " " + svtNameZh,master.mstSvt[i].id));
 				else cl.options.add(new Option("No." + master.mstSvt[i].collectionNo + " " + master.mstSvt[i].name,master.mstSvt[i].id));}
