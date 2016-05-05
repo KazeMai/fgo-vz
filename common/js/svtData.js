@@ -1,44 +1,616 @@
 ﻿sortByElmentNo(master.mstSvt);
-function svtDataTable(e){var h=["","0000ff","ff0000","00ff00"],l=" A B C D E EX ? ? \uff0d".split(" "),t="  + ++ ? ? ? ? ? ".split(" "),m=[[2E3,"\u795e\u6027"],[2001,"\u4eba\u578b"],[2002,"\u9f8d"],[2004,"\u7f85\u99ac"],[2005,"\u731b\u7378"],[2007,"\u963f\u723e\u6258\u8389\u4e9e\u81c9"],[2008,"\u88ab\u300c\u5929\u5730\u4e56\u96e2\u958b\u8f9f\u4e4b\u661f\u300d\u6240\u524b"],[2009,"\u9a0e\u4e58"],[2010,"\u4e9e\u745f"],[2011,"\u88ab\u300c\u4eba\u985e\u795e\u8a71\u30fb\u96f7\u96fb\u964d\u81e8\u300d\u6240\u524b"],[2012,
-"\u611b\u4eba"],[2018,"\u6b7b\u9748\u8207\u60e1\u9b54"]],c,k;for(k=0;k<master.mstSvt.length&&master.mstSvt[k].id!=e;k++);var n;for(n=0;n<master.mstSvtLimit.length&&master.mstSvtLimit[n].svtId!=e;n++);var a="",a="<tr><td rowspan=7 align=center style='width:25%;height:300px;'>",a=5==master.mstSvt[k].type||9==master.mstSvt[k].type||99==master.mstSvt[k].type?a+("<img src=common/images/Servant/"+e+"_status_servant_2.png onerror=\"javascript:this.style='display:none'\" width=256 height=256 />"):a+("<div class='slide'><div><img src=common/images/Servant/"+
-e+"_status_servant_1.png onerror=\"javascript:this.style='display:none'\" width=256 height=256 /></div><div><img src=common/images/Servant/"+e+"_status_servant_2.png onerror=\"javascript:this.style='display:none'\" width=256 height=256 /></div><div><img src=common/images/Servant/"+e+"_status_servant_3.png onerror=\"javascript:this.style='display:none'\" width=256 height=256 /></div></div>"),a=a+("</td><th style='width:10%;'><b>\u7de8\u865f</b></th><th style='width:10%;'><b>\u661f\u6578</b></th><th colspan=2 style='width:35%;'><b>\u540d\u7a31</b></th><th style='width:15%;'><b>\u8077\u968e</b></th><th style='width:10%;'><b>\u5206\u985e</b></th></tr><tr align=\"center\"><td>No."+
-master.mstSvt[k].collectionNo+'</td><td class="star">');for(c=0;c<master.mstSvtLimit[n].rarity;c++)a+="\u2605";0==master.mstSvtLimit[n].rarity&&(a+="\uff0d");a+="</td><td colspan=2>";a=(c=findSvtNameZh(master.mstSvt[k].id))&&!document.getElementById("isJpTxt").checked?a+("<div class=ruby>"+master.mstSvt[k].ruby+"</div>"+c):a+master.mstSvt[k].name;a+="</td>";document.title=findSvtNameZh2(e)+" - Servant\u8cc7\u6599\u67e5\u8a62";for(c=0;c<mstClass.length;c++)if(mstClass[c].id==master.mstSvt[k].classId){a+=
-"<td>"+mstClass[c].name+"</td>";break}a+="<td>"+"\uff1f\u4eba\u5929\u5730\u661f\u7378".split("")[master.mstSvt[k].attri]+"</td></tr><tr><th><b>HP</b></th><th><b>ATK</b></th><th style='width:10%;'><b>\u7e6a\u5e2b</b></th><th style='width:10%;'><b>CV</b></th><th><b>\u5c6c\u6027</b></th><th><b>\u6027\u5225</b></th></tr><tr align=\"center\"><td>"+master.mstSvtLimit[n].hpBase+" / "+master.mstSvtLimit[n].hpMax+"</td><td>"+master.mstSvtLimit[n].atkBase+" / "+master.mstSvtLimit[n].atkMax+"</td>";for(c=0;c<
-master.mstIllustrator.length;c++)if(master.mstIllustrator[c].id==master.mstSvt[k].illustratorId){a+="<td><a href='illustrator.html#"+master.mstSvt[k].illustratorId+"'>"+master.mstIllustrator[c].name.replace(/\(/g,"<br>(")+"</a></td>";break}a+="<td>";if(-1!=master.mstSvt[k].cvId)for(c=0;c<master.mstCv.length;c++){if(master.mstCv[c].id==master.mstSvt[k].cvId){a+="<a href='cv.html#"+master.mstSvt[k].cvId+"'>"+master.mstCv[c].name.replace(/\uff06/g,"<br>\uff06<br>")+"</a>";break}}else a+="\uff1f\uff1f\uff1f";
-var a=a+"</td>"+("<td>"+" \u4e2d\u7acb \u6df7\u6c8c \u79e9\u5e8f ? ? \u4e2d\u7acb".split(" ")[master.mstSvtLimit[n].policy]+"\u30fb"+" \u5584 \u60e1 ? \u72c2 \u4e2d\u5eb8 ? \u82b1\u5ac1".split(" ")[master.mstSvtLimit[n].personality]+"</td><td>"+["","\u7537\u6027","\u5973\u6027","\u7121"][master.mstSvt[k].genderType]+"</td></tr>"),q=[];for(c in master.mstSvt[k].individuality)for(var b in m)master.mstSvt[k].individuality[c]==m[b][0]&&q.push(m[b][1]);a+="<tr><th>\u7279\u6027</th><td colspan=5 align=center>"+
-q+"</td></tr>";document.getElementById("svtNrmlData").innerHTML=a;m='<tr><th rowspan=2><b>\u6307\u4ee4\u5361</b></th><th><font color="#0099FF"><b>Arts</b></font></th><th><font color="#ff0000"><b>Buster</b></font></th><th><font color="#00ff00"><b>Quick</b></font></th><th><b>Extra</b></th><th rowspan=2><b>\u96b1\u85cf\u6578\u503c</b></th><th><b>\u661f\u661f\u767c\u751f\u7387</b></th><th><b>\u88ab\u5373\u6b7b\u7387</b></th><th><b>\u661f\u661f\u5206\u914d\u6bd4\u91cd</b></th><th><b>\u57fa\u672cNP\u7372\u5f97\u7387(Atk / Def)</b></th></tr><tr align="center">';
-for(b=1;4>=b;b++){m+="<td>";for(c=a=0;c<master.mstSvt[k].cardIds.length;c++)master.mstSvt[k].cardIds[c]==b&&a++;4!=b&&(m+=a+"\u5f35");for(c=0;c<master.mstSvtCard.length;c++)master.mstSvtCard[c].svtId==master.mstSvt[k].id&&master.mstSvtCard[c].cardId==b&&(4!=b&&(m+=" \u5404"),m+=master.mstSvtCard[c].normalDamage.length+"Hit",1<master.mstSvtCard[c].normalDamage.length&&(m+="s"));m+="</td>"}m+="<td>"+master.mstSvt[k].starRate/10+"%</td><td>"+master.mstSvt[k].deathRate/10+"%</td><td>"+master.mstSvtLimit[n].criticalWeight+
-"</td><td>";for(c=0;c<master.mstTreasureDeviceLv.length;c++)if(Math.floor(master.mstTreasureDeviceLv[c].treaureDeviceId/100)==Math.floor(master.mstSvt[k].id/100)){m+=master.mstTreasureDeviceLv[c].tdPoint/100+"% / "+master.mstTreasureDeviceLv[c].tdPointDef/100+"%";break}m+="</td></tr>";document.getElementById("svtCtrlData").innerHTML=m;a=m="";q=1;for(c=0;c<master.mstSvtSkill.length;c++)if(master.mstSvtSkill[c].svtId==master.mstSvt[k].id){q++;for(b=0;b<master.mstSkill.length;b++)if(master.mstSvtSkill[c].skillId==
-master.mstSkill[b].id){a+="<td><img src=common/images/SkillIcon/SkillIcon_"+master.mstSkill[b].iconId+".png onerror=javascript:this.src='common/images/SkillIcon/SkillIcon_0.png' width=55></img></td><td><b>"+master.mstSkill[b].name+"</b></td>";break}for(b=0;b<master.mstSkillLv.length;b++)master.mstSvtSkill[c].skillId==master.mstSkillLv[b].skillId&&1==master.mstSkillLv[b].lv&&(a+="<td colspan=5>\u51b7\u537b"+master.mstSkillLv[b].chargeTurn+"\u56de\u5408</td>");a+="<td colspan=5>";0==master.mstSvtSkill[c].condLimitCount&&
-0==master.mstSvtSkill[c].condQuestId&&0==master.mstSvtSkill[c].condLv&&(a+="\u521d\u671f");0!=master.mstSvtSkill[c].condLimitCount&&(a+="\u9748\u57fa\u518d\u81e8\u7b2c"+master.mstSvtSkill[c].condLimitCount+"\u968e\u6bb5<br>");0!=master.mstSvtSkill[c].condLv&&(a+="Lv."+master.mstSvtSkill[c].condLv+"<br>");0!=master.mstSvtSkill[c].condQuestId&&(a+="\u901a\u904e\u4efb\u52d9 "+questRea(master.mstSvtSkill[c].condQuestId)+"<br>");var a=a+"</td></tr>",f=[];for(b=0;b<skDetail.length;b++)if(master.mstSvtSkill[c].skillId==
-skDetail[b][0]){f=skDetail[b].slice(0);break}if(document.getElementById("isJpTxt").checked||!f[1])for(b=0;b<master.mstSkillDetail.length;b++)if(master.mstSvtSkill[c].skillId==master.mstSkillDetail[b].id){f[1]=master.mstSkillDetail[b].detail;break}var p=[];document.getElementById("isJpTxt").checked?p[0]=f[1].slice(0):(f[1]=f[1].replace(/ |\u3000/g,""),f[1]=f[1].replace(/\uff06/g,"\uff06\u2517"),p=f[1].split(/\uff06|\uff0b/));for(var q=q+p.length,d=0;d<p.length;d++){p[d].search(/\{0\}|Lv/);p[d]=p[d].replace(/\{0\}/g,
-"Lv.");p[d]=p[d].replace(/\[Lv.]/g,'<font color="#CC00CC ">[Lv.]</font>');p[d]=p[d].replace(/\u3010/g,'<font color="#006400 ">\u3010');p[d]=p[d].replace(/\u3011/g,"\u3011</font>");if(document.getElementById("isJpTxt").checked)a+="<tr><td colspan=12>"+p[d]+"</td>";else if(a+="<tr><td colspan=2>"+p[d]+"</td>",f[2+d]&&1<f[2+d].split("/").length-1){var r=[],r=f[2+d].split(/\//);for(b in r)a+="<td align=center style='width:50px'>"+r[b]+"</td>"}else a+="<td colspan=10>",a=f[2+d]?a+("\u3000"+f[2+d].replace(/\//g,
-" / ")):"undefined"!==typeof f[2+d]&&0==f[2+d].length?a+"\u3000---":a+"\u3000\u5f85\u88dc";a+="</td></tr>"}}0<a.length&&(m+="<tr><th style='width:60px' rowspan="+q+"><b>\u4fdd\u6709\u6280\u80fd</b></th><th colspan=2 style='width:300px'>\u6280\u80fd</th><th colspan=5 style='width:250px'>\u51b7\u537b\u6642\u9593</th><th colspan=5 style='width:250px'>\u958b\u653e\u689d\u4ef6</th></tr><tr>"+a+"");if(0!=master.mstSvt[k].classPassive.length){a="";for(c=q=0;c<master.mstSvt[k].classPassive.length;c++){q++;
-for(b=0;b<master.mstSkill.length;b++)if(master.mstSvt[k].classPassive[c]==master.mstSkill[b].id){a+="<td style='width:55px'><img src=common/images/SkillIcon/SkillIcon_"+master.mstSkill[b].iconId+".png onerror=javascript:this.src='common/images/SkillIcon/SkillIcon_0.png' width=55></img></td><td><b>"+master.mstSkill[b].name+"</b></td>";break}f=[];for(b=0;b<skDetail.length;b++)if(master.mstSvt[k].classPassive[c]==skDetail[b][0]){f=skDetail[b].slice(0);break}if(document.getElementById("isJpTxt").checked||
-!f[1])for(b=0;b<master.mstSkillDetail.length;b++)if(master.mstSvt[k].classPassive[c]==master.mstSkillDetail[b].id){f[1]=master.mstSkillDetail[b].detail;break}p=[];document.getElementById("isJpTxt").checked?p[0]=f[1].slice(0):(f[1]=f[1].replace(/ |\u3000/g,""),f[1]=f[1].replace(/\uff06/g,"\uff06\u2517"),p=f[1].split(/\uff06|\uff0b|\+/));a+="<td colspan=10>";for(d=0;d<p.length;d++)if(p[d].search(/\{0\}|Lv/),p[d]=p[d].replace(/\{0\}/g,"Lv."),p[d]=p[d].replace(/\[Lv.]/g,'<font color="#CC00CC ">[Lv.]</font>'),
-p[d]=p[d].replace(/\u3010/g,'<font color="#006400 ">\u3010'),p[d]=p[d].replace(/\u3011/g,"\u3011</font>"),document.getElementById("isJpTxt").checked)a+=p[d];else if(0!=d&&(a+="<br>"),a+=p[d],f[2+d]&&1<f[2+d].split("/").length-1)for(b in a+=p[d]+"\uff1a",r=[],r=f[2+d].split(/\//),r)a+=r[b];else a=f[2+d]?a+("\uff1a"+f[2+d].replace(/\//g," / ")):"undefined"!==typeof f[2+d]&&0==f[2+d].length?a+"":a+"\uff1a\u5f85\u88dc";a+="</td></tr>"}m+="<tr><th rowspan="+master.mstSvt[k].classPassive.length+"><b>\u8077\u968e\u6280\u80fd</b></th>"+
-a+""}a="";for(c=q=0;c<master.mstTreasureDevice.length;c++)if(master.mstTreasureDevice[c].seqId==master.mstSvt[k].id){q+=2;b=0;a+="<th colspan=2><b>\u540d\u7a31</b></th><th colspan=2><b>\u7b49\u7d1a</b></th><th colspan=2><b>\u7a2e\u985e</b></th><th colspan=4><b>\u89e3\u653e\u4efb\u52d9</b></th><th colspan=2>\u653b\u64ca\u6b21\u6578</th></tr>";a+='<tr align="center"><td colspan=2><div class=ruby>'+master.mstTreasureDevice[c].ruby+"</div>";for(b=0;b<master.mstSvtTreasureDevice.length;b++)if(master.mstTreasureDevice[c].id==
-master.mstSvtTreasureDevice[b].treasureDeviceId){a+='<b><font color="#'+h[master.mstSvtTreasureDevice[b].cardId]+'">'+master.mstTreasureDevice[c].name+"</font></b></td><td colspan=2>"+master.mstTreasureDevice[c].rank+"</td><td colspan=2>"+master.mstTreasureDevice[c].typeText.replace(/\u5bfe/g,"\u5c0d").replace(/\u5b9d/g,"\u5bf6").replace(/\u5263/g,"\u528d").replace(/\u60aa/g,"\u60e1").replace(/\u5965/g,"\u5967").replace(/\u30bb\u30a4\u30d0\u30fc/g,"Saber")+"</td><td colspan=4>";a=0==master.mstSvtTreasureDevice[b].condQuestId&&
-0==master.mstSvtTreasureDevice[b].condLv&&0==master.mstSvtTreasureDevice[b].condFriendshipRank?a+"\u521d\u671f":null!=findName(master.mstQuest,master.mstSvtTreasureDevice[b].condQuestId)?a+questRea(master.mstSvtTreasureDevice[b].condQuestId):0!=master.mstSvtTreasureDevice[b].condLv?a+("Lv."+master.mstSvtTreasureDevice[b].condLv+"\u89e3\u653e"):0!=master.mstSvtTreasureDevice[b].condFriendshipRank?a+("\u7d46\u7b49\u7d1a"+master.mstSvtTreasureDevice[b].condFriendshipRank+"\u89e3\u653e"):a+"\u672a\u958b\u653e";
-a+="</td>";break}f=[];for(d in tdDetail)if(master.mstTreasureDevice[c].id==tdDetail[d][0]){f=tdDetail[d].slice(0);break}if(document.getElementById("isJpTxt").checked||!f[1])for(d in master.mstTreasureDeviceDetail)if(master.mstTreasureDevice[c].id==master.mstTreasureDeviceDetail[d].id){f[1]=master.mstTreasureDeviceDetail[d].detail;break}a+="<td colspan=2>";-1==f[1].search(/\u653b\u64ca[^\u529b]|\u653b\u6483[^\u529b]/)?a+="\uff0d":(a=0<master.mstSvtTreasureDevice[b].damage.length?a+master.mstSvtTreasureDevice[b].damage.length:
-a+"1",a+="Hit",1<master.mstSvtTreasureDevice[b].damage.length&&(a+="s"));a+="</td></tr>";b=[];document.getElementById("isJpTxt").checked?b[0]=f[1].slice(0):(f[1]=f[1].replace(/ |\u3000/g,""),f[1]=f[1].replace(/\uff06/g,"\uff06\u2517"),b=f[1].split(/\uff06|\uff0b/));q+=b.length;for(d=0;d<b.length;d++){b[d].search(/\{0\}|Lv/);b[d].search(/<O|<\u30aa/);b[d]=b[d].replace(/\{0\}/g,"Lv.");b[d]=b[d].replace(/<O/g,'<font color="#CC6600"><br>< O');b[d]=b[d].replace(/<\u30aa/g,'<font color="#CC6600"><\u30aa');
-b[d]=b[d].replace(/P>/g,"P></font>");b[d]=b[d].replace(/\u30d7>/g,"\u30d7></font>");b[d]=b[d].replace(/\u3010/g,'<font color="#006400 ">\u3010');b[d]=b[d].replace(/\u3011/g,"\u3011</font>");b[d]=b[d].replace(/\[Lv.]/g,'<font color="#CC00CC ">[Lv.]</font>');b[d]=b[d].replace(/\n/g,"<br>");if(document.getElementById("isJpTxt").checked)a+="<td colspan=12>"+b[d]+"</td>";else if(0!=d&&(a+="<tr>"),a+="<td colspan=2>"+b[d]+"</td>",f[2+d]&&1<f[2+d].split("/").length-1)for(g in r=[],r=f[2+d].split(/\//),r)a+=
-"<td align=center colspan=2>"+r[g]+"</td>";else a+="<td colspan=10>",a=f[2+d]?a+("\u3000"+f[2+d]):"undefined"!==typeof f[2+d]&&0==f[2+d].length?a+"\u3000---":a+"\u3000\u5f85\u88dc";a+="</td></tr>"}}m+="<tr><th rowspan="+q+"><b>\u5bf6\u5177</b></th>"+a+"";document.getElementById("svtSkTdData").innerHTML=m;h="";h="<tr><th rowspan=2 style='width:250px'>\u80fd\u529b\u503c</th><th style='width:50px'>\u7b4b\u529b</th><th style='width:50px'>\u8010\u4e45</th><th style='width:50px'>\u654f\u6377</th><th style='width:50px'>\u9b54\u529b</th><th style='width:50px'>\u5e78\u904b</th><th style='width:50px'>\u5bf6\u5177</th></tr><tr align=\"center\"><td>"+
-l[Math.floor(master.mstSvtLimit[n].power/10)]+t[master.mstSvtLimit[n].power%10]+"</td><td>"+l[Math.floor(master.mstSvtLimit[n].defense/10)]+t[master.mstSvtLimit[n].defense%10]+"</td><td>"+l[Math.floor(master.mstSvtLimit[n].agility/10)]+t[master.mstSvtLimit[n].agility%10]+"</td><td>"+l[Math.floor(master.mstSvtLimit[n].magic/10)]+t[master.mstSvtLimit[n].magic%10]+"</td><td>"+l[Math.floor(master.mstSvtLimit[n].luck/10)]+t[master.mstSvtLimit[n].luck%10]+"</td><td>"+l[Math.floor(master.mstSvtLimit[n].treasureDevice/
-10)]+t[master.mstSvtLimit[n].treasureDevice%10]+"</td></tr>";for(c=0;c<master.mstSvtComment.length;c++)if(b="",master.mstSvt[k].id==master.mstSvtComment[c].svtId){h+="<tr><th width=150>";if(0==master.mstSvtComment[c].condValue)h+="<b>\u89d2\u8272\u8a73\u7d30</b>";else if(6>master.mstSvtComment[c].condValue)for(d in h+="<b>\u7d46\u7b49\u7d1a"+master.mstSvtComment[c].condValue+"</b>",master.mstFriendship){if(master.mstFriendship[d].id==master.mstSvt[k].friendshipId&&master.mstFriendship[d].rank==master.mstSvtComment[c].condValue-
-1){h+="<br>("+master.mstFriendship[d].friendship+")";break}}else 1==master.mstSvtComment[c].condType&&(h+="<b>\u901a\u904e\u4efb\u52d9</b><br>"+questRea(master.mstSvtComment[c].condValue));h+="</th>";b=0==master.mstSvtComment[c].condValue%2?' bgcolor=" #ECF2F3"':"";h+="<td colspan=6"+b+">"+master.mstSvtComment[c].comment.replace(/\n/g,"<br>");h+="</td></tr>"}document.getElementById("svtInfoData").innerHTML=h;d="";d="<tr><th rowspan=4><b>\u9748\u57fa\u518d\u81e8</b></th>";for(l=0;4>l;l++){b="";0==
-l%2&&(b=' bgcolor=" #ECF2F3"');0!=l&&(d+="<tr>");d+="<td"+b+">\u7b2c"+(l+1)+"\u968e\u6bb5</td><td"+b+">";for(c=0;c<master.mstCombineLimit.length;c++)if(master.mstCombineLimit[c].id==master.mstSvt[k].id&&master.mstCombineLimit[c].svtLimit==l){for(b=0;b<master.mstCombineLimit[c].itemIds.length;b++)d+="<a href='item_drop.html#"+master.mstCombineLimit[c].itemIds[b]+"'><img src='common/images/icon/items/"+master.mstCombineLimit[c].itemIds[b]+".png' title='"+findItemName(master.mstCombineLimit[c].itemIds[b])+
-"' onerror=\"javascript:this.src='common/images/icon/faces/0.png'\" class='itemM' /></a>x"+master.mstCombineLimit[c].itemNums[b]+"\u3000";d+=addCommas(master.mstCombineLimit[c].qp)+"QP"}d+="</td></tr>"}d+="<tr><th rowspan=9><b>\u6280\u80fd\u5f37\u5316</b></th>";for(c=l=0;c<master.mstCombineSkill.length;c++)if(b="",0==c%2&&(b=' bgcolor=" #ECF2F3"'),master.mstCombineSkill[c].id==master.mstSvt[k].id){1!=master.mstCombineSkill[c].skillLv&&(d+="<tr>");d+="<td"+b+">Lv."+master.mstCombineSkill[c].skillLv+
-"\u2192Lv."+(master.mstCombineSkill[c].skillLv+1)+"</td><td"+b+">";for(b=0;b<master.mstCombineSkill[c].itemIds.length;b++)d+="<a href='item_drop.html#"+master.mstCombineSkill[c].itemIds[b]+"'><img src='common/images/icon/items/"+master.mstCombineSkill[c].itemIds[b]+".png' title='"+findItemName(master.mstCombineSkill[c].itemIds[b])+"' onerror=\"javascript:this.src='common/images/icon/faces/0.png'\" class='itemM' /></a>x"+master.mstCombineSkill[c].itemNums[b]+"\u3000";d+=addCommas(master.mstCombineSkill[c].qp)+
-"QP</td></tr>";l++}0==l&&(d+="<td colspan=2>\u7121</td></tr>");document.getElementById("svtCmbnData").innerHTML=d;document.getElementById("svtImgData").innerHTML="";document.getElementById("svtImgData").innerHTML="<tr><td><img src=common/images/Servant/"+e+"_card_servant_1.png onerror=\"this.style='display:none'\"></img><img src=common/images/Servant/"+e+"_card_servant_2.png onerror=\"this.style='display:none'\"></img><img src=common/images/Servant/"+e+"_card_servant_3.png onerror=\"this.style='display:none'\"></img><br><img src=common/images/CharaGraph/"+
-e+"a.png onerror=\"this.style='display:none'\" width=1024></img><br><img src=common/images/CharaGraph/"+e+"b.png onerror=\"this.style='display:none'\" width=1024></img><br><img src=common/images/CharaGraph/"+e+"c.png onerror=\"this.style='display:none'\"></img></td></tr>";e="";if(99==master.mstSvt[k].type)$("#chart_div").css("display","none");else for($("#chart_div").css("display","block"),e="<tr><th>\u7b49\u7d1a</th><th>ATK</th><th>HP</th><th>\u4e0a\u5347\u5e45\u5ea6</th></tr>",c=0;c<master.mstSvt[k].rewardLv;c++)for(l=
-0;l<master.mstSvtExp.length;l++)if(master.mstSvt[k].expType==master.mstSvtExp[l].type&&master.mstSvtExp[l].lv==c+1){b="";1==master.mstSvtExp[l].lv%2&&(b=' bgcolor=" #ECF2F3"');e+='<tr align="center"><td'+b+">Lv."+master.mstSvtExp[l].lv+"</td><td"+b+">"+Math.floor(master.mstSvtLimit[n].atkBase+(master.mstSvtLimit[n].atkMax-master.mstSvtLimit[n].atkBase)*master.mstSvtExp[l].curve/1E3)+"</td><td"+b+">"+Math.floor(master.mstSvtLimit[n].hpBase+(master.mstSvtLimit[n].hpMax-master.mstSvtLimit[n].hpBase)*
-master.mstSvtExp[l].curve/1E3)+"</td><td"+b+">"+(master.mstSvtExp[l].curve-master.mstSvtExp[l-1].curve)/10+"%</td></tr>";break}document.getElementById("svtLvData").innerHTML=e;$("img").error(function(){$(this).css({visibility:"hidden"})});$(function(){$(".slide").slick({dots:!0,infinite:!0,speed:300,slidesToShow:1,adaptiveHeight:!0,autoplay:!0,autoplaySpeed:2E3})})}
-function classidChange(){var e;for(e=svtid.options.length-1;0<=e;e--)svtid.remove(e);if(0==classid.value)for(e=0;e<master.mstSvt.length;e++){if(1==master.mstSvt[e].type||2==master.mstSvt[e].type||5==master.mstSvt[e].type||9==master.mstSvt[e].type||99==master.mstSvt[e].type){var h=findSvtNameZh(master.mstSvt[e].id);h?svtid.options.add(new Option("No."+master.mstSvt[e].collectionNo+" "+h,master.mstSvt[e].id)):svtid.options.add(new Option("No."+master.mstSvt[e].collectionNo+" "+master.mstSvt[e].name,
-master.mstSvt[e].id))}}else for(e=0;e<master.mstSvt.length;e++)master.mstSvt[e].classId!=classid.value||1!=master.mstSvt[e].type&&2!=master.mstSvt[e].type&&5!=master.mstSvt[e].type&&9!=master.mstSvt[e].type&&99!=master.mstSvt[e].type||((h=findSvtNameZh(master.mstSvt[e].id))?svtid.options.add(new Option("No."+master.mstSvt[e].collectionNo+" "+h,master.mstSvt[e].id)):svtid.options.add(new Option("No."+master.mstSvt[e].collectionNo+" "+master.mstSvt[e].name,master.mstSvt[e].id)));0!=classid.value&&svtlocation(svtid[0].value)}
-function svtidset(){classidChange();svtlocation(svtid[0].value)}function svtidChange(){var e;for(e=svtlv.options.length-1;0<=e;e--)svtlv.remove(e);for(e in master.mstSvtLimit)if(master.mstSvtLimit[e].svtId==svtid.value&&4==master.mstSvtLimit[e].limitCount){for(var h=1;h<=master.mstSvtLimit[e].lvMax;h++)svtlv.options.add(new Option("Lv."+h,h));break}svtlvChange();svtDataTable(svtid.value);drawChart()}
-function svtlocation(e){e="";for(var h in master.mstSvt)if(master.mstSvt[h].id==svtid.value){e=0!=master.mstSvt[h].collectionNo?e+("?no="+master.mstSvt[h].collectionNo):e+("?id="+master.mstSvt[h].id);break}"file:"==location.protocol?changeURL(location.protocol+"//"+location.pathname+e):changeURL(location.protocol+"//"+location.hostname+location.pathname+e);svtidChange()}
-function svtlvChange(){for(var e in master.mstSvtLimit)if(master.mstSvtLimit[e].svtId==svtid.value){for(var h in master.mstSvt)if(master.mstSvt[h].id==svtid.value){for(var l in master.mstSvtExp)if(atk.value=master.mstSvtLimit[e].atkBase,hp.value=master.mstSvtLimit[e].hpBase,four(),master.mstSvt[h].expType==master.mstSvtExp[l].type&&master.mstSvtExp[l].lv==svtlv.value){atk.value=Math.floor(master.mstSvtLimit[e].atkBase+(master.mstSvtLimit[e].atkMax-master.mstSvtLimit[e].atkBase)*master.mstSvtExp[l].curve/
-1E3);hp.value=Math.floor(master.mstSvtLimit[e].hpBase+(master.mstSvtLimit[e].hpMax-master.mstSvtLimit[e].hpBase)*master.mstSvtExp[l].curve/1E3);four();break}break}break}}function four(){hpp.value=parseInt(hp.value)+990;atkp.value=parseInt(atk.value)+990}
-function urlId(){$("#classid").val(0);classidChange();var e="1",h="";getUrl("no")&&(e=getUrl("no"));getUrl("id")&&(h=getUrl("id"));if(e){if(0!=h.length)for(i in master.mstSvt){if((1==master.mstSvt[i].type||2==master.mstSvt[i].type||5==master.mstSvt[i].type||9==master.mstSvt[i].type||99==master.mstSvt[i].type)&&h==master.mstSvt[i].id){$("#svtid").val(master.mstSvt[i].id);break}}else for(i in master.mstSvt)if((1==master.mstSvt[i].type||2==master.mstSvt[i].type||5==master.mstSvt[i].type||9==master.mstSvt[i].type||
-99==master.mstSvt[i].type)&&e==master.mstSvt[i].collectionNo){$("#svtid").val(master.mstSvt[i].id);break}i==master.mstSvt.length-1&&$("#svtid").val(800100)}svtidChange()};
+
+function svtDataTable(svtId)
+{
+	var personalityList = ["","善","惡","?","狂","中庸","?","花嫁"];
+	var policyList = ["","中立","混沌","秩序","?","?","中立"];
+	var attriList = ["？","人","天","地","星","獸"];
+	var genderTypeList = ["","男性","女性","無"];
+	var cardList = ["","0000ff","ff0000","00ff00"];
+	var svtStatusList = ["","A","B","C","D","E","EX","?","?","－"];
+	var svtStatusPlusList = ["","","+","++","?","?","?","?","?",""];
+	var individualityList = [[2000,"神性"],[2001,"人型"],[2002,"龍"],[2004,"羅馬"],[2005,"猛獸"],[2007,"阿爾托莉亞臉"],[2008,"被「天地乖離開辟之星」所剋"],[2009,"騎乘"],[2010,"亞瑟"],[2011,"被「人類神話・雷電降臨」所剋"],[2012,"愛人"],[2018,"死靈與惡魔"]];
+	var c;
+	
+	var i;
+	for(i=0;i<master.mstSvt.length;i++)
+	{
+		if(master.mstSvt[i].id==svtId)break;
+	}
+	var j;
+	for(j=0;j<master.mstSvtLimit.length;j++)
+	{
+		if(master.mstSvtLimit[j].svtId==svtId)break;
+	}
+	
+	var svtNrmlDataTxt="";
+	svtNrmlDataTxt="<tr><td rowspan=7 align=center style='width:25%;height:300px;'>";
+	if(master.mstSvt[i].type==5||master.mstSvt[i].type==9||master.mstSvt[i].type==99)
+		svtNrmlDataTxt+="<img src=common/images/Servant/"+svtId+"_status_servant_2.png onerror=\"javascript:this.style='display:none'\" width=256 height=256 />";
+	else svtNrmlDataTxt+="<div class='slide'><div><img src=common/images/Servant/"+svtId+"_status_servant_1.png onerror=\"javascript:this.style='display:none'\" width=256 height=256 /></div><div><img src=common/images/Servant/"+svtId+"_status_servant_2.png onerror=\"javascript:this.style='display:none'\" width=256 height=256 /></div><div><img src=common/images/Servant/"+svtId+"_status_servant_3.png onerror=\"javascript:this.style='display:none'\" width=256 height=256 /></div></div>";
+	svtNrmlDataTxt+="</td><th style='width:10%;'><b>編號</b></th><th style='width:10%;'><b>星數</b></th><th colspan=2 style='width:35%;'><b>名稱</b></th><th style='width:15%;'><b>職階</b></th><th style='width:10%;'><b>分類</b></th></tr><tr align=\"center\"><td>No."+master.mstSvt[i].collectionNo+"</td><td class=\"star\">";
+	for(c=0;c<master.mstSvtLimit[j].rarity;c++)
+		svtNrmlDataTxt+="★";
+	if(master.mstSvtLimit[j].rarity==0)svtNrmlDataTxt+="－";
+	svtNrmlDataTxt+="</td><td colspan=2>";
+	var svtNameZh = findSvtNameZh(master.mstSvt[i].id);
+	if(svtNameZh&&!document.getElementById('isJpTxt').checked)
+		{svtNrmlDataTxt+="<div class=ruby>" + master.mstSvt[i].ruby + "</div>" + svtNameZh;}
+	else {svtNrmlDataTxt+=master.mstSvt[i].name;}
+	svtNrmlDataTxt+="</td>";
+	document.title = findSvtNameZh2(svtId)+" - Servant資料查詢";
+	for(c=0;c<mstClass.length;c++)
+		if(mstClass[c].id==master.mstSvt[i].classId) {svtNrmlDataTxt+="<td>"+mstClass[c].name+"</td>";break;}
+	
+	svtNrmlDataTxt+="<td>"+attriList[master.mstSvt[i].attri]+"</td></tr><tr><th><b>HP</b></th><th><b>ATK</b></th><th style='width:10%;'><b>繪師</b></th><th style='width:10%;'><b>CV</b></th><th><b>屬性</b></th><th><b>性別</b></th></tr><tr align=\"center\"><td>"+master.mstSvtLimit[j].hpBase+" / "+master.mstSvtLimit[j].hpMax+"</td><td>"+master.mstSvtLimit[j].atkBase+" / "+master.mstSvtLimit[j].atkMax+"</td>";
+	for(c=0;c<master.mstIllustrator.length;c++)
+		if(master.mstIllustrator[c].id==master.mstSvt[i].illustratorId) {svtNrmlDataTxt+="<td><a href='illustrator.html#"+master.mstSvt[i].illustratorId+"'>"+master.mstIllustrator[c].name.replace(/\(/g,"<br>(")+"</a></td>";break;}
+	
+	svtNrmlDataTxt+="<td>";
+	if(master.mstSvt[i].cvId!=-1)
+		for(c=0;c<master.mstCv.length;c++){
+			if(master.mstCv[c].id==master.mstSvt[i].cvId) {svtNrmlDataTxt+="<a href='cv.html#"+master.mstSvt[i].cvId+"'>"+master.mstCv[c].name.replace(/＆/g,"<br>＆<br>")+"</a>";break;}
+		}
+	else svtNrmlDataTxt+="？？？";
+	svtNrmlDataTxt+="</td>";
+	svtNrmlDataTxt+="<td>"+policyList[master.mstSvtLimit[j].policy]+"・"+personalityList[master.mstSvtLimit[j].personality]+"</td><td>"+genderTypeList[master.mstSvt[i].genderType]+"</td></tr>";
+	
+	var traitArray = new Array();
+	for(c in master.mstSvt[i].individuality)
+		for(var k in individualityList)
+			if(master.mstSvt[i].individuality[c]==individualityList[k][0]) traitArray.push(individualityList[k][1]);
+	svtNrmlDataTxt+="<tr><th>特性</th><td colspan=5 align=center>"+traitArray+"</td></tr>";
+	
+	/*svtNrmlDataTxt+="<tr><th>召喚台詞</th><td colspan=5>";var tmpTxt="";
+	for(c in master.mstSvtVoice)
+	{
+		if(master.mstSvtVoice[c].id==master.mstSvt[i].id&&master.mstSvtVoice[c].type==3)
+		{
+			if(master.mstSvtVoice[c].scriptJson[0])
+			{for(k in master.mstSvtVoice[c].scriptJson[0].infos)
+				{
+					tmpTxt+=master.mstSvtVoice[c].scriptJson[0].infos[k].text;
+				}
+			}
+			if(tmpTxt.length>0)svtNrmlDataTxt+="<span style='text-align:center;font-style: italic;'>「"+tmpTxt.replace(/\[r\]/g,"")+"」</span>";
+			break;
+		}
+	}
+	svtNrmlDataTxt+="</td></tr>";*/
+	document.getElementById("svtNrmlData").innerHTML=svtNrmlDataTxt;
+	
+	var svtCtrlDataTxt="";
+	svtCtrlDataTxt+="<tr><th rowspan=2><b>指令卡</b></th><th><font color=\"#0099FF\"><b>Arts</b></font></th><th><font color=\"#ff0000\"><b>Buster</b></font></th><th><font color=\"#00ff00\"><b>Quick</b></font></th><th><b>Extra</b></th><th rowspan=2><b>隱藏數值</b></th><th><b>星星發生率</b></th><th><b>被即死率</b></th><th><b>星星分配比重</b></th><th><b>基本NP獲得率(Atk / Def)</b></th></tr><tr align=\"center\">";
+	var artHit,busterHit,quickHit,exHit;
+	for(var k=1;k<=4;k++)
+	{
+		svtCtrlDataTxt+="<td>";
+		var cardCount=0;
+		for(c=0;c<master.mstSvt[i].cardIds.length;c++)
+			if(master.mstSvt[i].cardIds[c]==k) cardCount++;
+		if(k!=4) svtCtrlDataTxt+=cardCount+"張";
+		for(c=0;c<master.mstSvtCard.length;c++)
+		{
+			if(master.mstSvtCard[c].svtId==master.mstSvt[i].id&&master.mstSvtCard[c].cardId==k){
+				if(k!=4) svtCtrlDataTxt+=" 各";
+				svtCtrlDataTxt+=master.mstSvtCard[c].normalDamage.length+"Hit";
+				if(master.mstSvtCard[c].normalDamage.length>1) svtCtrlDataTxt+="s";
+				
+				if(master.mstSvtCard[c].cardId==1) artHit=master.mstSvtCard[c].normalDamage.length;
+				else if(master.mstSvtCard[c].cardId==2) busterHit=master.mstSvtCard[c].normalDamage.length;
+				else if(master.mstSvtCard[c].cardId==3) quickHit=master.mstSvtCard[c].normalDamage.length;
+				else if(master.mstSvtCard[c].cardId==4) exHit=master.mstSvtCard[c].normalDamage.length;
+			}
+		}
+		svtCtrlDataTxt+="</td>";
+	}
+	svtCtrlDataTxt+="<td>"+master.mstSvt[i].starRate/10+"%</td><td>"+master.mstSvt[i].deathRate/10+"%</td><td>"+master.mstSvtLimit[j].criticalWeight+"</td><td>";
+	for(c=0;c<master.mstTreasureDeviceLv.length;c++)
+	if(Math.floor(master.mstTreasureDeviceLv[c].treaureDeviceId/100)==Math.floor(master.mstSvt[i].id/100))
+		{svtCtrlDataTxt+=master.mstTreasureDeviceLv[c].tdPoint/100+"% / "+master.mstTreasureDeviceLv[c].tdPointDef/100+"%";break;}
+	svtCtrlDataTxt+="</td></tr>";
+	document.getElementById("svtCtrlData").innerHTML=svtCtrlDataTxt;
+	
+	var svtSkTdDataTxt="";
+	var skillText="";
+	var skillrowCount=1;
+	for(c=0;c<master.mstSvtSkill.length;c++)
+	{
+		if(master.mstSvtSkill[c].svtId==master.mstSvt[i].id){
+			skillrowCount++;
+			for(var k=0;k<master.mstSkill.length;k++){
+				if(master.mstSvtSkill[c].skillId==master.mstSkill[k].id){skillText+="<td><img src=common/images/SkillIcon/SkillIcon_"+master.mstSkill[k].iconId+".png onerror=javascript:this.src='common/images/SkillIcon/SkillIcon_0.png' width=55></img></td><td><b>"+master.mstSkill[k].name+"</b></td>"; break;}
+			}
+
+			for(var k=0;k<master.mstSkillLv.length;k++){
+				if(master.mstSvtSkill[c].skillId==master.mstSkillLv[k].skillId&&master.mstSkillLv[k].lv==1){
+					skillText+="<td colspan=5>冷卻"+master.mstSkillLv[k].chargeTurn+"回合</td>";//break;
+				}
+			}
+			
+			skillText+="<td colspan=5>";
+			if(master.mstSvtSkill[c].condLimitCount==-1) skillText+="活動";
+			else{
+			if(master.mstSvtSkill[c].condLimitCount==0&&master.mstSvtSkill[c].condQuestId==0&&master.mstSvtSkill[c].condLv==0) skillText+="初期";
+			if(master.mstSvtSkill[c].condLimitCount!=0) skillText+="靈基再臨第"+master.mstSvtSkill[c].condLimitCount+"階段<br>";
+			if(master.mstSvtSkill[c].condLv!=0) skillText+="Lv."+master.mstSvtSkill[c].condLv+"<br>";
+			if(master.mstSvtSkill[c].condQuestId!=0) skillText+="通過任務 "+questRea(master.mstSvtSkill[c].condQuestId)+"<br>";
+			}
+			skillText+="</td></tr>";
+			
+			var skDetailTxt = new Array();
+			for(k=0;k<skDetail.length;k++){
+				if(master.mstSvtSkill[c].skillId==skDetail[k][0]){
+					skDetailTxt = skDetail[k].slice(0);break;
+				}
+			}
+			if(document.getElementById('isJpTxt').checked||!skDetailTxt[1])
+				for(k=0;k<master.mstSkillDetail.length;k++){
+					if(master.mstSvtSkill[c].skillId==master.mstSkillDetail[k].id){
+						skDetailTxt[1] = master.mstSkillDetail[k].detail;break;
+					}
+				}
+				
+			var skDetailArray = new Array();
+			if(!document.getElementById('isJpTxt').checked)
+			{
+				skDetailTxt[1]=skDetailTxt[1].replace(/ |　/g,"");
+				skDetailTxt[1]=skDetailTxt[1].replace(/＆/g,"＆┗");
+				skDetailArray = skDetailTxt[1].split(/＆|＋/);
+			}
+			else skDetailArray[0] = skDetailTxt[1].slice(0);
+			
+			skillrowCount+=skDetailArray.length;
+			for(var d=0;d<skDetailArray.length;d++){
+				var isLvUp = skDetailArray[d].search(/\{0\}|Lv/);
+				skDetailArray[d]=skDetailArray[d].replace(/\{0\}/g,"Lv.");
+				skDetailArray[d]=skDetailArray[d].replace(/\[Lv.]/g,"<font color=\"#CC00CC \">[Lv.]</font>");
+				skDetailArray[d]=skDetailArray[d].replace(/【/g,"<font color=\"#006400 \">【");
+				skDetailArray[d]=skDetailArray[d].replace(/】/g,"】</font>");
+				
+				if(document.getElementById('isJpTxt').checked) skillText+="<tr><td colspan=12>"+skDetailArray[d]+"</td>";
+				
+				else{
+					skillText+="<tr><td colspan=2>"+skDetailArray[d]+"</td>";
+					
+					if(skDetailTxt[2+d]&&skDetailTxt[2+d].split("/").length-1>1){
+						var skLvArray = new Array();
+							skLvArray = skDetailTxt[2+d].split(/\//);
+						for(k in skLvArray)
+							skillText+="<td align=center style='width:50px'>"+skLvArray[k]+"</td>";
+					}
+					else{
+						skillText+="<td colspan=10>";
+						if(skDetailTxt[2+d]) skillText+="　"+skDetailTxt[2+d].replace(/\//g," / ");
+						else if(typeof skDetailTxt[2+d] !== 'undefined'&&skDetailTxt[2+d].length==0) skillText+=("　---");
+						else skillText+="　待補";
+					}
+				}
+				skillText+="</td></tr>";
+			}
+		}
+	}
+	if(skillText.length>0)svtSkTdDataTxt+="<tr><th style='width:60px' rowspan="+skillrowCount+"><b>保有技能</b></th><th colspan=2 style='width:300px'>技能</th><th colspan=5 style='width:250px'>冷卻時間</th><th colspan=5 style='width:250px'>開放條件</th></tr><tr>"+skillText+"";
+		
+	if(master.mstSvt[i].classPassive.length!=0){
+	skillText="";
+	skillrowCount=0;
+	for(c=0;c<master.mstSvt[i].classPassive.length;c++)
+	{
+		skillrowCount++;
+		for(var k=0;k<master.mstSkill.length;k++){
+			if(master.mstSvt[i].classPassive[c]==master.mstSkill[k].id){skillText+="<td style='width:55px'><img src=common/images/SkillIcon/SkillIcon_"+master.mstSkill[k].iconId+".png onerror=javascript:this.src='common/images/SkillIcon/SkillIcon_0.png' width=55></img></td><td><b>"+master.mstSkill[k].name+"</b></td>"; break;}
+		}skDetailTxt = new Array();
+				for(k=0;k<skDetail.length;k++){
+					if(master.mstSvt[i].classPassive[c]==skDetail[k][0]){
+						skDetailTxt = skDetail[k].slice(0);
+						break;
+					}
+				}
+				if(document.getElementById('isJpTxt').checked||!skDetailTxt[1])
+					for(k=0;k<master.mstSkillDetail.length;k++){
+						if(master.mstSvt[i].classPassive[c]==master.mstSkillDetail[k].id){
+							skDetailTxt[1] = master.mstSkillDetail[k].detail;break;
+						}
+					}
+				
+				var skDetailArray = new Array();
+				if(!document.getElementById('isJpTxt').checked)
+				{
+					skDetailTxt[1]=skDetailTxt[1].replace(/ |　/g,"");
+					skDetailTxt[1]=skDetailTxt[1].replace(/＆/g,"＆┗");
+					skDetailArray = skDetailTxt[1].split(/＆|＋|\+/);
+				}
+				else skDetailArray[0] = skDetailTxt[1].slice(0);
+				
+				skillText+="<td colspan=10>";
+				for(var d=0;d<skDetailArray.length;d++){
+					var isLvUp = skDetailArray[d].search(/\{0\}|Lv/);
+					skDetailArray[d]=skDetailArray[d].replace(/\{0\}/g,"Lv.");
+					skDetailArray[d]=skDetailArray[d].replace(/\[Lv.]/g,"<font color=\"#CC00CC \">[Lv.]</font>");
+					skDetailArray[d]=skDetailArray[d].replace(/【/g,"<font color=\"#006400 \">【");
+					skDetailArray[d]=skDetailArray[d].replace(/】/g,"】</font>");
+					
+					if(document.getElementById('isJpTxt').checked) skillText+=skDetailArray[d];
+					
+					else{
+						if(d!=0) skillText+="<br>"
+						skillText+=skDetailArray[d];
+						
+						if(skDetailTxt[2+d]&&skDetailTxt[2+d].split("/").length-1>1){
+							skillText+=skDetailArray[d]+"：";
+							var skLvArray = new Array();
+								skLvArray = skDetailTxt[2+d].split(/\//);
+							for(k in skLvArray)
+								skillText+=skLvArray[k];
+						}
+						else{
+							if(skDetailTxt[2+d]) skillText+="："+skDetailTxt[2+d].replace(/\//g," / ");
+							else if(typeof skDetailTxt[2+d] !== 'undefined'&&skDetailTxt[2+d].length==0) skillText+=("");
+							else skillText+="：待補";
+						}
+					}
+		}
+		skillText+="</td></tr>"
+		/*for(var k=0;k<master.mstSkillDetail.length;k++){
+			if(master.mstSvt[i].classPassive[c]==master.mstSkillDetail[k].id){
+				var skDetailTxt = new Array();
+				for(k=0;k<skDetail.length;k++){
+					if(master.mstSvt[i].classPassive[c]==skDetail[k][0]){
+						skDetailTxt = skDetail[k].slice(0);
+						skDetailTxt[1] = skDetailTxt[1].replace(/ /g,"").replace(/＆/g,"＆┗").spilt(/＋|+|＆/g);
+						break;
+					}
+				}
+				if(document.getElementById('isJpTxt').checked||!skDetailTxt[1])
+					for(k=0;k<master.mstSkillDetail.length;k++){
+						if(master.mstSvt[i].classPassive[c]==master.mstSkillDetail[k].id){
+							skDetailTxt[1] = master.mstSkillDetail[k].detail;break;
+						}
+					}
+				
+				skillText+="<td colspan=10>"+skDetailTxt[1];
+				for(var d=2;skDetailTxt[d]&&d<skDetailTxt.length;d++){
+					if(skDetailTxt[d]) 
+					{
+						if(d!=2) skillText+=" / ";else skillText+="：";
+						skillText+=skDetailTxt[d].replace(/\//g," / ");
+					}
+					else break;
+				}
+				skillText+="</td></tr>";
+				break;
+			}
+		}*/
+	}
+	svtSkTdDataTxt+="<tr><th rowspan="+master.mstSvt[i].classPassive.length+"><b>職階技能</b></th>"+skillText+"";}
+	
+	skillText="";
+	skillrowCount=0;
+	for(c=0;c<master.mstTreasureDevice.length;c++)
+	{
+		if(master.mstTreasureDevice[c].seqId==master.mstSvt[i].id){
+			skillrowCount+=2;
+			var k=0;
+			skillText+="<th colspan=2><b>名稱</b></th><th colspan=2><b>等級</b></th><th colspan=2><b>種類</b></th><th colspan=4><b>解放任務</b></th><th colspan=2>攻擊次數</th></tr>";
+			
+			skillText+="<tr align=\"center\"><td colspan=2><div class=ruby>"+master.mstTreasureDevice[c].ruby+"</div>";
+			for(k=0;k<master.mstSvtTreasureDevice.length;k++){
+				if(master.mstTreasureDevice[c].id==master.mstSvtTreasureDevice[k].treasureDeviceId){
+					skillText+="<b><font color=\"#"+cardList[master.mstSvtTreasureDevice[k].cardId]+"\">"+master.mstTreasureDevice[c].name+"</font></b></td><td colspan=2>"+master.mstTreasureDevice[c].rank+"</td><td colspan=2>"+master.mstTreasureDevice[c].typeText.replace(/対/g,"對").replace(/宝/g,"寶").replace(/剣/g,"劍").replace(/悪/g,"惡").replace(/奥/g,"奧").replace(/セイバー/g,"Saber")+"</td><td colspan=4>";
+					
+					if(master.mstSvtTreasureDevice[k].condQuestId==0&&master.mstSvtTreasureDevice[k].condLv==0&&master.mstSvtTreasureDevice[k].condFriendshipRank==0) skillText+="初期"
+					else if(findName(master.mstQuest,master.mstSvtTreasureDevice[k].condQuestId)!=null)
+					{
+						skillText+=questRea(master.mstSvtTreasureDevice[k].condQuestId);
+					}
+					else if(master.mstSvtTreasureDevice[k].condLv!=0) skillText+="Lv."+master.mstSvtTreasureDevice[k].condLv+"解放";
+					else if(master.mstSvtTreasureDevice[k].condFriendshipRank!=0) skillText+="絆等級"+master.mstSvtTreasureDevice[k].condFriendshipRank+"解放";
+					else skillText+="未開放";
+					
+					skillText+="</td>"; break;}
+			}
+			var tdDetailTxt = new Array();
+			for(d in tdDetail){
+				if(master.mstTreasureDevice[c].id==tdDetail[d][0]){
+					tdDetailTxt = tdDetail[d].slice(0);break;
+				}
+			}
+			if(document.getElementById('isJpTxt').checked||!tdDetailTxt[1])
+				for(d in master.mstTreasureDeviceDetail){
+					if(master.mstTreasureDevice[c].id==master.mstTreasureDeviceDetail[d].id){
+						tdDetailTxt[1] = master.mstTreasureDeviceDetail[d].detail;break;
+					}
+				}
+			
+			skillText+="<td colspan=2>";
+			if(tdDetailTxt[1].search(/攻擊[^力]|攻撃[^力]/)==-1) skillText+="－";
+			else
+			{
+				if(master.mstSvtTreasureDevice[k].damage.length>0) skillText+=master.mstSvtTreasureDevice[k].damage.length;
+				else skillText+="1";
+				skillText+="Hit";
+				if(master.mstSvtTreasureDevice[k].damage.length>1) skillText+="s";
+			}
+			skillText+="</td></tr>";
+			
+			var tdDetailArray = new Array();
+			if(!document.getElementById('isJpTxt').checked)
+			{
+				tdDetailTxt[1]=tdDetailTxt[1].replace(/ |　/g,"");
+				tdDetailTxt[1]=tdDetailTxt[1].replace(/＆/g,"＆┗");
+				tdDetailArray = tdDetailTxt[1].split(/＆|＋/);
+			}
+			else tdDetailArray[0] = tdDetailTxt[1].slice(0);
+			
+			skillrowCount+=tdDetailArray.length;
+			for(var d=0;d<tdDetailArray.length;d++){
+				var isLvUp = tdDetailArray[d].search(/\{0\}|Lv/);
+				var isOCUp = tdDetailArray[d].search(/<O|<オ/);
+				tdDetailArray[d]=tdDetailArray[d].replace(/\{0\}/g,"Lv.");
+				tdDetailArray[d]=tdDetailArray[d].replace(/<O/g,"<font color=\"#CC6600\"><br>< O");
+				tdDetailArray[d]=tdDetailArray[d].replace(/<オ/g,"<font color=\"#CC6600\"><オ");
+				tdDetailArray[d]=tdDetailArray[d].replace(/P>/g,"P></font>");
+				tdDetailArray[d]=tdDetailArray[d].replace(/プ>/g,"プ></font>");
+				tdDetailArray[d]=tdDetailArray[d].replace(/【/g,"<font color=\"#006400 \">【");
+				tdDetailArray[d]=tdDetailArray[d].replace(/】/g,"】</font>");
+				tdDetailArray[d]=tdDetailArray[d].replace(/\[Lv.]/g,"<font color=\"#CC00CC \">[Lv.]</font>");
+				tdDetailArray[d]=tdDetailArray[d].replace(/\n/g,"<br>");
+				
+				if(document.getElementById('isJpTxt').checked) skillText+="<td colspan=12>"+tdDetailArray[d]+"</td>";
+				
+				else{
+					if(d!=0) skillText+="<tr>"
+					skillText+="<td colspan=2>"+tdDetailArray[d]+"</td>";
+						
+					if(/*(isLvUp!=-1||isOCUp!=-1)&&*/tdDetailTxt[2+d]&&tdDetailTxt[2+d].split("/").length-1>1){
+						var skLvArray = new Array();
+							skLvArray = tdDetailTxt[2+d].split(/\//);
+						for(g in skLvArray)
+							skillText+="<td align=center colspan=2>"+skLvArray[g]+"</td>";
+					}
+					else{
+						skillText+="<td colspan=10>";
+						if(tdDetailTxt[2+d]) skillText+="　"+tdDetailTxt[2+d]/*.replace(/\//g," / ")*/;
+						else if(typeof tdDetailTxt[2+d] !== 'undefined'&&tdDetailTxt[2+d].length==0) skillText+=("　---");
+						else skillText+="　待補";
+					}
+				}
+				skillText+="</td></tr>";
+			}
+		}
+	}
+	svtSkTdDataTxt+="<tr><th rowspan="+skillrowCount+"><b>寶具</b></th>"+skillText+"";
+	//svtSkTdDataTxt+="<tr><td colspan=6><p class=\"notice\">※若未註明效果的對象，則與跟前一個效果對象相同。</p></td></tr>";
+	document.getElementById("svtSkTdData").innerHTML=svtSkTdDataTxt;
+	
+	var svtInfoDataTxt="";
+	svtInfoDataTxt="<tr><th rowspan=2 style='width:250px'>能力值</th><th style='width:50px'>筋力</th><th style='width:50px'>耐久</th><th style='width:50px'>敏捷</th><th style='width:50px'>魔力</th><th style='width:50px'>幸運</th><th style='width:50px'>寶具</th></tr><tr align=\"center\"><td>"+svtStatusList[Math.floor(master.mstSvtLimit[j].power/10)]+svtStatusPlusList[master.mstSvtLimit[j].power%10]+"</td><td>"+svtStatusList[Math.floor(master.mstSvtLimit[j].defense/10)]+svtStatusPlusList[master.mstSvtLimit[j].defense%10]+"</td><td>"+svtStatusList[Math.floor(master.mstSvtLimit[j].agility/10)]+svtStatusPlusList[master.mstSvtLimit[j].agility%10]+"</td><td>"+svtStatusList[Math.floor(master.mstSvtLimit[j].magic/10)]+svtStatusPlusList[master.mstSvtLimit[j].magic%10]+"</td><td>"+svtStatusList[Math.floor(master.mstSvtLimit[j].luck/10)]+svtStatusPlusList[master.mstSvtLimit[j].luck%10]+"</td><td>"+svtStatusList[Math.floor(master.mstSvtLimit[j].treasureDevice/10)]+svtStatusPlusList[master.mstSvtLimit[j].treasureDevice%10]+"</td></tr>";
+	for(c=0;c<master.mstSvtComment.length;c++)
+	{
+		var tdColor="";
+		if(master.mstSvt[i].id==master.mstSvtComment[c].svtId)
+		{	svtInfoDataTxt+="<tr><th width=150>";
+			if(master.mstSvtComment[c].condValue==0) svtInfoDataTxt+="<b>角色詳細</b>";
+			else if(master.mstSvtComment[c].condValue<6) 
+			{
+				svtInfoDataTxt+="<b>絆等級"+master.mstSvtComment[c].condValue+"</b>";
+				for(d in master.mstFriendship)
+					if(master.mstFriendship[d].id==master.mstSvt[i].friendshipId&&master.mstFriendship[d].rank==master.mstSvtComment[c].condValue-1)
+					{
+						svtInfoDataTxt+="<br>("+master.mstFriendship[d].friendship+")";break;
+					}
+			}
+			else if(master.mstSvtComment[c].condType==1){
+				svtInfoDataTxt+="<b>通過任務</b><br>"+questRea(master.mstSvtComment[c].condValue);
+			}
+			svtInfoDataTxt+="</th>";
+			if(master.mstSvtComment[c].condValue%2==0) tdColor=" bgcolor=\" #ECF2F3\""; else tdColor="";
+			svtInfoDataTxt+="<td colspan=6"+tdColor+">"+master.mstSvtComment[c].comment.replace(/\n/g,"<br>");svtInfoDataTxt+="</td></tr>";
+			//if(master.mstSvtComment[c].condType==1) break;
+		}
+	}
+	document.getElementById("svtInfoData").innerHTML=svtInfoDataTxt;
+
+	var svtCmbnDataTxt="";
+	svtCmbnDataTxt="<tr><th rowspan=4><b>靈基再臨</b></th>";
+
+	for(var m=0;m<4;m++){
+		var tdColor=""; if(m%2==0) tdColor=" bgcolor=\" #ECF2F3\"";
+		if(m!=0) svtCmbnDataTxt+="<tr>";
+		svtCmbnDataTxt+="<td width=80 "+tdColor+">第"+(m+1)+"階段</td><td width=400"+tdColor+">";
+		for(c=0;c<master.mstCombineLimit.length;c++)
+		{
+			if(master.mstCombineLimit[c].id==master.mstSvt[i].id&&master.mstCombineLimit[c].svtLimit==m)
+			{
+				
+				for(var k=0;k<master.mstCombineLimit[c].itemIds.length;k++)
+				{
+					svtCmbnDataTxt+="<a href='item_drop.html#"+master.mstCombineLimit[c].itemIds[k]+"'><img src='common/images/icon/items/"+master.mstCombineLimit[c].itemIds[k]+".png' title='"+findItemName(master.mstCombineLimit[c].itemIds[k]) + "' onerror=\"javascript:this.src='common/images/icon/faces/0.png'\" class='itemM' /></a>x" + master.mstCombineLimit[c].itemNums[k] + "　";
+				}
+				svtCmbnDataTxt+= addCommas(master.mstCombineLimit[c].qp) + "QP";
+			}
+	}svtCmbnDataTxt+="</td></tr>";}
+	svtCmbnDataTxt+="<tr><th rowspan=9><b>技能強化</b></th>";var combineCount = 0;
+	for(c=0;c<master.mstCombineSkill.length;c++)
+	{
+		var tdColor=""; if(c%2==0) tdColor=" bgcolor=\" #ECF2F3\"";
+		if(master.mstCombineSkill[c].id==master.mstSvt[i].id)
+		{
+			if(master.mstCombineSkill[c].skillLv!=1) svtCmbnDataTxt+="<tr>";
+			svtCmbnDataTxt+="<td"+tdColor+">Lv."+master.mstCombineSkill[c].skillLv+"→Lv."+(master.mstCombineSkill[c].skillLv+1)+"</td><td"+tdColor+">";
+			for(var k=0;k<master.mstCombineSkill[c].itemIds.length;k++)
+			{
+				svtCmbnDataTxt+="<a href='item_drop.html#"+master.mstCombineSkill[c].itemIds[k]+"'><img src='common/images/icon/items/"+master.mstCombineSkill[c].itemIds[k]+".png' title='"+findItemName(master.mstCombineSkill[c].itemIds[k]) + "' onerror=\"javascript:this.src='common/images/icon/faces/0.png'\" class='itemM' /></a>x" + master.mstCombineSkill[c].itemNums[k] + "　";
+			}
+			svtCmbnDataTxt+= addCommas(master.mstCombineSkill[c].qp) + "QP</td></tr>";combineCount++;
+		}
+	}
+	if(combineCount==0) svtCmbnDataTxt+="<td colspan=2>無</td></tr>";
+	document.getElementById("svtCmbnData").innerHTML=svtCmbnDataTxt;
+
+	document.getElementById("svtImgData").innerHTML="";
+	document.getElementById("svtImgData").innerHTML="<tr><td><img src=common/images/Servant/"+svtId+"_card_servant_1.png onerror=\"this.style='display:none'\"></img><img src=common/images/Servant/"+svtId+"_card_servant_2.png onerror=\"this.style='display:none'\"></img><img src=common/images/Servant/"+svtId+"_card_servant_3.png onerror=\"this.style='display:none'\"></img><br><img src=common/images/CharaGraph/"+svtId+"a.png onerror=\"this.style='display:none'\" width=1024></img><br><img src=common/images/CharaGraph/"+svtId+"b.png onerror=\"this.style='display:none'\" width=1024></img><br><img src=common/images/CharaGraph/"+svtId+"c.png onerror=\"this.style='display:none'\"></img></td></tr>";
+	
+	var svtLvDataTxt="";
+	if(master.mstSvt[i].type==99) $("#chart_div").css('display','none');
+	else{$("#chart_div").css('display','block');
+	svtLvDataTxt="<tr><th>等級</th><th>ATK</th><th>HP</th><th>上升幅度</th></tr>";
+	for(c=0;c<master.mstSvt[i].rewardLv;c++)
+	{
+		for(var m=0;m<master.mstSvtExp.length;m++)
+		{
+			if(master.mstSvt[i].expType==master.mstSvtExp[m].type&&master.mstSvtExp[m].lv==c+1)
+			{
+				var tdColor=""; if(master.mstSvtExp[m].lv%2==1) tdColor=" bgcolor=\" #ECF2F3\"";
+				svtLvDataTxt+="<tr align=\"center\"><td"+tdColor+">Lv."+(master.mstSvtExp[m].lv)+"</td><td"+tdColor+">"+Math.floor(master.mstSvtLimit[j].atkBase+(master.mstSvtLimit[j].atkMax-master.mstSvtLimit[j].atkBase)*master.mstSvtExp[m].curve/1000)+"</td><td"+tdColor+">"+Math.floor(master.mstSvtLimit[j].hpBase+(master.mstSvtLimit[j].hpMax-master.mstSvtLimit[j].hpBase)*master.mstSvtExp[m].curve/1000)+"</td><td"+tdColor+">"+(master.mstSvtExp[m].curve-master.mstSvtExp[m-1].curve)/10+"%</td></tr>";
+				break;
+			}
+		}
+	}}
+	document.getElementById("svtLvData").innerHTML=svtLvDataTxt;
+	
+	$("img").error(function () { 
+    //$(this).hide();
+    $(this).css({visibility:"hidden"}); 
+	});
+$(function() {
+    $('.slide').slick({
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        adaptiveHeight: true,
+		autoplay: true,
+		autoplaySpeed: 2000,
+    });
+});
+}
+function classidChange()
+{
+	var i;
+	for(i=svtid.options.length-1;i>=0;i--)
+    {
+        svtid.remove(i);
+    }
+	if(classid.value==0)
+	{
+		for(i=0;i<master.mstSvt.length;i++)
+		{
+			if(master.mstSvt[i].type==1||master.mstSvt[i].type==2||master.mstSvt[i].type==5||master.mstSvt[i].type==9||master.mstSvt[i].type==99){
+				var svtNameZh = findSvtNameZh(master.mstSvt[i].id);
+				if(svtNameZh) svtid.options.add(new Option("No." + master.mstSvt[i].collectionNo + " " + svtNameZh,master.mstSvt[i].id));
+				else svtid.options.add(new Option("No." + master.mstSvt[i].collectionNo + " " + master.mstSvt[i].name,master.mstSvt[i].id));}
+		}
+	}
+	else
+	{
+		for(i=0;i<master.mstSvt.length;i++)
+		{
+			if(master.mstSvt[i].classId==classid.value)
+				{if(master.mstSvt[i].type==1||master.mstSvt[i].type==2||master.mstSvt[i].type==5||master.mstSvt[i].type==9||master.mstSvt[i].type==99){
+				var svtNameZh = findSvtNameZh(master.mstSvt[i].id);
+				if(svtNameZh) svtid.options.add(new Option("No." + master.mstSvt[i].collectionNo + " " + svtNameZh,master.mstSvt[i].id));
+				else svtid.options.add(new Option("No." + master.mstSvt[i].collectionNo + " " + master.mstSvt[i].name,master.mstSvt[i].id));}}
+		}
+	}
+	if(classid.value!=0) svtlocation(svtid[0].value);
+}
+function svtidset()
+{
+	classidChange();
+	svtlocation(svtid[0].value);
+}
+function svtidChange()
+{
+	var i;
+	for(i=svtlv.options.length-1;i>=0;i--)
+    {
+        svtlv.remove(i);
+    }
+	for(i in master.mstSvtLimit)
+	{
+		if(master.mstSvtLimit[i].svtId==svtid.value&&master.mstSvtLimit[i].limitCount==4)
+		{
+			for(var j=1;j<=master.mstSvtLimit[i].lvMax;j++)
+			{
+				svtlv.options.add(new Option("Lv."+j,j));
+			}
+			break;
+		}
+	}
+	svtlvChange();
+	svtDataTable(svtid.value);drawChart();
+}
+function svtlocation(svtId)
+{
+	var localTxt="";
+	for(var i in master.mstSvt)
+	{
+		if(master.mstSvt[i].id==svtid.value)
+		{
+			if(master.mstSvt[i].collectionNo!=0) localTxt+="?no="+master.mstSvt[i].collectionNo;
+			else localTxt+="?id="+master.mstSvt[i].id;
+			break;
+		}
+	}
+	//document.location.href="svtData.html"+localTxt;
+	//alert(location.protocol+'//'+location.pathname+localTxt);
+	
+	if(location.protocol=="file:") changeURL(location.protocol+"//"+location.pathname+localTxt);
+	else changeURL(location.protocol+"//"+location.hostname+location.pathname+localTxt);
+	svtidChange();
+}
+function svtlvChange()
+{
+	var i;
+	for(i in master.mstSvtLimit)
+	{
+		if(master.mstSvtLimit[i].svtId==svtid.value)
+		{	
+			for(var k in master.mstSvt)
+			{
+				if (master.mstSvt[k].id==svtid.value)
+				{
+					for(var j in master.mstSvtExp)
+					{	atk.value=master.mstSvtLimit[i].atkBase;hp.value=master.mstSvtLimit[i].hpBase;four();
+						if(master.mstSvt[k].expType==master.mstSvtExp[j].type&&master.mstSvtExp[j].lv==svtlv.value)
+						{
+							atk.value=Math.floor(master.mstSvtLimit[i].atkBase+(master.mstSvtLimit[i].atkMax-master.mstSvtLimit[i].atkBase)*master.mstSvtExp[j].curve/1000);
+							hp.value=Math.floor(master.mstSvtLimit[i].hpBase+(master.mstSvtLimit[i].hpMax-master.mstSvtLimit[i].hpBase)*master.mstSvtExp[j].curve/1000);
+							four();break;
+						}
+					}
+				break;
+				}
+			}
+			break;
+		}
+	}
+}
+function four()
+{
+	hpp.value=parseInt(hp.value)+990;atkp.value=parseInt(atk.value)+990;
+}
+function urlId()
+{
+	$("#classid").val(0);classidChange();
+	var getSvtId = "1";
+	var getSvtId2 = "";
+	if(getUrl("no")) getSvtId = getUrl("no");
+	if(getUrl("id")) getSvtId2 = getUrl("id");
+	if(getSvtId){
+		if(getSvtId2.length!=0){
+			for(i in master.mstSvt)
+				if((master.mstSvt[i].type==1||master.mstSvt[i].type==2||master.mstSvt[i].type==5||master.mstSvt[i].type==9||master.mstSvt[i].type==99)&&getSvtId2==master.mstSvt[i].id)
+				{		$("#svtid").val(master.mstSvt[i].id);break;}
+		}
+		else
+			for(i in master.mstSvt)
+				if((master.mstSvt[i].type==1||master.mstSvt[i].type==2||master.mstSvt[i].type==5||master.mstSvt[i].type==9||master.mstSvt[i].type==99)&&getSvtId==master.mstSvt[i].collectionNo)
+				{		$("#svtid").val(master.mstSvt[i].id);break;}
+		if(i==master.mstSvt.length-1) $("#svtid").val(800100);
+		//if(i==master.mstSvt.length-1) alert("找不到與輸入的id有關之資料，請確認網址無誤");
+	}
+	svtidChange();
+}
