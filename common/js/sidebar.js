@@ -122,7 +122,7 @@ function questRea(qstId)
 							realseFriend=master.mstQuestRelease[rea].value;
 					}
 				}
-				if(realseBool==-1) skillText+="尚未開放";
+				if(realseBool==-1) skillText+="\n尚未開放";
 				else{
 					
 					var realseArr = new Array();
@@ -131,9 +131,9 @@ function questRea(qstId)
 					for(var war=0;war<master.mstWar.length;war++)
 						if(Math.floor(realseChp/100-10000)==master.mstWar[war].id-100)
 							{realseArr.push("通過"+master.mstWar[war].name.replace(/点/g,"點")+"");
-							skillText+="\n地點："+master.mstWar[war].name.replace(/点/g,"點")
+							//skillText+="\n地點："+master.mstWar[war].name.replace(/点/g,"點");
 							for(var sp in master.mstSpot)
-							{if(master.mstSpot[sp].id==master.mstQuest[k].spotId)skillText+=" → "+master.mstSpot[sp].name+"";}
+							{if(master.mstSpot[sp].id==master.mstQuest[k].spotId)skillText+="\n"+master.mstWar[findName(master.mstWar,master.mstSpot[sp].warId)].name+" → "+master.mstSpot[sp].name+"";}
 							break;}
 
 					if(realseArr.length>0) skillText+="\n開放條件：";
