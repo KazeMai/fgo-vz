@@ -46,7 +46,7 @@ function svtTableOut(searchData,searchId)
 		}
 	}
 	var rarityarray = new Array();
-	var getRarity = "1,2,3,4,5";
+	var getRarity = "0,1,2,3,4,5";
 	if(getUrl("rarity")) getRarity = getUrl("rarity");
 	if(getRarity){
 		rarityarray = getRarity.split(/,/).slice(0);
@@ -73,7 +73,7 @@ function svtTableOut(searchData,searchId)
 			for(var j in master.mstSvtLimit)
 				{if(master.mstSvtLimit[j].svtId==master.mstSvt[i].id)break;}
 				for(var h in rarityarray){
-					if (rarityarray[h]==master.mstSvtLimit[j].rarity||master.mstSvtLimit[j].rarity==0){
+					if (rarityarray[h]==master.mstSvtLimit[j].rarity){
 			if(master.mstSvt[i].collectionNo==0) svtTableTxt+="<tr align=\"center\"><td><a href='svtData.html?id="+master.mstSvt[i].id+"'>";
 			else svtTableTxt+="<tr align=\"center\"><td><a href='svtData.html?no="+master.mstSvt[i].collectionNo+"'>";
 			svtTableTxt+="<img src='common/images/icon/faces/"+master.mstSvt[i].id+"0.png' onerror=javascript:this.src='common/images/icon/faces/0.png' title='"+findSvtNameZh2(master.mstSvt[i].id)+"' width=80></img>";
@@ -158,6 +158,7 @@ function svtTableOut(searchData,searchId)
 	<img src="common/images/icon/class/class_8_4.png" title="Shielder" onclick="classOff(this);" class="classF"/>
 	<img src="common/images/icon/class/class_9_4.png" title="Ruler" onclick="classOff(this);" class="classF"/>
 	<img src="common/images/icon/class/class_11_4.png" title="Avenger" onclick="classOff(this);" class="classF"/><br>
+	<input type="checkbox" id="rarity0" class="rarityF" value="0"/><span class="star">－</span>
 	<input type="checkbox" id="rarity1" class="rarityF" value="1"/><span class="star">★</span>
 	<input type="checkbox" id="rarity2" class="rarityF" value="2"/><span class="star">★★</span>
 	<input type="checkbox" id="rarity3" class="rarityF" value="3"/><span class="star">★★★</span>
