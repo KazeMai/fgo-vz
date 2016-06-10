@@ -567,3 +567,22 @@ th.th_red  {
 table.mouseover tr:hover {
 	background-color: #bdd2d5;
 }
+.strong {
+font-weight: bold;
+}
+.em01{
+display:block;
+margin: 0;
+padding-left: 1em;
+}
+.skill01{
+display:block;
+margin: 0;
+padding-left: 2em;
+}
+.notice_em01 {
+ color: #FF0057;
+ font-weight: bold;
+ margin: 0;
+padding-left: 1em;
+}
