@@ -16,11 +16,11 @@
 	{
 		if(master.mstSvtLimit[j].svtId==svtid.value&&master.mstSvtLimit[j].limitCount==master.mstSvt[i].limitMax)break;
 	}
-	if(j==master.mstSvtLimit.length-1)
+	/*if(j==master.mstSvtLimit.length-1)
 		for(var j in master.mstSvtLimit)
 		{
 			if(master.mstSvtLimit[j].svtId==svtid.value&&master.mstSvtLimit[j].limitCount==0)break;
-		}
+		}*/
 	for(var c in master.mstSvtExp){
 		if(master.mstSvt[i].expType==master.mstSvtExp[c].type&&master.mstSvtExp[c].lv<=master.mstSvtLimit[j].lvMax&&master.mstSvtExp[c].lv>0)
 			data.addRows([[master.mstSvtExp[c].lv,Math.floor(master.mstSvtLimit[j].atkBase+(master.mstSvtLimit[j].atkMax-master.mstSvtLimit[j].atkBase)*master.mstSvtExp[c].curve/1000),Math.floor(master.mstSvtLimit[j].hpBase+(master.mstSvtLimit[j].hpMax-master.mstSvtLimit[j].hpBase)*master.mstSvtExp[c].curve/1000)]]);
