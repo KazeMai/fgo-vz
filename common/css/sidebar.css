@@ -586,3 +586,6 @@ padding-left: 2em;
  margin: 0;
 padding-left: 1em;
 }
+.topblock {
+position:fixed; _position:absolute;top:0;background-image: url(../images/detail_bg.png);
+}
