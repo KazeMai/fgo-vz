@@ -106,10 +106,10 @@ function questRea(qstId)
 	{
 		if(master.mstQuest[k].id==qstId)
 		{
-			if(master.mstQuest[k].type==1) skillText+="主線關卡";
+			if(master.mstQuest[k].type==5||master.mstQuest[k].bannerId>94000000) skillText+="活動關卡";
+			else if(master.mstQuest[k].type==1) skillText+="主線關卡";
 			else if(master.mstQuest[k].type==2) skillText+="Free關卡";
 			else if(master.mstQuest[k].type==3) skillText+="幕間物語";
-			else if(master.mstQuest[k].type==5) skillText+="活動關卡";
 			{
 				var realseChp,realseLimit,realseFriend,realseBool;
 				for(var rea=0;rea<master.mstQuestRelease.length;rea++){
