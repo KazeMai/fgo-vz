@@ -589,3 +589,14 @@ padding-left: 1em;
 .topblock {
 position:fixed; _position:absolute;top:0;background-image: url(../images/detail_bg.png);
 }
+span.new {
+  /*position: relative;
+  content: " ";
+  top: 10px;
+  left: 10px;*/
+  width: 49px;
+  height: 19px;
+  background: url('../images/new_tab.png') no-repeat;
+  background-size: contain;
+  float:left;
+}
