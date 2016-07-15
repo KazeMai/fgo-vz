@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -27,6 +27,7 @@
   ga('send', 'pageview');
 </script>
 <script type="text/javascript">
+sortByElmentId(master.mstSvt);
 function indiOut(){var c="",d=[],b=[],a,e,f,k,g,h=document.getElementsByClassName("indiTd");for(f=0;f<h.length;f++){c="";b.length=0;for(a in master.mstSvt)1!=master.mstSvt[a].type&&2!=master.mstSvt[a].type&&5!=master.mstSvt[a].type&&9!=master.mstSvt[a].type||b.push(master.mstSvt[a].id);d=h[f].id.replace(/indi/g,"").replace(/N/g,"").split(/-/);for(k in d)if(-1==h[f].id.search(/N/))for(a in master.mstSvt){if(1==master.mstSvt[a].type||2==master.mstSvt[a].type||5==master.mstSvt[a].type||9==master.mstSvt[a].type)for(e in master.mstSvt[a].individuality){if(master.mstSvt[a].individuality[e]==
 d[k])break;if(e==master.mstSvt[a].individuality.length-1)for(g in b)if(b[g]==master.mstSvt[a].id){delete b[g];break}}}else for(a in master.mstSvt)if(1==master.mstSvt[a].type||2==master.mstSvt[a].type||5==master.mstSvt[a].type||9==master.mstSvt[a].type)for(e in master.mstSvt[a].individuality)if(master.mstSvt[a].individuality[e]==d[k])for(g in b)if(b[g]==master.mstSvt[a].id){delete b[g];break}for(a in b)for(e in master.mstSvt)if(b[a]==master.mstSvt[e].id){c+="<a href='svtData.html?";c=0==master.mstSvt[e].collectionNo?
 c+("id="+master.mstSvt[e].id):c+("no="+master.mstSvt[e].collectionNo);c+="'><img src='common/images/icon/faces/"+master.mstSvt[e].id+"0.png' onerror=\"javascript:this.src='common/images/icon/faces/0.png'\" width=50 title='"+findSvtNameZh2(master.mstSvt[e].id)+"'></img></a>";break}c+="<br>"+document.getElementById(h[f].id).innerHTML;document.getElementById(h[f].id).innerHTML=c}}
@@ -106,11 +107,11 @@ function atrriRelation(){for(var c=[],d,b=document.getElementsByClassName("attri
 <table style="width:800px">
 <tr><th style="width:220px">分類</th><th style="width:580px">對象</th></tr>
 <tr><th>人</th><td id="indi202" class="indiTd">
-骸骨兵、古代兵、中世兵、近代兵、皮克特人、亞馬遜女戰士、阿信、屍人、七人御佐姬、機械化歩兵、ヘルタースケルター(五章)、凱爾特兵、德魯伊、京人</td></tr>
+骸骨兵、古代兵、中世兵、近代兵、皮克特人、亞馬遜女戰士、阿信、屍人、七人御佐姬、機械化歩兵、凱爾特兵、德魯伊、京人</td></tr>
 <tr><th>天</th><td id="indi200" class="indiTd">
 鬼魂、惡魔、自動機械、魔像、蛇妖、咒語書、金錢加成、經驗值加成、人工生命體、魔神柱、ヘルタースケルター、聖誕之手、雪人、巨大鬼魂</td></tr>
 <tr><th>地</th><td id="indi201" class="indiTd">
-龍牙兵、雙足飛龍(ワイバーン)、龍、半人馬、奇美拉、狼人、豹人、哥布林、鹿人、守寶妖精、雙角獸、凝視者、噬魂者、鬼手</td></tr>
+龍牙兵、雙足飛龍(ワイバーン)、龍、半人馬、奇美拉、狼人、豹人、哥布林、鹿人、守寶妖精、雙角獸、凝視者、噬魂者、鬼手、技喰丸、風越丸、轟力丸、鬼</td></tr>
 <tr><th>星</th><td id="indi203" class="indiTd">
 </td></tr>
 </table>
@@ -121,7 +122,7 @@ function atrriRelation(){for(var c=[],d,b=document.getElementsByClassName("attri
 <table style="width:800px">
 <tr><th style="width:220px">性別</th><th style="width:580px">對象</th></tr>
 <tr><th>男性</th><td id="indi1" class="indiTd">
-古代兵、中世兵、近代兵、皮克特人、半人馬、狼人、豹人、哥布林、鹿人、雪人、屍人、機械化歩兵、ヘルタースケルター(五章)、凱爾特兵、德魯伊、京人
+古代兵、中世兵、近代兵、皮克特人、半人馬、狼人、豹人、哥布林、鹿人、雪人、屍人、機械化歩兵、凱爾特兵、德魯伊、京人、技喰丸、風越丸、轟力丸、鬼
 </td></tr>
 <tr><th>女性</th><td id="indi2" class="indiTd">
 亞馬遜女戰士、蛇妖、七人御佐姬
@@ -160,7 +161,7 @@ function atrriRelation(){for(var c=[],d,b=document.getElementsByClassName("attri
 全部的Servant
 </td></tr>
 <tr><th>〔人類〕</th><td id="indi1001">
-古代兵、中世兵、近代兵、皮克特人、亞馬遜女戰士、屍人、七人御佐姬、機械化歩兵、ヘルタースケルター(五章)、凱爾特兵、德魯伊、京人
+古代兵、中世兵、近代兵、皮克特人、亞馬遜女戰士、屍人、七人御佐姬、機械化歩兵、凱爾特兵、德魯伊、京人
 </td></tr>
 <tr><th>〔死靈〕</th><td id="indi1002">
 骸骨兵、鬼魂、屍人、七人御佐姬、巨大鬼魂
@@ -168,7 +169,7 @@ function atrriRelation(){for(var c=[],d,b=document.getElementsByClassName("attri
 <tr><th>〔神性〕</th><td id="indi2000" class="indiTd">
 <tr><th>〔人型〕</th><td id="indi2001">
 全部的Servant
-<br>骸骨兵、古代兵、中世兵、近代兵、皮克特人、亞馬遜女戰士、蛇妖、半人馬、狼人、豹人、哥布林、阿信、鹿人、機械化歩兵、ヘルタースケルター(五章)、凱爾特兵、德魯伊、京人
+<br>骸骨兵、古代兵、中世兵、近代兵、皮克特人、亞馬遜女戰士、蛇妖、半人馬、狼人、豹人、哥布林、阿信、鹿人、機械化歩兵、凱爾特兵、德魯伊、京人、技喰丸、風越丸、轟力丸、鬼
 </td></tr>
 <tr><th>〔龍〕</th><td id="indi2002" class="indiTd">
 龍牙兵、雙足飛龍(ワイバーン)、龍
@@ -194,8 +195,8 @@ function atrriRelation(){for(var c=[],d,b=document.getElementsByClassName("attri
 <!-- <tr><th>〔死靈或惡魔〕</th><td id="indi2018" class="indiTd">
 骸骨兵、鬼魂、惡魔、屍人、七人御佐姬、巨大鬼魂</td></tr> -->
 <tr><th>〔魔性〕</th><td id="indi2019" class="indiTd">
-骸骨兵、鬼魂、惡魔、狼人、豹人、哥布林、雙角獸、凝視者、噬魂者、屍人、七人御佐姬、巨大鬼魂、鬼手</td></tr>
-<tr><th>〔有天或地之力的Sevant(擬似Servant、半Servant除外)〕<br>(被神秘殺し所剋)</th><td id="indi2037" class="indiTd">
+骸骨兵、鬼魂、惡魔、狼人、豹人、哥布林、雙角獸、凝視者、噬魂者、屍人、七人御佐姬、巨大鬼魂、鬼手、技喰丸、風越丸、轟力丸、鬼</td></tr>
+<tr><th>〔有天或地之力的Servant(擬似Servant、半Servant除外)〕<br>(被神秘殺し所剋)</th><td id="indi2037" class="indiTd">
 </td></tr>
 </table>
 <hr>

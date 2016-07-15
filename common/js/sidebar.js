@@ -4,6 +4,7 @@
 }
 function sortByElmentNo(Object1){Object1 = Object1.sort(function (a,b){return a.collectionNo-b.collectionNo;});}
 function sortByElmentNoN(Object1){Object1 = Object1.sort(function (a,b){return b.collectionNo-a.collectionNo;});}
+function sortByElmentId(Object1){Object1 = Object1.sort(function (a,b){return a.id-b.id;});}
 function addCommas(nStr) {
 	nStr += '';
 	x = nStr.split('.');
