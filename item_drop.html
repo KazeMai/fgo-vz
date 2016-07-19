@@ -48,6 +48,7 @@ function itemDataOut()
 					if(dropItem[j][1]==master.mstItem[i].id)
 					{
 						var qstNo = findName(master.mstQuest,dropItem[j][0]);
+						//if(typeof master.mstQuest[qstNo] === 'undefined') alert(qstNo+","+dropItem[j][0]);
 						if(master.mstQuest[qstNo].type==2) itemTxt+="<div style=\"background-image:url('common/images/icon/war/"+(master.mstQuest[qstNo].chapterId+100)+".png')\" title='"+master.mstWar[findName(master.mstWar,master.mstQuest[qstNo].chapterId+100)].name.replace(/点/g,"點")+"' class='warIcon' /></div><div class='spotname'>"+master.mstSpot[findName(master.mstSpot,master.mstQuest[qstNo].spotId)].name+"</div>";
 						itemTxt+="<div class='questinfo'>"+master.mstQuest[qstNo].name+" "+master.mstQuest[qstNo].actConsume+"AP"+" (";
 						if(dropItem[j][3]!=null) itemTxt+=dropItem[j][3]+"~";
