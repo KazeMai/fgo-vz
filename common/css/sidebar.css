@@ -340,6 +340,10 @@ span.hint {
 	cursor: help;
 	border-bottom: 1px dotted;
 }
+a.hint {
+	cursor: help;
+	color: #4d0000;
+}
 table.noborder tr td
 {
 	border:0px;
@@ -572,18 +576,18 @@ font-weight: bold;
 }
 .em01{
 display:block;
-margin: 0;
+/*margin: 0;*/
 padding-left: 1em;
 }
 .skill01{
 display:block;
-margin: 0;
+/*margin: 0;*/
 padding-left: 2em;
 }
 .notice_em01 {
  color: #FF0057;
  font-weight: bold;
- margin: 0;
+/* margin: 0;*/
 padding-left: 1em;
 }
 .topblock {
