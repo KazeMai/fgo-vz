@@ -136,10 +136,12 @@ function questRea(qstId)
 							for(var sp in master.mstSpot)
 							{if(master.mstSpot[sp].id==master.mstQuest[k].spotId)skillText+="\n地點："+master.mstWar[findName(master.mstWar,master.mstSpot[sp].warId)].name+" → "+master.mstSpot[sp].name+"";}
 							break;}
-
-					if(realseArr.length>0) skillText+="\n開放條件：";
-					for(rea in realseArr)
-					{	if(rea!=0)  skillText+="＆"; skillText+=realseArr[rea];}
+					if(master.mstQuest[k].type!=1)
+					{
+						if(realseArr.length>0) skillText+="\n開放條件：";
+						for(rea in realseArr)
+						{	if(rea!=0)  skillText+="＆"; skillText+=realseArr[rea];}
+					}
 				}
 			}
 			skillText+="'>"+master.mstQuest[k].name+"</span>";
