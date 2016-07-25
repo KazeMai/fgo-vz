@@ -59,7 +59,7 @@ function trdvDataOut(searchData,searchId)
 					var tdDetailArray = new Array();
 					if(!document.getElementById('isJpTxt').checked)
 					{	if(!tdDetailTxt[1]) {alert(master.mstTreasureDevice[k].seqId);tdDetailTxt[1]="";}
-						else {tdDetailTxt[1]=tdDetailTxt[1].replace(/ |　/g,"");
+						else {tdDetailTxt[1]=tdDetailTxt[1].replace(/ ＋ |　＋　/g,"＋");
 						tdDetailTxt[1]=tdDetailTxt[1].replace(/＆/g,"＆┗");
 						tdDetailArray = tdDetailTxt[1].split(/＆|＋/);}
 					}

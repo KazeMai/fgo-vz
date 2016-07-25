@@ -54,7 +54,7 @@ function sklDataOut(searchData,searchId)
 			var skDetailArray = new Array();
 			if(!document.getElementById('isJpTxt').checked)
 			{
-				skDetailTxt[1]=skDetailTxt[1].replace(/ |　/g,"");
+				skDetailTxt[1]=skDetailTxt[1].replace(/ ＋ |　＋　/g,"＋");
 				skDetailTxt[1]=skDetailTxt[1].replace(/＆/g,"＆┗");
 				skDetailArray = skDetailTxt[1].split(/＆|＋/);
 			}
