@@ -590,8 +590,29 @@ padding-left: 2em;
 /* margin: 0;*/
 padding-left: 1em;
 }
-.topblock {
-position:fixed; _position:absolute;top:0;background-image: url(../images/detail_bg.png);
+.topblock2 {
+position:fixed;
+_position:absolute;
+top:0;
+background-image: url(../images/detail_bg.png);
+margin-top:-70px;
+opacity:0.3;
+}
+.topblock2:hover {
+margin-top:0px;
+opacity:1;
+}
+.topblock3 {
+position:fixed;
+_position:absolute;
+top:0;
+background-image: url(../images/detail_bg.png);
+margin-top:-110px;
+opacity:0.3;
+}
+.topblock3:hover {
+margin-top:0px;
+opacity:1;
 }
 span.new {
   /*position: relative;
