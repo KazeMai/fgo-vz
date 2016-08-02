@@ -37,9 +37,10 @@ function trdvDataOut(searchData,searchId)
 		if(master.mstSvt[c].type==1||master.mstSvt[c].type==2||master.mstSvt[c].type==5||master.mstSvt[c].type==9||master.mstSvt[c].type==99){
 			var svtTrdvrowCount=0;
 			var sklTxt="";
-			
+			for(t in master.mstSvtTreasureDevice)
+			if(master.mstSvt[c].id==master.mstSvtTreasureDevice[t].svtId&&master.mstSvtTreasureDevice[t].treasureDeviceId!=100){
 			for(var k in master.mstTreasureDevice){
-				if(master.mstTreasureDevice[k].seqId==master.mstSvt[c].id){
+				if(master.mstTreasureDevice[k].id==master.mstSvtTreasureDevice[t].treasureDeviceId){
 					skillText="";
 					skillrowCount=0;
 					var tdDetailTxt = new Array();
@@ -101,28 +102,21 @@ function trdvDataOut(searchData,searchId)
 					}
 					
 					sklTxt+="<td align=center rowspan="+skillrowCount+"><div class=ruby>"+master.mstTreasureDevice[k].ruby+"</div>";
-					for(d in master.mstSvtTreasureDevice)
-						if(master.mstTreasureDevice[k].id==master.mstSvtTreasureDevice[d].treasureDeviceId){
-							sklTxt+="<b><font color=\"#"+cardList[master.mstSvtTreasureDevice[d].cardId]+"\">"+master.mstTreasureDevice[k].name+"</font></b>";break;}
+					
+							sklTxt+="<b><font color=\"#"+cardList[master.mstSvtTreasureDevice[t].cardId]+"\">"+master.mstTreasureDevice[k].name+"</font></b>";
 					sklTxt+="</td><td align=center rowspan="+skillrowCount+">"+master.mstTreasureDevice[k].rank+"</td><td align=center rowspan="+skillrowCount+">"+master.mstTreasureDevice[k].typeText.replace(/対/g,"對").replace(/宝/g,"寶").replace(/剣/g,"劍").replace(/悪/g,"惡").replace(/奥/g,"奧").replace(/セイバー/g,"Saber")+"</td>";
 					
 					sklTxt+="<td align=center rowspan="+skillrowCount+">";
 					if(tdDetailTxt[1].search(/攻擊[^力]|攻撃[^力]/)==-1) sklTxt+="－";
 					else
 					{
-						for(g in master.mstSvtTreasureDevice){
-							if(master.mstSvtTreasureDevice[g].treasureDeviceId==master.mstTreasureDevice[k].id)
-							{
-								sklTxt+=master.mstSvtTreasureDevice[g].damage.length+"Hit";
-								if(master.mstSvtTreasureDevice[g].damage.length>1) sklTxt+="s";
-								break;
-							}
-						}
+								sklTxt+=master.mstSvtTreasureDevice[t].damage.length+"Hit";
+								if(master.mstSvtTreasureDevice[t].damage.length>1) sklTxt+="s";
 					}
 					sklTxt+="</td>"+skillText;
 					svtTrdvrowCount+=skillrowCount;
 				}
-			}
+			}}
 			if(master.mstSvt[c].collectionNo==0) trdvDataTxt+="<tr><td align=center rowspan="+svtTrdvrowCount+"><a href='svtData.html?id="+master.mstSvt[c].id+"'>";
 			else trdvDataTxt+="<tr><td align=center rowspan="+svtTrdvrowCount+"><a href='svtData.html?no="+master.mstSvt[c].collectionNo+"'>";
 				trdvDataTxt+="<img src='common/images/icon/faces/"+master.mstSvt[c].id+"0.png' onerror=\"javascript:this.src='common/images/icon/faces/0.png'\" title='"+findSvtNameZh2(master.mstSvt[c].id)+"' width=80></img>";

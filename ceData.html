@@ -7,15 +7,12 @@
 <link href="common/css/common.css" rel="stylesheet" type="text/css" />
 <link href="common/css/detail_info.css" rel="stylesheet" type="text/css" />
 <link href="common/css/sidebar.css" rel="stylesheet" type="text/css" />
-<link href="common/shadowbox/shadowbox.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="common/js/jquery.min.js"></script>
 <script type="text/javascript" src="common/js/sidebar.js"></script>
 <script type='text/javascript' src='common/js/master.js'></script>
 <script type='text/javascript' src='common/js/transData.js'></script>
 <script type="text/javascript" src="common/js/smoothRollOver.js"></script>
 <script type="text/javascript" src="common/js/scrollTop.js"></script>
-<script type="text/javascript" src="common/js/jquery.tablesorter.min.js"></script>
-<script type="text/javascript" src="common/shadowbox/shadowbox.js" charset="utf-8"></script>
 <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1','packages':['corechart'], 'language': 'zh' }]}"></script>
 <script type='text/javascript' src='common/js/chart.js'></script>
 <script>
@@ -31,13 +28,13 @@
 </script>
 <script type="text/javascript">
 sortByElmentNo(master.mstSvt);
-function svtDataTable(a){for(var b in master.mstSvt)if(master.mstSvt[b].id==a)break;for(var c in master.mstSvtLimit)if(master.mstSvtLimit[c].svtId==a)break;a="<tr><td width=300 align=center rowspan=7><a href='common/images/CharaGraph/"+a+"a.png' rel='shadowbox[]' title='"+master.mstSvt[b].name+"' class='zoom1'><img src=common/images/CharaGraph/"+a+"a.png onerror=javascript:this.src='common/images/CharaGraph/0.png' width=300 /></a></td><th>\u7de8\u865f</th><th>\u661f\u6578</th><th>\u540d\u7a31</th><th>HP</th><th>ATK</th><th>\u7e6a\u5e2b</th></tr><tr align=\"center\"><td>No."+master.mstSvt[b].collectionNo+
+function svtDataTable(a){for(var b in master.mstSvt)if(master.mstSvt[b].id==a)break;for(var c in master.mstSvtLimit)if(master.mstSvtLimit[c].svtId==a)break;a="<tr><td width=300 align=center rowspan=7><img src=common/images/CharaGraph/"+a+"a.png onerror=javascript:this.src='common/images/CharaGraph/0.png' width=300 /></td><th>\u7de8\u865f</th><th>\u661f\u6578</th><th>\u540d\u7a31</th><th>HP</th><th>ATK</th><th>\u7e6a\u5e2b</th></tr><tr align=\"center\"><td>No."+master.mstSvt[b].collectionNo+
 '</td><td class="star">';for(var d=0;d<master.mstSvtLimit[c].rarity;d++)a+="\u2605";a+="</td><td>"+master.mstSvt[b].name+"</td><td>"+master.mstSvtLimit[c].hpBase+" / "+master.mstSvtLimit[c].hpMax+"</td><td>"+master.mstSvtLimit[c].atkBase+" / "+master.mstSvtLimit[c].atkMax+"</td>";document.title=master.mstSvt[b].name+" - \u79ae\u88dd\u8cc7\u6599\u67e5\u8a62";for(d in master.mstIllustrator)if(master.mstIllustrator[d].id==master.mstSvt[b].illustratorId){a=1<master.mstIllustrator[d].id?a+("<td><a href='illustrator.html#"+
-master.mstIllustrator[d].id+"'>"+master.mstIllustrator[d].name.replace(/\uff06/g,"<br>\uff06")+"</a></td>"):a+("<td>"+master.mstIllustrator[d].name.replace(/\uff06/g,"<br>\uff06")+"</td>");break}a+="</tr><tr><th colspan=6>\u4fdd\u6709\u6280\u80fd</th></tr>";for(d in master.mstSvtSkill){if(master.mstSvtSkill[d].svtId==master.mstSvt[b].id&&0==master.mstSvtSkill[d].condLimitCount){for(var e in master.mstSkill)if(master.mstSkill[e].id==master.mstSvtSkill[d].skillId){a+="<tr><th><img src=common/images/SkillIcon/SkillIcon_"+
-master.mstSkill[e].iconId+".png onerror=javascript:this.src='common/images/SkillIcon/SkillIcon_0.png' width=55></td>";break}a+="<td colspan=5>"+findSkDetailZh(master.mstSvtSkill[d].skillId)+"</td></tr>";a+="<tr><th>\u6700\u5927<br>\u89e3\u653e</th><td colspan=5>"}master.mstSvtSkill[d].svtId==master.mstSvt[b].id&&4==master.mstSvtSkill[d].condLimitCount&&(a+=findSkDetailZh(master.mstSvtSkill[d].skillId))}a+="</td></tr><tr><th colspan=6>\u89e3\u8aaa</th></tr><tr><td colspan=6>";for(d in master.mstSvtComment)master.mstSvtComment[d].svtId==
-master.mstSvt[b].id&&(a+=master.mstSvtComment[d].comment.replace(/\n/g,"<br>"));a+="</td></tr>";document.getElementById("svtNrmlData").innerHTML=a}
+master.mstIllustrator[d].id+"'>"+master.mstIllustrator[d].name.replace(/\uff06/g,"<br>\uff06")+"</a></td>"):a+("<td>"+master.mstIllustrator[d].name.replace(/\uff06/g,"<br>\uff06")+"</td>");break}a+="</tr><tr><th colspan=6>\u4fdd\u6709\u6280\u80fd</th></tr>";c=0;for(d in master.mstSvtSkill){if(master.mstSvtSkill[d].svtId==master.mstSvt[b].id&&0==master.mstSvtSkill[d].condLimitCount){for(var e in master.mstSkill)if(master.mstSkill[e].id==master.mstSvtSkill[d].skillId){a+="<tr><th><img src=common/images/SkillIcon/SkillIcon_"+
+master.mstSkill[e].iconId+".png onerror=javascript:this.src='common/images/SkillIcon/SkillIcon_0.png' width=55></td>";break}a+="<td colspan=5>"+findSkDetailZh(master.mstSvtSkill[d].skillId)+"</td></tr>";for(e in bondCE)if(bondCE[e][0]==master.mstSvt[b].id){c=bondCE[e][1];a+="<tr><th>\u5c08\u5c6c<br>Servant</th><td colspan=5>";break}0==c&&(a+="<tr><th>\u6700\u5927<br>\u89e3\u653e</th><td colspan=5>")}master.mstSvtSkill[d].svtId==master.mstSvt[b].id&&4==master.mstSvtSkill[d].condLimitCount&&(a+=findSkDetailZh(master.mstSvtSkill[d].skillId))}0!=
+c&&(a+=svtFace(c));a+="</td></tr><tr><th colspan=6>\u89e3\u8aaa</th></tr><tr><td colspan=6>";for(d in master.mstSvtComment)master.mstSvtComment[d].svtId==master.mstSvt[b].id&&(a+=master.mstSvtComment[d].comment.replace(/\n/g,"<br>"));a+="</td></tr>";document.getElementById("svtNrmlData").innerHTML=a}
 function optionInit(){for(var a in master.mstSvt)6!=master.mstSvt[a].type&&98!=master.mstSvt[a].type||svtid.options.add(new Option("No."+master.mstSvt[a].collectionNo+" "+master.mstSvt[a].name,master.mstSvt[a].id));var b="1";getUrl("no")&&(b=getUrl("no"));if(b)for(a in master.mstSvt)if((6==master.mstSvt[a].type||98==master.mstSvt[a].type)&&b==master.mstSvt[a].collectionNo){$("#svtid").val(master.mstSvt[a].id);break}svtidChange()}
-function svtidChange(){var a;for(a=svtlv.options.length-1;0<=a;a--)svtlv.remove(a);for(a in master.mstSvtLimit)if(master.mstSvtLimit[a].svtId==svtid.value&&4==master.mstSvtLimit[a].limitCount){for(var b=1;b<=master.mstSvtLimit[a].lvMax;b++)svtlv.options.add(new Option("Lv."+b,b));break}svtlvChange();svtDataTable(svtid.value);drawChart()}
+function svtidChange(){var a;for(a=svtlv.options.length-1;0<=a;a--)svtlv.remove(a);for(a in master.mstSvtLimit)if(master.mstSvtLimit[a].svtId==svtid.value&&4==master.mstSvtLimit[a].limitCount){for(var b=1;b<=master.mstSvtLimit[a].lvMax;b++)svtlv.options.add(new Option("Lv."+b,b));break}svtlvChange();svtDataTable(svtid.value);drawChart();shadowboxInit()}
 function svtlvChange(){for(var a in master.mstSvtLimit)if(master.mstSvtLimit[a].svtId==svtid.value){atk.value=master.mstSvtLimit[a].atkBase;hp.value=master.mstSvtLimit[a].hpBase;for(var b in master.mstSvt)if(master.mstSvt[b].id==svtid.value){for(var c in master.mstSvtExp)if(master.mstSvt[b].expType==master.mstSvtExp[c].type&&master.mstSvtExp[c].lv==svtlv.value){atk.value=Math.floor(master.mstSvtLimit[a].atkBase+(master.mstSvtLimit[a].atkMax-master.mstSvtLimit[a].atkBase)*master.mstSvtExp[c].curve/
 1E3);hp.value=Math.floor(master.mstSvtLimit[a].hpBase+(master.mstSvtLimit[a].hpMax-master.mstSvtLimit[a].hpBase)*master.mstSvtExp[c].curve/1E3);break}break}break}}function findSkDetailZh(a){var b,c;for(c in skDetail)if(a==skDetail[c][0]){b=skDetail[c][1];break}if(document.getElementById("isJpTxt").checked||!b)for(c=0;c<master.mstSkillDetail.length;c++)if(a==master.mstSkillDetail[c].id){b=master.mstSkillDetail[c].detail;break}return b}
 function svtlocation(a){a="";for(var b in master.mstSvt)if(master.mstSvt[b].id==svtid.value){a=0!=master.mstSvt[b].collectionNo?a+("?no="+master.mstSvt[b].collectionNo):a+("?id="+master.mstSvt[b].id);break}"file:"==location.protocol?changeURL(location.protocol+"//"+location.pathname+a):changeURL(location.protocol+"//"+location.hostname+location.pathname+a);svtidChange()};
@@ -51,7 +48,7 @@ $(function(){
 });
 </script>
 </head>
-<body onload="loadsidebar();optionInit();shadowboxInit();">
+<body onload="loadsidebar();optionInit();">
 <!--二欄橫幅主要區塊開始-->
 <div style='position:relative;'>
     <!--選單區塊開始-->
