@@ -28,9 +28,9 @@
 <script type="text/javascript">
 function sklDataOut(searchData,searchId)
 {sortByElmentId(master.mstSkill);
-	var sklDataTxt="<tr><th>圖示</th><th>技能名</th><th>使用者</th><th>CD</th><th>效果</th><th>Lv.1</th><th>Lv.2</th><th>Lv.3</th><th>Lv.4</th><th>Lv.5</th><th>Lv.6</th><th>Lv.7</th><th>Lv.8</th><th>Lv.9</th><th>Lv.10</th></tr>";
-	var pasDataTxt="<tr><th>圖示</th><th>技能名</th><th>使用者</th><th>CD</th><th>效果</th><th colspan=10>倍率</th></tr>";
-	var eqpDataTxt="<tr><th>圖示</th><th>技能名</th><th>Master裝備</th><th>CD</th><th>效果</th><th>Lv.1</th><th>Lv.2</th><th>Lv.3</th><th>Lv.4</th><th>Lv.5</th><th>Lv.6</th><th>Lv.7</th><th>Lv.8</th><th>Lv.9</th><th>Lv.10</th></tr>";
+	var sklDataTxt="<tr><th>圖示</th><th>技能名/使用者</th><th>CD</th><th>效果</th><th>Lv.1</th><th>Lv.2</th><th>Lv.3</th><th>Lv.4</th><th>Lv.5</th><th>Lv.6</th><th>Lv.7</th><th>Lv.8</th><th>Lv.9</th><th>Lv.10</th></tr>";
+	var pasDataTxt="<tr><th>圖示</th><th>技能名/使用者</th><th>CD</th><th>效果</th><th colspan=10>倍率</th></tr>";
+	var eqpDataTxt="<tr><th>圖示</th><th>技能名/Master裝備</th><th>CD</th><th>效果</th><th>Lv.1</th><th>Lv.2</th><th>Lv.3</th><th>Lv.4</th><th>Lv.5</th><th>Lv.6</th><th>Lv.7</th><th>Lv.8</th><th>Lv.9</th><th>Lv.10</th></tr>";
 	var skillText="";
 	var skillrowCount=0;
 	for(var c=master.mstSkill.length-1;c>=0;c--)
@@ -90,9 +90,9 @@ function sklDataOut(searchData,searchId)
 				skillText+="</td></tr>";
 			}
 			var sklTxt="";
-			sklTxt+="<tr><td align=center rowspan="+skillrowCount+"><img src=common/images/SkillIcon/SkillIcon_"+master.mstSkill[c].iconId+".png onerror=javascript:this.src='common/images/SkillIcon/SkillIcon_0.png' id='"+master.mstSkill[c].id+"' width=55></img></td><td rowspan="+skillrowCount+"><b>"+master.mstSkill[c].name+"</b></td>";
+			sklTxt+="<tr><td align=center rowspan="+skillrowCount+"><img src=common/images/SkillIcon/SkillIcon_"+master.mstSkill[c].iconId+".png onerror=javascript:this.src='common/images/SkillIcon/SkillIcon_0.png' id='"+master.mstSkill[c].id+"' width=55></img></td><td rowspan="+skillrowCount+"><b>"+master.mstSkill[c].name+"</b>"/*</td>"*/;
 			
-			sklTxt+="<td rowspan="+skillrowCount+">";
+			sklTxt+=/*"<td rowspan="+skillrowCount+">"*/"<br><br>";
 			for(k in master.mstSvtSkill)
 			{
 				if(master.mstSkill[c].id==master.mstSvtSkill[k].skillId)
