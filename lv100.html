@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Servant一覽</title>
+<title>Lv.100二圍一覽</title>
 <link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon">
 <link href="common/css/common.css" rel="stylesheet" type="text/css" />
 <link href="common/css/detail_info.css" rel="stylesheet" type="text/css" />
@@ -60,9 +60,7 @@ function svtTableOut(searchData,searchId)
 		}
 	}
 	
-	var svtTableTxt="<thead><tr><th>圖示</th><th>編號</th><th>星數</th><th>名稱</th><th>職階</th><th>基本<br>HP</th><th>最大<br>HP</th><th>基本<br>ATK</th><th>最大<br>ATK</th><th>指令卡</th><th>寶具</th><th>Cost</th></tr></thead><tbody>";
-	var svtStatusList = ["","A","B","C","D","E","EX","?","?","－"];
-	var svtStatusPlusList = ["","","+","++","?","?","?","?","?",""];
+	var svtTableTxt="<thead><tr><th>No.</th><th>Servant</th><th>職階</th><th>★</th><th>Lv.100<br>HP</th><th>Lv.100<br>ATK</th><th>Lv.100HP<br>Max強化</th><th>Lv.100ATK<br>Max強化</th></tr></thead><tbody>";
 	for(i in master.mstSvt)
 	{
 		if((master.mstSvt[i].type==1||master.mstSvt[i].type==2||master.mstSvt[i].type==5||master.mstSvt[i].type==9||master.mstSvt[i].type==99)&&master.mstSvt[i].collectionNo!=0)
@@ -71,54 +69,20 @@ function svtTableOut(searchData,searchId)
 			if (classarray[t]==master.mstSvt[i].classId){
 
 			for(var j in master.mstSvtLimit)
-				{if(master.mstSvtLimit[j].svtId==master.mstSvt[i].id)break;}
+				{if(master.mstSvtLimit[j].svtId==master.mstSvt[i].id&&master.mstSvtLimit[j].limitCount==master.mstSvt[i].limitMax)break;}
 				for(var h in rarityarray){
 					if (rarityarray[h]==master.mstSvtLimit[j].rarity){
-			if(master.mstSvt[i].collectionNo==0) svtTableTxt+="<tr align=\"center\"><td><a href='svtData.html?id="+master.mstSvt[i].id+"'>";
-			else svtTableTxt+="<tr align=\"center\"><td><a href='svtData.html?no="+master.mstSvt[i].collectionNo+"'>";
-			svtTableTxt+="<img src='common/images/icon/faces/"+master.mstSvt[i].id+"0.png' onerror=javascript:this.src='common/images/icon/faces/0.png' title='"+findSvtNameZh2(master.mstSvt[i].id)+"' width=80></img>";
-			svtTableTxt+="</a></td>";
 			
-			svtTableTxt+="<td>"+master.mstSvt[i].collectionNo+"</td><td class=\"star\">";
-			if(master.mstSvtLimit[j].rarity==0) svtTableTxt+="－";
-			for(var c=0;c<master.mstSvtLimit[j].rarity;c++)
-				svtTableTxt+="★";
-			svtTableTxt+="</td>";
+			svtTableTxt+="<tr align=\"center\"><td>"+master.mstSvt[i].collectionNo+"</td><td><a href='svtData.html?no="+master.mstSvt[i].collectionNo+"'>"+findSvtNameZh2(master.mstSvt[i].id)+"</a></td><td><span style='display:none'>"+master.mstSvt[i].classId+"</span><img src='common/images/icon/class/class_"+findClassImageId(master.mstSvt[i].classId)+"_"+master.mstSvtLimit[j].rarity+".png' title='"+findClassName(master.mstSvt[i].classId)+"' class='classS' /></td><td>"+master.mstSvtLimit[j].rarity+"</td>";
 			
-			if(master.mstSvt[i].collectionNo==0) svtTableTxt+="<td><a href='svtData.html?id="+master.mstSvt[i].id+"'>";
-			else svtTableTxt+="<td><a href='svtData.html?no="+master.mstSvt[i].collectionNo+"'>";
-			var svtNameZh = findSvtNameZh(master.mstSvt[i].id);
-			if(svtNameZh) svtTableTxt+="<div class=ruby>"+master.mstSvt[i].ruby+"</div>"+svtNameZh;
-			else svtTableTxt+=master.mstSvt[i].name;
-			svtTableTxt+="</a></td>";
-			
-			svtTableTxt+="<td><span style='display:none'>"+master.mstSvt[i].classId+"</span><img src='common/images/icon/class/class_"+findClassImageId(master.mstSvt[i].classId)+"_"+master.mstSvtLimit[j].rarity+".png' title='"+findClassName(master.mstSvt[i].classId)+"' class='itemS' /></td>";
-			
-			
-			svtTableTxt+="<td>"+master.mstSvtLimit[j].hpBase+"</td><td>"+master.mstSvtLimit[j].hpMax+"</td><td>"+master.mstSvtLimit[j].atkBase+"</td><td>"+master.mstSvtLimit[j].atkMax+"</td>";
-			
-			svtTableTxt+="<td width=200>";
-			for(c=0;c<master.mstSvt[i].cardIds.length;c++){
-				svtTableTxt+="<img src='common/images/icon/cmdCard/icon_cmdCard_"+master.mstSvt[i].cardIds[c]+".png' width=60";
-				if(c!=master.mstSvt[i].cardIds.length-1)svtTableTxt+=" style='margin-right: -30px;'"
-				svtTableTxt+="></img>";
+			for(var m in master.mstSvtExp)
+			{
+				if(master.mstSvt[i].expType==master.mstSvtExp[m].type&&master.mstSvtExp[m].lv==100)
+				break;
 			}
-			for(c=0;c<master.mstSvt[i].cardIds.length;c++)
-				svtTableTxt+="<span style='display:none'>"+master.mstSvt[i].cardIds[c]+"</span>";
-			svtTableTxt+="</td>";
-			
-			svtTableTxt+="<td>";
-			for(c in master.mstSvtTreasureDevice){
-				if(master.mstSvt[i].id==master.mstSvtTreasureDevice[c].svtId)
-					{svtTableTxt+="<img src='common/images/icon/cmdCard/icon_cmdCard_"+master.mstSvtTreasureDevice[c].cardId+".png' width=60></img>";
-					svtTableTxt+="<span style='display:none'>"+master.mstSvtTreasureDevice[c].cardId+"</span>";
-					break;}
-			}
-			svtTableTxt+="</td>";
-			
-			//svtTableTxt+="<td>"+svtStatusList[Math.floor(master.mstSvtLimit[j].luck/10)]+svtStatusPlusList[master.mstSvtLimit[j].luck%10]+"</td>";
-			svtTableTxt+="<td>"+master.mstSvt[i].cost+"</td>";
-			svtTableTxt+="</tr>";
+			var maxHp = Math.floor(master.mstSvtLimit[j].hpBase+(master.mstSvtLimit[j].hpMax-master.mstSvtLimit[j].hpBase)*master.mstSvtExp[m].curve/1000);
+			var maxAtk = Math.floor(master.mstSvtLimit[j].atkBase+(master.mstSvtLimit[j].atkMax-master.mstSvtLimit[j].atkBase)*master.mstSvtExp[m].curve/1000);
+			svtTableTxt+="<td>"+maxHp+"</td><td>"+maxAtk+"</td><td>"+(maxHp+999)+"</td><td>"+(maxAtk+999)+"</td>";
 			break;}}
 		break;}}}
 		
@@ -126,7 +90,7 @@ function svtTableOut(searchData,searchId)
 	}
 	svtTableTxt+="</tbody>";
 	document.getElementById("svtTable").innerHTML=svtTableTxt;
-	$("#svtTable").tablesorter({sortList: [[1,1]], headers: { 0:{sorter: false}, 3:{sorter: false}}});
+	$("#svtTable").tablesorter({sortList: [[0,0]], headers: { 1:{sorter: false},}});
 }
 </script>
 </head>
@@ -140,8 +104,8 @@ function svtTableOut(searchData,searchId)
     <div id="div_content">
 <div class="container">
 <article class="content textsize">
-	<div class="bkmkO">Servant列表</div>
-	<a href="lv100.html"><div class="bkmk">Lv.100二圍列表</div></a>
+	<a href="servant.html"><div class="bkmk">Servant列表</div></a>
+	<div class="bkmkO">Lv.100二圍列表</div>
 	<a href="cv.html"><div class="bkmk">ＣＶ列表</div></a>
 	<a href="illustrator.html"><div class="bkmk">繪師列表</div></a><div style="clear:left;"></div>
 <form>
@@ -165,10 +129,10 @@ function svtTableOut(searchData,searchId)
 	<input type="checkbox" id="rarity3" class="rarityF" value="3"/><span class="star">★★★</span>
 	<input type="checkbox" id="rarity4" class="rarityF" value="4"/><span class="star">★★★★</span>
 	<input type="checkbox" id="rarity5" class="rarityF" value="5"/><span class="star">★★★★★</span>
-	<br><input type="button" value="開始篩選" onclick="classFilter('servant.html');">
+	<br><input type="button" value="開始篩選" onclick="classFilter('lv100.html');">
   </fieldset>
 </form>
-<table onload="" id="svtTable" class="tablesorter mouseover" width=1270><tr><td></td></tr></table>
+<table onload="" id="svtTable" class="tablesorter nopadding mouseover" width=800><tr><td></td></tr></table>
 </article>
 </div>
 <div id="gotop"><a href="#"><img src="common/images/btn_gotop_off.jpg" width="47" height="47" alt="返回頂端" /></a></div>
