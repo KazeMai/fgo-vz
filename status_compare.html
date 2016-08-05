@@ -65,7 +65,7 @@ function svtDel()
 function statusListInit()
 {
 	statusList = new Array();
-	for(var i=0;i<=90;i++){
+	for(var i=0;i<=/*90*/100;i++){
 		statusList[i] = new Array();
 		if(i!=0) statusList[i][0] = i;
 	}
@@ -178,9 +178,9 @@ function setStatusList(svtId,svtSta)
 		else if (svtSta==2) statusList[0].push(svtName+" ATK");
 		
 		for(var c in master.mstSvtExp){
-			if(master.mstSvt[i].expType==master.mstSvtExp[c].type&&master.mstSvtExp[c].lv>0&&master.mstSvtExp[c].lv<=90)
+			if(master.mstSvt[i].expType==master.mstSvtExp[c].type&&master.mstSvtExp[c].lv>0&&master.mstSvtExp[c].lv<=/*90*/100)
 			{
-				if(master.mstSvtExp[c].lv<=master.mstSvtLimit[j].lvMax)
+				//if(master.mstSvtExp[c].lv<=master.mstSvtLimit[j].lvMax)
 				{
 					var pushValue;
 					if(svtSta==1)
@@ -190,7 +190,7 @@ function setStatusList(svtId,svtSta)
 						
 					statusList[master.mstSvtExp[c].lv].push(pushValue);
 				}
-				else statusList[master.mstSvtExp[c].lv].push(null);
+				//else statusList[master.mstSvtExp[c].lv].push(null);
 			}
 		}
 	}
