@@ -53,8 +53,8 @@ $("#svtTable tbody").append(a)}function initTable(){var a=document.getElementsBy
 <form>
   <fieldset style="width:550px;text-align:center;">
     <legend>篩選條件</legend>
-	<img src="common/images/icon/class/class_1001_4.png" title="全選" onclick="classAllOn();" class="classA"/>
-	<img src="common/images/icon/class/class_1001_1.png" title="全消" onclick="classAllOff();" class="classA"/>
+	<img src="common/images/icon/class/class_1001_4.png" title="職階全選" onclick="classAllOn();" class="classA"/>
+	<img src="common/images/icon/class/class_1001_1.png" title="職階全消" onclick="classAllOff();" class="classA"/>
 	<img src="common/images/icon/class/star_new.png" title="稀有度全選/消" onclick="rarityAllOff();" class="classR"/><br>
     <img src="common/images/icon/class/class_1_4.png" title="Saber" onclick="classOff(this);" class="classF"/>
 	<img src="common/images/icon/class/class_2_4.png" title="Archer" onclick="classOff(this);" class="classF"/>
@@ -75,6 +75,7 @@ $("#svtTable tbody").append(a)}function initTable(){var a=document.getElementsBy
 	<br><input type="button" value="開始篩選" onclick="updateTable();">
   </fieldset>
 </form>
+<span class="notice">※本頁為未使用聖杯數值，超過原上限的二圍請至上方〔各等二圍列表〕</span>
 <table onload="" id="svtTable" class="tablesorter mouseover" width=1270><thead><tr><th>圖示</th><th>編號</th><th>星數</th><th>名稱</th><th>職階</th><th>基本<br>HP</th><th>最大<br>HP</th><th>基本<br>ATK</th><th>最大<br>ATK</th><th>指令卡</th><th>寶具</th><th>Cost</th></tr></thead><tbody></tbody></table>
 </article>
 </div>
