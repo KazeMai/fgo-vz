@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Lv.100二圍一覽</title>
+<title>各等二圍一覽</title>
 <link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon">
 <link href="common/css/common.css" rel="stylesheet" type="text/css" />
 <link href="common/css/detail_info.css" rel="stylesheet" type="text/css" />
@@ -28,14 +28,13 @@
   ga('send', 'pageview');
 </script>
 <script type="text/javascript">
-function svtTableOut(m,n){var e=[],d="1,2,3,4,5,6,7,8,9,11,17";getUrl("class")&&(d=getUrl("class"));d&&(e=d.split(/,/).slice(0));for(var b=document.getElementsByClassName("classF"),a=0;a<b.length;a++)for(c in e){if(e[c]==b[a].src.substring(b[a].src.indexOf("class_")+6,b[a].src.indexOf("_4.png")))break;c==e.length-1&&classOff(b[a])}d=[];a="0,1,2,3,4,5";getUrl("rarity")&&(a=getUrl("rarity"));a&&(d=a.split(/,/).slice(0));b=document.getElementsByClassName("rarityF");for(a=0;a<b.length;a++)for(c in d)if(b[a].id==
-"rarity"+d[c]){b[a].checked=!0;break}b="<thead><tr><th>No.</th><th>Servant</th><th>\u8077\u968e</th><th>\u2605</th><th>Lv.100<br>HP</th><th>Lv.100<br>ATK</th><th>Lv.100HP<br>Max\u5f37\u5316</th><th>Lv.100ATK<br>Max\u5f37\u5316</th></tr></thead><tbody>";for(a in master.mstSvt)if((1==master.mstSvt[a].type||2==master.mstSvt[a].type||5==master.mstSvt[a].type||9==master.mstSvt[a].type||99==master.mstSvt[a].type)&&0!=master.mstSvt[a].collectionNo)for(var k in e)if(e[k]==master.mstSvt[a].classId){for(var c in master.mstSvtLimit)if(master.mstSvtLimit[c].svtId==
-master.mstSvt[a].id&&master.mstSvtLimit[c].limitCount==master.mstSvt[a].limitMax)break;for(var l in d)if(d[l]==master.mstSvtLimit[c].rarity){var b=b+('<tr align="center"><td>'+master.mstSvt[a].collectionNo+"</td><td><a href='svtData.html?no="+master.mstSvt[a].collectionNo+"'>"+findSvtNameZh2(master.mstSvt[a].id)+"</a></td><td><span style='display:none'>"+master.mstSvt[a].classId+"</span><img src='common/images/icon/class/class_"+findClassImageId(master.mstSvt[a].classId)+"_"+master.mstSvtLimit[c].rarity+
-".png' title='"+findClassName(master.mstSvt[a].classId)+"' class='classS' /></td><td>"+master.mstSvtLimit[c].rarity+"</td>"),f;for(f in master.mstSvtExp)if(master.mstSvt[a].expType==master.mstSvtExp[f].type&&100==master.mstSvtExp[f].lv)break;var g=Math.floor(master.mstSvtLimit[c].hpBase+(master.mstSvtLimit[c].hpMax-master.mstSvtLimit[c].hpBase)*master.mstSvtExp[f].curve/1E3),h=Math.floor(master.mstSvtLimit[c].atkBase+(master.mstSvtLimit[c].atkMax-master.mstSvtLimit[c].atkBase)*master.mstSvtExp[f].curve/
-1E3),b=b+("<td>"+g+"</td><td>"+h+"</td><td>"+(g+990)+"</td><td>"+(h+990)+"</td>");break}break}b+="</tbody>";document.getElementById("svtTable").innerHTML=b;$("#svtTable").tablesorter({sortList:[[0,0]],headers:{1:{sorter:!1}}})};
+function svtTableOut(){var a="";for(i in master.mstSvt)if((1==master.mstSvt[i].type||2==master.mstSvt[i].type||5==master.mstSvt[i].type||9==master.mstSvt[i].type||99==master.mstSvt[i].type)&&0!=master.mstSvt[i].collectionNo)for(var g in classarray)if(classarray[g]==master.mstSvt[i].classId){for(var b in master.mstSvtLimit)if(master.mstSvtLimit[b].svtId==master.mstSvt[i].id&&master.mstSvtLimit[b].limitCount==master.mstSvt[i].limitMax)break;for(var h in rarityarray)if(rarityarray[h]==master.mstSvtLimit[b].rarity){var a=
+a+('<tr align="center"><td>'+master.mstSvt[i].collectionNo+"</td><td><a href='svtData.html?no="+master.mstSvt[i].collectionNo+"'>"+findSvtNameZh2(master.mstSvt[i].id)+"</a></td><td><span style='display:none'>"+master.mstSvt[i].classId+"</span><img src='common/images/icon/class/class_"+findClassImageId(master.mstSvt[i].classId)+"_"+master.mstSvtLimit[b].rarity+".png' title='"+findClassName(master.mstSvt[i].classId)+"' class='classS' /></td><td>"+master.mstSvtLimit[b].rarity+"</td>"),d;for(d in master.mstSvtExp)if(master.mstSvt[i].expType==
+master.mstSvtExp[d].type&&master.mstSvtExp[d].lv==svtlv.value)break;var e=Math.floor(master.mstSvtLimit[b].hpBase+(master.mstSvtLimit[b].hpMax-master.mstSvtLimit[b].hpBase)*master.mstSvtExp[d].curve/1E3),f=Math.floor(master.mstSvtLimit[b].atkBase+(master.mstSvtLimit[b].atkMax-master.mstSvtLimit[b].atkBase)*master.mstSvtExp[d].curve/1E3),a=a+("<td>"+e+"</td><td>"+f+"</td><td>"+(e+990)+"</td><td>"+(f+990)+"</td>");break}break}$("#svtTable tbody").empty();$("#svtTable tbody").append(a)}
+function initTable(){for(var a=100;0<a;a--)svtlv.options.add(new Option("Lv."+a,a));a=document.getElementsByClassName("rarityF");for(c in a)for(j in rarityarray)if(a[c].id=="rarity"+rarityarray[j]){a[c].checked=!0;break}svtTableOut();$("#svtTable").tablesorter({sortList:[[0,0]],headers:{1:{sorter:!1}}})};
 </script>
 </head>
-<body onload="loadsidebar();svtTableOut();">
+<body onload="loadsidebar();initTable();">
 <!--二欄橫幅主要區塊開始-->
 <div style='position:relative;'>
     <!--選單區塊開始-->
@@ -46,24 +45,24 @@ master.mstSvt[a].id&&master.mstSvtLimit[c].limitCount==master.mstSvt[a].limitMax
 <div class="container">
 <article class="content textsize">
 	<a href="servant.html"><div class="bkmk">Servant列表</div></a>
-	<div class="bkmkO">Lv.100二圍列表</div>
-	<a href="cv.html"><div class="bkmk">ＣＶ列表</div></a>
-	<a href="illustrator.html"><div class="bkmk">繪師列表</div></a><div style="clear:left;"></div>
+	<div class="bkmkO">各等二圍列表</div>
+	<a href="status_compare.html"><div class="bkmk">曲線圖比較</div></a>
 <table style="text-align:center;" class="tablesorter">
-<tr><th rowspan=2 colspan=2>聖杯轉臨後<br>等級上限</th><th rowspan=2>原上限</th><th colspan=10>轉臨次數</th></tr>
-<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+<tr><th rowspan=2 colspan=2>聖杯轉臨後<br>等級上限</th><th colspan=11>轉臨次數</th></tr>
+<tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
 <tr><th rowspan=6>稀有度<br>★</th><td>0</td><td>65</td><td>70</td><td>75</td><td>80</td><td>85</td><td>90</td><td>92</td><td>94</td><td>96</td><td>98</td><td>100</td></tr>
 <tr><td>1</td><td>60</td><td>70</td><td>75</td><td>80</td><td>85</td><td>90</td><td>92</td><td>94</td><td>96</td><td>98</td><td>100</td></tr>
 <tr><td>2</td><td>65</td><td>70</td><td>75</td><td>80</td><td>85</td><td>90</td><td>92</td><td>94</td><td>96</td><td>98</td><td>100</td></tr>
-<tr><td>3</td><td>70</td><td>75</td><td>80</td><td>85</td><td>90</td><td>92</td><td>94</td><td>96</td><td>98</td><td>100</td><td></td></tr>
-<tr><td>4</td><td>80</td><td>85</td><td>90</td><td>92</td><td>94</td><td>96</td><td>98</td><td>100</td><td></td><td></td><td></td></tr>
-<tr><td>5</td><td>90</td><td>92</td><td>94</td><td>96</td><td>98</td><td>100</td><td></td><td></td><td></td><td></td><td></td></tr>
-</table>
+<tr><td>3</td><td>70</td><td>75</td><td>80</td><td>85</td><td>90</td><td>92</td><td>94</td><td>96</td><td>98</td><td>100</td><td>－</td></tr>
+<tr><td>4</td><td>80</td><td>85</td><td>90</td><td>92</td><td>94</td><td>96</td><td>98</td><td>100</td><td>－</td><td>－</td><td>－</td></tr>
+<tr><td>5</td><td>90</td><td>92</td><td>94</td><td>96</td><td>98</td><td>100</td><td>－</td><td>－</td><td>－</td><td>－</td><td>－</td></tr>
+</table><hr>
 <form>
   <fieldset style="width:550px;text-align:center;">
     <legend>篩選條件</legend>
-	<img src="common/images/icon/class/class_1001_4.png" title="全選" onclick="classAllOn();" class="classA"/>
-	<img src="common/images/icon/class/class_1001_1.png" title="全消" onclick="classAllOff();" class="classA"/><br>
+	<img src="common/images/icon/class/class_1001_4.png" title="職階全選" onclick="classAllOn();" class="classA"/>
+	<img src="common/images/icon/class/class_1001_1.png" title="職階全消" onclick="classAllOff();" class="classA"/>
+	<img src="common/images/icon/class/star_new.png" title="稀有度全選/消" onclick="rarityAllOff();" class="classR"/><br>
     <img src="common/images/icon/class/class_1_4.png" title="Saber" onclick="classOff(this);" class="classF"/>
 	<img src="common/images/icon/class/class_2_4.png" title="Archer" onclick="classOff(this);" class="classF"/>
 	<img src="common/images/icon/class/class_3_4.png" title="Lancer" onclick="classOff(this);" class="classF"/>
@@ -80,10 +79,16 @@ master.mstSvt[a].id&&master.mstSvtLimit[c].limitCount==master.mstSvt[a].limitMax
 	<input type="checkbox" id="rarity3" class="rarityF" value="3"/><span class="star">★★★</span>
 	<input type="checkbox" id="rarity4" class="rarityF" value="4"/><span class="star">★★★★</span>
 	<input type="checkbox" id="rarity5" class="rarityF" value="5"/><span class="star">★★★★★</span>
-	<br><input type="button" value="開始篩選" onclick="classFilter('lv100.html');">
+	<br><select id="svtlv"></select>
+	<br><input type="button" value="開始篩選" onclick="updateTable();">
   </fieldset>
 </form>
-<table onload="" id="svtTable" class="tablesorter nopadding mouseover" width=800><tr><td></td></tr></table>
+<table onload="" id="svtTable" class="tablesorter nopadding mouseover" width=800>
+<thead>
+<tr><th>No.</th><th>Servant</th><th>職階</th><th>★</th><th>HP</th><th>ATK</th><th>HP<br>Max強化</th><th>ATK<br>Max強化</th></tr>
+</thead>
+<tbody></tbody>
+</table>
 </article>
 </div>
 <div id="gotop"><a href="#"><img src="common/images/btn_gotop_off.jpg" width="47" height="47" alt="返回頂端" /></a></div>

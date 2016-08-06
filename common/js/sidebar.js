@@ -1,6 +1,6 @@
 ﻿function loadsidebar()
 {
-	document.getElementById('div_right_sidebar').innerHTML="<a href='./'><div class='sidebarl' style='background-image:url(common/images/sidebar01.png);'>首頁</div></a><a href='http://goo.gl/HkTjzj' target='_blank'><div class='sidebarl' style='background-image:url(common/images/sidebar17.png);'>留言討論區</div></a><a href='servant.html'><div class='sidebarl' style='background-image:url(common/images/sidebar05.png);'>Servant</div></a><a href='skill.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>技能</div></a><a href='noble_phantasm.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>寶具</div></a><a href='status_compare.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>二圍比較</div></a><a href='hidden.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>隱藏數値</div></a><a href='craft_essence.html'><div class='sidebarl' style='background-image:url(common/images/sidebar09.png);'>概念禮裝</div></a><a href='item_drop.html'><div class='sidebarl' style='background-image:url(common/images/sidebar15.png);'>素材道具</div></a><a href='master_equip.html'><div class='sidebarl' style='background-image:url(common/images/sidebar03.png);'>Master相關</div></a><a href='donate.html'><div class='sidebarl' style='background-image:url(common/images/sidebar11.png);'><span class='red'>贊助支持</span></div></a><a onclick='alert(\"若非必要請盡量使用上面的留言討論區\");' href='https://goo.gl/forms/pW0CDVGfyg' target='_blank'><div class='sidebarl' style='background-image:url(common/images/sidebar08.png);'>意見回饋</div></a><a href='event_history.html'><div class='sidebarl' style='background-image:url(common/images/sidebar10.png);'>過去活動</div></a><a href='event_1st.html' title='「FGO夏祭2016～1st Anniversary～」'><div class='sidebar_event' style='background-image:url(common/images/2016/07/banner_100687812.png);'></div></a><a href='news_160729.html' title='「Servant強化關卡第4彈～1周年特別篇～」'><div class='sidebar_event' style='background-image:url(common/images/2016/07/banner_100709863.png);'></div></a><a href='news_160729a.html' title='「FGO夏祭2016～1st Anniversary～福袋召喚」'><div class='sidebar_event' style='background-image:url(common/images/2016/07/banner_100694385.png);'></div></a><a href='event_sixth.html' title='「第六特異點 神聖圓桌領域 卡美洛」開幕！'><div class='sidebar_event' style='background-image:url(common/images/2016/07/banner_100658765.png);'></div></a>";
+	document.getElementById('div_right_sidebar').innerHTML="<a href='./'><div class='sidebarl' style='background-image:url(common/images/sidebar01.png);'>首頁</div></a><a href='http://goo.gl/HkTjzj' target='_blank'><div class='sidebarl' style='background-image:url(common/images/sidebar17.png);'>留言討論區</div></a><a href='servant.html'><div class='sidebarl' style='background-image:url(common/images/sidebar05.png);'>Servant</div></a><a href='skill.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>技能</div></a><a href='noble_phantasm.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>寶具</div></a><a href='lv100.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>HP與ATK</div></a><a href='hidden.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>隱藏數値</div></a><a href='craft_essence.html'><div class='sidebarl' style='background-image:url(common/images/sidebar09.png);'>概念禮裝</div></a><a href='item_drop.html'><div class='sidebarl' style='background-image:url(common/images/sidebar15.png);'>素材道具</div></a><a href='master_equip.html'><div class='sidebarl' style='background-image:url(common/images/sidebar03.png);'>Master相關</div></a><a href='donate.html'><div class='sidebarl' style='background-image:url(common/images/sidebar11.png);'><span class='red'>贊助支持</span></div></a><a onclick='alert(\"若非必要請盡量使用上面的留言討論區\");' href='https://goo.gl/forms/pW0CDVGfyg' target='_blank'><div class='sidebarl' style='background-image:url(common/images/sidebar08.png);'>意見回饋</div></a><a href='event_history.html'><div class='sidebarl' style='background-image:url(common/images/sidebar10.png);'>過去活動</div></a><a href='event_1st.html' title='「FGO夏祭2016～1st Anniversary～」'><div class='sidebar_event' style='background-image:url(common/images/2016/07/banner_100687812.png);'></div></a><a href='news_160729.html' title='「Servant強化關卡第4彈～1周年特別篇～」'><div class='sidebar_event' style='background-image:url(common/images/2016/07/banner_100709863.png);'></div></a><a href='news_160729a.html' title='「FGO夏祭2016～1st Anniversary～福袋召喚」'><div class='sidebar_event' style='background-image:url(common/images/2016/07/banner_100694385.png);'></div></a><a href='event_sixth.html' title='「第六特異點 神聖圓桌領域 卡美洛」開幕！'><div class='sidebar_event' style='background-image:url(common/images/2016/07/banner_100658765.png);'></div></a>";
 }
 function sortByElmentNo(Object1){Object1 = Object1.sort(function (a,b){return a.collectionNo-b.collectionNo;});}
 function sortByElmentNoN(Object1){Object1 = Object1.sort(function (a,b){return b.collectionNo-a.collectionNo;});}
@@ -79,27 +79,36 @@ function classAllOn()
 		classOn(cl[i]);
 	}
 }
-function classFilter(urltxt)
+function rarityAllOff()
 {
+	$(".rarityF").prop("checked", false);
+	$(".classR").attr("onclick","rarityAllOn();");
+}
+function rarityAllOn()
+{
+	$(".rarityF").prop("checked", true);
+	$(".classR").attr("onclick","rarityAllOff();");
+}
+var classarray = "1,2,3,4,5,6,7,8,9,11,17".split(/,/).slice(0);
+var rarityarray = "0,1,2,3,4,5".split(/,/).slice(0);
+function updateTable()
+{
+	var lastSortList=$("#svtTable")[0].config.sortList;
+	classarray.length = 0
+	rarityarray.length = 0
 	var cl=document.getElementsByClassName("classF");
-	var classarray = new Array();
 	for(var i=0;i<cl.length;i++)
 	{
 		if(cl[i].src.search("_4.png")!=-1) classarray.push(cl[i].src.substring(cl[i].src.indexOf("class_")+6,cl[i].src.indexOf("_4.png")));
 	}
-	var rarityarray = new Array();
 	cl=document.getElementsByClassName("rarityF");
 	for(i=0;i<cl.length;i++)
 	{
 		if(cl[i].checked==true) rarityarray.push(cl[i].value);
 	}
-	var classUrl = false; if(classarray!="1,2,3,4,5,6,7,8,9,11") classUrl=true;
-	var rarityUrl = false; if(urltxt.search(/servant|np_get/)!=-1) {if(rarityarray!="0,1,2,3,4,5") rarityUrl=true;} else {if(rarityarray!="1,2,3,4,5") rarityUrl=true;}
-	if(classUrl||rarityUrl) urltxt+="?";
-	if(classUrl) urltxt+="class="+classarray;
-	if(classUrl&&rarityUrl) urltxt+="&";
-	if(rarityUrl) urltxt+="rarity="+rarityarray;
-	window.location = urltxt;
+	svtTableOut();
+	$("#svtTable").trigger("update");
+	setTimeout(function(){$("#svtTable").trigger('sorton',[$("#svtTable")[0].config.sortList])},10);
 }
 function questRea(qstId)
 {

@@ -28,109 +28,15 @@
   ga('send', 'pageview');
 </script>
 <script type="text/javascript">
-function svtTableOut(searchData,searchId)
-{
-	var classarray = new Array();
-	var getClassId = "1,2,3,4,5,6,7,8,9,11,17";
-	if(getUrl("class")) getClassId = getUrl("class");
-	if(getClassId){
-		classarray = getClassId.split(/,/).slice(0);
-	}
-	
-	var cl=document.getElementsByClassName("classF");
-	for(var i=0;i<cl.length;i++)
-	{
-		for(j in classarray){
-			if(classarray[j]==cl[i].src.substring(cl[i].src.indexOf("class_")+6,cl[i].src.indexOf("_4.png"))) break;
-			if(j==classarray.length-1) classOff(cl[i]);
-		}
-	}
-	var rarityarray = new Array();
-	var getRarity = "0,1,2,3,4,5";
-	if(getUrl("rarity")) getRarity = getUrl("rarity");
-	if(getRarity){
-		rarityarray = getRarity.split(/,/).slice(0);
-	}
-	
-	cl=document.getElementsByClassName("rarityF");
-	for(i=0;i<cl.length;i++)
-	{
-		for(j in rarityarray){
-			if(cl[i].id=="rarity"+rarityarray[j]) {cl[i].checked=true;break;}
-		}
-	}
-	
-	var svtTableTxt="<thead><tr><th>圖示</th><th>編號</th><th>星數</th><th>名稱</th><th>職階</th><th>基本<br>HP</th><th>最大<br>HP</th><th>基本<br>ATK</th><th>最大<br>ATK</th><th>指令卡</th><th>寶具</th><th>Cost</th></tr></thead><tbody>";
-	var svtStatusList = ["","A","B","C","D","E","EX","?","?","－"];
-	var svtStatusPlusList = ["","","+","++","?","?","?","?","?",""];
-	for(i in master.mstSvt)
-	{
-		if((master.mstSvt[i].type==1||master.mstSvt[i].type==2||master.mstSvt[i].type==5||master.mstSvt[i].type==9||master.mstSvt[i].type==99)&&master.mstSvt[i].collectionNo!=0)
-		{
-		for(var t in classarray){
-			if (classarray[t]==master.mstSvt[i].classId){
-
-			for(var j in master.mstSvtLimit)
-				{if(master.mstSvtLimit[j].svtId==master.mstSvt[i].id)break;}
-				for(var h in rarityarray){
-					if (rarityarray[h]==master.mstSvtLimit[j].rarity){
-			if(master.mstSvt[i].collectionNo==0) svtTableTxt+="<tr align=\"center\"><td><a href='svtData.html?id="+master.mstSvt[i].id+"'>";
-			else svtTableTxt+="<tr align=\"center\"><td><a href='svtData.html?no="+master.mstSvt[i].collectionNo+"'>";
-			svtTableTxt+="<img src='common/images/icon/faces/"+master.mstSvt[i].id+"0.png' onerror=javascript:this.src='common/images/icon/faces/0.png' title='"+findSvtNameZh2(master.mstSvt[i].id)+"' width=80></img>";
-			svtTableTxt+="</a></td>";
-			
-			svtTableTxt+="<td>"+master.mstSvt[i].collectionNo+"</td><td class=\"star\">";
-			if(master.mstSvtLimit[j].rarity==0) svtTableTxt+="－";
-			for(var c=0;c<master.mstSvtLimit[j].rarity;c++)
-				svtTableTxt+="★";
-			svtTableTxt+="</td>";
-			
-			if(master.mstSvt[i].collectionNo==0) svtTableTxt+="<td><a href='svtData.html?id="+master.mstSvt[i].id+"'>";
-			else svtTableTxt+="<td><a href='svtData.html?no="+master.mstSvt[i].collectionNo+"'>";
-			var svtNameZh = findSvtNameZh(master.mstSvt[i].id);
-			if(svtNameZh) svtTableTxt+="<div class=ruby>"+master.mstSvt[i].ruby+"</div>"+svtNameZh;
-			else svtTableTxt+=master.mstSvt[i].name;
-			svtTableTxt+="</a></td>";
-			
-			svtTableTxt+="<td><span style='display:none'>"+master.mstSvt[i].classId+"</span><img src='common/images/icon/class/class_"+findClassImageId(master.mstSvt[i].classId)+"_"+master.mstSvtLimit[j].rarity+".png' title='"+findClassName(master.mstSvt[i].classId)+"' class='itemS' /></td>";
-			
-			
-			svtTableTxt+="<td>"+master.mstSvtLimit[j].hpBase+"</td><td>"+master.mstSvtLimit[j].hpMax+"</td><td>"+master.mstSvtLimit[j].atkBase+"</td><td>"+master.mstSvtLimit[j].atkMax+"</td>";
-			
-			svtTableTxt+="<td width=200>";
-			for(c=0;c<master.mstSvt[i].cardIds.length;c++){
-				svtTableTxt+="<img src='common/images/icon/cmdCard/icon_cmdCard_"+master.mstSvt[i].cardIds[c]+".png' width=60";
-				if(c!=master.mstSvt[i].cardIds.length-1)svtTableTxt+=" style='margin-right: -30px;'"
-				svtTableTxt+="></img>";
-			}
-			for(c=0;c<master.mstSvt[i].cardIds.length;c++)
-				svtTableTxt+="<span style='display:none'>"+master.mstSvt[i].cardIds[c]+"</span>";
-			svtTableTxt+="</td>";
-			
-			svtTableTxt+="<td>";
-			for(c in master.mstSvtTreasureDevice){
-				if(master.mstSvt[i].id==master.mstSvtTreasureDevice[c].svtId)
-					{svtTableTxt+="<img src='common/images/icon/cmdCard/icon_cmdCard_"+master.mstSvtTreasureDevice[c].cardId+".png' width=60></img>";
-					svtTableTxt+="<span style='display:none'>"+master.mstSvtTreasureDevice[c].cardId+"</span>";
-					break;}
-			}
-			svtTableTxt+="</td>";
-			
-			//svtTableTxt+="<td>"+svtStatusList[Math.floor(master.mstSvtLimit[j].luck/10)]+svtStatusPlusList[master.mstSvtLimit[j].luck%10]+"</td>";
-			svtTableTxt+="<td>"+master.mstSvt[i].cost+"</td>";
-			svtTableTxt+="</tr>";
-			break;}}
-		break;}}}
-		
-	
-	}
-	svtTableTxt+="</tbody>";
-	document.getElementById("svtTable").innerHTML=svtTableTxt;
-	$("#svtTable").tablesorter({sortList: [[1,1]], headers: { 0:{sorter: false}, 3:{sorter: false}}});
-}
+function svtTableOut(){var a="";for(i in master.mstSvt)if((1==master.mstSvt[i].type||2==master.mstSvt[i].type||5==master.mstSvt[i].type||9==master.mstSvt[i].type||99==master.mstSvt[i].type)&&0!=master.mstSvt[i].collectionNo)for(var e in classarray)if(classarray[e]==master.mstSvt[i].classId){for(var d in master.mstSvtLimit)if(master.mstSvtLimit[d].svtId==master.mstSvt[i].id)break;for(var f in rarityarray)if(rarityarray[f]==master.mstSvtLimit[d].rarity){a=0==master.mstSvt[i].collectionNo?a+('<tr align="center"><td><a href=\'svtData.html?id='+
+master.mstSvt[i].id+"'>"):a+('<tr align="center"><td><a href=\'svtData.html?no='+master.mstSvt[i].collectionNo+"'>");a+="<img src='common/images/icon/faces/"+master.mstSvt[i].id+"0.png' onerror=javascript:this.src='common/images/icon/faces/0.png' title='"+findSvtNameZh2(master.mstSvt[i].id)+"' width=80></img>";a+="</a></td>";a+="<td>"+master.mstSvt[i].collectionNo+'</td><td class="star">';0==master.mstSvtLimit[d].rarity&&(a+="\uff0d");for(var b=0;b<master.mstSvtLimit[d].rarity;b++)a+="\u2605";a+=
+"</td>";a=0==master.mstSvt[i].collectionNo?a+("<td><a href='svtData.html?id="+master.mstSvt[i].id+"'>"):a+("<td><a href='svtData.html?no="+master.mstSvt[i].collectionNo+"'>");a=(b=findSvtNameZh(master.mstSvt[i].id))?a+("<div class=ruby>"+master.mstSvt[i].ruby+"</div>"+b):a+master.mstSvt[i].name;a+="</a></td>";a+="<td><span style='display:none'>"+master.mstSvt[i].classId+"</span><img src='common/images/icon/class/class_"+findClassImageId(master.mstSvt[i].classId)+"_"+master.mstSvtLimit[d].rarity+".png' title='"+
+findClassName(master.mstSvt[i].classId)+"' class='itemS' /></td>";a+="<td>"+master.mstSvtLimit[d].hpBase+"</td><td>"+master.mstSvtLimit[d].hpMax+"</td><td>"+master.mstSvtLimit[d].atkBase+"</td><td>"+master.mstSvtLimit[d].atkMax+"</td>";a+="<td width=200>";for(b=0;b<master.mstSvt[i].cardIds.length;b++)a+="<img src='common/images/icon/cmdCard/icon_cmdCard_"+master.mstSvt[i].cardIds[b]+".png' width=60",b!=master.mstSvt[i].cardIds.length-1&&(a+=" style='margin-right: -30px;'"),a+="></img>";for(b=0;b<
+master.mstSvt[i].cardIds.length;b++)a+="<span style='display:none'>"+master.mstSvt[i].cardIds[b]+"</span>";a+="</td>";a+="<td>";for(b in master.mstSvtTreasureDevice)if(master.mstSvt[i].id==master.mstSvtTreasureDevice[b].svtId){a+="<img src='common/images/icon/cmdCard/icon_cmdCard_"+master.mstSvtTreasureDevice[b].cardId+".png' width=60></img>";a+="<span style='display:none'>"+master.mstSvtTreasureDevice[b].cardId+"</span>";break}a+="</td>";a+="<td>"+master.mstSvt[i].cost+"</td>";a+="</tr>";break}break}$("#svtTable tbody").empty();
+$("#svtTable tbody").append(a)}function initTable(){var a=document.getElementsByClassName("rarityF");for(c in a)for(j in rarityarray)if(a[c].id=="rarity"+rarityarray[j]){a[c].checked=!0;break}svtTableOut();$("#svtTable").tablesorter({sortList:[[1,1]],headers:{0:{sorter:!1},3:{sorter:!1}}})};
 </script>
 </head>
-<body onload="loadsidebar();svtTableOut();">
+<body onload="loadsidebar();initTable();">
 <!--二欄橫幅主要區塊開始-->
 <div style='position:relative;'>
     <!--選單區塊開始-->
@@ -141,14 +47,15 @@ function svtTableOut(searchData,searchId)
 <div class="container">
 <article class="content textsize">
 	<div class="bkmkO">Servant列表</div>
-	<a href="lv100.html"><div class="bkmk">Lv.100二圍列表</div></a>
+	<a href="lv100.html"><div class="bkmk">各等二圍列表</div></a>
 	<a href="cv.html"><div class="bkmk">ＣＶ列表</div></a>
 	<a href="illustrator.html"><div class="bkmk">繪師列表</div></a><div style="clear:left;"></div>
 <form>
   <fieldset style="width:550px;text-align:center;">
     <legend>篩選條件</legend>
 	<img src="common/images/icon/class/class_1001_4.png" title="全選" onclick="classAllOn();" class="classA"/>
-	<img src="common/images/icon/class/class_1001_1.png" title="全消" onclick="classAllOff();" class="classA"/><br>
+	<img src="common/images/icon/class/class_1001_1.png" title="全消" onclick="classAllOff();" class="classA"/>
+	<img src="common/images/icon/class/star_new.png" title="稀有度全選/消" onclick="rarityAllOff();" class="classR"/><br>
     <img src="common/images/icon/class/class_1_4.png" title="Saber" onclick="classOff(this);" class="classF"/>
 	<img src="common/images/icon/class/class_2_4.png" title="Archer" onclick="classOff(this);" class="classF"/>
 	<img src="common/images/icon/class/class_3_4.png" title="Lancer" onclick="classOff(this);" class="classF"/>
@@ -165,10 +72,10 @@ function svtTableOut(searchData,searchId)
 	<input type="checkbox" id="rarity3" class="rarityF" value="3"/><span class="star">★★★</span>
 	<input type="checkbox" id="rarity4" class="rarityF" value="4"/><span class="star">★★★★</span>
 	<input type="checkbox" id="rarity5" class="rarityF" value="5"/><span class="star">★★★★★</span>
-	<br><input type="button" value="開始篩選" onclick="classFilter('servant.html');">
+	<br><input type="button" value="開始篩選" onclick="updateTable();">
   </fieldset>
 </form>
-<table onload="" id="svtTable" class="tablesorter mouseover" width=1270><tr><td></td></tr></table>
+<table onload="" id="svtTable" class="tablesorter mouseover" width=1270><thead><tr><th>圖示</th><th>編號</th><th>星數</th><th>名稱</th><th>職階</th><th>基本<br>HP</th><th>最大<br>HP</th><th>基本<br>ATK</th><th>最大<br>ATK</th><th>指令卡</th><th>寶具</th><th>Cost</th></tr></thead><tbody></tbody></table>
 </article>
 </div>
 <div id="gotop"><a href="#"><img src="common/images/btn_gotop_off.jpg" width="47" height="47" alt="返回頂端" /></a></div>

@@ -267,6 +267,11 @@ table.tablesorter tr:nth-child(2n) {
 	width: 50px;
 	vertical-align: middle;
 }
+.classR {
+	height: 50px;
+	width: 50px;
+	vertical-align: middle;
+}
 div.warIcon {
 	width:40px;
 	height:30px;
