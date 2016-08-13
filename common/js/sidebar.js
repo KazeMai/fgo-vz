@@ -5,7 +5,7 @@
 function sortByElmentNo(Object1){Object1 = Object1.sort(function (a,b){return a.collectionNo-b.collectionNo;});}
 function sortByElmentNoN(Object1){Object1 = Object1.sort(function (a,b){return b.collectionNo-a.collectionNo;});}
 function sortByElmentId(Object1){Object1 = Object1.sort(function (a,b){return a.id-b.id;});}
-function sortByElmentType(Object1){Object1 = Object1.sort(function (a,b){if(a.collectionNo==0||b.collectionNo==0) return a.id - b.id ||a.type - b.type || a.collectionNo - b.collectionNo;return a.type - b.type || a.collectionNo - b.collectionNo;});}
+function sortByElmentType(Object1){Object1 = Object1.sort(function (a,b){return a.type - b.type || a.collectionNo - b.collectionNo;});}
 function addCommas(nStr) {
 	nStr += '';
 	x = nStr.split('.');

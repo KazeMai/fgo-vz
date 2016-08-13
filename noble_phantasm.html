@@ -104,7 +104,7 @@ function trdvDataOut(searchData,searchId)
 					sklTxt+="<td align=center rowspan="+skillrowCount+"><div class=ruby>"+master.mstTreasureDevice[k].ruby+"</div>";
 					
 							sklTxt+="<b><font color=\"#"+cardList[master.mstSvtTreasureDevice[t].cardId]+"\">"+master.mstTreasureDevice[k].name+"</font></b>";
-					sklTxt+="</td><td align=center rowspan="+skillrowCount+">"+master.mstTreasureDevice[k].rank+"</td><td align=center rowspan="+skillrowCount+">"+master.mstTreasureDevice[k].typeText.replace(/対/g,"對").replace(/宝/g,"寶").replace(/剣/g,"劍").replace(/悪/g,"惡").replace(/奥/g,"奧").replace(/セイバー/g,"Saber")+"</td>";
+					sklTxt+="</td><td align=center rowspan="+skillrowCount+">"+master.mstTreasureDevice[k].rank+"</td><td align=center rowspan="+skillrowCount+">"+master.mstTreasureDevice[k].typeText.replace(/／/g,"／<br>").replace(/対/g,"對").replace(/宝/g,"寶").replace(/剣/g,"劍").replace(/悪/g,"惡").replace(/奥/g,"奧").replace(/セイバー/g,"Saber").replace(/竜/g,"龍")+"</td>";
 					
 					sklTxt+="<td align=center rowspan="+skillrowCount+">";
 					if(tdDetailTxt[1].search(/攻擊[^力]|攻撃[^力]/)==-1) sklTxt+="－";

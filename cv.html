@@ -30,7 +30,7 @@ function cvDataOut()
 	var cvTxt="<tr><th style='width:150px;'>ＣＶ</th><th>Servant</th></tr>";
 	for(var i in master.mstCv)
 	{
-		if(master.mstCv[i].id>1)
+		if(master.mstCv[i].id>1&&master.mstCv[i].name.length!=0)
 		{
 			cvTxt+="<tr><td style='text-align:center;' id='"+master.mstCv[i].id+"'>"+master.mstCv[i].name+"</td><td>";
 			for(var j in master.mstSvt)
