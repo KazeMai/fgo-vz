@@ -67,6 +67,7 @@ function sklDataOut(searchData,searchId)
 				skDetailArray[d]=skDetailArray[d].replace(/\[Lv.]/g,"<font color=\"#CC00CC \">[Lv.]</font>");
 				skDetailArray[d]=skDetailArray[d].replace(/【/g,"<font color=\"#006400 \">【");
 				skDetailArray[d]=skDetailArray[d].replace(/】/g,"】</font>");
+				skDetailArray[d]=skDetailArray[d].replace(/\n/g,"<br>");
 				
 				if(document.getElementById('isJpTxt').checked) skillText+="<td colspan=11>"+skDetailArray[d]+"</td>";
 				
