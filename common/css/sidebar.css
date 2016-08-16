@@ -184,7 +184,7 @@ table.tablesorter th{
 
 table.tablesorter thead tr th, table.tablesorter tfoot tr th {
 	/*color: #fff;*/
-	padding: 8px 15px;
+	padding: 5px 5px;
 	background-color: #094d9d;
 	font-weight: bold;
 	border-left:1px solid #666666;
@@ -202,7 +202,7 @@ table.tablesorter th:last-child {
 }
 
 table.tablesorter tr td {
-	padding: 8px 15px;
+	padding: 5px 5px;
 	border-bottom: 1px solid #666666;
 	border-left: 1px solid #666666;
 }
@@ -316,7 +316,7 @@ div.spotname{
 	background-image: url("../images/icon/war/spot_name.png");
 	background-position: center center;
 	background-repeat: no-repeat;
-	background-size: 130px 30px;
+	background-size: 100% 30px;
 	float:left;
 }
 div.questinfo{

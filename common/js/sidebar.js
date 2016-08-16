@@ -31,6 +31,12 @@ function findName(searchData,searchId)
 		if(searchData[i].id==searchId) return i;
 	return null;
 }
+function nowTime()
+{
+	var date = new Date() ;
+	var unixTimestamp = Math.floor( date.getTime() / 1000 ) ;
+	return unixTimestamp;
+}
 function getUrl(getStr)
 {
 	var url=window.location.toString(); //取得當前網址   
