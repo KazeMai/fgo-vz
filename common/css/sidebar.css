@@ -401,7 +401,7 @@ dl.accordion dd p {
 	margin: 0;
 }
 dt.act .arrowAC{
-	background-image: url("../images/arrow_close.png");
+	background-image: url("../images/2016/03/arrow_open.png");
 	background-size: 20px 20px;
 	background-repeat: no-repeat;
 	width: 20px;
@@ -409,7 +409,7 @@ dt.act .arrowAC{
 	float: right;
 }
 dt.open .arrowAC{
-	background-image: url("../images/arrow_open.png");
+	background-image: url("../images/2016/03/arrow_close.png");
 	background-size: 20px 20px;
 	background-repeat: no-repeat;
 	width: 20px;
