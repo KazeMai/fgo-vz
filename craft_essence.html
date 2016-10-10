@@ -35,7 +35,6 @@ function crtTableOut(searchData,searchId)
 		{
 			for(var j in master.mstSvtLimit)
 				{if(master.mstSvtLimit[j].svtId==master.mstSvt[i].id)break;}
-			
 			crtTableTxt+="<tr align=\"center\"><td><a href='ceData.html?no="+master.mstSvt[i].collectionNo+"'>";
 			crtTableTxt+="<img src='common/images/icon/faces/"+master.mstSvt[i].id+".png' onerror=javascript:this.src='common/images/icon/faces/0.png' width=80></img>";
 			crtTableTxt+="</a></td>";
