@@ -26,6 +26,12 @@
   ga('require', 'displayfeatures');
   ga('send', 'pageview');
 </script>
+<style type="text/css">
+.itemM {
+ width:50px;
+ height:50px;
+}
+</style>
 <script type="text/javascript">
 sortByElmentType(master.mstSvt);
 function indiOut(){var d,c,b=[],a,e,f,k,g,h=document.getElementsByClassName("indiTd");for(f=0;f<h.length;f++){d="";b.length=0;for(a in master.mstSvt)1!=master.mstSvt[a].type&&2!=master.mstSvt[a].type||b.push(master.mstSvt[a].id);c=h[f].id.replace(/indi/g,"").replace(/N/g,"").split(/-/);for(k in c)if(-1==h[f].id.search(/N/))for(a in master.mstSvt){if(1==master.mstSvt[a].type||2==master.mstSvt[a].type)for(e in master.mstSvt[a].individuality){if(master.mstSvt[a].individuality[e]==c[k])break;if(e==master.mstSvt[a].individuality.length-
@@ -210,14 +216,15 @@ function atrriRelation(){for(var d,c,b=document.getElementsByClassName("attriR")
 </td></tr>
 <tr><th>〔王以外〕</th><td id="indi2069" class="indiTd">
 </td></tr>
-<tr><th>〔帥哥〕</th><td id="indi2070" class="indiTd">
+<tr><th>〔達文西特選〕</th><td id="indi2070" class="indiTd">
+<a href='svtData.html?no=10'><img src='common/images/icon/faces/1026000.png' class='itemM' title='夏爾・德翁' /></a><a href='svtData.html?no=94'><img src='common/images/icon/faces/4004000.png' class='itemM' title='阿斯托爾福' /></a>
 </td></tr>
-<tr><th>〔低身長〕</th><td id="indi2071" class="indiTd">
+<tr><th>〔165cm以下〕</th><td id="indi2071" class="indiTd">
 </td></tr>
 <tr><th>〔新参者〕</th><td id="indi2072" class="indiTd">
 </td></tr>
 <tr><th>〔正義の者〕</th><td id="indi702200">
-<a href='svtData.html?no=116'><img src='common/images/icon/faces/7022000.png' class='itemM' title='茨木童子' /></a>＋<a href='hidden.html#indi303' class='hint'>〔善〕</a>
+<a href='svtData.html?no=116'><img src='common/images/icon/faces/7022000.png' class='itemM' title='茨木童子' /></a><a href='svtData.html?no=11'><img src='common/images/icon/faces/2001000.png' class='itemM' title='Emiya' /></a><a href='svtData.html?no=47'><img src='common/images/icon/faces/7001000.png' class='itemM' title='海克力斯' /></a><a href='svtData.html?no=109'><img src='common/images/icon/faces/6015000.png' class='itemM' title='Emiya〔Assassin〕' /></a>＋<a href='hidden.html#indi303' class='hint'>〔善〕</a>
 </td></tr>
 </table>
 <hr>
