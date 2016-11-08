@@ -88,30 +88,36 @@ function classAllOn()
 function rarityAllOff()
 {
 	$(".rarityF").prop("checked", false);
-	$(".classR").attr("onclick","rarityAllOn();");
+	$(".classAR").attr("onclick","rarityAllOn();");
 }
 function rarityAllOn()
 {
 	$(".rarityF").prop("checked", true);
-	$(".classR").attr("onclick","rarityAllOff();");
+	$(".classAR").attr("onclick","rarityAllOff();");
 }
 var classarray = "1,2,3,4,5,6,7,8,9,11,17".split(/,/).slice(0);
 var rarityarray = "0,1,2,3,4,5".split(/,/).slice(0);
+var gTarray = "1,2,3,4,5,6".split(/,/).slice(0);
 function updateTable()
 {
 	var lastSortList=$("#svtTable")[0].config.sortList;
-	classarray.length = 0
-	rarityarray.length = 0
+	classarray.length = 0;
+	rarityarray.length = 0;
+	gTarray.length = 0;
 	var cl=document.getElementsByClassName("classF");
 	for(var i=0;i<cl.length;i++)
 	{
 		if(cl[i].src.search("_4.png")!=-1) classarray.push(cl[i].src.substring(cl[i].src.indexOf("class_")+6,cl[i].src.indexOf("_4.png")));
 	}
-	cl=document.getElementsByClassName("rarityF");
-	for(i=0;i<cl.length;i++)
-	{
-		if(cl[i].checked==true) rarityarray.push(cl[i].value);
-	}
+	$("input[class='rarityF']").each(function() {
+		if($(this).prop("checked")==true)
+			rarityarray.push($(this).prop("value"));
+	});
+	$("input[class='getType']").each(function() {
+		if($(this).prop("checked")==true)
+			gTarray.push($(this).prop("value"));
+	});
+	
 	svtTableOut();
 	$("#svtTable").trigger("update");
 	setTimeout(function(){$("#svtTable").trigger('sorton',[$("#svtTable")[0].config.sortList])},10);
