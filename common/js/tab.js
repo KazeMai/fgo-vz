@@ -1,4 +1,5 @@
-﻿	$(function(){
+﻿function tab_init(){
+	$(function(){
 		// 預設顯示第一個 Tab
 		var _showTab = 0;
 		$('ul.tabs li').eq(_showTab).addClass('active');
@@ -21,3 +22,4 @@
 			this.blur();
 		});
 	});
+}

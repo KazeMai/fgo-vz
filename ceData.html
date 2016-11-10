@@ -39,14 +39,14 @@ function svtlvChange(){for(var a in master.mstSvtLimit)if(master.mstSvtLimit[a].
 1E3);hp.value=Math.floor(master.mstSvtLimit[a].hpBase+(master.mstSvtLimit[a].hpMax-master.mstSvtLimit[a].hpBase)*master.mstSvtExp[c].curve/1E3);break}break}break}}function findSkDetailZh(a){var b,c;for(c in skDetail)if(a==skDetail[c][0]){b=skDetail[c][1];break}if(document.getElementById("isJpTxt").checked||!b)for(c=0;c<master.mstSkillDetail.length;c++)if(a==master.mstSkillDetail[c].id){b=master.mstSkillDetail[c].detail;break}return b}
 function svtlocation(a){a="";for(var b in master.mstSvt)if(master.mstSvt[b].id==svtid.value){a=0!=master.mstSvt[b].collectionNo?a+("?no="+master.mstSvt[b].collectionNo):a+("?id="+master.mstSvt[b].id);break}"file:"==location.protocol?changeURL(location.protocol+"//"+location.pathname+a):changeURL(location.protocol+"//"+location.hostname+location.pathname+a);svtidChange()};
 </script>
-<script>
+<!-- <script>
 $(function(){
 	$(".accordion dt.act").on("click", function() {
 		$(this).next("dd").slideToggle();
 		$(this).toggleClass("open");
 	});
 });
-</script>
+</script> -->
 </head>
 <body onload="loadsidebar();optionInit();">
 <!--二欄橫幅主要區塊開始-->
