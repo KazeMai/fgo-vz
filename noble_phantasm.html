@@ -110,8 +110,10 @@ function trdvDataOut(searchData,searchId)
 					if(tdDetailTxt[1].search(/攻擊[^力]|攻撃[^力]/)==-1) sklTxt+="－";
 					else
 					{
-								sklTxt+=master.mstSvtTreasureDevice[t].damage.length+"Hit";
-								if(master.mstSvtTreasureDevice[t].damage.length>1) sklTxt+="s";
+						if(master.mstSvtTreasureDevice[t].damage.length>0) sklTxt+=master.mstSvtTreasureDevice[t].damage.length;
+						else sklTxt+="1";
+						sklTxt+="Hit";
+						if(master.mstSvtTreasureDevice[t].damage.length>1) sklTxt+="s";
 					}
 					sklTxt+="</td>"+skillText;
 					svtTrdvrowCount+=skillrowCount;
