@@ -630,3 +630,7 @@ span.new {
   background-size: contain;
   float:left;
 }
+.notice2 {
+ font-size: 1.1em;
+ font-weight: bold;
+}
