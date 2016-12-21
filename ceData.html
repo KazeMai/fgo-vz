@@ -29,6 +29,7 @@
 <script type="text/javascript">
 sortByElmentNo(master.mstSvt);
 function svtDataTable(a){for(var b in master.mstSvt)if(master.mstSvt[b].id==a)break;for(var c in master.mstSvtLimit)if(master.mstSvtLimit[c].svtId==a)break;a="<tr><td width=300 align=center rowspan=7>"+("<img src=common/images/CharaGraph/"+a+"a.png onerror=javascript:this.src='common/images/CharaGraph/0.png' width=300 /></td><th>\u7de8\u865f</th><th>\u661f\u6578</th><th>\u540d\u7a31</th><th>HP</th><th>ATK</th><th>\u7e6a\u5e2b</th></tr><tr align=\"center\"><td>No."+master.mstSvt[b].collectionNo+'</td><td class="star">');
+if(master.mstSvt[b].id<9400000&&master.mstSvt[b].collectionNo>402) $( "#matome" ).css( "display", "inline"); else $( "#matome" ).css( "display", "none");
 for(var d=0;d<master.mstSvtLimit[c].rarity;d++)a+="\u2605";a+="</td><td>"+master.mstSvt[b].name+"</td><td>"+master.mstSvtLimit[c].hpBase+" / "+master.mstSvtLimit[c].hpMax+"</td><td>"+master.mstSvtLimit[c].atkBase+" / "+master.mstSvtLimit[c].atkMax+"</td>";document.title=master.mstSvt[b].name+" - \u79ae\u88dd\u8cc7\u6599\u67e5\u8a62";for(d in master.mstIllustrator)if(master.mstIllustrator[d].id==master.mstSvt[b].illustratorId){a=1<master.mstIllustrator[d].id?a+("<td><a href='illustrator.html#"+master.mstIllustrator[d].id+
 "'>"+master.mstIllustrator[d].name.replace(/\uff06/g,"<br>\uff06")+"</a></td>"):a+("<td>"+master.mstIllustrator[d].name.replace(/\uff06/g,"<br>\uff06")+"</td>");break}a+="</tr><tr><th colspan=6>\u4fdd\u6709\u6280\u80fd</th></tr>";c=0;for(d in master.mstSvtSkill){if(master.mstSvtSkill[d].svtId==master.mstSvt[b].id&&0==master.mstSvtSkill[d].condLimitCount){for(var e in master.mstSkill)if(master.mstSkill[e].id==master.mstSvtSkill[d].skillId){a+="<tr><th><img src=common/images/SkillIcon/SkillIcon_"+master.mstSkill[e].iconId+
 ".png onerror=javascript:this.src='common/images/SkillIcon/SkillIcon_0.png' width=55></td>";break}a+="<td colspan=5>"+findSkDetailZh(master.mstSvtSkill[d].skillId)+"</td></tr>";for(e in bondCE)if(bondCE[e][0]==master.mstSvt[b].id){c=bondCE[e][1];a+="<tr><th>\u5c08\u5c6c<br>Servant</th><td colspan=5>";break}0==c&&(a+="<tr><th>\u6700\u5927<br>\u89e3\u653e</th><td colspan=5>")}master.mstSvtSkill[d].svtId==master.mstSvt[b].id&&4==master.mstSvtSkill[d].condLimitCount&&(a+=findSkDetailZh(master.mstSvtSkill[d].skillId))}0!=
@@ -70,7 +71,8 @@ $(function(){
   <strong><font color="#094a98">◆</font>HP</strong>
   <input id="hp" type="text" size="5"  readonly/>
 </p>
-
+<span class="notice" id="matome">由於fatede-go持續轉載卻未標明出處，圖片會暫緩放出<br>
+Due to fatede-go has been reproducing without source indicated, the graph disposing will be delay.</span>
 <table id="svtNrmlData" width=900><tr><td></td></tr></table>
 <div id="chart_div"></div>
 </article>
