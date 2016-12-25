@@ -34,13 +34,13 @@ function trdvDataOut(searchData,searchId)
 	var skillrowCount=0;
 	for(var c in master.mstSvt)
 	{
-		if(master.mstSvt[c].type==1||master.mstSvt[c].type==2||master.mstSvt[c].type==5||master.mstSvt[c].type==9||master.mstSvt[c].type==99){
+		if(master.mstSvt[c].type==1||master.mstSvt[c].type==2||master.mstSvt[c].type==5/*||master.mstSvt[c].type==9*/||master.mstSvt[c].type==99){
 			var svtTrdvrowCount=0;
 			var sklTxt="";
 			for(t in master.mstSvtTreasureDevice)
 			if(master.mstSvt[c].id==master.mstSvtTreasureDevice[t].svtId&&master.mstSvtTreasureDevice[t].treasureDeviceId!=100){
 			for(var k in master.mstTreasureDevice){
-				if(master.mstTreasureDevice[k].id==master.mstSvtTreasureDevice[t].treasureDeviceId){
+				if(master.mstTreasureDevice[k].id==master.mstSvtTreasureDevice[t].treasureDeviceId&&master.mstSvtTreasureDevice[t].num<10){
 					skillText="";
 					skillrowCount=0;
 					var tdDetailTxt = new Array();

@@ -96,7 +96,7 @@ function rarityAllOn()
 	$(".rarityF").prop("checked", true);
 	$(".classAR").attr("onclick","rarityAllOff();");
 }
-var classarray = "1,2,3,4,5,6,7,8,9,11,17,20".split(/,/).slice(0);
+var classarray = "1,2,3,4,5,6,7,8,9,11,17,20,22".split(/,/).slice(0);
 var rarityarray = "0,1,2,3,4,5".split(/,/).slice(0);
 var gTarray = "1,2,3,4,5,6".split(/,/).slice(0);
 function updateTable()
