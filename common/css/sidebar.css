@@ -595,6 +595,18 @@ padding-left: 2em;
 /* margin: 0;*/
 padding-left: 1em;
 }
+.topblock {
+position:fixed;
+_position:absolute;
+top:0;
+background-image: url(../images/detail_bg.png);
+margin-top:-30px;
+opacity:0.3;
+}
+.topblock:hover {
+margin-top:0px;
+opacity:1;
+}
 .topblock2 {
 position:fixed;
 _position:absolute;
