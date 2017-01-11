@@ -39,7 +39,7 @@ function itemDataOut()
 			
 			itemTxt+="<td>"+master.mstItem[i].detail.replace(/\n/g,"<br>")+"</td></tr>";
 			
-			if(itemA==1||itemA==2)
+			if(itemA==1||itemA==2||itemA==3)
 			{
 				itemTxt+="<tr><td colspan=4>";
 				var dropO = false;
@@ -48,11 +48,20 @@ function itemDataOut()
 					if(dropItem[j][1]==master.mstItem[i].id)
 					{
 						var qstNo = findName(master.mstQuest,dropItem[j][0]);
+						var sptNo = findName(master.mstSpot,master.mstQuest[qstNo].spotId);
+						var warNo = findName(master.mstWar,master.mstSpot[sptNo].warId);
 						//if(typeof master.mstQuest[qstNo] === 'undefined') alert(qstNo+","+dropItem[j][0]);
-						if(master.mstQuest[qstNo].type==2) itemTxt+="<div style=\"background-image:url('common/images/icon/war/"+(master.mstQuest[qstNo].chapterId+100)+".png')\" title='"+master.mstWar[findName(master.mstWar,master.mstQuest[qstNo].chapterId+100)].name.replace(/点/g,"點")+"' class='warIcon' /></div><div class='spotname'>"+master.mstSpot[findName(master.mstSpot,master.mstQuest[qstNo].spotId)].name+"</div>";
+						if(master.mstQuest[qstNo].type==2) itemTxt+="<div style=\"background-image:url('common/images/icon/war/"+master.mstWar[warNo].id+".png')\" title='"+master.mstWar[warNo].name.replace(/点/g,"點")+"' class='warIcon' /></div><div class='spotname'>"+master.mstSpot[findName(master.mstSpot,master.mstQuest[qstNo].spotId)].name+"</div>";
 						itemTxt+="<div class='questinfo'>"+master.mstQuest[qstNo].name+" "+master.mstQuest[qstNo].actConsume+"AP"+" (";
-						if(dropItem[j][3]!=null) itemTxt+=dropItem[j][3]+"~";
-						itemTxt+=dropItem[j][2]+")";
+						if(dropItem[j].length==3) itemTxt+=dropItem[j][2]/100+'%'
+						else
+						{
+							if(dropItem[j][3]!=null&&dropItem[j][3]!=0) itemTxt+=dropItem[j][3]+"~";
+							itemTxt+=dropItem[j][2];
+						}
+						itemTxt+=')';
+						/*if(dropItem[j][3]!=null) itemTxt+=dropItem[j][3]+"~";
+						itemTxt+=dropItem[j][2]+")";*/
 						itemTxt+="</div><div style=\"clear:left;\"></div>";
 						dropO = true;
 					}
@@ -117,13 +126,15 @@ function itemAttr(itemId,itemType)
 	<a href="#item3"><div class="bkmk">技能石</div>
 	<a href="#item4"><div class="bkmk">一般道具</div>
 	<a href="#item5"><div class="bkmk">活動道具</div></a><div style="clear:left;"></div>
-	<p>※僅<span class="notice">怪物素材</span>與<span class="notice">職階棋</span>會顯示掉落任務<br>※掉落任務僅限可重複挑戰的<span class="notice">Free任務</span>與<span class="notice">曜日任務</span><br>※括號內數字為可能掉落的敵人數，掉落率可能隨任務而有所差異</p>
+	<p>※可點選各強化素材顯示掉落任務<span class="notice">(第七章尚無職階棋及技能石資訊)</span><br>
+	※掉落任務僅限可重複挑戰的<span class="notice">Free關卡</span>與<span class="notice">曜日關卡</span><br>
+	※括號內數字若有<span class="notice">%</span>代表為一場戰鬥的理想掉落率，若無則為可能掉落的敵人數量，可能與實際機率有所差異，僅供參考</p>
 <h1>怪物素材</h1>
 <table id="item1" class="table table-expandable"><thead><tr><th>圖示</th><th>名稱</th><th>描述</th></tr></thead></table>
 <h1>職階棋</h1>
 <table id="item2" class="table table-expandable"><thead><tr><th>圖示</th><th>名稱</th><th>描述</th></tr></thead></table>
 <h1>技能石</h1>
-<table id="item3" style=""><tr><thead><th>圖示</th><th>名稱</th><th>描述</th></tr></thead></table>
+<table id="item3" class="table table-expandable"><thead><tr><th>圖示</th><th>名稱</th><th>描述</th></tr></thead></table>
 <h1>一般道具</h1>
 <table id="item4" style=""><tr><thead><th>圖示</th><th>名稱</th><th>描述</th></tr></thead></table>
 <h1>活動道具</h1>
