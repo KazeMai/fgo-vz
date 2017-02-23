@@ -8,7 +8,7 @@ function sortByElmentNoN(Object1){Object1 = Object1.sort(function (a,b){return b
 function sortByElmentId(Object1){Object1 = Object1.sort(function (a,b){return a.id-b.id;});}
 function sortByElmentType(Object1){Object1 = Object1.sort(function (a,b){return a.type - b.type || a.collectionNo - b.collectionNo;});}
 function slideOpen() {
-	$(".accordion dt").on("click", function() {
+	$(".accordion dt:not(.date)").on("click", function() {
 		$(this).next("dd").slideToggle();
 		$(this).toggleClass("open");
 	});
