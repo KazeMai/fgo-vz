@@ -104,7 +104,7 @@ function itemshow(itemId)
 }
 function itemAttr(itemId,itemType)
 {
-	if(itemType==14||itemType==15) return 5;
+	if(itemType==14||itemType==15||itemType==18||itemType==19) return 5;
 	else if(itemType==11&&itemId>6500) return 1;
 	else if(itemType==11&&itemId<=6500) return 3;
 	else if(itemType==12&&itemId<7200) return 2;
