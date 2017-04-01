@@ -91,10 +91,13 @@ $(function(){
 </script>
 </div>
 
-<div id="foolBanner" style="display:none;margin:0px auto;width:728px;height:90px;background:url('common/images/info_banner4.png');">
+<div id="foolBanner" style="cursor:pointer;display:none;margin:0px auto;width:728px;height:90px;background:url('common/images/info_banner4.png');">
 <script>
 var foolTime = nowTime();
 if(foolTime>=1490976000&&foolTime<1491062400) $("#foolBanner").css( "display" ,"block");
+$("#foolBanner").click(function(){
+  alert("愚人節快樂！\nHappy April Fools Day!");
+});
 </script>
 </div>
 
