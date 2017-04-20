@@ -646,3 +646,8 @@ span.new {
  font-size: 1.1em;
  font-weight: bold;
 }
+article img {
+    margin: 0;
+    max-width: 100%;
+    height: auto;
+}
