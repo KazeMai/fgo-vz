@@ -651,3 +651,29 @@ article img {
     max-width: 100%;
     height: auto;
 }
+.diamond {
+	color: #cb0000;
+}
+table.mt-15 .star {
+	color: #c0972d;
+	font-weight: bold;
+	text-shadow: none;
+	font-size: 100%;
+	text-align: left;
+}
+.gainen_ttl {
+	color: #053976;
+	font-weight: bold;
+}
+.gainen_atk {
+	color: #ff000c;
+	font-weight: bold;
+}
+.gainen_hp {
+	color: #0024ff;
+	font-weight: bold;
+}
+.gainen_skill {
+	color: #0072ff;
+	font-weight: bold;
+}
