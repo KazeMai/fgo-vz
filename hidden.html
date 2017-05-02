@@ -37,13 +37,11 @@ sortByElmentType(master.mstSvt);
 function indiOut(){var d,c,b=[],a,e,f,k,g,h=document.getElementsByClassName("indiTd");for(f=0;f<h.length;f++){d="";b.length=0;for(a in master.mstSvt)1!=master.mstSvt[a].type&&2!=master.mstSvt[a].type||b.push(master.mstSvt[a].id);c=h[f].id.replace(/indi/g,"").replace(/N/g,"").split(/-/);for(k in c)if(-1==h[f].id.search(/N/))for(a in master.mstSvt){if(1==master.mstSvt[a].type||2==master.mstSvt[a].type)for(e in master.mstSvt[a].individuality){if(master.mstSvt[a].individuality[e]==c[k])break;if(e==master.mstSvt[a].individuality.length-
 1)for(g in b)if(b[g]==master.mstSvt[a].id){delete b[g];break}}}else for(a in master.mstSvt)if(1==master.mstSvt[a].type||2==master.mstSvt[a].type||5==master.mstSvt[a].type||9==master.mstSvt[a].type)for(e in master.mstSvt[a].individuality)if(master.mstSvt[a].individuality[e]==c[k])for(g in b)if(b[g]==master.mstSvt[a].id){delete b[g];break}for(a in b)for(e in master.mstSvt)if(b[a]==master.mstSvt[e].id){d+="<a href='svtData.html?";d=0==master.mstSvt[e].collectionNo?d+("id="+master.mstSvt[e].id):d+("no="+
 master.mstSvt[e].collectionNo);d+="'><img src='common/images/icon/faces/"+master.mstSvt[e].id+"0.png' onerror=\"javascript:this.src='common/images/icon/faces/0.png'\" width=50 title='"+findSvtNameZh2(master.mstSvt[e].id)+"'></img></a>";break}d+="<br>"+document.getElementById(h[f].id).innerHTML;document.getElementById(h[f].id).innerHTML=d}}
-function classRelation(){for(var d,c,b=document.getElementsByClassName("classR"),a=0;a<b.length;a++){d=b[a].id.replace(/cr/g,"").split(/-/);c=1E3;for(var e in master.mstClassRelation)if(master.mstClassRelation[e].atkClass==d[0]&&master.mstClassRelation[e].defClass==d[1]){c=master.mstClassRelation[e].attackRate;break}1E3==c?document.getElementById(b[a].id).innerHTML="\uff0d":1E3<c?document.getElementById(b[a].id).innerHTML="<span class='red'>"+c/1E3+"</span>":1E3>c&&(document.getElementById(b[a].id).innerHTML=
-"<span class='blue'>"+c/1E3+"</span>")}}function classAtk(){for(var d,c=document.getElementsByClassName("classAtk"),b=0;b<c.length;b++){d=1E3;for(var a in master.mstClass)if(master.mstClass[a].id==c[b].id.replace(/cr/g,"")){d=master.mstClass[a].attackRate;break}1E3==d?document.getElementById(c[b].id).innerHTML="\uff0d":1E3<d?document.getElementById(c[b].id).innerHTML="<span class='red'>"+d/1E3+"</span>":1E3>d&&(document.getElementById(c[b].id).innerHTML="<span class='blue'>"+d/1E3+"</span>")}}
 function atrriRelation(){for(var d,c,b=document.getElementsByClassName("attriR"),a=0;a<b.length;a++){d=b[a].id.replace(/ar/g,"").split(/-/);c=1E3;for(var e in master.mstAttriRelation)if(master.mstAttriRelation[e].atkAttri==d[0]&&master.mstAttriRelation[e].defAttri==d[1]){c=master.mstAttriRelation[e].attackRate;break}1E3==c?document.getElementById(b[a].id).innerHTML="\uff0d":1E3<c?document.getElementById(b[a].id).innerHTML="<span class='red'>"+c/1E3+"</span>":1E3>c&&(document.getElementById(b[a].id).innerHTML=
 "<span class='blue'>"+c/1E3+"</span>")}};
 </script>
 </head>
-<body onload="loadsidebar();indiOut();classRelation();classAtk();atrriRelation();">
+<body onload="loadsidebar();indiOut();atrriRelation();">
 <!--二欄橫幅主要區塊開始-->
 <div style='position:relative;'>
     <!--選單區塊開始-->
@@ -59,24 +57,264 @@ function atrriRelation(){for(var d,c,b=document.getElementsByClassName("attriR")
 <article class="content textsize" style="width:1000px;">
 <span class="notice">本頁為遊戲程式實際情況敘述，與介紹文本不符處並非錯誤</span>
 <h1 id="class">職階相性</h1>
-<span class="notice">*1 含第六章以前的？魔神柱<br>*2 第七章的？<span style="color:black; background-color:black">牛若丸</span>也適用此相性</span>
+<span class="notice">・BeastI含第六章以前的？魔神柱<br>・第七章的？<span style="color:black; background-color:black">牛若丸</span>也適用BeastII相性</span>
 <table style="text-align:center;width:100%;">
-<tr><th colspan=2 rowspan=2>職階</th><th rowspan=2>傷害倍率</th><th colspan=13>防禦側</th></tr>
-<tr><th>Saber</th><th>Archer</th><th>Lancer</th><th>Rider</th><th>Caster</th><th>Assassin</th><th>Berserker</th><th>Shielder</th><th>Ruler</th><th>Alter Ego</th><th>Avenger</th><th>BeastI<span class="notice">*1</span></th><th>BeastII<span class="notice">*2</span></th></tr>
-<tr><th rowspan=13>攻擊側</th>
-<th>Saber</th><td id="cr1" class="classAtk"></td><td id="cr1-1" class="classR"></td><td id="cr1-2" class="classR"></td><td id="cr1-3" class="classR"></td><td id="cr1-4" class="classR"></td><td id="cr1-5" class="classR"></td><td id="cr1-6" class="classR"></td><td id="cr1-7" class="classR"></td><td id="cr1-8" class="classR"></td><td id="cr1-9" class="classR"></td><td id="cr1-10" class="classR"></td><td id="cr1-11" class="classR"></td><td id="cr1-12" class="classR"><td id="cr1-20" class="classR"></td></tr>
-<tr><th>Archer</th><td id="cr2" class="classAtk"></td><td id="cr2-1" class="classR"></td><td id="cr2-2" class="classR"></td><td id="cr2-3" class="classR"></td><td id="cr2-4" class="classR"></td><td id="cr2-5" class="classR"></td><td id="cr2-6" class="classR"></td><td id="cr2-7" class="classR"></td><td id="cr2-8" class="classR"></td><td id="cr2-9" class="classR"></td><td id="cr2-10" class="classR"></td><td id="cr2-11" class="classR"></td><td id="cr2-12" class="classR"></td><td id="cr2-20" class="classR"></td></tr>
-<tr><th>Lancer</th><td id="cr3" class="classAtk"></td><td id="cr3-1" class="classR"></td><td id="cr3-2" class="classR"></td><td id="cr3-3" class="classR"></td><td id="cr3-4" class="classR"></td><td id="cr3-5" class="classR"></td><td id="cr3-6" class="classR"></td><td id="cr3-7" class="classR"></td><td id="cr3-8" class="classR"></td><td id="cr3-9" class="classR"></td><td id="cr3-10" class="classR"></td><td id="cr3-11" class="classR"></td><td id="cr3-12" class="classR"></td><td id="cr3-20" class="classR"></td></tr>
-<tr><th>Rider</th><td id="cr4" class="classAtk"></td><td id="cr4-1" class="classR"></td><td id="cr4-2" class="classR"></td><td id="cr4-3" class="classR"></td><td id="cr4-4" class="classR"></td><td id="cr4-5" class="classR"></td><td id="cr4-6" class="classR"></td><td id="cr4-7" class="classR"></td><td id="cr4-8" class="classR"></td><td id="cr4-9" class="classR"></td><td id="cr4-10" class="classR"></td><td id="cr4-11" class="classR"></td><td id="cr4-12" class="classR"></td><td id="cr4-20" class="classR"></td></tr>
-<tr><th>Caster</th><td id="cr5" class="classAtk"></td><td id="cr5-1" class="classR"></td><td id="cr5-2" class="classR"></td><td id="cr5-3" class="classR"></td><td id="cr5-4" class="classR"></td><td id="cr5-5" class="classR"></td><td id="cr5-6" class="classR"></td><td id="cr5-7" class="classR"></td><td id="cr5-8" class="classR"></td><td id="cr5-9" class="classR"></td><td id="cr5-10" class="classR"></td><td id="cr5-11" class="classR"></td><td id="cr5-12" class="classR"></td><td id="cr5-20" class="classR"></td></tr>
-<tr><th>Assassin</th><td id="cr6" class="classAtk"></td><td id="cr6-1" class="classR"></td><td id="cr6-2" class="classR"></td><td id="cr6-3" class="classR"></td><td id="cr6-4" class="classR"></td><td id="cr6-5" class="classR"></td><td id="cr6-6" class="classR"></td><td id="cr6-7" class="classR"></td><td id="cr6-8" class="classR"></td><td id="cr6-9" class="classR"></td><td id="cr6-10" class="classR"></td><td id="cr6-11" class="classR"></td><td id="cr6-12" class="classR"></td><td id="cr6-20" class="classR"></td></tr>
-<tr><th>Berserker</th><td id="cr7" class="classAtk"></td><td id="cr7-1" class="classR"></td><td id="cr7-2" class="classR"></td><td id="cr7-3" class="classR"></td><td id="cr7-4" class="classR"></td><td id="cr7-5" class="classR"></td><td id="cr7-6" class="classR"></td><td id="cr7-7" class="classR"></td><td id="cr7-8" class="classR"></td><td id="cr7-9" class="classR"></td><td id="cr7-10" class="classR"></td><td id="cr7-11" class="classR"></td><td id="cr7-12" class="classR"></td><td id="cr7-20" class="classR"></td></tr>
-<tr><th>Shielder</th><td id="cr8" class="classAtk"></td><td id="cr8-1" class="classR"></td><td id="cr8-2" class="classR"></td><td id="cr8-3" class="classR"></td><td id="cr8-4" class="classR"></td><td id="cr8-5" class="classR"></td><td id="cr8-6" class="classR"></td><td id="cr8-7" class="classR"></td><td id="cr8-8" class="classR"></td><td id="cr8-9" class="classR"></td><td id="cr8-10" class="classR"></td><td id="cr8-11" class="classR"></td><td id="cr8-12" class="classR"></td><td id="cr8-20" class="classR"></td></tr>
-<tr><th>Ruler</th><td id="cr9" class="classAtk"></td><td id="cr9-1" class="classR"></td><td id="cr9-2" class="classR"></td><td id="cr9-3" class="classR"></td><td id="cr9-4" class="classR"></td><td id="cr9-5" class="classR"></td><td id="cr9-6" class="classR"></td><td id="cr9-7" class="classR"></td><td id="cr9-8" class="classR"></td><td id="cr9-9" class="classR"></td><td id="cr9-10" class="classR"></td><td id="cr9-11" class="classR"></td><td id="cr9-12" class="classR"></td><td id="cr9-20" class="classR"></td></tr>
-<tr><th>Alter Ego</th><td id="cr10" class="classAtk"></td><td id="cr10-1" class="classR"></td><td id="cr10-2" class="classR"></td><td id="cr10-3" class="classR"></td><td id="cr10-4" class="classR"></td><td id="cr10-5" class="classR"></td><td id="cr10-6" class="classR"></td><td id="cr10-7" class="classR"></td><td id="cr10-8" class="classR"></td><td id="cr10-9" class="classR"></td><td id="cr10-10" class="classR"></td><td id="cr10-11" class="classR"></td><td id="cr10-12" class="classR"></td><td id="cr10-20" class="classR"></td></tr>
-<tr><th>Avenger</th><td id="cr11" class="classAtk"></td><td id="cr11-1" class="classR"></td><td id="cr11-2" class="classR"></td><td id="cr11-3" class="classR"></td><td id="cr11-4" class="classR"></td><td id="cr11-5" class="classR"></td><td id="cr11-6" class="classR"></td><td id="cr11-7" class="classR"></td><td id="cr11-8" class="classR"></td><td id="cr11-9" class="classR"></td><td id="cr11-10" class="classR"></td><td id="cr11-11" class="classR"></td><td id="cr11-12" class="classR"></td><td id="cr11-20" class="classR"></td></tr>
-<tr><th>BeastI<span class="notice">*1</span></th><td id="cr12" class="classAtk"></td><td id="cr12-1" class="classR"></td><td id="cr12-2" class="classR"></td><td id="cr12-3" class="classR"></td><td id="cr12-4" class="classR"></td><td id="cr12-5" class="classR"></td><td id="cr12-6" class="classR"></td><td id="cr12-7" class="classR"></td><td id="cr12-8" class="classR"></td><td id="cr12-9" class="classR"></td><td id="cr12-10" class="classR"></td><td id="cr12-11" class="classR"></td><td id="cr12-12" class="classR"></td><td id="cr12-20" class="classR"></td></tr>
-<tr><th>BeastII<span class="notice">*2</span></th><td id="cr20" class="classAtk"></td><td id="cr20-1" class="classR"></td><td id="cr20-2" class="classR"></td><td id="cr20-3" class="classR"></td><td id="cr20-4" class="classR"></td><td id="cr20-5" class="classR"></td><td id="cr20-6" class="classR"></td><td id="cr20-7" class="classR"></td><td id="cr20-8" class="classR"></td><td id="cr20-9" class="classR"></td><td id="cr20-10" class="classR"></td><td id="cr20-11" class="classR"></td><td id="cr20-12" class="classR"></td><td id="cr20-20" class="classR"></td></tr>
+<tr><th colspan=2 rowspan=2>職階</th><th rowspan=2>傷害倍率</th><th colspan=14>防禦側</th></tr>
+<tr>
+<th><img src="common/images/icon/class/class_1_4.png" title="Saber" class="classS"/></th>
+<th><img src="common/images/icon/class/class_2_4.png" title="Archer" class="classS"/></th>
+<th><img src="common/images/icon/class/class_3_4.png" title="Lancer" class="classS"/></th>
+<th><img src="common/images/icon/class/class_4_4.png" title="Rider" class="classS"/></th>
+<th><img src="common/images/icon/class/class_5_4.png" title="Caster" class="classS"/></th>
+<th><img src="common/images/icon/class/class_6_4.png" title="Assassin" class="classS"/></th>
+<th><img src="common/images/icon/class/class_7_4.png" title="Berserker" class="classS"/></th>
+<th><img src="common/images/icon/class/class_8_4.png" title="Shielder" class="classS"/></th>
+<th><img src="common/images/icon/class/class_9_4.png" title="Ruler" class="classS"/></th>
+<th><img src="common/images/icon/class/class_11_4.png" title="Avenger" class="classS"/></th>
+<th><img src="common/images/icon/class/class_10_4.png" title="Alterego" class="classS"/></th>
+<th><img src="common/images/icon/class/class_23_4.png" title="MoonCancer" class="classS"/></th>
+<th><img src="common/images/icon/class/class_20_5.png" title="BeastI" class="classS"/></th>
+<th><img src="common/images/icon/class/class_21_5.png" title="BeastII" class="classS"/></th>
+</tr>
+<tr><th rowspan=14>攻擊側</th>
+<th><img src="common/images/icon/class/class_1_4.png" title="Saber" class="classS"/></th>
+<td>－</td>
+<td>－</td>
+<td><span class="blue">0.5</span></td>
+<td><span class="red">2</span></td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td><span class="red">2</span></td>
+<td>－</td>
+<td><span class="blue">0.5</span></td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+</tr>
+<tr><th><img src="common/images/icon/class/class_2_4.png" title="Archer" class="classS"/></th>
+<td><span class="blue">0.95</span></td>
+<td><span class="red">2</span></td>
+<td><span class="blue">0.5</span></td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td><span class="red">2</span></td>
+<td>－</td>
+<td><span class="blue">0.5</span></td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+</tr>
+<tr><th><img src="common/images/icon/class/class_3_4.png" title="Lancer" class="classS"/></th>
+<td><span class="red">1.05</span></td>
+<td><span class="blue">0.5</span></td>
+<td><span class="red">2</span></td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td><span class="red">2</span></td>
+<td>－</td>
+<td><span class="blue">0.5</span></td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+</tr>
+<tr><th><img src="common/images/icon/class/class_4_4.png" title="Rider" class="classS"/></th>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td><span class="red">2</span></td>
+<td><span class="blue">0.5</span></td>
+<td><span class="red">2</span></td>
+<td>－</td>
+<td><span class="blue">0.5</span></td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td><span class="red">2</span></td>
+<td>－</td>
+</tr>
+<tr><th><img src="common/images/icon/class/class_5_4.png" title="Caster" class="classS"/></th>
+<td><span class="blue">0.9</span></td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td><span class="blue">0.5</span></td>
+<td>－</td>
+<td><span class="red">2</span></td>
+<td><span class="red">2</span></td>
+<td>－</td>
+<td><span class="blue">0.5</span></td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td><span class="red">2</span></td>
+<td>－</td>
+</tr>
+<tr><th><img src="common/images/icon/class/class_6_4.png" title="Assassin" class="classS"/></th>
+<td><span class="blue">0.9</span></td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td><span class="red">2</span></td>
+<td><span class="blue">0.5</span></td>
+<td>－</td>
+<td><span class="red">2</span></td>
+<td>－</td>
+<td><span class="blue">0.5</span></td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td><span class="red">2</span></td>
+<td>－</td>
+</tr>
+<tr><th><img src="common/images/icon/class/class_7_4.png" title="Berserker" class="classS"/></th>
+<td><span class="red">1.5</span></td>
+<td><span class="red">1.5</span></td>
+<td><span class="red">1.5</span></td>
+<td><span class="red">1.5</span></td>
+<td><span class="red">1.5</span></td>
+<td><span class="red">1.5</span></td>
+<td><span class="red">1.5</span></td>
+<td><span class="red">1.5</span></td>
+<td><span class="red">1.5</span></td>
+<td><span class="red">1.5</span></td>
+<td><span class="red">1.5</span></td>
+<td><span class="red">1.5</span></td>
+<td><span class="red">1.5</span></td>
+<td><span class="red">1.5</span></td>
+<td>－</td>
+</tr>
+<tr><th><img src="common/images/icon/class/class_8_4.png" title="Shielder" class="classS"/></th>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+</tr>
+<tr><th><img src="common/images/icon/class/class_9_4.png" title="Ruler" class="classS"/></th>
+<td><span class="red">1.1</span></td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td><span class="blue">0.5</span></td>
+<td>－</td>
+<td><span class="red">2</span></td>
+<td>－</td>
+<td>－</td>
+</tr>
+<tr><th><img src="common/images/icon/class/class_11_4.png" title="Avenger" class="classS"/></th>
+<td><span class="red">1.1</span></td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td><span class="red">2</span></td>
+<td>－</td>
+<td>－</td>
+<td><span class="blue">0.5</span></td>
+<td>－</td>
+<td>－</td>
+</tr>
+<tr><th><img src="common/images/icon/class/class_10_4.png" title="Alterego" class="classS"/></th>
+<td>－</td>
+<td><span class="blue">0.5</span></td>
+<td><span class="blue">0.5</span></td>
+<td><span class="blue">0.5</span></td>
+<td><span class="red">1.5</span></td>
+<td><span class="red">1.5</span></td>
+<td><span class="red">1.5</span></td>
+<td><span class="red">2</span></td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+</tr>
+<tr><th><img src="common/images/icon/class/class_23_4.png" title="MoonCancer" class="classS"/></th>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td><span class="red">2</span></td>
+<td>－</td>
+<td><span class="blue">0.5</span></td>
+<td><span class="red">2</span></td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+</tr>
+<tr><th><img src="common/images/icon/class/class_20_5.png" title="BeastI" class="classS"/></th>
+<td>－</td>
+<td><span class="red">2</span></td>
+<td><span class="red">2</span></td>
+<td><span class="red">2</span></td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td><span class="red">2</span></td>
+<td>－</td>
+<td>－</td>
+<td><span class="blue">0.5</span></td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+</tr>
+<tr><th><img src="common/images/icon/class/class_21_5.png" title="BeastII" class="classS"/></th>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+<td>－</td>
+</tr>
 </table>
 <hr>
 <h1 id="attribute">分類相性</h1>
