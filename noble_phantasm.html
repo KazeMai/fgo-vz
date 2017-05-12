@@ -79,6 +79,7 @@ function trdvDataOut(searchData,searchId)
 						tdDetailArray[d]=tdDetailArray[d].replace(/】/g,"】</font>");
 						tdDetailArray[d]=tdDetailArray[d].replace(/\[Lv.]/g,"<font color=\"#CC00CC \">[Lv.]</font>");
 						tdDetailArray[d]=tdDetailArray[d].replace(/\n/g,"<br>");
+						tdDetailArray[d]=tdDetailArray[d].replace(/\[g\]\[o\]▲\[\/o\]\[\/g\]/g,"<font color=\"#ff7f0f \">▲</font>");
 						
 						if(document.getElementById('isJpTxt').checked) skillText+="<td colspan=6>"+tdDetailArray[d]+"</td>";
 						else{
