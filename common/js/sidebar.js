@@ -1,7 +1,7 @@
 function loadsidebar()
 {
 	if(!(location.pathname=='/fgo-vz/'||location.pathname.indexOf('index')!=-1)) {$("div.container").html('<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"><\/script><div style="margin:0px auto;width:728px;height:90px;background:url(\'common/images/info_banner.png\');"><ins class="adsbygoogle"     style="display:inline-block;width:728px;height:90px"     data-ad-client="ca-pub-3881979894805188"     data-ad-slot="5322095555"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});<\/script></div>'+$("div.container").html());slideOpen();}
-	document.getElementById('div_right_sidebar').innerHTML="<a href='./'><div class='sidebarl' style='background-image:url(common/images/sidebar01.png);'>首頁</div></a><a href='http://goo.gl/HkTjzj' target='_blank'><div class='sidebarl' style='background-image:url(common/images/sidebar17.png);'>留言討論區</div></a><a href='servant.html'><div class='sidebarl' style='background-image:url(common/images/sidebar05.png);'>Servant</div></a><a href='skill.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>技能</div></a><a href='noble_phantasm.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>寶具</div></a><a href='lv100.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>HP與ATK</div></a><a href='hidden.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>隱藏數値</div></a><a href='craft_essence.html'><div class='sidebarl' style='background-image:url(common/images/sidebar09.png);'>概念禮裝</div></a><a href='item_drop.html'><div class='sidebarl' style='background-image:url(common/images/sidebar15.png);'>素材道具</div></a><a href='quest.html'><div class='sidebarl' style='background-image:url(common/images/sidebar04.png);'>關卡</div></a><a href='master_equip.html'><div class='sidebarl' style='background-image:url(common/images/sidebar03.png);'>Master相關</div></a><a href='donate.html'><div class='sidebarl' style='background-image:url(common/images/sidebar11.png);'><span class='red'>贊助支持</span></div></a><a onclick='alert(\"若非必要請盡量使用上面的留言討論區\");' href='https://goo.gl/forms/pW0CDVGfyg' target='_blank'><div class='sidebarl' style='background-image:url(common/images/sidebar08.png);'>意見回饋</div></a><a href='event_history.html'><div class='sidebarl' style='background-image:url(common/images/sidebar10.png);'>過去活動</div></a><a href='event_extraccc.html' title='「深海電腦樂土 SE.RA.PH」'><div class='sidebar_event' style='background-image:url(common/images/2017/extraccc_full2_cl2n3/top_banner.png);'></div></a><a href='gacha_extraccc2.html' title='「Fate/EXTRA CCC特別活動Pick&#32;Up2召喚」'><div class='sidebar_event' style='background-image:url(common/images/2017/extraccc2_swtzb/summon_banner.png);'></div></a><a href='event_extraccc.html#midashi_12' title='「Fate/EXTRA CCC特別活動Pick&#32;Up召喚」'><div class='sidebar_event' style='background-image:url(common/images/2017/extraccc_full_d59ql/summon_banner.png);'></div></a><a href='event_ccccampaign.html' title='「Fate/EXTRA CCC×Fate/Grand Order特別活動開幕前宣傳活動！」'><div class='sidebar_event' style='background-image:url(common/images/2017/ccccampaign_7pv5wl/banner_101360956.png);'></div></a><div style='height:35px;'></div>";
+	document.getElementById('div_right_sidebar').innerHTML="<a href='./'><div class='sidebarl' style='background-image:url(common/images/sidebar01.png);'>首頁</div></a><a href='http://goo.gl/HkTjzj' target='_blank'><div class='sidebarl' style='background-image:url(common/images/sidebar17.png);'>留言討論區</div></a><a href='servant.html'><div class='sidebarl' style='background-image:url(common/images/sidebar05.png);'>Servant</div></a><a href='skill.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>技能</div></a><a href='noble_phantasm.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>寶具</div></a><a href='lv100.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>HP與ATK</div></a><a href='hidden.html'><div class='sidebar' style='background-image:url(common/images/sidebar00.png);'>隱藏數値</div></a><a href='craft_essence.html'><div class='sidebarl' style='background-image:url(common/images/sidebar09.png);'>概念禮裝</div></a><a href='item_drop.html'><div class='sidebarl' style='background-image:url(common/images/sidebar15.png);'>素材道具</div></a><a href='quest.html'><div class='sidebarl' style='background-image:url(common/images/sidebar04.png);'>關卡</div></a><a href='master_equip.html'><div class='sidebarl' style='background-image:url(common/images/sidebar03.png);'>Master相關</div></a><a href='donate.html'><div class='sidebarl' style='background-image:url(common/images/sidebar11.png);'><span class='red'>贊助支持</span></div></a><a onclick='alert(\"若非必要請盡量使用上面的留言討論區\");' href='https://goo.gl/forms/pW0CDVGfyg' target='_blank'><div class='sidebarl' style='background-image:url(common/images/sidebar08.png);'>意見回饋</div></a><a href='event_history.html'><div class='sidebarl' style='background-image:url(common/images/sidebar10.png);'>過去活動</div></a><a href='event_reinforcement06.html' title='「Servant強化關卡 第6彈」'><div class='sidebar_event' style='background-image:url(common/images/2017/reinforcement06_b2eo0/top_banner.png);'></div></a><a href='event_huntingquest03.html' title='「狩獵關卡 第3彈」'><div class='sidebar_event' style='background-image:url(common/images/2017/huntingquest03_ly9s0/top_banner.png);'></div></a><a href='event_900wdl.html' title='「「900萬DL突破宣傳活動」'><div class='sidebar_event' style='background-image:url(common/images/2017/900man_def5s/top_banner.png);'></div></a><a href='event_900wdl.html#midashi_11' title='「900萬DL記念Pick&#32;Up召喚」'><div class='sidebar_event' style='background-image:url(common/images/2017/900man_def5s/summon_banner.png);'></div></a><div style='height:35px;'></div>";
 	reloadHash();
 }
 function sortByElmentNo(Object1){Object1 = Object1.sort(function (a,b){return a.collectionNo-b.collectionNo;});}
@@ -70,69 +70,6 @@ function getUrl(getStr)
 		}   
 	}
 	return str_value;
-}
-function classOff(imgC)
-{
-	imgC.src=imgC.src.replace("_4.png","_1.png");
-	imgC.onclick = Function("classOn(this);");
-}
-function classOn(imgC)
-{
-	imgC.src=imgC.src.replace("_1.png","_4.png");
-	imgC.onclick = Function("classOff(this);");
-}
-function classAllOff()
-{
-	var cl=document.getElementsByClassName("classF");
-	for(var i=0;i<cl.length;i++)
-	{
-		classOff(cl[i]);
-	}
-}
-function classAllOn()
-{
-	var cl=document.getElementsByClassName("classF");
-	for(var i=0;i<cl.length;i++)
-	{
-		classOn(cl[i]);
-	}
-}
-function rarityAllOff()
-{
-	$(".rarityF").prop("checked", false);
-	$(".classAR").attr("onclick","rarityAllOn();");
-}
-function rarityAllOn()
-{
-	$(".rarityF").prop("checked", true);
-	$(".classAR").attr("onclick","rarityAllOff();");
-}
-var classarray = "1,2,3,4,5,6,7,8,9,10,11,17,20,22,23,24".split(/,/).slice(0);
-var rarityarray = "0,1,2,3,4,5".split(/,/).slice(0);
-var gTarray = "1,2,3,4,5,6".split(/,/).slice(0);
-function updateTable()
-{
-	var lastSortList=$("#svtTable")[0].config.sortList;
-	classarray.length = 0;
-	rarityarray.length = 0;
-	gTarray.length = 0;
-	var cl=document.getElementsByClassName("classF");
-	for(var i=0;i<cl.length;i++)
-	{
-		if(cl[i].src.search("_4.png")!=-1) classarray.push(cl[i].src.substring(cl[i].src.indexOf("class_")+6,cl[i].src.indexOf("_4.png")));
-	}
-	$("input[class='rarityF']").each(function() {
-		if($(this).prop("checked")==true)
-			rarityarray.push($(this).prop("value"));
-	});
-	$("input[class='getType']").each(function() {
-		if($(this).prop("checked")==true)
-			gTarray.push($(this).prop("value"));
-	});
-	
-	svtTableOut();
-	$("#svtTable").trigger("update");
-	setTimeout(function(){$("#svtTable").trigger('sorton',[$("#svtTable")[0].config.sortList])},10);
 }
 function questRea(qstId)
 {

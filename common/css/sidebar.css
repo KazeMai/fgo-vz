@@ -240,6 +240,9 @@ table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSo
 table.tablesorter tr:nth-child(2n) {
 	background-color: #ECF2F3;
 }
+table.mouseover tr:hover {
+	background-color: #bdd2d5;
+}
 .star {
 	color: #FFD500;
 	text-shadow: 1px 1px 1px #000000;
@@ -572,9 +575,6 @@ th.th_red  {
 	text-align: center;
 	text-shadow:1px 1px 4px #000000;
 	box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
-}
-table.mouseover tr:hover {
-	background-color: #bdd2d5;
 }
 .strong {
 font-weight: bold;

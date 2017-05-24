@@ -15,6 +15,7 @@
 <script type="text/javascript" src="common/js/smoothRollOver.js"></script>
 <script type="text/javascript" src="common/js/scrollTop.js"></script>
 <script type="text/javascript" src="common/js/jquery.tablesorter.min.js"></script>
+<script type="text/javascript" src="common/js/tablefilter.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -27,10 +28,11 @@
   ga('send', 'pageview');
 </script>
 <script type="text/javascript">
-function svtTableOut(){var b="";for(i in master.mstSvt)if((1==master.mstSvt[i].type||2==master.mstSvt[i].type||5==master.mstSvt[i].type||/*9==master.mstSvt[i].type||*/99==master.mstSvt[i].type)&&0!=master.mstSvt[i].collectionNo)for(var f in classarray)if(classarray[f]==master.mstSvt[i].classId){for(var a in master.mstSvtLimit)if(master.mstSvtLimit[a].svtId==master.mstSvt[i].id&&master.mstSvtLimit[a].limitCount==master.mstSvt[i].limitMax)break;for(var g in rarityarray)if(rarityarray[g]==master.mstSvtLimit[a].rarity){for(f in gTarray)if(gTarray[f]==
-master.mstSvt[i].battleSize){var b=b+('<tr align="center"><td>'+master.mstSvt[i].collectionNo+"</td><td><a href='svtData.html?no="+master.mstSvt[i].collectionNo+"'>"+findSvtNameZh2(master.mstSvt[i].id)+"</a></td><td><span style='display:none'>"+master.mstSvt[i].classId+"</span><img src='common/images/icon/class/class_"+findClassImageId(master.mstSvt[i].classId)+"_"+master.mstSvtLimit[a].rarity+".png' title='"+findClassName(master.mstSvt[i].classId)+"' class='classS' /></td><td>"+master.mstSvtLimit[a].rarity+
-"</td>"),c;for(c in master.mstSvtExp)if(master.mstSvt[i].expType==master.mstSvtExp[c].type&&master.mstSvtExp[c].lv==svtlv.value)break;var d=Math.floor(master.mstSvtLimit[a].hpBase+(master.mstSvtLimit[a].hpMax-master.mstSvtLimit[a].hpBase)*master.mstSvtExp[c].curve/1E3),e=Math.floor(master.mstSvtLimit[a].atkBase+(master.mstSvtLimit[a].atkMax-master.mstSvtLimit[a].atkBase)*master.mstSvtExp[c].curve/1E3),b=b+("<td>"+d+"</td><td>"+e+"</td><td>"+(d+e)+"</td><td>"+(d+990)+"</td><td>"+(e+990)+"</td><td>"+
-(d+e+1980)+"</td>");break}break}break}$("#svtTable tbody").empty();$("#svtTable tbody").append(b)}function initTable(){for(var b=100;0<b;b--)svtlv.options.add(new Option("Lv."+b,b));$(".rarityF").prop("checked",!0);$(".getType").prop("checked",!0);svtTableOut();$("#svtTable").tablesorter({sortList:[[0,1]],headers:{1:{sorter:!1}}})};
+var classarray=[],rarityarray=[],gTarray=[];
+function svtTableOut(){var b="";for(i in master.mstSvt)if((1==master.mstSvt[i].type||2==master.mstSvt[i].type)&&0!=master.mstSvt[i].collectionNo){for(var a in master.mstSvtLimit)if(master.mstSvtLimit[a].svtId==master.mstSvt[i].id&&master.mstSvtLimit[a].limitCount==master.mstSvt[i].limitMax)break;var b=b+("<tr class='svtList' data-svtid='"+master.mstSvt[i].id+"' data-rarityl='"+master.mstSvtLimit[a].rarity+"' data-classl='"+master.mstSvt[i].classId+"' data-typel='"+master.mstSvt[i].battleSize+'\' align="center"><td>'+
+master.mstSvt[i].collectionNo+"</td><td><a href='svtData.html?no="+master.mstSvt[i].collectionNo+"'>"+findSvtNameZh2(master.mstSvt[i].id)+"</a></td><td><span style='display:none'>"+master.mstSvt[i].classId+"</span><img src='common/images/icon/class/class_"+findClassImageId(master.mstSvt[i].classId)+"_"+master.mstSvtLimit[a].rarity+".png' title='"+findClassName(master.mstSvt[i].classId)+"' class='classS' /></td><td>"+master.mstSvtLimit[a].rarity+"</td>"),c;for(c in master.mstSvtExp)if(master.mstSvt[i].expType==
+master.mstSvtExp[c].type&&master.mstSvtExp[c].lv==svtlv.value)break;var d=Math.floor(master.mstSvtLimit[a].hpBase+(master.mstSvtLimit[a].hpMax-master.mstSvtLimit[a].hpBase)*master.mstSvtExp[c].curve/1E3),e=Math.floor(master.mstSvtLimit[a].atkBase+(master.mstSvtLimit[a].atkMax-master.mstSvtLimit[a].atkBase)*master.mstSvtExp[c].curve/1E3),b=b+("<td>"+d+"</td><td>"+e+"</td><td>"+(d+e)+"</td><td>"+(d+990)+"</td><td>"+(e+990)+"</td><td>"+(d+e+1980)+"</td>")}$("#svtTable tbody").empty();$("#svtTable tbody").append(b)}
+function initTable(){for(var b=100;0<b;b--)svtlv.options.add(new Option("Lv."+b,b));$(".rarityF").prop("checked",!0);$(".getType").prop("checked",!0);svtTableOut();$("#svtTable").tablesorter({sortList:[[0,1]],headers:{1:{sorter:!1}}});$(".classF").click(function(){classToggle($(this).data("classid"))})};
 </script>
 </head>
 <body onload="loadsidebar();initTable();">
@@ -62,17 +64,18 @@ master.mstSvt[i].battleSize){var b=b+('<tr align="center"><td>'+master.mstSvt[i]
 	<img src="common/images/icon/class/class_1001_4.png" title="職階全選" onclick="classAllOn();" class="classA"/>
 	<img src="common/images/icon/class/class_1001_1.png" title="職階全消" onclick="classAllOff();" class="classA"/>
 	<img src="common/images/icon/class/star_new.png" title="稀有度全選/消" onclick="rarityAllOff();" class="classAR"/><br>
-    <img src="common/images/icon/class/class_1_4.png" title="Saber" onclick="classOff(this);" class="classF"/>
-	<img src="common/images/icon/class/class_2_4.png" title="Archer" onclick="classOff(this);" class="classF"/>
-	<img src="common/images/icon/class/class_3_4.png" title="Lancer" onclick="classOff(this);" class="classF"/>
-	<img src="common/images/icon/class/class_4_4.png" title="Rider" onclick="classOff(this);" class="classF"/>
-	<img src="common/images/icon/class/class_5_4.png" title="Caster" onclick="classOff(this);" class="classF"/>
-	<img src="common/images/icon/class/class_6_4.png" title="Assassin" onclick="classOff(this);" class="classF"/>
-	<img src="common/images/icon/class/class_7_4.png" title="Berserker" onclick="classOff(this);" class="classF"/>
-	<img src="common/images/icon/class/class_8_4.png" title="Shielder" onclick="classOff(this);" class="classF"/>
-	<img src="common/images/icon/class/class_9_4.png" title="Ruler" onclick="classOff(this);" class="classF"/>
-	<img src="common/images/icon/class/class_11_4.png" title="Avenger" onclick="classOff(this);" class="classF"/><img src="common/images/icon/class/class_10_4.png" title="Alterego" onclick="classOff(this);" class="classF"/>
-	<img src="common/images/icon/class/class_23_4.png" title="MoonCancer" onclick="classOff(this);" class="classF"/><br>
+	<img src="common/images/icon/class/class_1_4.png" title="Saber" class="classF" data-choice="true" data-classid="1"/>
+	<img src="common/images/icon/class/class_2_4.png" title="Archer" class="classF" data-choice="true" data-classid="2"/>
+	<img src="common/images/icon/class/class_3_4.png" title="Lancer" class="classF" data-choice="true" data-classid="3"/>
+	<img src="common/images/icon/class/class_4_4.png" title="Rider" class="classF" data-choice="true" data-classid="4" />
+	<img src="common/images/icon/class/class_5_4.png" title="Caster" class="classF" data-choice="true" data-classid="5"/>
+	<img src="common/images/icon/class/class_6_4.png" title="Assassin" class="classF" data-choice="true" data-classid="6"/>
+	<img src="common/images/icon/class/class_7_4.png" title="Berserker" class="classF" data-choice="true" data-classid="7"/>
+	<img src="common/images/icon/class/class_8_4.png" title="Shielder" class="classF" data-choice="true" data-classid="8"/>
+	<img src="common/images/icon/class/class_9_4.png" title="Ruler" class="classF" data-choice="true" data-classid="9"/>
+	<img src="common/images/icon/class/class_11_4.png" title="Avenger" class="classF" data-choice="true" data-classid="11"/>
+	<img src="common/images/icon/class/class_10_4.png" title="Alterego" class="classF" data-choice="true" data-classid="10"/>
+	<img src="common/images/icon/class/class_23_4.png" title="MoonCancer" class="classF" data-choice="true" data-classid="23"/><br>
 	<input type="checkbox" id="rarity0" class="rarityF" value="0"/><span class="star">－</span>
 	<input type="checkbox" id="rarity1" class="rarityF" value="1"/><span class="star">★</span>
 	<input type="checkbox" id="rarity2" class="rarityF" value="2"/><span class="star">★★</span>
