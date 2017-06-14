@@ -1,0 +1,74 @@
+@charset "utf-8";
+/* CSS Document */
+/** {
+	margin: 0;
+	padding: 0;
+}
+body*/ul {
+	font-size: 12px;
+}
+li {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+}
+.timeline {
+	background: url(timeline-line.png) repeat-y 10px;
+	width: 80px;
+	float: left;
+	height: 100vh;
+	position: fixed;
+	overflow: auto;
+}
+.timelineR {
+	margin: 0px 0px 0px 80px;
+}
+.year li .year-button {
+	cursor: pointer;
+	background: url(timeline-bg.png) 0px -175px no-repeat;
+	height: 25px;
+	padding-left: 22px;
+	margin-left: 8px;
+	line-height: 25px;
+}
+.year li .year-button:hover {
+	background: url(timeline-bg.png) 0px -29px no-repeat
+}
+.year>.active .year-button {
+	background: url(timeline-bg.png) 0px 0px no-repeat;
+	color: #FFF;
+}
+.year>.active .year-button:hover {
+	background: url(timeline-bg.png) 0px 0px no-repeat;
+	color: #FFF;
+}
+.month {
+	display: none;
+	margin-left: 7px;
+}
+.active>.month {
+	display: block
+}
+.month>li {
+	cursor: pointer;
+	height: 25px;
+	padding-right: 25px;
+	line-height: 25px;
+	text-align: right;
+}
+.month>li a {
+	color: #000000;
+}
+.month>li.active {
+	background: url(timeline-bg.png) 0px -89px no-repeat;
+}
+.month>li.active a {
+	color: #FFF;
+}
+.month>li:hover {
+	background: url(timeline-bg.png) 0px -119px no-repeat;
+}
+.month>li.active:hover {
+	background: url(timeline-bg.png) 0px -89px no-repeat;
+}
