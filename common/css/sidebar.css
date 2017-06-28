@@ -287,6 +287,35 @@ div.warIcon {
 	height: 30px;
 	vertical-align: middle;
 }
+.itemST {
+	height: 30px;
+	width: 30px;
+	vertical-align: middle;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	font-size: 12px;
+	color: #FFFFFF;
+	text-shadow: 1px 1px 1px black, -1px -1px 1px black, -1px 1px 1px black, 1px -1px 1px black;
+	text-align: right;
+	padding: 15px 2px 2px 0px;
+	box-sizing: border-box;
+	float: left;
+	margin:0px auto;
+}
+.itemMT {
+	height: 50px;
+	width: 50px;
+	vertical-align: middle;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	font-size: 12px;
+	color: #FFFFFF;
+	text-shadow: 1px 1px 1px black, -1px -1px 1px black, -1px 1px 1px black, 1px -1px 1px black;
+	text-align: right;
+	padding: 35px 5px 5px 0px;
+	box-sizing: border-box;
+	float: left;
+}
 .itemM {
 	height: 60px;
 	vertical-align: middle;

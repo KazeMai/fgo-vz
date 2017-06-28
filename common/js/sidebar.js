@@ -134,27 +134,39 @@ function questRea(qstId)
 }
 function svtFace(svtId)
 {
-	var txt="";
+	var txt='',isFind = false;
 	for(var i in master.mstSvt)
 	{
 		if(master.mstSvt[i].id==svtId)
 		{
 			if(master.mstSvt[i].type==6||master.mstSvt[i].type==98)
 			{
-				txt+="<a href='ceData.html?no="+master.mstSvt[i].collectionNo+"'><img src='common/images/icon/faces/"+master.mstSvt[i].id+".png' onerror=\"javascript:this.src='common/images/icon/faces/0.png'\" class='itemM' title='"+master.mstSvt[i].name+"' /></a>";
+				txt+='<a href="ceData.html?no='+master.mstSvt[i].collectionNo+'"><img src="common/images/icon/faces/'+master.mstSvt[i].id+'.png" onerror=\'javascript:this.src="common/images/icon/faces/0.png"\' class="itemM" title="'+master.mstSvt[i].name+'" /></a>';
 			}
 			else if(master.mstSvt[i].type==1||master.mstSvt[i].type==2||master.mstSvt[i].type==5||master.mstSvt[i].type==9||master.mstSvt[i].type==99)
 			{
-				txt+="<a href='svtData.html?";
-				if(master.mstSvt[i].collectionNo==0) txt+="id="+master.mstSvt[i].id;
-				else txt+="no="+master.mstSvt[i].collectionNo;
-				txt+="'><img src='common/images/icon/faces/"+master.mstSvt[i].id+"0.png' onerror=\"javascript:this.src='common/images/icon/faces/0.png'\" class='itemM' title='"+findSvtNameZh2(master.mstSvt[i].id)+"' /></a>";
+				txt+='<a href="svtData.html?';
+				if(master.mstSvt[i].collectionNo==0) txt+='id='+master.mstSvt[i].id;
+				else txt+='no='+master.mstSvt[i].collectionNo;
+				txt+='"><img src="common/images/icon/faces/'+master.mstSvt[i].id+'0.png" onerror=\'javascript:this.src="common/images/icon/faces/0.png"\' class="itemM" title="'+findSvtNameZh2(master.mstSvt[i].id)+'" /></a>';
 			}
 			else
 			{
-				txt+="<img src='common/images/icon/faces/"+master.mstSvt[i].id+".png' onerror=\"this.style.display = 'none'\" class='itemM' title='"+svtId+"' />";
+				txt+='<img src="common/images/icon/faces/'+master.mstSvt[i].id+'.png" onerror=\'this.style.display = "none"\' class="itemM" title="'+svtId+'" />';
 			}
+			isFind = true;
 			break;
+		}
+	}
+	if(!isFind)
+	{
+		for(i in master.mstItem)
+		{
+			if(master.mstItem[i].id==svtId)
+			{
+				txt+='<img src="common/images/icon/items/'+master.mstItem[i].imageId+'.png" onerror="this.src=common/images/icon/items/0.png" class="itemM" />';
+				break;
+			}
 		}
 	}
 	return txt;
