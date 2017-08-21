@@ -35,7 +35,7 @@ function sklDataOut(searchData,searchId)
 	var skillrowCount=0;
 	for(var c=master.mstSkill.length-1;c>=0;c--)
 	{
-		if(master.mstSkill[c].id<900000||(master.mstSkill[c].id>940000&&master.mstSkill[c].id<950000)||(master.mstSkill[c].id>980000&&master.mstSkill[c].id<990000)||master.mstSkill[c].id>999900){
+		if(master.mstSkill[c].id<900000/*||(master.mstSkill[c].id>940000&&master.mstSkill[c].id<950000)*/||(master.mstSkill[c].id>980000&&master.mstSkill[c].id<990000)||master.mstSkill[c].id>999900){
 			skillrowCount=0;
 			skillText="";
 			var skDetailTxt = new Array();skDetailTxt[0]=0;skDetailTxt[1]="";
@@ -68,6 +68,7 @@ function sklDataOut(searchData,searchId)
 				skDetailArray[d]=skDetailArray[d].replace(/【/g,"<font color=\"#006400 \">【");
 				skDetailArray[d]=skDetailArray[d].replace(/】/g,"】</font>");
 				skDetailArray[d]=skDetailArray[d].replace(/\n/g,"<br>");
+				skDetailArray[d]=skDetailArray[d].replace(/\[g\]\[o\]▲\[\/o\]\[\/g\]/g,"<font color=\"#ff7f0f \">▲</font>");
 				
 				if(document.getElementById('isJpTxt').checked) skillText+="<td colspan=11>"+skDetailArray[d]+"</td>";
 				
