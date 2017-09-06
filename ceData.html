@@ -8,6 +8,7 @@
 <link href="common/css/detail_info.css" rel="stylesheet" type="text/css" />
 <link href="common/css/sidebar.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="common/js/jquery.min.js"></script>
+<script type="text/javascript" src="common/js/base64.min.js"></script>
 <script type="text/javascript" src="common/js/sidebar.js"></script>
 <script type='text/javascript' src='common/js/master.js'></script>
 <script type='text/javascript' src='common/js/transData.js'></script>
@@ -27,26 +28,18 @@
   ga('send', 'pageview');
 </script>
 <script type="text/javascript">
-sortByElmentNo(master.mstSvt);
-function svtDataTable(a){for(var b in master.mstSvt)if(master.mstSvt[b].id==a)break;for(var c in master.mstSvtLimit)if(master.mstSvtLimit[c].svtId==a)break;a="<tr><td width=300 align=center rowspan=9>"+("<img src=common/images/CharaGraph/"+a+"a.png onerror=javascript:this.src='common/images/CharaGraph/0.png' width=300 /></td><th width=100>\u7de8\u865f</th><th width=100>\u661f\u6578</th><th>\u540d\u7a31</th></tr><tr align=\"center\"><td>No."+master.mstSvt[b].collectionNo+'</td><td class="star">');
-for(var d=0;d<master.mstSvtLimit[c].rarity;d++)a+="\u2605";a+="</td><td>"+master.mstSvt[b].name+"</td><tr><th>HP</th><th>ATK</th><th>\u7e6a\u5e2b</th></tr><tr align=center><td>"+master.mstSvtLimit[c].hpBase+" / "+master.mstSvtLimit[c].hpMax+"</td><td>"+master.mstSvtLimit[c].atkBase+" / "+master.mstSvtLimit[c].atkMax+"</td>";document.title=master.mstSvt[b].name+" - \u79ae\u88dd\u8cc7\u6599\u67e5\u8a62";for(d in master.mstIllustrator)if(master.mstIllustrator[d].id==master.mstSvt[b].illustratorId){a=
-1<master.mstIllustrator[d].id?a+("<td><a href='illustrator.html#"+master.mstIllustrator[d].id+"'>"+master.mstIllustrator[d].name+"</a></td>"):a+("<td>"+master.mstIllustrator[d].name+"</td>");break}a+="</tr><tr><th colspan=6>\u4fdd\u6709\u6280\u80fd</th></tr>";c=0;for(d in master.mstSvtSkill){if(master.mstSvtSkill[d].svtId==master.mstSvt[b].id&&0==master.mstSvtSkill[d].condLimitCount){for(var e in master.mstSkill)if(master.mstSkill[e].id==master.mstSvtSkill[d].skillId){a+="<tr><th><img src=common/images/SkillIcon/SkillIcon_"+
-master.mstSkill[e].iconId+".png onerror=javascript:this.src='common/images/SkillIcon/SkillIcon_0.png' width=55></td>";break}a+="<td colspan=2>"+findSkDetailZh(master.mstSvtSkill[d].skillId)+"</td></tr>";for(e in bondCE)if(bondCE[e][0]==master.mstSvt[b].id){c=bondCE[e][1];a+="<tr><th>\u5c08\u5c6c<br>Servant</th><td colspan=2>";break}0==c&&(a+="<tr><th>\u6700\u5927<br>\u89e3\u653e</th><td colspan=2>")}master.mstSvtSkill[d].svtId==master.mstSvt[b].id&&4==master.mstSvtSkill[d].condLimitCount&&(a+=findSkDetailZh(master.mstSvtSkill[d].skillId))}0!=
-c&&(a+=svtFace(c));a+="</td></tr><tr><th colspan=6>\u89e3\u8aaa</th></tr><tr><td colspan=6>";for(d in master.mstSvtComment)master.mstSvtComment[d].svtId==master.mstSvt[b].id&&(a+=master.mstSvtComment[d].comment.replace(/\n/g,"<br>"));a+="</td></tr>";document.getElementById("svtNrmlData").innerHTML=a}
-function optionInit(){for(var a in master.mstSvt)6!=master.mstSvt[a].type&&98!=master.mstSvt[a].type||svtid.options.add(new Option("No."+master.mstSvt[a].collectionNo+" "+master.mstSvt[a].name,master.mstSvt[a].id));var b="1";getUrl("no")&&(b=getUrl("no"));if(b)for(a in master.mstSvt)if((6==master.mstSvt[a].type||98==master.mstSvt[a].type)&&b==master.mstSvt[a].collectionNo){$("#svtid").val(master.mstSvt[a].id);break}svtidChange()}
+var zhTWNo=75,zhCNNo=275;sortByElmentNo(master.mstSvt);
+function svtDataTable(a){var b="";$(".ceInfo").html("");for(var c in master.mstSvt)if(master.mstSvt[c].id==a)break;document.title=master.mstSvt[c].name+" - \u79ae\u88dd\u8cc7\u6599\u67e5\u8a62";for(var d in master.mstSvtLimit)if(master.mstSvtLimit[d].svtId==a)break;$("#ceGraph").html('<img src="common/images/CharaGraph/'+a+'a.png" onerror=javascript:this.src="common/images/CharaGraph/0.png" style="width:100%" />');$("#ceNo").html(master.mstSvt[c].collectionNo);for(a=0;a<master.mstSvtLimit[d].rarity;a++)b+=
+"\u2605";$("#ceRarity").html(b);$("#ceName").html(master.mstSvt[c].name);$("#ceHp").html(master.mstSvtLimit[d].hpBase+" / "+master.mstSvtLimit[d].hpMax);$("#ceAtk").html(master.mstSvtLimit[d].atkBase+" / "+master.mstSvtLimit[d].atkMax);for(a in master.mstIllustrator)if(master.mstIllustrator[a].id==master.mstSvt[c].illustratorId)break;$("#ceIll").html((1<master.mstIllustrator[a].id?'<a href="illustrator.html#'+master.mstIllustrator[a].id+'">':"")+master.mstIllustrator[a].name);for(a in master.mstSvtSkill)master.mstSvtSkill[a].svtId==
+master.mstSvt[c].id&&(0==master.mstSvtSkill[a].condLimitCount?(0==master.mstSvtSkill[a].eventId?($("#ceSkIcon").html('<img src="common/images/SkillIcon/SkillIcon_'+master.mstSkill[findName(master.mstSkill,master.mstSvtSkill[a].skillId)].iconId+'.png" onerror=javascript:this.src="common/images/SkillIcon/SkillIcon_0.png" style="width:55px;" />'),b=""):b="<br>",$("#ceSkill").append(b+findSkDetailZh(master.mstSvtSkill[a].skillId))):4==master.mstSvtSkill[a].condLimitCount&&(b=0==master.mstSvtSkill[a].eventId?
+"":"<br>",$("#ceSkill2").append(b+findSkDetailZh(master.mstSvtSkill[a].skillId))));$("#ceType").html("\u6700\u5927\u89e3\u653e");for(a in bondCE)if(bondCE[a][0]==master.mstSvt[c].id){$("#ceType").html("\u5c08\u5c6cServant");$("#ceSkill2").html(svtFace(bondCE[a][1]));break}master.mstSvt[c].collectionNo>zhCNNo&&($("#cmtlang_zh").prop("checked",!1),$("#cmtlang_jp").prop("checked",!0));cmtRead($("input[name=cmtlang]:checked").val())}
+function cmtRead(a){try{$.get("common/svtcomment/"+a+"/"+$("#svtid").val(),function(a){a=JSON.parse(base64.decode(a));$("#ceComment").html(a[0].comment.replace(/\n/g,"<br>").replace(/<br>$/,"<br><br>")+"</td></tr>")},"text")}catch(b){console.log("Cannot find comment file."),"zh"==a&&cmtRead("jp")}}
+function optionInit(){$("#zhTWNO").html(zhTWNo);$("#zhCNNO").html(zhCNNo);for(var a in master.mstSvt)6!=master.mstSvt[a].type&&98!=master.mstSvt[a].type||svtid.options.add(new Option("No."+master.mstSvt[a].collectionNo+" "+master.mstSvt[a].name,master.mstSvt[a].id));var b="1";getUrl("no")&&(b=getUrl("no"));if(b)for(a in master.mstSvt)if((6==master.mstSvt[a].type||98==master.mstSvt[a].type)&&b==master.mstSvt[a].collectionNo){$("#svtid").val(master.mstSvt[a].id);break}svtidChange()}
 function svtidChange(){var a;for(a=svtlv.options.length-1;0<=a;a--)svtlv.remove(a);for(a in master.mstSvtLimit)if(master.mstSvtLimit[a].svtId==svtid.value&&4==master.mstSvtLimit[a].limitCount){for(var b=1;b<=master.mstSvtLimit[a].lvMax;b++)svtlv.options.add(new Option("Lv."+b,b));break}svtlvChange();svtDataTable(svtid.value);drawChart()}
 function svtlvChange(){for(var a in master.mstSvtLimit)if(master.mstSvtLimit[a].svtId==svtid.value){atk.value=master.mstSvtLimit[a].atkBase;hp.value=master.mstSvtLimit[a].hpBase;for(var b in master.mstSvt)if(master.mstSvt[b].id==svtid.value){for(var c in master.mstSvtExp)if(master.mstSvt[b].expType==master.mstSvtExp[c].type&&master.mstSvtExp[c].lv==svtlv.value){atk.value=Math.floor(master.mstSvtLimit[a].atkBase+(master.mstSvtLimit[a].atkMax-master.mstSvtLimit[a].atkBase)*master.mstSvtExp[c].curve/
 1E3);hp.value=Math.floor(master.mstSvtLimit[a].hpBase+(master.mstSvtLimit[a].hpMax-master.mstSvtLimit[a].hpBase)*master.mstSvtExp[c].curve/1E3);break}break}break}}function findSkDetailZh(a){var b;for(b in skDetail)if(a==skDetail[b][0]){var c=skDetail[b][1];break}if(document.getElementById("isJpTxt").checked||!c)for(b=0;b<master.mstSkillDetail.length;b++)if(a==master.mstSkillDetail[b].id){c=master.mstSkillDetail[b].detail;break}return c}
 function svtlocation(a){a="";for(var b in master.mstSvt)if(master.mstSvt[b].id==svtid.value){a=0!=master.mstSvt[b].collectionNo?a+("?no="+master.mstSvt[b].collectionNo):a+("?id="+master.mstSvt[b].id);break}"file:"==location.protocol?changeURL(location.protocol+"//"+location.pathname+a):changeURL(location.protocol+"//"+location.hostname+location.pathname+a);svtidChange()};
 </script>
-<!-- <script>
-$(function(){
-	$(".accordion dt.act").on("click", function() {
-		$(this).next("dd").slideToggle();
-		$(this).toggleClass("open");
-	});
-});
-</script> -->
 </head>
 <body onload="loadsidebar();optionInit();">
 <!--二欄橫幅主要區塊開始-->
@@ -57,9 +50,8 @@ $(function(){
     <!--主要內容區塊開始-->
     <div id="div_content">
 <div class="container">
-<article class="content textsize">
-<!-- <dl class="accordion"><dt class="act">
-<h1 class="headline4"><dl><dt class="date">★☆★</dt><dd>因官方變更加密方式，新概念禮裝的圖片尚無法取得</dd></dl></h1></a> -->
+<article class="content textsize" style="width:950px;">
+<h1 class="headline4"><dl><dt class="date">★☆★</dt><dd>禮裝解說翻譯：繁中至No.<span id="zhTWNO"></span>、簡中至No.<span id="zhCNNO"></span></dd></dl></h1>
 <p id="p2"><strong><font color="#a21b20">◆</font>選擇禮裝<font color="#a21b20">◆</font></strong>
 	<select id="svtid" onchange="svtlocation(this.value)"></select>
 </p>
@@ -70,9 +62,29 @@ $(function(){
   <strong><font color="#094a98">◆</font>HP</strong>
   <input id="hp" type="text" size="5"  readonly/>
 </p>
-<!-- <span class="notice" id="matome">由於fatede-go持續轉載卻未標明出處，圖片會暫緩放出<br>
-Due to fatede-go has been reproducing without source indicated, the graph disposing will be delay.</span> -->
-<table id="svtNrmlData" width=900><tr><td></td></tr></table>
+<table id="svtNrmlData" style="width:100%;">
+<tr><td rowspan=9 style="width:300px;">
+<span class="ceInfo" id="ceGraph"><img src="common/images/CharaGraph/0.png" style="width:300px;"></span>
+</td><th style="width:100px;height:15px;">編號</th><th style="width:100px;height:15px;">星數</th><th style="height:15px;">名稱</th></tr>
+<tr style="text-align:center;height:30px;"><td>No.<span class="ceInfo" id="ceNo"></span></td><td><span class="ceInfo star" id="ceRarity"></span></td><td><span class="ceInfo" id="ceName"></span></td></tr>
+<tr style="text-align:center;height:15px;"><th>HP</th><th>ATK</th><th>繪師</th></tr>
+<tr style="text-align:center;height:30px;"><td><span class="ceInfo" id="ceHp"></span></td><td><span class="ceInfo" id="ceAtk"></span></td><td><span class="ceInfo" id="ceIll"></span></td></tr>
+<tr style="text-align:center;height:15px;"><th colspan=3>保有技能</th></tr>
+<tr><th style="height:60px;"><span class="ceInfo" id="ceSkIcon"><img src="common/images/SkillIcon/SkillIcon_0.png" width=55></span></th><td colspan=2><span class="ceInfo" id="ceSkill"></span></td></tr>
+<tr style="height:60px;"><th><span class="ceInfo" id="ceType">最大解放</span></th><td colspan=2><span class="ceInfo" id="ceSkill2"></span></td></tr>
+<tr style="text-align:center;height:15px;"><th colspan=2>解說</th><th>
+		<form id="cmtlangDiv">
+		  <input type="radio" name="cmtlang" id="cmtlang_jp" value="jp" checked=true />日文
+		  <input type="radio" name="cmtlang" id="cmtlang_zh" value="zh" />中文<span class="notice">(因採用官方翻譯，部份用語會與站內翻譯有所不同)</span>
+		</form>
+<script>
+$('#cmtlangDiv input[type=radio]').change(function() {
+    cmtRead($('input[name=cmtlang]:checked').val());
+});
+</script>
+</th></tr>
+<tr><td colspan=3><span class="ceInfo" id="ceComment"></span></td></tr>
+</table>
 <div id="chart_div"></div>
 </article>
 </div>

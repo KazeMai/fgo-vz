@@ -11,6 +11,7 @@
 <link href="common/slick/slick.css" rel="stylesheet" type="text/css" />
 <link href="common/slick/slick-theme.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="common/js/jquery.min.js"></script>
+<script type="text/javascript" src="common/js/base64.min.js"></script>
 <script type="text/javascript" src="common/js/sidebar.js"></script>
 <script type='text/javascript' src='common/js/mstClass.js'></script>
 <script type='text/javascript' src='common/js/master.js'></script>
@@ -52,7 +53,7 @@ $(function(){
     <div id="div_content">
 <div class="container">
 <article class="content textsize">
-<h1 class="headline4"><dl><dt class="date">★☆★</dt><dd>人物介紹尚無法提供中文翻譯</dd></dl></h1>
+<h1 class="headline4"><dl><dt class="date">★☆★</dt><dd>人物介紹翻譯：繁中至No.<span id="zhTWNO"></span>、簡中至No.<span id="zhCNNO"></span></dd></dl></h1>
 <!-- <h1 class="headline5"><dl><dt class="date">★☆★</dt><dd>因官方變更加密方式，新Servant的圖片尚無法取得</dd></dl></h1></a> -->
 <p id="p1"><strong><font color="#a21b20">◆</font>選擇職階<font color="#a21b20">◆</font></strong>
 	<select id="classid" onchange="classidChange();">
@@ -102,7 +103,17 @@ $(function(){
 		<table id="svtSkTdData"><tr><td></td></tr></table>
 	</div>
 	<div id="tab2" class="tab_content">
+		<form id="cmtlangDiv">
+		  <input type="radio" name="cmtlang" id="cmtlang_jp" value="jp" checked=true />日文
+		  <input type="radio" name="cmtlang" id="cmtlang_zh" value="zh" />中文<span class="notice">(因採用官方翻譯，部份用語會與站內翻譯有所不同)</span>
+		</form>
+<script>
+$('#cmtlangDiv input[type=radio]').change(function() {
+    cmtRead($('input[name=cmtlang]:checked').val());
+});
+</script>
 		<table id="svtInfoData"><tr><td></td></tr></table>
+		<table id="svtCmtData"><tr><td></td></tr></table>
 	</div>
 	<div id="tab3" class="tab_content">
 		<table id="svtCmbnData"><tr><td></td></tr></table>
