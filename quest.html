@@ -42,6 +42,30 @@ for(var e in master.mstQuestRelease)master.mstQuestRelease[e].questId==master.ms
 "</span></div>";a+="</td></tr>"}$("#dataTable tbody").empty();$("#dataTable tbody").append(a)}function initTable(){dataRead();$("#dataTable").tablesorter({headers:{0:{sorter:!1},7:{sorter:!1},8:{sorter:!1},9:{sorter:!1}}});spotAdjust()}function updateTable2(){$("#dataTable");dataRead();$("#dataTable").trigger("update");setTimeout(function(){$("#dataTable").trigger("sorton",[$("#dataTable")[0].config.sortList])},10);spotAdjust()}
 function spotAdjust(){$(".spotname").each(function(a){9<$(this).text().length&&$(this).width($(this).width()*$(this).text().length/9+"px")})}function addZero(a){10>a&&(a="0"+a);return a};
 </script>
+<style type="text/css">
+dl.accordion dt {
+	background: url(common/images/2016/03/arrow_open.png) 97% center no-repeat #091f4b;
+	background-size: 20px 20px;
+	border-bottom: 1px solid #EEE;
+	height: 40px;
+	font-size: 0.9em;
+	text-indent: 10px;
+	line-height: 40px;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+dl.accordion dt.open {
+	background: url(common/images/2016/03/arrow_close.png) 97% center no-repeat #091f4b;
+	background-size: 20px 20px;
+}
+dl.accordion dd {
+	display: none;
+	margin: 0 0 10px;
+}
+dl.accordion .open {
+	display: block;
+}
+</style>
 </head>
 <body onload="loadsidebar();initTable();">
 <!--二欄橫幅主要區塊開始-->
@@ -65,6 +89,49 @@ function spotAdjust(){$(".spotname").each(function(a){9<$(this).text().length&&$
 	<input type="button" value="開始篩選" onclick="updateTable2();">
   </fieldset>
 </form>
+<dl class="accordion">
+<dt>隱藏地點</dt>
+<dd>
+<table style="width:80%;text-align:center;margin:auto;">
+<tr><th>章節</th><th>地點</th><th>解鎖條件</th></tr>
+<tr>
+<td><img src="common/images/icon/war/104.png" title="第四特異点 死界魔霧都市 ロンドン" class="itemS" ></td>
+<td>ハイドパーク(海德公園)</td>
+<td>ソーホー(蘇活區)：魅惑の繁華街</td>
+</tr>
+<tr>
+<td><img src="common/images/icon/war/105.png" title="第五特異点 北米神話大戦 イ・プルーリバス・ウナム" class="itemS" /></td>
+<td>シカゴ(芝加哥)</td>
+<td>ワシントン(華盛頓)：特別行政区</td>
+</tr>
+<tr>
+<td><img src="common/images/icon/war/106.png" title="第六特異点 神聖円卓領域 キャメロット" class="itemS" /></td>
+<td>無の大地(無之大地)</td>
+<td>聖都正門：聖別の門</td>
+</tr>
+<tr>
+<td><img src="common/images/icon/war/201.png" title="亜種特異点Ⅰ 悪性隔絶魔境 新宿" class="itemS" /></td>
+<td>新宿御苑</td>
+<td>新宿四丁目：ホテル街</td>
+</tr>
+<tr>
+<td><img src="common/images/icon/war/201.png" title="亜種特異点Ⅰ 悪性隔絶魔境 新宿" class="itemS" /></td>
+<td>新宿二丁目</td>
+<td>歌舞伎町：不夜城</td>
+</tr>
+<tr>
+<td><img src="common/images/icon/war/202.png" title="亜種特異点Ⅱ 伝承地底世界 アガルタ" class="itemS" /></td>
+<td>大地の裂け目</td>
+<td>エルドラド：黄金郷</td>
+</tr>
+<tr>
+<td><img src="common/images/icon/war/203.png" title="亜種並行世界 屍山血河舞台 下総国" class="itemS" /></td>
+<td>荒川の原</td>
+<td>里：寂寂たる集落</td>
+</tr>
+</table>
+</dd>
+</dl>
 <table id="dataTable" class="tablesorter mouseover" style="width:1300px;text-align:center;">
 <thead>
 <tr><th>關卡名</th><th>消耗AP</th><th>絆</th><th>絆/AP</th><th>EXP</th><th>EXP/AP</th><th>QP</th><th>特性</th><th>初次獎勵</th><th>開放條件與地點</th></tr>
