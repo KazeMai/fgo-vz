@@ -1,4 +1,17 @@
-﻿sortByElmentNo(master.mstSvt);
+﻿var extendtxt = '{"strengthStatus":0,"svtId":9941040,"num":1,"priority":1,"skillId":435350,"condQuestId":0,"condQuestPhase":0,"condLv":0,"condLimitCount":-1,"eventId":0},{"strengthStatus":0,"svtId":9941040,"num":2,"priority":1,"skillId":436450,"condQuestId":0,"condQuestPhase":0,"condLv":0,"condLimitCount":-1,"eventId":0},{"strengthStatus":0,"svtId":9941040,"num":3,"priority":1,"skillId":437551,"condQuestId":0,"condQuestPhase":0,"condLv":0,"condLimitCount":-1,"eventId":0}';
+var isErr = false;
+extendtxt = extendtxt.replace(/\n/g,"\\n").replace(/\\"/g,"\\\"").replace(/\"なし\"/g,"\"－\"");
+try{
+	var tmpMst = JSON.parse('['+extendtxt+']');
+	for(var i in tmpMst)
+	{
+		master.mstSvtSkill.push(tmpMst[i]);
+	}
+}
+catch(err){console.log(err.message+'\n'+JSON.stringify(object1[0]));isErr=true;}
+//if(isErr) alert('存取錯誤');
+/*暫時應對*/
+sortByElmentNo(master.mstSvt);
 var zhTWNo=96,zhCNNo=140,statusNo=194,personalityList=" \u5584 \u60e1 ? \u72c2 \u4e2d\u5eb8 ? \u82b1\u5ac1 \u590f".split(" "),policyList=" \u4e2d\u7acb \u6df7\u6c8c \u79e9\u5e8f ? ? \u4e2d\u7acb".split(" "),attriList="\uff1f\u4eba\u5929\u5730\u661f\u7378".split(""),genderTypeList=["","\u7537\u6027","\u5973\u6027","\u7121"],cardList=["","0000ff","ff0000","00ff00"],svtStatusList=" A B C D E EX ? ? ".split(" "),svtStatusPlusList="  + ++ ? +++ ? ? \uff1f \uff0d".split(" "),individualityList=[[2E3,"\u795e\u6027"],
 [2001,"\u4eba\u578b"],[2002,"\u9f8d"],[2004,"\u7f85\u99ac"],[2005,"\u731b\u7378"],[2007,"\u963f\u723e\u6258\u8389\u4e9e\u81c9"],[2008,"\u88ab\u300c\u5929\u5730\u4e56\u96e2\u958b\u8f9f\u4e4b\u661f\u300d\u6240\u524b"],[2009,"\u9a0e\u4e58"],[2010,"\u4e9e\u745f"],[2011,"\u88ab\u300c\u4eba\u985e\u795e\u8a71\u30fb\u96f7\u96fb\u964d\u81e8\u300d\u6240\u524b"],[2012,"\u611b\u4eba"],[2018,"\u6b7b\u9748\u8207\u60e1\u9b54"],[2019,"\u9b54\u6027"],[2037,"\u88ab\u300c\u795e\u79d8\u6bba\u3057\u300d\u6240\u524b"],
 [2113,"\u738b"],[2114,"\u5e0c\u81d8\u795e\u8a71\u7cfb\u7537\u6027"]];
