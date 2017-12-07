@@ -729,3 +729,7 @@ table.mt-15 .star {
 .diamond {
 	color: #c80000;
 }
+.notes {
+	color: #666666;
+	font-style:italic;
+}
