@@ -154,13 +154,16 @@ div.large
 }
 #chkJp {
 	position:fixed;
-	right:0px;
+	right:-50px;
 	bottom:120px;
 	z-index:1000;
 	box-shadow:0px 0px 3px #000;
 	font-size: 0.9em;
 	text-align:right;
 	background-image: url(../images/detail_bg.png);
+}
+#chkJp:hover{
+	right:0px;
 }
 /* tablesorter */
 table.tablesorter {
@@ -291,6 +294,11 @@ div.warIcon {
 .itemS {
 	height: 30px;
 	vertical-align: middle;
+}
+.itemSH {
+	height: 30px;
+	vertical-align: middle;
+	border:2px red solid;
 }
 .itemST {
 	height: 30px;
