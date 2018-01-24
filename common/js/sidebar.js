@@ -150,9 +150,9 @@ function svtFace(svtId)
 				else txt+='no='+master.mstSvt[i].collectionNo;
 				txt+='"><img src="common/images/icon/faces/'+master.mstSvt[i].id+'0.png" onerror=\'javascript:this.src="common/images/icon/faces/0.png"\' class="itemM" title="'+findSvtNameZh2(master.mstSvt[i].id)+'" /></a>';
 			}
-			else
+			else if(master.mstSvt[i].type==7)
 			{
-				txt+='<img src="common/images/icon/faces/'+master.mstSvt[i].id+'.png" onerror=\'this.style.display = "none"\' class="itemM" title="'+svtId+'" />';
+				txt+='<img src="common/images/icon/faces/'+master.mstSvt[i].id+'0.png" onerror=\'this.style.display = "none"\' class="itemM" title="'+master.mstSvt[i].name+'" />';
 			}
 			isFind = true;
 			break;
