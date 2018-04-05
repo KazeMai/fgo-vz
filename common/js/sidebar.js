@@ -147,14 +147,14 @@ function svtFace(svtId)
 		{
 			if(master.mstSvt[i].type==6||master.mstSvt[i].type==98)
 			{
-				txt+='<a href="ceData.html?no='+master.mstSvt[i].collectionNo+'"><img src="common/images/icon/faces/'+master.mstSvt[i].id+'.png" onerror=\'javascript:this.src="common/images/icon/faces/0.png"\' class="itemM" title="'+master.mstSvt[i].name+'" /></a>';
+				txt+='<a href="ceData.html?no='+master.mstSvt[i].collectionNo+'"><img data-src="common/images/icon/faces/'+master.mstSvt[i].id+'.png" class="lazyload face_icon" title="'+master.mstSvt[i].name+'" /></a>';
 			}
 			else if(master.mstSvt[i].type==1||master.mstSvt[i].type==2||master.mstSvt[i].type==5||master.mstSvt[i].type==9||master.mstSvt[i].type==99)
 			{
 				txt+='<a href="svtData.html?';
 				if(master.mstSvt[i].collectionNo==0) txt+='id='+master.mstSvt[i].id;
 				else txt+='no='+master.mstSvt[i].collectionNo;
-				txt+='"><img src="common/images/icon/faces/'+master.mstSvt[i].id+'0.png" onerror=\'javascript:this.src="common/images/icon/faces/0.png"\' class="itemM" title="'+findSvtNameZh2(master.mstSvt[i].id)+'" /></a>';
+				txt+='"><img data-src="common/images/icon/faces/'+master.mstSvt[i].id+'0.png" class="lazyload face_icon" title="'+findSvtNameZh2(master.mstSvt[i].id)+'" /></a>';
 			}
 			else if(master.mstSvt[i].type==7)
 			{

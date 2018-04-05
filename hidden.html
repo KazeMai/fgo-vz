@@ -15,6 +15,7 @@
 <script type='text/javascript' src='common/js/transData.js'></script>
 <script type="text/javascript" src="common/js/smoothRollOver.js"></script>
 <script type="text/javascript" src="common/js/scrollTop.js"></script>
+<script type="text/javascript" src="common/js/lazyload.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -28,17 +29,15 @@
 </script>
 <style type="text/css">
 .enemyM {
- width:50px;
- height:50px;
+ background-image:none;
 }
 </style>
 <script type="text/javascript">
-sortByElmentType(master.mstSvt);
-function indiOut(){var d,c,b=[],a,e,f,k,g,h=document.getElementsByClassName("indiTd");for(f=0;f<h.length;f++){d="";b.length=0;for(a in master.mstSvt)1!=master.mstSvt[a].type&&2!=master.mstSvt[a].type||b.push(master.mstSvt[a].id);c=h[f].id.replace(/indi/g,"").replace(/N/g,"").split(/-/);for(k in c)if(-1==h[f].id.search(/N/))for(a in master.mstSvt){if(1==master.mstSvt[a].type||2==master.mstSvt[a].type)for(e in master.mstSvt[a].individuality){if(master.mstSvt[a].individuality[e]==c[k])break;if(e==master.mstSvt[a].individuality.length-
-1)for(g in b)if(b[g]==master.mstSvt[a].id){delete b[g];break}}}else for(a in master.mstSvt)if(1==master.mstSvt[a].type||2==master.mstSvt[a].type||5==master.mstSvt[a].type||9==master.mstSvt[a].type)for(e in master.mstSvt[a].individuality)if(master.mstSvt[a].individuality[e]==c[k])for(g in b)if(b[g]==master.mstSvt[a].id){delete b[g];break}for(a in b)for(e in master.mstSvt)if(b[a]==master.mstSvt[e].id){d+="<a href='svtData.html?";d=0==master.mstSvt[e].collectionNo?d+("id="+master.mstSvt[e].id):d+("no="+
-master.mstSvt[e].collectionNo);d+="'><img src='common/images/icon/faces/"+master.mstSvt[e].id+"0.png' onerror=\"javascript:this.src='common/images/icon/faces/0.png'\" width=50 title='"+findSvtNameZh2(master.mstSvt[e].id)+"'></img></a>";break}d+="<br>"+document.getElementById(h[f].id).innerHTML;document.getElementById(h[f].id).innerHTML=d}}
-function atrriRelation(){for(var d,c,b=document.getElementsByClassName("attriR"),a=0;a<b.length;a++){d=b[a].id.replace(/ar/g,"").split(/-/);c=1E3;for(var e in master.mstAttriRelation)if(master.mstAttriRelation[e].atkAttri==d[0]&&master.mstAttriRelation[e].defAttri==d[1]){c=master.mstAttriRelation[e].attackRate;break}1E3==c?document.getElementById(b[a].id).innerHTML="\uff0d":1E3<c?document.getElementById(b[a].id).innerHTML="<span class='red'>"+c/1E3+"</span>":1E3>c&&(document.getElementById(b[a].id).innerHTML=
-"<span class='blue'>"+c/1E3+"</span>")}};
+function indiOut(){var c=[],a,b,d,e,f,h=document.getElementsByClassName("indiTd");for(d=0;d<h.length;d++){var g="";c.length=0;for(a in master.mstSvt)1!=master.mstSvt[a].type&&2!=master.mstSvt[a].type||c.push(master.mstSvt[a].id);var k=h[d].id.replace(/indi/g,"").replace(/N/g,"").split(/-/);for(e in k)if(-1==h[d].id.search(/N/))for(a in master.mstSvt){if(1==master.mstSvt[a].type||2==master.mstSvt[a].type)for(b in master.mstSvt[a].individuality){if(master.mstSvt[a].individuality[b]==k[e])break;if(b==
+master.mstSvt[a].individuality.length-1)for(f in c)if(c[f]==master.mstSvt[a].id){delete c[f];break}}}else for(a in master.mstSvt)if(1==master.mstSvt[a].type||2==master.mstSvt[a].type||5==master.mstSvt[a].type||9==master.mstSvt[a].type)for(b in master.mstSvt[a].individuality)if(master.mstSvt[a].individuality[b]==k[e])for(f in c)if(c[f]==master.mstSvt[a].id){delete c[f];break}for(a in c)for(b in master.mstSvt)if(c[a]==master.mstSvt[b].id){g+="<a href='svtData.html?";g=0==master.mstSvt[b].collectionNo?
+g+("id="+master.mstSvt[b].id):g+("no="+master.mstSvt[b].collectionNo);g+="'><img class='lazyload face_icon50' data-src='common/images/icon/faces/"+master.mstSvt[b].id+"0.png' title='"+findSvtNameZh2(master.mstSvt[b].id)+"' /></a>";break}$("#"+h[d].id).prepend(g+"<br>");$("img.lazyload").lazyload()}}
+function atrriRelation(){for(var c,a,b=document.getElementsByClassName("attriR"),d=0;d<b.length;d++){c=b[d].id.replace(/ar/g,"").split(/-/);a=1E3;for(var e in master.mstAttriRelation)if(master.mstAttriRelation[e].atkAttri==c[0]&&master.mstAttriRelation[e].defAttri==c[1]){a=master.mstAttriRelation[e].attackRate;break}1E3==a?document.getElementById(b[d].id).innerHTML="\uff0d":1E3<a?document.getElementById(b[d].id).innerHTML="<span class='red'>"+a/1E3+"</span>":1E3>a&&(document.getElementById(b[d].id).innerHTML=
+"<span class='blue'>"+a/1E3+"</span>")}};
 </script>
 </head>
 <body onload="loadsidebar();indiOut();atrriRelation();">
@@ -421,222 +420,222 @@ function atrriRelation(){for(var d,c,b=document.getElementsByClassName("attriR")
 <table style="width:800px">
 <tr><th style="width:220px">分類</th><th style="width:580px">對象</th></tr>
 <tr><th>人</th><td id="indi202" class="indiTd">
-<img src="common/images/icon/enemy/99301001.png" title="骸骨兵" class="enemyM" />
-<img src="common/images/icon/enemy/99301101.png" title="骷髏王" class="enemyM" />
-<img src="common/images/icon/enemy/99302001.png" title="骸骨兵" class="enemyM" />
-<img src="common/images/icon/enemy/99302101.png" title="骷髏王" class="enemyM" />
-<img src="common/images/icon/enemy/99303001.png" title="骸骨兵" class="enemyM" />
-<img src="common/images/icon/enemy/99303101.png" title="骷髏王" class="enemyM" />
-<img src="common/images/icon/enemy/99307001.png" title="古代兵" class="enemyM" />
-<img src="common/images/icon/enemy/99310001.png" title="中世兵" class="enemyM" />
-<img src="common/images/icon/enemy/99313001.png" title="近代兵" class="enemyM" />
-<img src="common/images/icon/enemy/99318001.png" title="皮克特人" class="enemyM" />
-<img src="common/images/icon/enemy/99327001.png" title="亞馬遜女戰士" class="enemyM" />
-<img src="common/images/icon/enemy/99360001.png" title="機械化歩兵" class="enemyM" />
-<img src="common/images/icon/enemy/99361001.png" title="蒸汽機械" class="enemyM" />
-<img src="common/images/icon/enemy/99363001.png" title="凱爾特兵" class="enemyM" />
-<img src="common/images/icon/enemy/99364001.png" title="凱爾特兵" class="enemyM" />
-<img src="common/images/icon/enemy/99365001.png" title="凱爾特兵" class="enemyM" />
-<img src="common/images/icon/enemy/99366001.png" title="德魯伊" class="enemyM" />
-<img src="common/images/icon/enemy/99367101.png" title="失心者" class="enemyM" />
-<img src="common/images/icon/enemy/99367201.png" title="失心者(黑)" class="enemyM" />
-<img src="common/images/icon/enemy/99367301.png" title="肅正騎士" class="enemyM" />
-<img src="common/images/icon/enemy/99370101.png" title="肅正騎士(萬聖節)" class="enemyM" />
-<img src="common/images/icon/enemy/99370201.png" title="肅正騎士(萬聖節)" class="enemyM" />
-<img src="common/images/icon/enemy/99370301.png" title="肅正騎士(萬聖節)" class="enemyM" />
-<img src="common/images/icon/enemy/99388101.png" title="混混" class="enemyM" />
-<img src="common/images/icon/enemy/99388201.png" title="流氓" class="enemyM" />
-<img src="common/images/icon/enemy/99388301.png" title="雀蜂" class="enemyM" />
-<img src="common/images/icon/enemy/99388401.png" title="雀蜂(弱)" class="enemyM" />
-<img src="common/images/icon/enemy/99388901.png" title="信選組" class="enemyM" />
-<img src="common/images/icon/enemy/99389001.png" title="小阿信戰車" class="enemyM" />
-<img src="common/images/icon/enemy/99389101.png" title="阿信UFO" class="enemyM" />
-<img src="common/images/icon/enemy/99393001.png" title="女酷吏" class="enemyM" />
-<img src="common/images/icon/enemy/99393101.png" title="女海賊" class="enemyM" />
-<img src="common/images/icon/enemy/99398401.png" title="金屬南瓜頭" class="enemyM" />
-<img src="common/images/icon/enemy/99398501.png" title="金屬南瓜頭" class="enemyM" />
-<img src="common/images/icon/enemy/99398601.png" title="金屬南瓜頭" class="enemyM" />
-<img src="common/images/icon/enemy/99398701.png" title="金屬南瓜騎士" class="enemyM" />
-<img src="common/images/icon/enemy/99398801.png" title="金屬南瓜騎士" class="enemyM" />
-<img src="common/images/icon/enemy/99398901.png" title="金屬南瓜騎士" class="enemyM" />
-<img src="common/images/icon/enemy/99400101.png" title="骸骨兵" class="enemyM" />
-<img src="common/images/icon/enemy/99400111.png" title="骸骨兵" class="enemyM" />
-<img src="common/images/icon/enemy/99400121.png" title="骸骨兵" class="enemyM" />
-<img src="common/images/icon/enemy/99400301.png" title="小阿信" class="enemyM" />
-<img src="common/images/icon/enemy/99400311.png" title="小阿信" class="enemyM" />
-<img src="common/images/icon/enemy/99400321.png" title="小阿信" class="enemyM" />
-<img src="common/images/icon/enemy/99400401.png" title="巨大阿信" class="enemyM" />
-<img src="common/images/icon/enemy/99400411.png" title="巨大阿信" class="enemyM" />
-<img src="common/images/icon/enemy/99400421.png" title="巨大阿信" class="enemyM" />
-<img src="common/images/icon/enemy/99402101.png" title="殭屍上班族" class="enemyM" />
-<img src="common/images/icon/enemy/99402201.png" title="殭屍不良" class="enemyM" />
-<img src="common/images/icon/enemy/99402301.png" title="殭屍警官" class="enemyM" />
-<img src="common/images/icon/enemy/99402401.png" title="女子高生幽靈" class="enemyM" />
-<img src="common/images/icon/enemy/99402601.png" title="巫條霧繪幽靈" class="enemyM" />
-<img src="common/images/icon/enemy/99403401.png" title="哈桑" class="enemyM" />
-<img src="common/images/icon/enemy/99403501.png" title="哈桑" class="enemyM" />
-<img src="common/images/icon/enemy/99403601.png" title="哈桑" class="enemyM" />
-<img src="common/images/icon/enemy/99405001.png" title="京人" class="enemyM" />
-<img src="common/images/icon/enemy/99410601.png" title="空想樹オロチ" class="enemyM" />
+<img data-src="common/images/icon/enemy/99301001.png" title="骸骨兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99301101.png" title="骷髏王" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99302001.png" title="骸骨兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99302101.png" title="骷髏王" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99303001.png" title="骸骨兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99303101.png" title="骷髏王" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99307001.png" title="古代兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99310001.png" title="中世兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99313001.png" title="近代兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99318001.png" title="皮克特人" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99327001.png" title="亞馬遜女戰士" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99360001.png" title="機械化歩兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99361001.png" title="蒸汽機械" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99363001.png" title="凱爾特兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99364001.png" title="凱爾特兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99365001.png" title="凱爾特兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99366001.png" title="德魯伊" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99367101.png" title="失心者" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99367201.png" title="失心者(黑)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99367301.png" title="肅正騎士" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99370101.png" title="肅正騎士(萬聖節)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99370201.png" title="肅正騎士(萬聖節)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99370301.png" title="肅正騎士(萬聖節)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99388101.png" title="混混" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99388201.png" title="流氓" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99388301.png" title="雀蜂" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99388401.png" title="雀蜂(弱)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99388901.png" title="信選組" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99389001.png" title="小阿信戰車" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99389101.png" title="阿信UFO" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99393001.png" title="女酷吏" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99393101.png" title="女海賊" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99398401.png" title="金屬南瓜頭" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99398501.png" title="金屬南瓜頭" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99398601.png" title="金屬南瓜頭" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99398701.png" title="金屬南瓜騎士" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99398801.png" title="金屬南瓜騎士" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99398901.png" title="金屬南瓜騎士" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99400101.png" title="骸骨兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99400111.png" title="骸骨兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99400121.png" title="骸骨兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99400301.png" title="小阿信" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99400311.png" title="小阿信" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99400321.png" title="小阿信" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99400401.png" title="巨大阿信" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99400411.png" title="巨大阿信" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99400421.png" title="巨大阿信" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402101.png" title="殭屍上班族" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402201.png" title="殭屍不良" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402301.png" title="殭屍警官" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402401.png" title="女子高生幽靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402601.png" title="巫條霧繪幽靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99403401.png" title="哈桑" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99403501.png" title="哈桑" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99403601.png" title="哈桑" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99405001.png" title="京人" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99410601.png" title="空想樹オロチ" class="lazyload face_icon50 enemyM" />
 
 </td></tr>
 <tr><th>天</th><td id="indi200" class="indiTd">
-<img src="common/images/icon/enemy/91001141.png" title="巨大白Boss幽靈" class="enemyM" />
-<img src="common/images/icon/enemy/91001161.png" title="克里斯汀(亞種特異點Ⅰ)" class="enemyM" />
-<img src="common/images/icon/enemy/91001171.png" title="恩尼格瑪(亞種特異點Ⅰ)" class="enemyM" />
-<img src="common/images/icon/enemy/99316001.png" title="幽靈" class="enemyM" />
-<img src="common/images/icon/enemy/99321001.png" title="惡魔" class="enemyM" />
-<img src="common/images/icon/enemy/99322001.png" title="自動人偶" class="enemyM" />
-<img src="common/images/icon/enemy/99323001.png" title="石像" class="enemyM" />
-<img src="common/images/icon/enemy/99323103.png" title="石像上位種" class="enemyM" />
-<img src="common/images/icon/enemy/99323201.png" title="紅寶石石像" class="enemyM" />
-<img src="common/images/icon/enemy/99335001.png" title="咒語書" class="enemyM" />
-<img src="common/images/icon/enemy/99336004.png" title="金錢之扉" class="enemyM" />
-<img src="common/images/icon/enemy/99337004.png" title="種火手腕" class="enemyM" />
-<img src="common/images/icon/enemy/99338001.png" title="人工生命體" class="enemyM" />
-<img src="common/images/icon/enemy/99348001.png" title="魔神柱" class="enemyM" />
-<img src="common/images/icon/enemy/99348101.png" title="魔神柱" class="enemyM" />
-<img src="common/images/icon/enemy/99348201.png" title="魔神巴巴托司" class="enemyM" />
-<img src="common/images/icon/enemy/99348211.png" title="第四特異點魔神柱(最終Boss)" class="enemyM" />
-<img src="common/images/icon/enemy/99348301.png" title="魔神哈帕斯" class="enemyM" />
-<img src="common/images/icon/enemy/99348501.png" title="魔神哈艮地" class="enemyM" />
-<img src="common/images/icon/enemy/99349001.png" title="蒸汽機械" class="enemyM" />
-<img src="common/images/icon/enemy/99350001.png" title="蒸汽機械" class="enemyM" />
-<img src="common/images/icon/enemy/99351001.png" title="蒸汽機械" class="enemyM" />
-<img src="common/images/icon/enemy/99367601.png" title="自動防衛裝置" class="enemyM" />
-<img src="common/images/icon/enemy/99368001.png" title="魔神柱變種阿蒙・拉" class="enemyM" />
-<img src="common/images/icon/enemy/99369301.png" title="麵餅石像" class="enemyM" />
-<img src="common/images/icon/enemy/99369501.png" title="魔法杖" class="enemyM" />
-<img src="common/images/icon/enemy/99369701.png" title="海倫娜之書" class="enemyM" />
-<img src="common/images/icon/enemy/99371101.png" title="艾蕾修卡(第七特異點)" class="enemyM" />
-<img src="common/images/icon/enemy/99371301.png" title="ラフム" class="enemyM" />
-<img src="common/images/icon/enemy/99371401.png" title="ベル・ラフム(Saber)" class="enemyM" />
-<img src="common/images/icon/enemy/99381001.png" title="魔神納貝流士" class="enemyM" />
-<img src="common/images/icon/enemy/99382001.png" title="魔神佛勞洛斯" class="enemyM" />
-<img src="common/images/icon/enemy/99383001.png" title="魔神佛鈕司" class="enemyM" />
-<img src="common/images/icon/enemy/99384001.png" title="魔神巴巴托司" class="enemyM" />
-<img src="common/images/icon/enemy/99385001.png" title="魔神哈帕斯" class="enemyM" />
-<img src="common/images/icon/enemy/99386001.png" title="魔神亞蒙" class="enemyM" />
-<img src="common/images/icon/enemy/99387001.png" title="魔神斯伯奈克" class="enemyM" />
-<img src="common/images/icon/enemy/99388001.png" title="魔神安杜馬利烏士" class="enemyM" />
-<img src="common/images/icon/enemy/99388501.png" title="花腔" class="enemyM" />
-<img src="common/images/icon/enemy/99388801.png" title="茱麗葉(亞種特異點Ⅰ)" class="enemyM" />
-<img src="common/images/icon/enemy/99389201.png" title="銀之機械阿信" class="enemyM" />
-<img src="common/images/icon/enemy/99389301.png" title="大機械阿信" class="enemyM" />
-<img src="common/images/icon/enemy/99389401.png" title="金之機械阿信" class="enemyM" />
-<img src="common/images/icon/enemy/99389501.png" title="神機械阿信" class="enemyM" />
-<img src="common/images/icon/enemy/99395001.png" title="古伽蘭那" class="enemyM" />
-<img src="common/images/icon/enemy/99395401.png" title="偽俄里翁" class="enemyM" />
-<img src="common/images/icon/enemy/99396101.png" title="黑武者" class="enemyM" />
-<img src="common/images/icon/enemy/99396301.png" title="邊獄大靈" class="enemyM" />
-<img src="common/images/icon/enemy/99396501.png" title="忌靈" class="enemyM" />
-<img src="common/images/icon/enemy/99398101.png" title="量產型機械伊莉醬" class="enemyM" />
-<img src="common/images/icon/enemy/99398301.png" title="金屬稻草人" class="enemyM" />
-<img src="common/images/icon/enemy/99399001.png" title="南瓜機械" class="enemyM" />
-<img src="common/images/icon/enemy/99399101.png" title="南瓜機械" class="enemyM" />
-<img src="common/images/icon/enemy/99399201.png" title="南瓜機械" class="enemyM" />
-<img src="common/images/icon/enemy/99400201.png" title="幽靈" class="enemyM" />
-<img src="common/images/icon/enemy/99401703.png" title="聖誕之手" class="enemyM" />
-<img src="common/images/icon/enemy/99401801.png" title="雪人" class="enemyM" />
-<img src="common/images/icon/enemy/99401901.png" title="雪人" class="enemyM" />
-<img src="common/images/icon/enemy/99402701.png" title="巨大Boss幽靈" class="enemyM" />
-<img src="common/images/icon/enemy/99402801.png" title="超巨大Boss幽靈" class="enemyM" />
-<img src="common/images/icon/enemy/99402901.png" title="巨大黑Boss幽靈" class="enemyM" />
-<img src="common/images/icon/enemy/99406101.png" title="要石" class="enemyM" />
-<img src="common/images/icon/enemy/99408001.png" title="派對幽靈" class="enemyM" />
+<img data-src="common/images/icon/enemy/91001141.png" title="巨大白Boss幽靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/91001161.png" title="克里斯汀(亞種特異點Ⅰ)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/91001171.png" title="恩尼格瑪(亞種特異點Ⅰ)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99316001.png" title="幽靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99321001.png" title="惡魔" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99322001.png" title="自動人偶" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99323001.png" title="石像" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99323103.png" title="石像上位種" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99323201.png" title="紅寶石石像" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99335001.png" title="咒語書" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99336004.png" title="金錢之扉" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99337004.png" title="種火手腕" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99338001.png" title="人工生命體" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99348001.png" title="魔神柱" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99348101.png" title="魔神柱" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99348201.png" title="魔神巴巴托司" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99348211.png" title="第四特異點魔神柱(最終Boss)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99348301.png" title="魔神哈帕斯" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99348501.png" title="魔神哈艮地" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99349001.png" title="蒸汽機械" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99350001.png" title="蒸汽機械" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99351001.png" title="蒸汽機械" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99367601.png" title="自動防衛裝置" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99368001.png" title="魔神柱變種阿蒙・拉" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99369301.png" title="麵餅石像" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99369501.png" title="魔法杖" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99369701.png" title="海倫娜之書" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99371101.png" title="艾蕾修卡(第七特異點)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99371301.png" title="ラフム" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99371401.png" title="ベル・ラフム(Saber)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99381001.png" title="魔神納貝流士" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99382001.png" title="魔神佛勞洛斯" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99383001.png" title="魔神佛鈕司" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99384001.png" title="魔神巴巴托司" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99385001.png" title="魔神哈帕斯" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99386001.png" title="魔神亞蒙" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99387001.png" title="魔神斯伯奈克" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99388001.png" title="魔神安杜馬利烏士" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99388501.png" title="花腔" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99388801.png" title="茱麗葉(亞種特異點Ⅰ)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99389201.png" title="銀之機械阿信" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99389301.png" title="大機械阿信" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99389401.png" title="金之機械阿信" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99389501.png" title="神機械阿信" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99395001.png" title="古伽蘭那" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99395401.png" title="偽俄里翁" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99396101.png" title="黑武者" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99396301.png" title="邊獄大靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99396501.png" title="忌靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99398101.png" title="量產型機械伊莉醬" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99398301.png" title="金屬稻草人" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99399001.png" title="南瓜機械" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99399101.png" title="南瓜機械" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99399201.png" title="南瓜機械" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99400201.png" title="幽靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99401703.png" title="聖誕之手" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99401801.png" title="雪人" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99401901.png" title="雪人" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402701.png" title="巨大Boss幽靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402801.png" title="超巨大Boss幽靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402901.png" title="巨大黑Boss幽靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99406101.png" title="要石" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99408001.png" title="派對幽靈" class="lazyload face_icon50 enemyM" />
 
 </td></tr>
 <tr><th>地</th><td id="indi201" class="indiTd">
-<img src="common/images/icon/enemy/99304001.png" title="龍牙兵" class="enemyM" />
-<img src="common/images/icon/enemy/99325001.png" title="雙足飛龍" class="enemyM" />
-<img src="common/images/icon/enemy/99325101.png" title="雙足飛龍上位種" class="enemyM" />
-<img src="common/images/icon/enemy/99326001.png" title="龍" class="enemyM" />
-<img src="common/images/icon/enemy/99326101.png" title="龍" class="enemyM" />
-<img src="common/images/icon/enemy/99326201.png" title="龍" class="enemyM" />
-<img src="common/images/icon/enemy/99326301.png" title="龍" class="enemyM" />
-<img src="common/images/icon/enemy/99326401.png" title="龍" class="enemyM" />
-<img src="common/images/icon/enemy/99330001.png" title="蛇妖" class="enemyM" />
-<img src="common/images/icon/enemy/99331001.png" title="半人馬" class="enemyM" />
-<img src="common/images/icon/enemy/99334001.png" title="奇美拉" class="enemyM" />
-<img src="common/images/icon/enemy/99339001.png" title="狼人" class="enemyM" />
-<img src="common/images/icon/enemy/99342001.png" title="豹人" class="enemyM" />
-<img src="common/images/icon/enemy/99345001.png" title="哥布林" class="enemyM" />
-<img src="common/images/icon/enemy/99356001.png" title="守寶妖精" class="enemyM" />
-<img src="common/images/icon/enemy/99356101.png" title="守寶妖精" class="enemyM" />
-<img src="common/images/icon/enemy/99357001.png" title="雙角獸" class="enemyM" />
-<img src="common/images/icon/enemy/99358001.png" title="凝視者" class="enemyM" />
-<img src="common/images/icon/enemy/99359001.png" title="噬魂者" class="enemyM" />
-<img src="common/images/icon/enemy/99367701.png" title="史芬克斯(雄)" class="enemyM" />
-<img src="common/images/icon/enemy/99367801.png" title="史芬克斯(雌)" class="enemyM" />
-<img src="common/images/icon/enemy/99367901.png" title="伊芙莉塔" class="enemyM" />
-<img src="common/images/icon/enemy/99368101.png" title="巨寄居蟹" class="enemyM" />
-<img src="common/images/icon/enemy/99368201.png" title="毒寄居蟹" class="enemyM" />
-<img src="common/images/icon/enemy/99368301.png" title="千年寄居蟹" class="enemyM" />
-<img src="common/images/icon/enemy/99368401.png" title="魔猪" class="enemyM" />
-<img src="common/images/icon/enemy/99368501.png" title="魔猪" class="enemyM" />
-<img src="common/images/icon/enemy/99368601.png" title="魔猪" class="enemyM" />
-<img src="common/images/icon/enemy/99368901.png" title="迷你庫醬" class="enemyM" />
-<img src="common/images/icon/enemy/99369401.png" title="彩虹飛龍" class="enemyM" />
-<img src="common/images/icon/enemy/99371601.png" title="ウリディンム" class="enemyM" />
-<img src="common/images/icon/enemy/99371701.png" title="ウガル" class="enemyM" />
-<img src="common/images/icon/enemy/99371801.png" title="ムシュフシュ" class="enemyM" />
-<img src="common/images/icon/enemy/99371901.png" title="戈爾貢" class="enemyM" />
-<img src="common/images/icon/enemy/99372101.png" title="ウシュムガル" class="enemyM" />
-<img src="common/images/icon/enemy/99372201.png" title="バシュム" class="enemyM" />
-<img src="common/images/icon/enemy/99372301.png" title="ムシュマッヘ" class="enemyM" />
-<img src="common/images/icon/enemy/99388601.png" title="超級奇美拉" class="enemyM" />
-<img src="common/images/icon/enemy/99388701.png" title="李爾王" class="enemyM" />
-<img src="common/images/icon/enemy/99391001.png" title="掠食者" class="enemyM" />
-<img src="common/images/icon/enemy/99391101.png" title="變形怪" class="enemyM" />
-<img src="common/images/icon/enemy/99391801.png" title="櫻色病毒" class="enemyM" />
-<img src="common/images/icon/enemy/99391901.png" title="櫻色機器人" class="enemyM" />
-<img src="common/images/icon/enemy/99392001.png" title="櫻色處理程式" class="enemyM" />
-<img src="common/images/icon/enemy/99393201.png" title="九頭蛇" class="enemyM" />
-<img src="common/images/icon/enemy/99393801.png" title="蛇妖女王" class="enemyM" />
-<img src="common/images/icon/enemy/99395101.png" title="看守" class="enemyM" />
-<img src="common/images/icon/enemy/99395201.png" title="偽俄里翁" class="enemyM" />
-<img src="common/images/icon/enemy/99395301.png" title="偽俄里翁" class="enemyM" />
-<img src="common/images/icon/enemy/99395501.png" title="偽俄里翁" class="enemyM" />
-<img src="common/images/icon/enemy/99395601.png" title="真俄里翁" class="enemyM" />
-<img src="common/images/icon/enemy/99396401.png" title="大蛇" class="enemyM" />
-<img src="common/images/icon/enemy/99397401.png" title="祟鬼" class="enemyM" />
-<img src="common/images/icon/enemy/99397501.png" title="穢豬" class="enemyM" />
-<img src="common/images/icon/enemy/99398201.png" title="南瓜凝視者" class="enemyM" />
-<img src="common/images/icon/enemy/99400501.png" title="馴鹿人" class="enemyM" />
-<img src="common/images/icon/enemy/99401301.png" title="馴鹿人" class="enemyM" />
-<img src="common/images/icon/enemy/99403001.png" title="海魔" class="enemyM" />
-<img src="common/images/icon/enemy/99403101.png" title="海魔" class="enemyM" />
-<img src="common/images/icon/enemy/99403201.png" title="海魔" class="enemyM" />
-<img src="common/images/icon/enemy/99403301.png" title="翅刃蟲" class="enemyM" />
-<img src="common/images/icon/enemy/99405101.png" title="鬼手・右" class="enemyM" />
-<img src="common/images/icon/enemy/99405201.png" title="鬼手・左" class="enemyM" />
-<img src="common/images/icon/enemy/99406201.png" title="技喰丸" class="enemyM" />
-<img src="common/images/icon/enemy/99406301.png" title="風越丸" class="enemyM" />
-<img src="common/images/icon/enemy/99406401.png" title="轟力丸" class="enemyM" />
-<img src="common/images/icon/enemy/99406501.png" title="鬼" class="enemyM" />
-<img src="common/images/icon/enemy/99407001.png" title="食屍鬼" class="enemyM" />
-<img src="common/images/icon/enemy/99407101.png" title="食屍鬼・Enbiya" class="enemyM" />
-<img src="common/images/icon/enemy/99407201.png" title="食屍鬼・暴食" class="enemyM" />
-<img src="common/images/icon/enemy/99407301.png" title="遠古食屍鬼" class="enemyM" />
-<img src="common/images/icon/enemy/99407401.png" title="灰狼" class="enemyM" />
-<img src="common/images/icon/enemy/99407501.png" title="夏塔克鳥" class="enemyM" />
-<img src="common/images/icon/enemy/99409001.png" title="神聖鳳凰" class="enemyM" />
-<img src="common/images/icon/enemy/99410101.png" title="殺戮獵兵" class="enemyM" />
-<img src="common/images/icon/enemy/99410801.png" title="夜蛾" class="enemyM" />
-<img src="common/images/icon/enemy/99411401.png" title="破壞" class="enemyM" />
-<img src="common/images/icon/enemy/99411501.png" title="クリチャーチ" class="enemyM" />
+<img data-src="common/images/icon/enemy/99304001.png" title="龍牙兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99325001.png" title="雙足飛龍" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99325101.png" title="雙足飛龍上位種" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99326001.png" title="龍" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99326101.png" title="龍" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99326201.png" title="龍" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99326301.png" title="龍" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99326401.png" title="龍" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99330001.png" title="蛇妖" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99331001.png" title="半人馬" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99334001.png" title="奇美拉" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99339001.png" title="狼人" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99342001.png" title="豹人" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99345001.png" title="哥布林" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99356001.png" title="守寶妖精" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99356101.png" title="守寶妖精" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99357001.png" title="雙角獸" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99358001.png" title="凝視者" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99359001.png" title="噬魂者" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99367701.png" title="史芬克斯(雄)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99367801.png" title="史芬克斯(雌)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99367901.png" title="伊芙莉塔" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99368101.png" title="巨寄居蟹" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99368201.png" title="毒寄居蟹" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99368301.png" title="千年寄居蟹" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99368401.png" title="魔猪" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99368501.png" title="魔猪" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99368601.png" title="魔猪" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99368901.png" title="迷你庫醬" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99369401.png" title="彩虹飛龍" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99371601.png" title="ウリディンム" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99371701.png" title="ウガル" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99371801.png" title="ムシュフシュ" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99371901.png" title="戈爾貢" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99372101.png" title="ウシュムガル" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99372201.png" title="バシュム" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99372301.png" title="ムシュマッヘ" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99388601.png" title="超級奇美拉" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99388701.png" title="李爾王" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99391001.png" title="掠食者" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99391101.png" title="變形怪" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99391801.png" title="櫻色病毒" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99391901.png" title="櫻色機器人" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99392001.png" title="櫻色處理程式" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99393201.png" title="九頭蛇" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99393801.png" title="蛇妖女王" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99395101.png" title="看守" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99395201.png" title="偽俄里翁" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99395301.png" title="偽俄里翁" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99395501.png" title="偽俄里翁" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99395601.png" title="真俄里翁" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99396401.png" title="大蛇" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99397401.png" title="祟鬼" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99397501.png" title="穢豬" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99398201.png" title="南瓜凝視者" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99400501.png" title="馴鹿人" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99401301.png" title="馴鹿人" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99403001.png" title="海魔" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99403101.png" title="海魔" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99403201.png" title="海魔" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99403301.png" title="翅刃蟲" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99405101.png" title="鬼手・右" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99405201.png" title="鬼手・左" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99406201.png" title="技喰丸" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99406301.png" title="風越丸" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99406401.png" title="轟力丸" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99406501.png" title="鬼" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99407001.png" title="食屍鬼" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99407101.png" title="食屍鬼・Enbiya" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99407201.png" title="食屍鬼・暴食" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99407301.png" title="遠古食屍鬼" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99407401.png" title="灰狼" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99407501.png" title="夏塔克鳥" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99409001.png" title="神聖鳳凰" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99410101.png" title="殺戮獵兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99410801.png" title="夜蛾" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99411401.png" title="破壞" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99411501.png" title="クリチャーチ" class="lazyload face_icon50 enemyM" />
 
 </td></tr>
 <tr><th>星</th><td id="indi203" class="indiTd">
 <tr><th>獸</th><td id="indi204" class="indiTd">
-<img src="common/images/icon/enemy/99354101.png" title="迪亞馬特" class="enemyM" />
-<img src="common/images/icon/enemy/99371501.png" title="ベル・ラフム(BeastII)" class="enemyM" />
-<img src="common/images/icon/enemy/99389701.png" title="金色魔太閤秀吉" class="enemyM" />
-<img src="common/images/icon/enemy/99390001.png" title="魔神巴力" class="enemyM" />
-<img src="common/images/icon/enemy/99391201.png" title="魔神柱" class="enemyM" />
-<img src="common/images/icon/enemy/99391701.png" title="魔性菩薩" class="enemyM" />
-<img src="common/images/icon/enemy/99393501.png" title="魔神菲尼克斯" class="enemyM" />
-<img src="common/images/icon/enemy/99407601.png" title="魔神勞姆" class="enemyM" />
+<img data-src="common/images/icon/enemy/99354101.png" title="迪亞馬特" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99371501.png" title="ベル・ラフム(BeastII)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99389701.png" title="金色魔太閤秀吉" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99390001.png" title="魔神巴力" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99391201.png" title="魔神柱" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99391701.png" title="魔性菩薩" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99393501.png" title="魔神菲尼克斯" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99407601.png" title="魔神勞姆" class="lazyload face_icon50 enemyM" />
 
 </td></tr>
 </table>
@@ -648,65 +647,65 @@ function atrriRelation(){for(var d,c,b=document.getElementsByClassName("attriR")
 <table style="width:800px">
 <tr><th style="width:220px">性別</th><th style="width:580px">對象</th></tr>
 <tr><th>男性</th><td id="indi1" class="indiTd">
-<img src="common/images/icon/enemy/99307001.png" title="古代兵" class="enemyM" />
-<img src="common/images/icon/enemy/99310001.png" title="中世兵" class="enemyM" />
-<img src="common/images/icon/enemy/99313001.png" title="近代兵" class="enemyM" />
-<img src="common/images/icon/enemy/99318001.png" title="皮克特人" class="enemyM" />
-<img src="common/images/icon/enemy/99331001.png" title="半人馬" class="enemyM" />
-<img src="common/images/icon/enemy/99339001.png" title="狼人" class="enemyM" />
-<img src="common/images/icon/enemy/99342001.png" title="豹人" class="enemyM" />
-<img src="common/images/icon/enemy/99345001.png" title="哥布林" class="enemyM" />
-<img src="common/images/icon/enemy/99360001.png" title="機械化歩兵" class="enemyM" />
-<img src="common/images/icon/enemy/99361001.png" title="蒸汽機械" class="enemyM" />
-<img src="common/images/icon/enemy/99363001.png" title="凱爾特兵" class="enemyM" />
-<img src="common/images/icon/enemy/99364001.png" title="凱爾特兵" class="enemyM" />
-<img src="common/images/icon/enemy/99365001.png" title="凱爾特兵" class="enemyM" />
-<img src="common/images/icon/enemy/99366001.png" title="德魯伊" class="enemyM" />
-<img src="common/images/icon/enemy/99367101.png" title="失心者" class="enemyM" />
-<img src="common/images/icon/enemy/99367201.png" title="失心者(黑)" class="enemyM" />
-<img src="common/images/icon/enemy/99367301.png" title="肅正騎士" class="enemyM" />
-<img src="common/images/icon/enemy/99367701.png" title="史芬克斯(雄)" class="enemyM" />
-<img src="common/images/icon/enemy/99368901.png" title="迷你庫醬" class="enemyM" />
-<img src="common/images/icon/enemy/99370101.png" title="肅正騎士(萬聖節)" class="enemyM" />
-<img src="common/images/icon/enemy/99370201.png" title="肅正騎士(萬聖節)" class="enemyM" />
-<img src="common/images/icon/enemy/99370301.png" title="肅正騎士(萬聖節)" class="enemyM" />
-<img src="common/images/icon/enemy/99388101.png" title="混混" class="enemyM" />
-<img src="common/images/icon/enemy/99388201.png" title="流氓" class="enemyM" />
-<img src="common/images/icon/enemy/99388301.png" title="雀蜂" class="enemyM" />
-<img src="common/images/icon/enemy/99388401.png" title="雀蜂(弱)" class="enemyM" />
-<img src="common/images/icon/enemy/99395101.png" title="看守" class="enemyM" />
-<img src="common/images/icon/enemy/99400501.png" title="馴鹿人" class="enemyM" />
-<img src="common/images/icon/enemy/99401301.png" title="馴鹿人" class="enemyM" />
-<img src="common/images/icon/enemy/99401801.png" title="雪人" class="enemyM" />
-<img src="common/images/icon/enemy/99401901.png" title="雪人" class="enemyM" />
-<img src="common/images/icon/enemy/99402101.png" title="殭屍上班族" class="enemyM" />
-<img src="common/images/icon/enemy/99402201.png" title="殭屍不良" class="enemyM" />
-<img src="common/images/icon/enemy/99402301.png" title="殭屍警官" class="enemyM" />
-<img src="common/images/icon/enemy/99403401.png" title="哈桑" class="enemyM" />
-<img src="common/images/icon/enemy/99403501.png" title="哈桑" class="enemyM" />
-<img src="common/images/icon/enemy/99403601.png" title="哈桑" class="enemyM" />
-<img src="common/images/icon/enemy/99405001.png" title="京人" class="enemyM" />
-<img src="common/images/icon/enemy/99406201.png" title="技喰丸" class="enemyM" />
-<img src="common/images/icon/enemy/99406301.png" title="風越丸" class="enemyM" />
-<img src="common/images/icon/enemy/99406401.png" title="轟力丸" class="enemyM" />
-<img src="common/images/icon/enemy/99406501.png" title="鬼" class="enemyM" />
-<img src="common/images/icon/enemy/99409001.png" title="神聖鳳凰" class="enemyM" />
-<img src="common/images/icon/enemy/99410101.png" title="殺戮獵兵" class="enemyM" />
+<img data-src="common/images/icon/enemy/99307001.png" title="古代兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99310001.png" title="中世兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99313001.png" title="近代兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99318001.png" title="皮克特人" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99331001.png" title="半人馬" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99339001.png" title="狼人" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99342001.png" title="豹人" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99345001.png" title="哥布林" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99360001.png" title="機械化歩兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99361001.png" title="蒸汽機械" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99363001.png" title="凱爾特兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99364001.png" title="凱爾特兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99365001.png" title="凱爾特兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99366001.png" title="德魯伊" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99367101.png" title="失心者" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99367201.png" title="失心者(黑)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99367301.png" title="肅正騎士" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99367701.png" title="史芬克斯(雄)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99368901.png" title="迷你庫醬" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99370101.png" title="肅正騎士(萬聖節)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99370201.png" title="肅正騎士(萬聖節)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99370301.png" title="肅正騎士(萬聖節)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99388101.png" title="混混" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99388201.png" title="流氓" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99388301.png" title="雀蜂" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99388401.png" title="雀蜂(弱)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99395101.png" title="看守" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99400501.png" title="馴鹿人" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99401301.png" title="馴鹿人" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99401801.png" title="雪人" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99401901.png" title="雪人" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402101.png" title="殭屍上班族" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402201.png" title="殭屍不良" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402301.png" title="殭屍警官" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99403401.png" title="哈桑" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99403501.png" title="哈桑" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99403601.png" title="哈桑" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99405001.png" title="京人" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99406201.png" title="技喰丸" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99406301.png" title="風越丸" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99406401.png" title="轟力丸" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99406501.png" title="鬼" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99409001.png" title="神聖鳳凰" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99410101.png" title="殺戮獵兵" class="lazyload face_icon50 enemyM" />
 
 </td></tr>
 <tr><th>女性</th><td id="indi2" class="indiTd">
-<img src="common/images/icon/enemy/91001161.png" title="克里斯汀(亞種特異點Ⅰ)" class="enemyM" />
-<img src="common/images/icon/enemy/99327001.png" title="亞馬遜女戰士" class="enemyM" />
-<img src="common/images/icon/enemy/99330001.png" title="蛇妖" class="enemyM" />
-<img src="common/images/icon/enemy/99367801.png" title="史芬克斯(雌)" class="enemyM" />
-<img src="common/images/icon/enemy/99367901.png" title="伊芙莉塔" class="enemyM" />
-<img src="common/images/icon/enemy/99371901.png" title="戈爾貢" class="enemyM" />
-<img src="common/images/icon/enemy/99391701.png" title="魔性菩薩" class="enemyM" />
-<img src="common/images/icon/enemy/99393001.png" title="女酷吏" class="enemyM" />
-<img src="common/images/icon/enemy/99393101.png" title="女海賊" class="enemyM" />
-<img src="common/images/icon/enemy/99393801.png" title="蛇妖女王" class="enemyM" />
-<img src="common/images/icon/enemy/99402401.png" title="女子高生幽靈" class="enemyM" />
-<img src="common/images/icon/enemy/99402601.png" title="巫條霧繪幽靈" class="enemyM" />
+<img data-src="common/images/icon/enemy/91001161.png" title="克里斯汀(亞種特異點Ⅰ)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99327001.png" title="亞馬遜女戰士" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99330001.png" title="蛇妖" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99367801.png" title="史芬克斯(雌)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99367901.png" title="伊芙莉塔" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99371901.png" title="戈爾貢" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99391701.png" title="魔性菩薩" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99393001.png" title="女酷吏" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99393101.png" title="女海賊" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99393801.png" title="蛇妖女王" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402401.png" title="女子高生幽靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402601.png" title="巫條霧繪幽靈" class="lazyload face_icon50 enemyM" />
 
 </td></tr>
 <tr><th>不明</th><td id="indi3" class="indiTd">
@@ -740,15 +739,15 @@ function atrriRelation(){for(var d,c,b=document.getElementsByClassName("attriR")
 <tr><th>〔中立〕</th><td id="indi302" class="indiTd"></td></tr>
 <tr><th>〔善〕</th><td id="indi303" class="indiTd"></td></tr>
 <tr><th>〔惡〕</th><td id="indi304" class="indiTd">
-<img src="common/images/icon/enemy/91001171.png" title="恩尼格瑪(亞種特異點Ⅰ)" class="enemyM" />
-<img src="common/images/icon/enemy/99371301.png" title="ラフム" class="enemyM" />
-<img src="common/images/icon/enemy/99371401.png" title="ベル・ラフム(Saber)" class="enemyM" />
-<img src="common/images/icon/enemy/99371501.png" title="ベル・ラフム(BeastII)" class="enemyM" />
-<img src="common/images/icon/enemy/99388101.png" title="混混" class="enemyM" />
-<img src="common/images/icon/enemy/99388201.png" title="流氓" class="enemyM" />
-<img src="common/images/icon/enemy/99388301.png" title="雀蜂" class="enemyM" />
-<img src="common/images/icon/enemy/99388401.png" title="雀蜂(弱)" class="enemyM" />
-<img src="common/images/icon/enemy/99410101.png" title="殺戮獵兵" class="enemyM" />
+<img data-src="common/images/icon/enemy/91001171.png" title="恩尼格瑪(亞種特異點Ⅰ)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99371301.png" title="ラフム" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99371401.png" title="ベル・ラフム(Saber)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99371501.png" title="ベル・ラフム(BeastII)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99388101.png" title="混混" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99388201.png" title="流氓" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99388301.png" title="雀蜂" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99388401.png" title="雀蜂(弱)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99410101.png" title="殺戮獵兵" class="lazyload face_icon50 enemyM" />
 
 </td></tr>
 <tr><th>〔中庸〕</th><td id="indi305" class="indiTd"></td></tr>
@@ -757,214 +756,214 @@ function atrriRelation(){for(var d,c,b=document.getElementsByClassName("attriR")
 <tr><th>〔夏〕</th><td id="indi308" class="indiTd"></td></tr>
 <tr><th>〔Servant〕</th><td id="indi1000">
 全部的Servant<br>
-<img src="common/images/icon/enemy/99403401.png" title="哈桑" class="enemyM" />
-<img src="common/images/icon/enemy/99403501.png" title="哈桑" class="enemyM" />
-<img src="common/images/icon/enemy/99403601.png" title="哈桑" class="enemyM" />
+<img data-src="common/images/icon/enemy/99403401.png" title="哈桑" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99403501.png" title="哈桑" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99403601.png" title="哈桑" class="lazyload face_icon50 enemyM" />
 </td></tr>
 <tr><th>〔人類〕</th><td id="indi1001">
-<img src="common/images/icon/enemy/99307001.png" title="古代兵" class="enemyM" />
-<img src="common/images/icon/enemy/99310001.png" title="中世兵" class="enemyM" />
-<img src="common/images/icon/enemy/99313001.png" title="近代兵" class="enemyM" />
-<img src="common/images/icon/enemy/99318001.png" title="皮克特人" class="enemyM" />
-<img src="common/images/icon/enemy/99327001.png" title="亞馬遜女戰士" class="enemyM" />
-<img src="common/images/icon/enemy/99360001.png" title="機械化歩兵" class="enemyM" />
-<img src="common/images/icon/enemy/99361001.png" title="蒸汽機械" class="enemyM" />
-<img src="common/images/icon/enemy/99363001.png" title="凱爾特兵" class="enemyM" />
-<img src="common/images/icon/enemy/99364001.png" title="凱爾特兵" class="enemyM" />
-<img src="common/images/icon/enemy/99365001.png" title="凱爾特兵" class="enemyM" />
-<img src="common/images/icon/enemy/99366001.png" title="德魯伊" class="enemyM" />
-<img src="common/images/icon/enemy/99367101.png" title="失心者" class="enemyM" />
-<img src="common/images/icon/enemy/99367201.png" title="失心者(黑)" class="enemyM" />
-<img src="common/images/icon/enemy/99367301.png" title="肅正騎士" class="enemyM" />
-<img src="common/images/icon/enemy/99370101.png" title="肅正騎士(萬聖節)" class="enemyM" />
-<img src="common/images/icon/enemy/99370201.png" title="肅正騎士(萬聖節)" class="enemyM" />
-<img src="common/images/icon/enemy/99370301.png" title="肅正騎士(萬聖節)" class="enemyM" />
-<img src="common/images/icon/enemy/99388101.png" title="混混" class="enemyM" />
-<img src="common/images/icon/enemy/99388201.png" title="流氓" class="enemyM" />
-<img src="common/images/icon/enemy/99388301.png" title="雀蜂" class="enemyM" />
-<img src="common/images/icon/enemy/99388401.png" title="雀蜂(弱)" class="enemyM" />
-<img src="common/images/icon/enemy/99393001.png" title="女酷吏" class="enemyM" />
-<img src="common/images/icon/enemy/99393101.png" title="女海賊" class="enemyM" />
-<img src="common/images/icon/enemy/99395101.png" title="看守" class="enemyM" />
-<img src="common/images/icon/enemy/99402101.png" title="殭屍上班族" class="enemyM" />
-<img src="common/images/icon/enemy/99402201.png" title="殭屍不良" class="enemyM" />
-<img src="common/images/icon/enemy/99402301.png" title="殭屍警官" class="enemyM" />
-<img src="common/images/icon/enemy/99402401.png" title="女子高生幽靈" class="enemyM" />
-<img src="common/images/icon/enemy/99402601.png" title="巫條霧繪幽靈" class="enemyM" />
-<img src="common/images/icon/enemy/99403401.png" title="哈桑" class="enemyM" />
-<img src="common/images/icon/enemy/99403501.png" title="哈桑" class="enemyM" />
-<img src="common/images/icon/enemy/99403601.png" title="哈桑" class="enemyM" />
-<img src="common/images/icon/enemy/99405001.png" title="京人" class="enemyM" />
-<img src="common/images/icon/enemy/99407001.png" title="食屍鬼" class="enemyM" />
-<img src="common/images/icon/enemy/99407101.png" title="食屍鬼・Enbiya" class="enemyM" />
-<img src="common/images/icon/enemy/99407201.png" title="食屍鬼・暴食" class="enemyM" />
-<img src="common/images/icon/enemy/99410801.png" title="夜蛾" class="enemyM" />
+<img data-src="common/images/icon/enemy/99307001.png" title="古代兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99310001.png" title="中世兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99313001.png" title="近代兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99318001.png" title="皮克特人" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99327001.png" title="亞馬遜女戰士" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99360001.png" title="機械化歩兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99361001.png" title="蒸汽機械" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99363001.png" title="凱爾特兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99364001.png" title="凱爾特兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99365001.png" title="凱爾特兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99366001.png" title="德魯伊" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99367101.png" title="失心者" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99367201.png" title="失心者(黑)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99367301.png" title="肅正騎士" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99370101.png" title="肅正騎士(萬聖節)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99370201.png" title="肅正騎士(萬聖節)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99370301.png" title="肅正騎士(萬聖節)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99388101.png" title="混混" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99388201.png" title="流氓" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99388301.png" title="雀蜂" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99388401.png" title="雀蜂(弱)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99393001.png" title="女酷吏" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99393101.png" title="女海賊" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99395101.png" title="看守" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402101.png" title="殭屍上班族" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402201.png" title="殭屍不良" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402301.png" title="殭屍警官" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402401.png" title="女子高生幽靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402601.png" title="巫條霧繪幽靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99403401.png" title="哈桑" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99403501.png" title="哈桑" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99403601.png" title="哈桑" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99405001.png" title="京人" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99407001.png" title="食屍鬼" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99407101.png" title="食屍鬼・Enbiya" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99407201.png" title="食屍鬼・暴食" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99410801.png" title="夜蛾" class="lazyload face_icon50 enemyM" />
 
 </td></tr>
 <tr><th>〔死靈〕</th><td id="indi1002">
-<img src="common/images/icon/enemy/91001141.png" title="巨大白Boss幽靈" class="enemyM" />
-<img src="common/images/icon/enemy/91001161.png" title="克里斯汀(亞種特異點Ⅰ)" class="enemyM" />
-<img src="common/images/icon/enemy/91001171.png" title="恩尼格瑪(亞種特異點Ⅰ)" class="enemyM" />
-<img src="common/images/icon/enemy/99301001.png" title="骸骨兵" class="enemyM" />
-<img src="common/images/icon/enemy/99301101.png" title="骷髏王" class="enemyM" />
-<img src="common/images/icon/enemy/99302001.png" title="骸骨兵" class="enemyM" />
-<img src="common/images/icon/enemy/99302101.png" title="骷髏王" class="enemyM" />
-<img src="common/images/icon/enemy/99303001.png" title="骸骨兵" class="enemyM" />
-<img src="common/images/icon/enemy/99303101.png" title="骷髏王" class="enemyM" />
-<img src="common/images/icon/enemy/99316001.png" title="幽靈" class="enemyM" />
-<img src="common/images/icon/enemy/99371101.png" title="艾蕾修卡(第七特異點)" class="enemyM" />
-<img src="common/images/icon/enemy/99388801.png" title="茱麗葉(亞種特異點Ⅰ)" class="enemyM" />
-<img src="common/images/icon/enemy/99396101.png" title="黑武者" class="enemyM" />
-<img src="common/images/icon/enemy/99396301.png" title="邊獄大靈" class="enemyM" />
-<img src="common/images/icon/enemy/99396501.png" title="忌靈" class="enemyM" />
-<img src="common/images/icon/enemy/99398301.png" title="金屬稻草人" class="enemyM" />
-<img src="common/images/icon/enemy/99398401.png" title="金屬南瓜頭" class="enemyM" />
-<img src="common/images/icon/enemy/99398501.png" title="金屬南瓜頭" class="enemyM" />
-<img src="common/images/icon/enemy/99398601.png" title="金屬南瓜頭" class="enemyM" />
-<img src="common/images/icon/enemy/99400101.png" title="骸骨兵" class="enemyM" />
-<img src="common/images/icon/enemy/99400111.png" title="骸骨兵" class="enemyM" />
-<img src="common/images/icon/enemy/99400121.png" title="骸骨兵" class="enemyM" />
-<img src="common/images/icon/enemy/99400201.png" title="幽靈" class="enemyM" />
-<img src="common/images/icon/enemy/99402101.png" title="殭屍上班族" class="enemyM" />
-<img src="common/images/icon/enemy/99402201.png" title="殭屍不良" class="enemyM" />
-<img src="common/images/icon/enemy/99402301.png" title="殭屍警官" class="enemyM" />
-<img src="common/images/icon/enemy/99402401.png" title="女子高生幽靈" class="enemyM" />
-<img src="common/images/icon/enemy/99402601.png" title="巫條霧繪幽靈" class="enemyM" />
-<img src="common/images/icon/enemy/99402701.png" title="巨大Boss幽靈" class="enemyM" />
-<img src="common/images/icon/enemy/99402801.png" title="超巨大Boss幽靈" class="enemyM" />
-<img src="common/images/icon/enemy/99402901.png" title="巨大黑Boss幽靈" class="enemyM" />
-<img src="common/images/icon/enemy/99407001.png" title="食屍鬼" class="enemyM" />
-<img src="common/images/icon/enemy/99407101.png" title="食屍鬼・Enbiya" class="enemyM" />
-<img src="common/images/icon/enemy/99407201.png" title="食屍鬼・暴食" class="enemyM" />
-<img src="common/images/icon/enemy/99407301.png" title="遠古食屍鬼" class="enemyM" />
-<img src="common/images/icon/enemy/99408001.png" title="派對幽靈" class="enemyM" />
+<img data-src="common/images/icon/enemy/91001141.png" title="巨大白Boss幽靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/91001161.png" title="克里斯汀(亞種特異點Ⅰ)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/91001171.png" title="恩尼格瑪(亞種特異點Ⅰ)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99301001.png" title="骸骨兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99301101.png" title="骷髏王" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99302001.png" title="骸骨兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99302101.png" title="骷髏王" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99303001.png" title="骸骨兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99303101.png" title="骷髏王" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99316001.png" title="幽靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99371101.png" title="艾蕾修卡(第七特異點)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99388801.png" title="茱麗葉(亞種特異點Ⅰ)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99396101.png" title="黑武者" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99396301.png" title="邊獄大靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99396501.png" title="忌靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99398301.png" title="金屬稻草人" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99398401.png" title="金屬南瓜頭" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99398501.png" title="金屬南瓜頭" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99398601.png" title="金屬南瓜頭" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99400101.png" title="骸骨兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99400111.png" title="骸骨兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99400121.png" title="骸骨兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99400201.png" title="幽靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402101.png" title="殭屍上班族" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402201.png" title="殭屍不良" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402301.png" title="殭屍警官" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402401.png" title="女子高生幽靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402601.png" title="巫條霧繪幽靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402701.png" title="巨大Boss幽靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402801.png" title="超巨大Boss幽靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402901.png" title="巨大黑Boss幽靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99407001.png" title="食屍鬼" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99407101.png" title="食屍鬼・Enbiya" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99407201.png" title="食屍鬼・暴食" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99407301.png" title="遠古食屍鬼" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99408001.png" title="派對幽靈" class="lazyload face_icon50 enemyM" />
 
 </td></tr>
 <tr><th>〔惡魔〕</th><td id="indi1119">
-<img src="common/images/icon/enemy/99321001.png" title="惡魔" class="enemyM" />
-<img src="common/images/icon/enemy/99358001.png" title="凝視者" class="enemyM" />
-<img src="common/images/icon/enemy/99398201.png" title="南瓜凝視者" class="enemyM" />
+<img data-src="common/images/icon/enemy/99321001.png" title="惡魔" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99358001.png" title="凝視者" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99398201.png" title="南瓜凝視者" class="lazyload face_icon50 enemyM" />
 
 </td></tr>
 <tr><th>〔神性〕</th><td id="indi2000" class="indiTd">
-<img src="common/images/icon/enemy/99354101.png" title="迪亞馬特" class="enemyM" />
-<img src="common/images/icon/enemy/99367701.png" title="史芬克斯(雄)" class="enemyM" />
-<img src="common/images/icon/enemy/99367801.png" title="史芬克斯(雌)" class="enemyM" />
-<img src="common/images/icon/enemy/99371101.png" title="艾蕾修卡(第七特異點)" class="enemyM" />
-<img src="common/images/icon/enemy/99371501.png" title="ベル・ラフム" class="enemyM" />
-<img src="common/images/icon/enemy/99371901.png" title="戈爾貢" class="enemyM" />
-<img src="common/images/icon/enemy/99395001.png" title="古伽蘭那" class="enemyM" />
-<img src="common/images/icon/enemy/99409001.png" title="神聖鳳凰" class="enemyM" />
+<img data-src="common/images/icon/enemy/99354101.png" title="迪亞馬特" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99367701.png" title="史芬克斯(雄)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99367801.png" title="史芬克斯(雌)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99371101.png" title="艾蕾修卡(第七特異點)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99371501.png" title="ベル・ラフム" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99371901.png" title="戈爾貢" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99395001.png" title="古伽蘭那" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99409001.png" title="神聖鳳凰" class="lazyload face_icon50 enemyM" />
 
 <tr><th>〔人型〕</th><td id="indi2001">
 全部的Servant<br>
-<img src="common/images/icon/enemy/99307001.png" title="古代兵" class="enemyM" />
-<img src="common/images/icon/enemy/99310001.png" title="中世兵" class="enemyM" />
-<img src="common/images/icon/enemy/99313001.png" title="近代兵" class="enemyM" />
-<img src="common/images/icon/enemy/99318001.png" title="皮克特人" class="enemyM" />
-<img src="common/images/icon/enemy/99327001.png" title="亞馬遜女戰士" class="enemyM" />
-<img src="common/images/icon/enemy/99330001.png" title="蛇妖" class="enemyM" />
-<img src="common/images/icon/enemy/99331001.png" title="半人馬" class="enemyM" />
-<img src="common/images/icon/enemy/99339001.png" title="狼人" class="enemyM" />
-<img src="common/images/icon/enemy/99342001.png" title="豹人" class="enemyM" />
-<img src="common/images/icon/enemy/99345001.png" title="哥布林" class="enemyM" />
-<img src="common/images/icon/enemy/99360001.png" title="機械化歩兵" class="enemyM" />
-<img src="common/images/icon/enemy/99361001.png" title="蒸汽機械" class="enemyM" />
-<img src="common/images/icon/enemy/99363001.png" title="凱爾特兵" class="enemyM" />
-<img src="common/images/icon/enemy/99364001.png" title="凱爾特兵" class="enemyM" />
-<img src="common/images/icon/enemy/99365001.png" title="凱爾特兵" class="enemyM" />
-<img src="common/images/icon/enemy/99366001.png" title="德魯伊" class="enemyM" />
-<img src="common/images/icon/enemy/99367101.png" title="失心者" class="enemyM" />
-<img src="common/images/icon/enemy/99367201.png" title="失心者(黑)" class="enemyM" />
-<img src="common/images/icon/enemy/99367301.png" title="肅正騎士" class="enemyM" />
-<img src="common/images/icon/enemy/99368901.png" title="迷你庫醬" class="enemyM" />
-<img src="common/images/icon/enemy/99370101.png" title="肅正騎士(萬聖節)" class="enemyM" />
-<img src="common/images/icon/enemy/99370201.png" title="肅正騎士(萬聖節)" class="enemyM" />
-<img src="common/images/icon/enemy/99370301.png" title="肅正騎士(萬聖節)" class="enemyM" />
-<img src="common/images/icon/enemy/99371901.png" title="戈爾貢" class="enemyM" />
-<img src="common/images/icon/enemy/99388101.png" title="混混" class="enemyM" />
-<img src="common/images/icon/enemy/99388201.png" title="流氓" class="enemyM" />
-<img src="common/images/icon/enemy/99388301.png" title="雀蜂" class="enemyM" />
-<img src="common/images/icon/enemy/99388401.png" title="雀蜂(弱)" class="enemyM" />
-<img src="common/images/icon/enemy/99388901.png" title="信選組" class="enemyM" />
-<img src="common/images/icon/enemy/99389001.png" title="小阿信戰車" class="enemyM" />
-<img src="common/images/icon/enemy/99389101.png" title="阿信UFO" class="enemyM" />
-<img src="common/images/icon/enemy/99391701.png" title="魔性菩薩" class="enemyM" />
-<img src="common/images/icon/enemy/99393001.png" title="女酷吏" class="enemyM" />
-<img src="common/images/icon/enemy/99393101.png" title="女海賊" class="enemyM" />
-<img src="common/images/icon/enemy/99393801.png" title="蛇妖女王" class="enemyM" />
-<img src="common/images/icon/enemy/99395101.png" title="看守" class="enemyM" />
-<img src="common/images/icon/enemy/99396101.png" title="黑武者" class="enemyM" />
-<img src="common/images/icon/enemy/99397401.png" title="祟鬼" class="enemyM" />
-<img src="common/images/icon/enemy/99400301.png" title="小阿信" class="enemyM" />
-<img src="common/images/icon/enemy/99400311.png" title="小阿信" class="enemyM" />
-<img src="common/images/icon/enemy/99400321.png" title="小阿信" class="enemyM" />
-<img src="common/images/icon/enemy/99400401.png" title="巨大阿信" class="enemyM" />
-<img src="common/images/icon/enemy/99400411.png" title="巨大阿信" class="enemyM" />
-<img src="common/images/icon/enemy/99400421.png" title="巨大阿信" class="enemyM" />
-<img src="common/images/icon/enemy/99400501.png" title="馴鹿人" class="enemyM" />
-<img src="common/images/icon/enemy/99401301.png" title="馴鹿人" class="enemyM" />
-<img src="common/images/icon/enemy/99402101.png" title="殭屍上班族" class="enemyM" />
-<img src="common/images/icon/enemy/99402201.png" title="殭屍不良" class="enemyM" />
-<img src="common/images/icon/enemy/99402301.png" title="殭屍警官" class="enemyM" />
-<img src="common/images/icon/enemy/99402401.png" title="女子高生幽靈" class="enemyM" />
-<img src="common/images/icon/enemy/99402601.png" title="巫條霧繪幽靈" class="enemyM" />
-<img src="common/images/icon/enemy/99403401.png" title="哈桑" class="enemyM" />
-<img src="common/images/icon/enemy/99403501.png" title="哈桑" class="enemyM" />
-<img src="common/images/icon/enemy/99403601.png" title="哈桑" class="enemyM" />
-<img src="common/images/icon/enemy/99405001.png" title="京人" class="enemyM" />
-<img src="common/images/icon/enemy/99406201.png" title="技喰丸" class="enemyM" />
-<img src="common/images/icon/enemy/99406301.png" title="風越丸" class="enemyM" />
-<img src="common/images/icon/enemy/99406401.png" title="轟力丸" class="enemyM" />
-<img src="common/images/icon/enemy/99406501.png" title="鬼" class="enemyM" />
-<img src="common/images/icon/enemy/99407001.png" title="食屍鬼" class="enemyM" />
-<img src="common/images/icon/enemy/99407101.png" title="食屍鬼・Enbiya" class="enemyM" />
-<img src="common/images/icon/enemy/99407201.png" title="食屍鬼・暴食" class="enemyM" />
-<img src="common/images/icon/enemy/99410101.png" title="殺戮獵兵" class="enemyM" />
-<img src="common/images/icon/enemy/99410801.png" title="夜蛾" class="enemyM" />
+<img data-src="common/images/icon/enemy/99307001.png" title="古代兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99310001.png" title="中世兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99313001.png" title="近代兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99318001.png" title="皮克特人" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99327001.png" title="亞馬遜女戰士" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99330001.png" title="蛇妖" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99331001.png" title="半人馬" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99339001.png" title="狼人" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99342001.png" title="豹人" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99345001.png" title="哥布林" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99360001.png" title="機械化歩兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99361001.png" title="蒸汽機械" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99363001.png" title="凱爾特兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99364001.png" title="凱爾特兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99365001.png" title="凱爾特兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99366001.png" title="德魯伊" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99367101.png" title="失心者" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99367201.png" title="失心者(黑)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99367301.png" title="肅正騎士" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99368901.png" title="迷你庫醬" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99370101.png" title="肅正騎士(萬聖節)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99370201.png" title="肅正騎士(萬聖節)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99370301.png" title="肅正騎士(萬聖節)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99371901.png" title="戈爾貢" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99388101.png" title="混混" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99388201.png" title="流氓" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99388301.png" title="雀蜂" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99388401.png" title="雀蜂(弱)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99388901.png" title="信選組" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99389001.png" title="小阿信戰車" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99389101.png" title="阿信UFO" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99391701.png" title="魔性菩薩" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99393001.png" title="女酷吏" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99393101.png" title="女海賊" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99393801.png" title="蛇妖女王" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99395101.png" title="看守" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99396101.png" title="黑武者" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99397401.png" title="祟鬼" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99400301.png" title="小阿信" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99400311.png" title="小阿信" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99400321.png" title="小阿信" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99400401.png" title="巨大阿信" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99400411.png" title="巨大阿信" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99400421.png" title="巨大阿信" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99400501.png" title="馴鹿人" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99401301.png" title="馴鹿人" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402101.png" title="殭屍上班族" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402201.png" title="殭屍不良" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402301.png" title="殭屍警官" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402401.png" title="女子高生幽靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402601.png" title="巫條霧繪幽靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99403401.png" title="哈桑" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99403501.png" title="哈桑" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99403601.png" title="哈桑" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99405001.png" title="京人" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99406201.png" title="技喰丸" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99406301.png" title="風越丸" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99406401.png" title="轟力丸" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99406501.png" title="鬼" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99407001.png" title="食屍鬼" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99407101.png" title="食屍鬼・Enbiya" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99407201.png" title="食屍鬼・暴食" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99410101.png" title="殺戮獵兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99410801.png" title="夜蛾" class="lazyload face_icon50 enemyM" />
 
 </td></tr>
 <tr><th>〔龍〕</th><td id="indi2002" class="indiTd">
-<img src="common/images/icon/enemy/99325001.png" title="雙足飛龍" class="enemyM" />
-<img src="common/images/icon/enemy/99325101.png" title="雙足飛龍上位種" class="enemyM" />
-<img src="common/images/icon/enemy/99326001.png" title="龍" class="enemyM" />
-<img src="common/images/icon/enemy/99326101.png" title="龍" class="enemyM" />
-<img src="common/images/icon/enemy/99326201.png" title="龍" class="enemyM" />
-<img src="common/images/icon/enemy/99326301.png" title="龍" class="enemyM" />
-<img src="common/images/icon/enemy/99326401.png" title="龍" class="enemyM" />
-<img src="common/images/icon/enemy/99369401.png" title="彩虹飛龍" class="enemyM" />
-<img src="common/images/icon/enemy/99371801.png" title="ムシュフシュ" class="enemyM" />
-<img src="common/images/icon/enemy/99372101.png" title="ウシュムガル" class="enemyM" />
-<img src="common/images/icon/enemy/99372201.png" title="バシュム" class="enemyM" />
-<img src="common/images/icon/enemy/99395201.png" title="偽俄里翁" class="enemyM" />
-<img src="common/images/icon/enemy/99411501.png" title="クリチャーチ" class="enemyM" />
+<img data-src="common/images/icon/enemy/99325001.png" title="雙足飛龍" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99325101.png" title="雙足飛龍上位種" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99326001.png" title="龍" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99326101.png" title="龍" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99326201.png" title="龍" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99326301.png" title="龍" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99326401.png" title="龍" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99369401.png" title="彩虹飛龍" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99371801.png" title="ムシュフシュ" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99372101.png" title="ウシュムガル" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99372201.png" title="バシュム" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99395201.png" title="偽俄里翁" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99411501.png" title="クリチャーチ" class="lazyload face_icon50 enemyM" />
 
 </td></tr>
 <tr><th>〔羅馬〕</th><td id="indi2004" class="indiTd">
 羅馬士兵
 </td></tr>
 <tr><th>〔猛獸〕</th><td id="indi2005" class="indiTd">
-<img src="common/images/icon/enemy/99334001.png" title="奇美拉" class="enemyM" />
-<img src="common/images/icon/enemy/99339001.png" title="狼人" class="enemyM" />
-<img src="common/images/icon/enemy/99342001.png" title="豹人" class="enemyM" />
-<img src="common/images/icon/enemy/99357001.png" title="雙角獸" class="enemyM" />
-<img src="common/images/icon/enemy/99359001.png" title="噬魂者" class="enemyM" />
-<img src="common/images/icon/enemy/99368401.png" title="魔猪" class="enemyM" />
-<img src="common/images/icon/enemy/99368501.png" title="魔猪" class="enemyM" />
-<img src="common/images/icon/enemy/99368601.png" title="魔猪" class="enemyM" />
-<img src="common/images/icon/enemy/99371601.png" title="ウリディンム" class="enemyM" />
-<img src="common/images/icon/enemy/99371701.png" title="ウガル" class="enemyM" />
-<img src="common/images/icon/enemy/99372101.png" title="ウシュムガル" class="enemyM" />
-<img src="common/images/icon/enemy/99388601.png" title="超級奇美拉" class="enemyM" />
-<img src="common/images/icon/enemy/99393201.png" title="九頭蛇" class="enemyM" />
-<img src="common/images/icon/enemy/99395301.png" title="偽俄里翁" class="enemyM" />
-<img src="common/images/icon/enemy/99395501.png" title="偽俄里翁" class="enemyM" />
-<img src="common/images/icon/enemy/99395601.png" title="真俄里翁" class="enemyM" />
-<img src="common/images/icon/enemy/99396401.png" title="大蛇" class="enemyM" />
-<img src="common/images/icon/enemy/99397501.png" title="穢豬" class="enemyM" />
-<img src="common/images/icon/enemy/99407401.png" title="灰狼" class="enemyM" />
-<img src="common/images/icon/enemy/99407501.png" title="夏塔克鳥" class="enemyM" />
-<img src="common/images/icon/enemy/99410801.png" title="夜蛾" class="enemyM" />
+<img data-src="common/images/icon/enemy/99334001.png" title="奇美拉" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99339001.png" title="狼人" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99342001.png" title="豹人" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99357001.png" title="雙角獸" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99359001.png" title="噬魂者" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99368401.png" title="魔猪" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99368501.png" title="魔猪" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99368601.png" title="魔猪" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99371601.png" title="ウリディンム" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99371701.png" title="ウガル" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99372101.png" title="ウシュムガル" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99388601.png" title="超級奇美拉" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99393201.png" title="九頭蛇" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99395301.png" title="偽俄里翁" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99395501.png" title="偽俄里翁" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99395601.png" title="真俄里翁" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99396401.png" title="大蛇" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99397501.png" title="穢豬" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99407401.png" title="灰狼" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99407501.png" title="夏塔克鳥" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99410801.png" title="夜蛾" class="lazyload face_icon50 enemyM" />
 
 </td></tr>
 <tr><th>〔阿爾托莉亞臉〕</th><td id="indi2007" class="indiTd">
@@ -987,74 +986,74 @@ function atrriRelation(){for(var d,c,b=document.getElementsByClassName("attriR")
 <tr><th>〔死靈與惡魔〕</th><td id="indi2018">
 <a href='hidden.html#indi1002' class='hint'>〔死靈〕</a>＋<a href='hidden.html#indi1119' class='hint'>〔惡魔〕</a></td></tr>
 <tr><th>〔魔性〕</th><td id="indi2019" class="indiTd">
-<img src="common/images/icon/enemy/99301001.png" title="骸骨兵" class="enemyM" />
-<img src="common/images/icon/enemy/99301101.png" title="骷髏王" class="enemyM" />
-<img src="common/images/icon/enemy/99302001.png" title="骸骨兵" class="enemyM" />
-<img src="common/images/icon/enemy/99302101.png" title="骷髏王" class="enemyM" />
-<img src="common/images/icon/enemy/99303001.png" title="骸骨兵" class="enemyM" />
-<img src="common/images/icon/enemy/99303101.png" title="骷髏王" class="enemyM" />
-<img src="common/images/icon/enemy/99316001.png" title="幽靈" class="enemyM" />
-<img src="common/images/icon/enemy/99321001.png" title="惡魔" class="enemyM" />
-<img src="common/images/icon/enemy/99330001.png" title="蛇妖" class="enemyM" />
-<img src="common/images/icon/enemy/99339001.png" title="狼人" class="enemyM" />
-<img src="common/images/icon/enemy/99342001.png" title="豹人" class="enemyM" />
-<img src="common/images/icon/enemy/99345001.png" title="哥布林" class="enemyM" />
-<img src="common/images/icon/enemy/99357001.png" title="雙角獸" class="enemyM" />
-<img src="common/images/icon/enemy/99358001.png" title="凝視者" class="enemyM" />
-<img src="common/images/icon/enemy/99359001.png" title="噬魂者" class="enemyM" />
-<img src="common/images/icon/enemy/99367901.png" title="伊芙莉塔" class="enemyM" />
-<img src="common/images/icon/enemy/99368101.png" title="巨寄居蟹" class="enemyM" />
-<img src="common/images/icon/enemy/99368201.png" title="毒寄居蟹" class="enemyM" />
-<img src="common/images/icon/enemy/99368301.png" title="千年寄居蟹" class="enemyM" />
-<img src="common/images/icon/enemy/99368401.png" title="魔猪" class="enemyM" />
-<img src="common/images/icon/enemy/99368501.png" title="魔猪" class="enemyM" />
-<img src="common/images/icon/enemy/99368601.png" title="魔猪" class="enemyM" />
-<img src="common/images/icon/enemy/99372101.png" title="ウシュムガル" class="enemyM" />
-<img src="common/images/icon/enemy/99372301.png" title="ムシュマッヘ" class="enemyM" />
-<img src="common/images/icon/enemy/99391701.png" title="魔性菩薩" class="enemyM" />
-<img src="common/images/icon/enemy/99393201.png" title="九頭蛇" class="enemyM" />
-<img src="common/images/icon/enemy/99393801.png" title="蛇妖女王" class="enemyM" />
-<img src="common/images/icon/enemy/99395301.png" title="偽俄里翁" class="enemyM" />
-<img src="common/images/icon/enemy/99395501.png" title="偽俄里翁" class="enemyM" />
-<img src="common/images/icon/enemy/99395601.png" title="真俄里翁" class="enemyM" />
-<img src="common/images/icon/enemy/99396101.png" title="黑武者" class="enemyM" />
-<img src="common/images/icon/enemy/99396401.png" title="大蛇" class="enemyM" />
-<img src="common/images/icon/enemy/99396501.png" title="忌靈" class="enemyM" />
-<img src="common/images/icon/enemy/99397401.png" title="祟鬼" class="enemyM" />
-<img src="common/images/icon/enemy/99397501.png" title="穢豬" class="enemyM" />
-<img src="common/images/icon/enemy/99398201.png" title="南瓜凝視者" class="enemyM" />
-<img src="common/images/icon/enemy/99398301.png" title="金屬稻草人" class="enemyM" />
-<img src="common/images/icon/enemy/99398401.png" title="金屬南瓜頭" class="enemyM" />
-<img src="common/images/icon/enemy/99398501.png" title="金屬南瓜頭" class="enemyM" />
-<img src="common/images/icon/enemy/99398601.png" title="金屬南瓜頭" class="enemyM" />
-<img src="common/images/icon/enemy/99400101.png" title="骸骨兵" class="enemyM" />
-<img src="common/images/icon/enemy/99400111.png" title="骸骨兵" class="enemyM" />
-<img src="common/images/icon/enemy/99400121.png" title="骸骨兵" class="enemyM" />
-<img src="common/images/icon/enemy/99400201.png" title="幽靈" class="enemyM" />
-<img src="common/images/icon/enemy/99402101.png" title="殭屍上班族" class="enemyM" />
-<img src="common/images/icon/enemy/99402201.png" title="殭屍不良" class="enemyM" />
-<img src="common/images/icon/enemy/99402301.png" title="殭屍警官" class="enemyM" />
-<img src="common/images/icon/enemy/99402401.png" title="女子高生幽靈" class="enemyM" />
-<img src="common/images/icon/enemy/99402601.png" title="巫條霧繪幽靈" class="enemyM" />
-<img src="common/images/icon/enemy/99402701.png" title="巨大Boss幽靈" class="enemyM" />
-<img src="common/images/icon/enemy/99402801.png" title="超巨大Boss幽靈" class="enemyM" />
-<img src="common/images/icon/enemy/99402901.png" title="巨大黑Boss幽靈" class="enemyM" />
-<img src="common/images/icon/enemy/99403001.png" title="海魔" class="enemyM" />
-<img src="common/images/icon/enemy/99403101.png" title="海魔" class="enemyM" />
-<img src="common/images/icon/enemy/99403201.png" title="海魔" class="enemyM" />
-<img src="common/images/icon/enemy/99405101.png" title="鬼手・右" class="enemyM" />
-<img src="common/images/icon/enemy/99405201.png" title="鬼手・左" class="enemyM" />
-<img src="common/images/icon/enemy/99406201.png" title="技喰丸" class="enemyM" />
-<img src="common/images/icon/enemy/99406301.png" title="風越丸" class="enemyM" />
-<img src="common/images/icon/enemy/99406401.png" title="轟力丸" class="enemyM" />
-<img src="common/images/icon/enemy/99406501.png" title="鬼" class="enemyM" />
-<img src="common/images/icon/enemy/99407001.png" title="食屍鬼" class="enemyM" />
-<img src="common/images/icon/enemy/99407101.png" title="食屍鬼・Enbiya" class="enemyM" />
-<img src="common/images/icon/enemy/99407201.png" title="食屍鬼・暴食" class="enemyM" />
-<img src="common/images/icon/enemy/99407301.png" title="遠古食屍鬼" class="enemyM" />
-<img src="common/images/icon/enemy/99407501.png" title="夏塔克鳥" class="enemyM" />
-<img src="common/images/icon/enemy/99408001.png" title="派對幽靈" class="enemyM" />
-<img src="common/images/icon/enemy/99411401.png" title="破壞" class="enemyM" />
+<img data-src="common/images/icon/enemy/99301001.png" title="骸骨兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99301101.png" title="骷髏王" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99302001.png" title="骸骨兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99302101.png" title="骷髏王" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99303001.png" title="骸骨兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99303101.png" title="骷髏王" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99316001.png" title="幽靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99321001.png" title="惡魔" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99330001.png" title="蛇妖" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99339001.png" title="狼人" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99342001.png" title="豹人" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99345001.png" title="哥布林" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99357001.png" title="雙角獸" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99358001.png" title="凝視者" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99359001.png" title="噬魂者" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99367901.png" title="伊芙莉塔" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99368101.png" title="巨寄居蟹" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99368201.png" title="毒寄居蟹" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99368301.png" title="千年寄居蟹" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99368401.png" title="魔猪" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99368501.png" title="魔猪" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99368601.png" title="魔猪" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99372101.png" title="ウシュムガル" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99372301.png" title="ムシュマッヘ" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99391701.png" title="魔性菩薩" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99393201.png" title="九頭蛇" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99393801.png" title="蛇妖女王" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99395301.png" title="偽俄里翁" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99395501.png" title="偽俄里翁" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99395601.png" title="真俄里翁" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99396101.png" title="黑武者" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99396401.png" title="大蛇" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99396501.png" title="忌靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99397401.png" title="祟鬼" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99397501.png" title="穢豬" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99398201.png" title="南瓜凝視者" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99398301.png" title="金屬稻草人" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99398401.png" title="金屬南瓜頭" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99398501.png" title="金屬南瓜頭" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99398601.png" title="金屬南瓜頭" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99400101.png" title="骸骨兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99400111.png" title="骸骨兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99400121.png" title="骸骨兵" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99400201.png" title="幽靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402101.png" title="殭屍上班族" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402201.png" title="殭屍不良" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402301.png" title="殭屍警官" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402401.png" title="女子高生幽靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402601.png" title="巫條霧繪幽靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402701.png" title="巨大Boss幽靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402801.png" title="超巨大Boss幽靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402901.png" title="巨大黑Boss幽靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99403001.png" title="海魔" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99403101.png" title="海魔" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99403201.png" title="海魔" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99405101.png" title="鬼手・右" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99405201.png" title="鬼手・左" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99406201.png" title="技喰丸" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99406301.png" title="風越丸" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99406401.png" title="轟力丸" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99406501.png" title="鬼" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99407001.png" title="食屍鬼" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99407101.png" title="食屍鬼・Enbiya" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99407201.png" title="食屍鬼・暴食" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99407301.png" title="遠古食屍鬼" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99407501.png" title="夏塔克鳥" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99408001.png" title="派對幽靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99411401.png" title="破壞" class="lazyload face_icon50 enemyM" />
 
 </td></tr>
 <tr><th>〔有天或地之力的Servant〕<br>[擬似Servant、半Servant除外]<br>(被神秘殺し所剋)</th><td id="indi2037" class="indiTd">
@@ -1062,81 +1061,81 @@ function atrriRelation(){for(var d,c,b=document.getElementsByClassName("attriR")
 <tr><th>〔神性與死靈與惡魔〕</th><td id="indi2040">
 <a href='hidden.html#indi2000' class='hint'>〔神性〕</a>＋<a href='hidden.html#indi1002' class='hint'>〔死靈〕</a>＋<a href='hidden.html#indi1119' class='hint'>〔惡魔〕</a></td></tr>
 <tr><th>〔超巨大〕</th><td id="indi2076">
-<img src="common/images/icon/enemy/91001141.png" title="巨大白Boss幽靈" class="enemyM" />
-<img src="common/images/icon/enemy/91001161.png" title="克里斯汀(亞種特異點Ⅰ)" class="enemyM" />
-<img src="common/images/icon/enemy/91001171.png" title="恩尼格瑪(亞種特異點Ⅰ)" class="enemyM" />
-<img src="common/images/icon/enemy/99326001.png" title="龍" class="enemyM" />
-<img src="common/images/icon/enemy/99326101.png" title="龍" class="enemyM" />
-<img src="common/images/icon/enemy/99326201.png" title="龍" class="enemyM" />
-<img src="common/images/icon/enemy/99326301.png" title="龍" class="enemyM" />
-<img src="common/images/icon/enemy/99326401.png" title="龍" class="enemyM" />
-<img src="common/images/icon/enemy/99348001.png" title="魔神柱" class="enemyM" />
-<img src="common/images/icon/enemy/99348101.png" title="魔神柱" class="enemyM" />
-<img src="common/images/icon/enemy/99348201.png" title="魔神巴巴托司" class="enemyM" />
-<img src="common/images/icon/enemy/99348211.png" title="第四特異點魔神柱(最終Boss)" class="enemyM" />
-<img src="common/images/icon/enemy/99348301.png" title="魔神哈帕斯" class="enemyM" />
-<img src="common/images/icon/enemy/99348501.png" title="魔神哈艮地" class="enemyM" />
-<img src="common/images/icon/enemy/99354101.png" title="迪亞馬特" class="enemyM" />
-<img src="common/images/icon/enemy/99356001.png" title="守寶妖精" class="enemyM" />
-<img src="common/images/icon/enemy/99356101.png" title="守寶妖精" class="enemyM" />
-<img src="common/images/icon/enemy/99367701.png" title="史芬克斯(雄)" class="enemyM" />
-<img src="common/images/icon/enemy/99367801.png" title="史芬克斯(雌)" class="enemyM" />
-<img src="common/images/icon/enemy/99368001.png" title="魔神柱變種阿蒙・拉" class="enemyM" />
-<img src="common/images/icon/enemy/99368501.png" title="魔猪" class="enemyM" />
-<img src="common/images/icon/enemy/99368601.png" title="魔猪" class="enemyM" />
-<img src="common/images/icon/enemy/99371101.png" title="艾蕾修卡(第七特異點)" class="enemyM" />
-<img src="common/images/icon/enemy/99371901.png" title="戈爾貢" class="enemyM" />
-<img src="common/images/icon/enemy/99372201.png" title="バシュム" class="enemyM" />
-<img src="common/images/icon/enemy/99381001.png" title="魔神納貝流士" class="enemyM" />
-<img src="common/images/icon/enemy/99382001.png" title="魔神佛勞洛斯" class="enemyM" />
-<img src="common/images/icon/enemy/99383001.png" title="魔神佛鈕司" class="enemyM" />
-<img src="common/images/icon/enemy/99384001.png" title="魔神巴巴托司" class="enemyM" />
-<img src="common/images/icon/enemy/99385001.png" title="魔神哈帕斯" class="enemyM" />
-<img src="common/images/icon/enemy/99386001.png" title="魔神亞蒙" class="enemyM" />
-<img src="common/images/icon/enemy/99387001.png" title="魔神斯伯奈克" class="enemyM" />
-<img src="common/images/icon/enemy/99388001.png" title="魔神安杜馬利烏士" class="enemyM" />
-<img src="common/images/icon/enemy/99388701.png" title="李爾王" class="enemyM" />
-<img src="common/images/icon/enemy/99388801.png" title="茱麗葉(亞種特異點Ⅰ)" class="enemyM" />
-<img src="common/images/icon/enemy/99389301.png" title="大機械阿信" class="enemyM" />
-<img src="common/images/icon/enemy/99389501.png" title="神機械阿信" class="enemyM" />
-<img src="common/images/icon/enemy/99389701.png" title="金色魔太閤秀吉" class="enemyM" />
-<img src="common/images/icon/enemy/99390001.png" title="魔神巴力" class="enemyM" />
-<img src="common/images/icon/enemy/99391201.png" title="魔神柱" class="enemyM" />
-<img src="common/images/icon/enemy/99391701.png" title="魔性菩薩" class="enemyM" />
-<img src="common/images/icon/enemy/99393201.png" title="九頭蛇" class="enemyM" />
-<img src="common/images/icon/enemy/99393501.png" title="魔神菲尼克斯" class="enemyM" />
-<img src="common/images/icon/enemy/99395001.png" title="古伽蘭那" class="enemyM" />
-<img src="common/images/icon/enemy/99395501.png" title="偽俄里翁" class="enemyM" />
-<img src="common/images/icon/enemy/99395601.png" title="真俄里翁" class="enemyM" />
-<img src="common/images/icon/enemy/99396301.png" title="邊獄大靈" class="enemyM" />
-<img src="common/images/icon/enemy/99396401.png" title="大蛇" class="enemyM" />
-<img src="common/images/icon/enemy/99397401.png" title="祟鬼" class="enemyM" />
-<img src="common/images/icon/enemy/99400401.png" title="巨大阿信" class="enemyM" />
-<img src="common/images/icon/enemy/99400411.png" title="巨大阿信" class="enemyM" />
-<img src="common/images/icon/enemy/99400421.png" title="巨大阿信" class="enemyM" />
-<img src="common/images/icon/enemy/99402701.png" title="巨大Boss幽靈" class="enemyM" />
-<img src="common/images/icon/enemy/99402801.png" title="超巨大Boss幽靈" class="enemyM" />
-<img src="common/images/icon/enemy/99402901.png" title="巨大黑Boss幽靈" class="enemyM" />
-<img src="common/images/icon/enemy/99406201.png" title="技喰丸" class="enemyM" />
-<img src="common/images/icon/enemy/99406301.png" title="風越丸" class="enemyM" />
-<img src="common/images/icon/enemy/99406401.png" title="轟力丸" class="enemyM" />
-<img src="common/images/icon/enemy/99407601.png" title="魔神勞姆" class="enemyM" />
-<img src="common/images/icon/enemy/99409001.png" title="神聖鳳凰" class="enemyM" />
-<img src="common/images/icon/enemy/99410601.png" title="空想樹オロチ" class="enemyM" />
+<img data-src="common/images/icon/enemy/91001141.png" title="巨大白Boss幽靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/91001161.png" title="克里斯汀(亞種特異點Ⅰ)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/91001171.png" title="恩尼格瑪(亞種特異點Ⅰ)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99326001.png" title="龍" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99326101.png" title="龍" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99326201.png" title="龍" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99326301.png" title="龍" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99326401.png" title="龍" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99348001.png" title="魔神柱" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99348101.png" title="魔神柱" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99348201.png" title="魔神巴巴托司" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99348211.png" title="第四特異點魔神柱(最終Boss)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99348301.png" title="魔神哈帕斯" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99348501.png" title="魔神哈艮地" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99354101.png" title="迪亞馬特" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99356001.png" title="守寶妖精" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99356101.png" title="守寶妖精" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99367701.png" title="史芬克斯(雄)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99367801.png" title="史芬克斯(雌)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99368001.png" title="魔神柱變種阿蒙・拉" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99368501.png" title="魔猪" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99368601.png" title="魔猪" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99371101.png" title="艾蕾修卡(第七特異點)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99371901.png" title="戈爾貢" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99372201.png" title="バシュム" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99381001.png" title="魔神納貝流士" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99382001.png" title="魔神佛勞洛斯" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99383001.png" title="魔神佛鈕司" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99384001.png" title="魔神巴巴托司" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99385001.png" title="魔神哈帕斯" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99386001.png" title="魔神亞蒙" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99387001.png" title="魔神斯伯奈克" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99388001.png" title="魔神安杜馬利烏士" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99388701.png" title="李爾王" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99388801.png" title="茱麗葉(亞種特異點Ⅰ)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99389301.png" title="大機械阿信" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99389501.png" title="神機械阿信" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99389701.png" title="金色魔太閤秀吉" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99390001.png" title="魔神巴力" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99391201.png" title="魔神柱" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99391701.png" title="魔性菩薩" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99393201.png" title="九頭蛇" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99393501.png" title="魔神菲尼克斯" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99395001.png" title="古伽蘭那" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99395501.png" title="偽俄里翁" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99395601.png" title="真俄里翁" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99396301.png" title="邊獄大靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99396401.png" title="大蛇" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99397401.png" title="祟鬼" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99400401.png" title="巨大阿信" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99400411.png" title="巨大阿信" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99400421.png" title="巨大阿信" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402701.png" title="巨大Boss幽靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402801.png" title="超巨大Boss幽靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99402901.png" title="巨大黑Boss幽靈" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99406201.png" title="技喰丸" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99406301.png" title="風越丸" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99406401.png" title="轟力丸" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99407601.png" title="魔神勞姆" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99409001.png" title="神聖鳳凰" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99410601.png" title="空想樹オロチ" class="lazyload face_icon50 enemyM" />
 
 </td></tr>
 <tr><th>〔王〕</th><td id="indi2113" class="indiTd">
-<img src="common/images/icon/enemy/99301101.png" title="骷髏王" class="enemyM" />
-<img src="common/images/icon/enemy/99302101.png" title="骷髏王" class="enemyM" />
-<img src="common/images/icon/enemy/99303101.png" title="骷髏王" class="enemyM" />
-<img src="common/images/icon/enemy/99368001.png" title="魔神柱變種阿蒙・拉" class="enemyM" />
-<img src="common/images/icon/enemy/99371101.png" title="艾蕾修卡(第七特異點)" class="enemyM" />
-<img src="common/images/icon/enemy/99388701.png" title="李爾王" class="enemyM" />
-<img src="common/images/icon/enemy/99393801.png" title="蛇妖女王" class="enemyM" />
+<img data-src="common/images/icon/enemy/99301101.png" title="骷髏王" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99302101.png" title="骷髏王" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99303101.png" title="骷髏王" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99368001.png" title="魔神柱變種阿蒙・拉" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99371101.png" title="艾蕾修卡(第七特異點)" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99388701.png" title="李爾王" class="lazyload face_icon50 enemyM" />
+<img data-src="common/images/icon/enemy/99393801.png" title="蛇妖女王" class="lazyload face_icon50 enemyM" />
 
 </td></tr>
 <tr><th>〔希臘神話系男性〕</th><td id="indi2114" class="indiTd">
-<img src="common/images/icon/enemy/99331001.png" title="半人馬" class="enemyM" />
+<img data-src="common/images/icon/enemy/99331001.png" title="半人馬" class="lazyload face_icon50 enemyM" />
 
 </td></tr>
 <!-- <tr><th colspan=2><span class="notice">※以下為暫時資料</span></th></tr>

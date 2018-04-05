@@ -741,3 +741,17 @@ table.mt-15 .star {
 	color: #666666;
 	font-style:italic;
 }
+.face_icon {
+	background-image:url("../images/icon/faces/0.png");
+	background-size: 60px 60px;
+	background-repeat: no-repeat;
+	width:60px;
+	height:60px;
+}
+.face_icon50 {
+	background-image:url("../images/icon/faces/0.png");
+	background-size: 50px 50px;
+	background-repeat: no-repeat;
+	width:50px;
+	height:50px;
+}
