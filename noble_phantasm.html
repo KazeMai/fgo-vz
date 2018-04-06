@@ -14,6 +14,7 @@
 <script type="text/javascript" src="common/js/smoothRollOver.js"></script>
 <script type="text/javascript" src="common/js/scrollTop.js"></script>
 <script type="text/javascript" src="common/js/jquery.tablesorter.min.js"></script>
+<script type="text/javascript" src="common/js/lazyload.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -122,14 +123,16 @@ function trdvDataOut(searchData,searchId)
 			}}
 			if(master.mstSvt[c].collectionNo==0) trdvDataTxt+="<tr><td align=center rowspan="+svtTrdvrowCount+"><a href='svtData.html?id="+master.mstSvt[c].id+"'>";
 			else trdvDataTxt+="<tr><td align=center rowspan="+svtTrdvrowCount+"><a href='svtData.html?no="+master.mstSvt[c].collectionNo+"'>";
-				trdvDataTxt+="<img src='common/images/icon/faces/"+master.mstSvt[c].id+"0.png' onerror=\"javascript:this.src='common/images/icon/faces/0.png'\" title='"+findSvtNameZh2(master.mstSvt[c].id)+"' width=80></img>";
+				trdvDataTxt+='<img class="lazyload face_icon" data-src="common/images/icon/faces/'+master.mstSvt[c].id+'0.png" title="'+findSvtNameZh2(master.mstSvt[c].id)+'" />';
 				/*for(d in svtName)
 					if(svtName[d][0]==master.mstSvt[c].id){trdvDataTxt+=svtName[d][2]+"<br>";break;}*/
 			trdvDataTxt+="</a></td>";
 			trdvDataTxt+=sklTxt;
 		}
 	}
-	document.getElementById("trdvData").innerHTML=trdvDataTxt;
+	$("#trdvData").empty();
+	$("#trdvData").append(trdvDataTxt);
+	$("img.lazyload").lazyload();
 }
 </script>
 </head>
