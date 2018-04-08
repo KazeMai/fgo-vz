@@ -40,7 +40,9 @@ new function() {
 			var fadePatern = new RegExp( /.*_off\.[^.]+/ );
 			var pngPatern = new RegExp( /.*\.png$/ );
 			var onImage;
-			
+			if ( typeof src == 'undefined' ) {
+				return;
+			}
 			if ( src.match( fadePatern ) ) {
 				onImage = jQuery(this).clone();
 				onImage.
