@@ -312,7 +312,7 @@ div.warIcon {
 	text-align: right;
 	padding: 15px 2px 2px 0px;
 	box-sizing: border-box;
-	float: left;
+  display: inline-block;
 	margin:0px auto;
 }
 .itemMT {
@@ -327,7 +327,21 @@ div.warIcon {
 	text-align: right;
 	padding: 35px 5px 5px 0px;
 	box-sizing: border-box;
-	float: left;
+  display: inline-block;
+}
+.itemLT {
+	height: 70px;
+	width: 70px;
+	vertical-align: top;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	font-size: 14px;
+	color: #FFFFFF;
+	text-shadow: 1px 1px 1px black, -1px -1px 1px black, -1px 1px 1px black, 1px -1px 1px black;
+	text-align: right;
+	padding: 45px 5px 5px 0px;
+	box-sizing: border-box;
+  display: inline-block;
 }
 .itemMTR {
 	height: 50px;
@@ -341,7 +355,7 @@ div.warIcon {
 	text-align: right;
 	padding: 25px 0px 0px 0px;
 	box-sizing: border-box;
-	float: left;
+  float: left;
 }
 .itemM {
 	height: 60px;
@@ -707,9 +721,6 @@ article img {
     max-width: 100%;
     height: auto;
 }
-.diamond {
-	color: #cb0000;
-}
 table.mt-15 .star {
 	color: #c0972d;
 	font-weight: bold;
@@ -735,7 +746,7 @@ table.mt-15 .star {
 }
 /* 菱形 */
 .diamond {
-	color: #c80000;
+	color: #cb0000;
 }
 .notes {
 	color: #666666;
