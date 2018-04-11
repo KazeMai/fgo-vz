@@ -1,15 +1,25 @@
-﻿var extendtxt = '{"strengthStatus":0,"svtId":9941040,"num":1,"priority":1,"skillId":435350,"condQuestId":0,"condQuestPhase":0,"condLv":0,"condLimitCount":-1,"eventId":0},{"strengthStatus":0,"svtId":9941040,"num":2,"priority":1,"skillId":436450,"condQuestId":0,"condQuestPhase":0,"condLv":0,"condLimitCount":-1,"eventId":0},{"strengthStatus":0,"svtId":9941040,"num":3,"priority":1,"skillId":437551,"condQuestId":0,"condQuestPhase":0,"condLv":0,"condLimitCount":-1,"eventId":0},{"strengthStatus":0,"svtId":402800,"num":1,"priority":1,"skillId":462550,"condQuestId":0,"condQuestPhase":0,"condLv":0,"condLimitCount":-1,"eventId":0,"flag":0},{"strengthStatus":0,"svtId":402800,"num":2,"priority":1,"skillId":463550,"condQuestId":0,"condQuestPhase":0,"condLv":0,"condLimitCount":-1,"eventId":0,"flag":0},{"strengthStatus":0,"svtId":402800,"num":3,"priority":1,"skillId":464550,"condQuestId":0,"condQuestPhase":0,"condLv":0,"condLimitCount":-1,"eventId":0,"flag":0}';
-var isErr = false;
-extendtxt = extendtxt.replace(/\n/g,"\\n").replace(/\\"/g,"\\\"").replace(/\"なし\"/g,"\"－\"");
-try{
-	var tmpMst = JSON.parse('['+extendtxt+']');
-	for(var i in tmpMst)
-	{
-		master.mstSvtSkill.push(tmpMst[i]);
+﻿for(var s in master.mstSvt){if(master.mstSvt[s].id==402800){master.mstSvt[s].id=0;break;}}
+object_extend("mstSvt",'{"relateQuestIds":[],"individuality":[5000,402800,1,103,202,300,304,2009,1000,2001,2008,2005,2113],"classPassive":[34250,88650],"cardIds":[3,1,1,2,2],"script":{"cameraActionId":284},"id":402800,"baseSvtId":402800,"name":"イヴァン雷帝","ruby":"イヴァンライテイ","battleName":"イヴァン雷帝","classId":4,"type":5,"limitMax":4,"rewardLv":90,"friendshipId":1049,"maxFriendshipRank":10,"genderType":1,"attri":1,"combineSkillId":402800,"combineLimitId":402800,"sellQp":5000,"sellMana":9,"sellRarePri":5,"expType":10,"combineMaterialId":5,"cost":16,"battleSize":8,"hpGaugeY":-1000,"starRate":89,"deathRate":400,"attackAttri":1,"illustratorId":27,"cvId":37,"collectionNo":205,"materialStoryPriority":0}');
+object_extend("mstSvtSkill",'{"strengthStatus":0,"svtId":9941040,"num":1,"priority":1,"skillId":435350,"condQuestId":0,"condQuestPhase":0,"condLv":0,"condLimitCount":-1,"eventId":0},{"strengthStatus":0,"svtId":9941040,"num":2,"priority":1,"skillId":436450,"condQuestId":0,"condQuestPhase":0,"condLv":0,"condLimitCount":-1,"eventId":0},{"strengthStatus":0,"svtId":9941040,"num":3,"priority":1,"skillId":437551,"condQuestId":0,"condQuestPhase":0,"condLv":0,"condLimitCount":-1,"eventId":0},{"strengthStatus":0,"svtId":402800,"num":1,"priority":1,"skillId":462550,"condQuestId":0,"condQuestPhase":0,"condLv":0,"condLimitCount":0,"eventId":0,"flag":0},{"strengthStatus":0,"svtId":402800,"num":2,"priority":1,"skillId":463550,"condQuestId":0,"condQuestPhase":0,"condLv":0,"condLimitCount":1,"eventId":0,"flag":0},{"strengthStatus":0,"svtId":402800,"num":3,"priority":1,"skillId":464550,"condQuestId":0,"condQuestPhase":0,"condLv":0,"condLimitCount":3,"eventId":0,"flag":0}');
+object_extend("mstTreasureDevice",'{"individuality":[3002,4003,4007],"script":{},"id":402801,"seqId":402800,"name":"我が旅路に従え獣","ruby":"ズヴェーリ・クレースニーホッド","rank":"A+","maxLv":5,"typeText":"対人宝具","attackAttri":1}');
+object_extend("mstTreasureDeviceLv",'{"treaureDeviceId":402801,"lv":1,"gaugeCount":1,"detailId":402801,"tdPoint":62,"tdPointQ":62,"tdPointA":62,"tdPointB":62,"tdPointEx":62,"tdPointDef":300,"qp":80000}');
+object_extend("mstSvtTreasureDevice",'{"damage":[6,13,20,26,35],"strengthStatus":0,"svtId":402800,"num":1,"priority":101,"flag":0,"imageIndex":0,"treasureDeviceId":402801,"condQuestId":0,"condQuestPhase":0,"condLv":0,"condFriendshipRank":0,"motion":50,"cardId":2}');
+object_extend("mstCombineLimit",'{"itemIds":[7004],"itemNums":[5],"id":402800,"svtLimit":0,"qp":100000},{"itemIds":[7004,6516],"itemNums":[12,22],"id":402800,"svtLimit":1,"qp":300000},{"itemIds":[7104,6513,6528],"itemNums":[5,10,3],"id":402800,"svtLimit":2,"qp":1000000},{"itemIds":[7104,6528,6529],"itemNums":[12,6,5],"id":402800,"svtLimit":3,"qp":3000000}');
+object_extend("mstCombineSkill",'{"itemIds":[6004],"itemNums":[5],"id":402800,"skillLv":1,"qp":200000},{"itemIds":[6004],"itemNums":[12],"id":402800,"skillLv":2,"qp":400000},{"itemIds":[6104],"itemNums":[5],"id":402800,"skillLv":3,"qp":1200000},{"itemIds":[6104,6513],"itemNums":[12,5],"id":402800,"skillLv":4,"qp":1600000},{"itemIds":[6204,6513],"itemNums":[5,10],"id":402800,"skillLv":5,"qp":4000000},{"itemIds":[6204,6516],"itemNums":[12,15],"id":402800,"skillLv":6,"qp":5000000},{"itemIds":[6516,6527],"itemNums":[29,15],"id":402800,"skillLv":7,"qp":10000000},{"itemIds":[6527,6535],"itemNums":[44,24],"id":402800,"skillLv":8,"qp":12000000},{"itemIds":[6999],"itemNums":[1],"id":402800,"skillLv":9,"qp":20000000}');
+function object_extend(key,extendtxt)
+{
+	var isErr = false;
+	extendtxt = extendtxt.replace(/\n/g,"\\n").replace(/\\"/g,"\\\"").replace(/\"なし\"/g,"\"－\"");
+	try{
+		var tmpMst = JSON.parse('['+extendtxt+']');
+		for(var i in tmpMst)
+		{
+			master[key].push(tmpMst[i]);
+		}
 	}
+	catch(err){console.log(err.message+'\n'+key);isErr=true;}
+	if(isErr) alert('存取錯誤');
 }
-catch(err){console.log(err.message+'\n'+JSON.stringify(object1[0]));isErr=true;}
-//if(isErr) alert('存取錯誤');
 /*暫時應對*/
 sortByElmentNo(master.mstSvt);
 var zhTWNo=135,zhCNNo=159,statusNo=204,personalityList=" \u5584 \u60e1 ? \u72c2 \u4e2d\u5eb8 ? \u82b1\u5ac1 \u590f".split(" "),policyList=" \u4e2d\u7acb \u6df7\u6c8c \u79e9\u5e8f ? ? \u4e2d\u7acb".split(" "),attriList="\uff1f\u4eba\u5929\u5730\u661f\u7378".split(""),genderTypeList=["","\u7537\u6027","\u5973\u6027","\u7121"],cardList=["","0000ff","ff0000","00ff00"],svtStatusList=" A B C D E EX ? ? ".split(" "),svtStatusPlusList="  + ++ ? +++ ? ? \uff1f \uff0d".split(" "),individualityList=[[2E3,"\u795e\u6027"],
