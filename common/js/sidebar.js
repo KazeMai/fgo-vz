@@ -89,45 +89,49 @@ function questRea(qstId)
 			else if(master.mstQuest[k].type==2) skillText+="Free關卡";
 			else if(master.mstQuest[k].type==3) skillText+="幕間物語";
 			{
-				var realseChp=0,realseLimit,realseFriend,realseBool;
-				var realseArr = new Array(),realseArrQ = new Array();
-				for(var rea=0;rea<master.mstQuestRelease.length;rea++){
-					if(master.mstQuestRelease[rea].questId==master.mstQuest[k].id){
+				var realseLimit,realseFriend,isRealeased=false,isLastQuest=false;
+				var realseArr = new Array();
+				for(var rea in master.mstQuestRelease){
+					if(master.mstQuestRelease[rea].questId==master.mstQuest[k].id)
+					{
 						if(master.mstQuestRelease[rea].type==1)
 						{
-							if(master.mstQuestRelease[rea].targetId==0)
-								realseBool=-1;
-							else
+							if(master.mstQuestRelease[rea].targetId!=0&&!isRealeased)
 							{
-								if(master.mstQuestRelease[rea].targetId<91000000)
-									realseChp=master.mstQuestRelease[rea].targetId;
-								else realseArrQ.push("\n須通過："+master.mstQuest[findName(master.mstQuest,master.mstQuestRelease[rea].targetId)].name);
+								for(var sp in master.mstSpot)
+								{
+									if(master.mstSpot[sp].id==master.mstQuest[k].spotId)
+									{
+										skillText+="\n地點："+master.mstWar[findName(master.mstWar,master.mstSpot[sp].warId)].name+" → "+master.mstSpot[sp].name+"";
+										break;
+									}
+								}
+								for(var war in master.mstWar)
+									if(master.mstQuestRelease[rea].targetId==master.mstWar[war].lastQuestId)
+									{
+										realseArr.push("通過「"+master.mstWar[war].name.replace(/点/g,"點").replace(/亜/g,"亞")+"」");
+										isLastQuest=true;break;
+									}
+								if(!isLastQuest)
+									skillText+=("\n須先通過："+master.mstQuest[findName(master.mstQuest,master.mstQuestRelease[rea].targetId)].name);
 							}
 						}
 						if(master.mstQuestRelease[rea].type==7)
 							realseLimit=master.mstQuestRelease[rea].value;
 						if(master.mstQuestRelease[rea].type==9)
 							realseFriend=master.mstQuestRelease[rea].value;
+						isRealeased=true;
 					}
 				}
-				if(realseBool==-1) skillText+="\n尚未開放";
+				if(isRealeased==false) skillText+="\n尚未開放";
 				else{
 					if(realseLimit) realseArr.push("靈基第"+realseLimit+"階段");
 					if(realseFriend) realseArr.push("絆Lv."+realseFriend+"");
-					for(var war=0;war<master.mstWar.length;war++)
-						if(Math.floor(realseChp/100-10000)==master.mstWar[war].id-100)
-							{realseArr.push("通過"+master.mstWar[war].name.replace(/点/g,"點")+"");
-							//skillText+="\n地點："+master.mstWar[war].name.replace(/点/g,"點");
-							for(var sp in master.mstSpot)
-							{if(master.mstSpot[sp].id==master.mstQuest[k].spotId)skillText+="\n地點："+master.mstWar[findName(master.mstWar,master.mstSpot[sp].warId)].name+" → "+master.mstSpot[sp].name+"";}
-							break;}
 					if(master.mstQuest[k].type!=1)
 					{
 						if(realseArr.length>0) skillText+="\n開放條件：";
 						for(rea in realseArr)
 						{	if(rea!=0)  skillText+="＆"; skillText+=realseArr[rea];}
-						for(rea in realseArrQ)
-						{skillText+=realseArrQ[rea];}
 					}
 				}
 			}
