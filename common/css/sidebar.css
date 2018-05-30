@@ -766,3 +766,16 @@ table.mt-15 .star {
 	width:50px;
 	height:50px;
 }
+.period{
+    box-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+	background: linear-gradient(to bottom, rgba(2,41,88,1) 0%,rgba(9,77,157,1) 87%,rgba(9,77,157,1) 100%);
+	width: 100%;
+	margin-bottom:-10px;
+}
+.period_tx{
+	padding:10px 20px;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 1px 1px 4px #000000;
+}
