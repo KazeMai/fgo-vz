@@ -241,7 +241,7 @@ table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSo
 	background-color: #d48227;
 }
 table.tablesorter tr:nth-child(2n) {
-	background-color: #ECF2F3;
+	/*background-color: #ECF2F3;*/
 }
 table.mouseover tr:hover {
 	background-color: #bdd2d5;
