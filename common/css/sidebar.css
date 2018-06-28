@@ -305,7 +305,7 @@ div.warIcon {
 	width: 30px;
 	vertical-align: middle;
 	background-repeat: no-repeat;
-	background-size: 100% 100%;
+	background-size: auto 100%;
 	font-size: 12px;
 	color: #FFFFFF;
 	text-shadow: 1px 1px 1px black, -1px -1px 1px black, -1px 1px 1px black, 1px -1px 1px black;
@@ -318,7 +318,7 @@ div.warIcon {
 .itemMT {
 	height: 50px;
 	width: 50px;
-	vertical-align: top;
+	vertical-align: middle;
 	background-repeat: no-repeat;
 	background-size: auto 100%;
 	font-size: 12px;
@@ -328,13 +328,14 @@ div.warIcon {
 	padding: 35px 5px 5px 0px;
 	box-sizing: border-box;
   display: inline-block;
+  margin:0px auto;
 }
 .itemLT {
 	height: 70px;
 	width: 70px;
 	vertical-align: top;
 	background-repeat: no-repeat;
-	background-size: 100% 100%;
+	background-size: auto 100%;
 	font-size: 14px;
 	color: #FFFFFF;
 	text-shadow: 1px 1px 1px black, -1px -1px 1px black, -1px 1px 1px black, 1px -1px 1px black;
@@ -342,6 +343,7 @@ div.warIcon {
 	padding: 45px 5px 5px 0px;
 	box-sizing: border-box;
   display: inline-block;
+  margin:0px auto;
 }
 .itemMTR {
 	height: 50px;
