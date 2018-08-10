@@ -12,9 +12,11 @@
 	{
 		if(master.mstSvt[i].id==svtid.value)break;
 	}
+	var tmpLimit = null;
 	for(var j in master.mstSvtLimit)
 	{
-		if(master.mstSvtLimit[j].svtId==svtid.value&&master.mstSvtLimit[j].limitCount==master.mstSvt[i].limitMax)break;
+		if(master.mstSvtLimit[j].svtId==svtid.value)
+			tmpLimit = master.mstSvtLimit[j];
 	}
 	/*if(j==master.mstSvtLimit.length-1)
 		for(var j in master.mstSvtLimit)
@@ -26,7 +28,7 @@
 	else lvMax = /*master.mstSvt[i].rewardLv*/100;
 	for(var c in master.mstSvtExp){
 		if(master.mstSvt[i].expType==master.mstSvtExp[c].type&&master.mstSvtExp[c].lv<=lvMax&&master.mstSvtExp[c].lv>0)
-			data.addRows([[master.mstSvtExp[c].lv,Math.floor(master.mstSvtLimit[j].atkBase+(master.mstSvtLimit[j].atkMax-master.mstSvtLimit[j].atkBase)*master.mstSvtExp[c].curve/1000),Math.floor(master.mstSvtLimit[j].hpBase+(master.mstSvtLimit[j].hpMax-master.mstSvtLimit[j].hpBase)*master.mstSvtExp[c].curve/1000)]]);
+			data.addRows([[master.mstSvtExp[c].lv,Math.floor(tmpLimit.atkBase+(tmpLimit.atkMax-tmpLimit.atkBase)*master.mstSvtExp[c].curve/1000),Math.floor(tmpLimit.hpBase+(tmpLimit.hpMax-tmpLimit.hpBase)*master.mstSvtExp[c].curve/1000)]]);
 	}
       var options = {
           title: '二圍曲線圖',
