@@ -27,8 +27,15 @@
   ga('require', 'displayfeatures');
   ga('send', 'pageview');
 </script>
-<script type="text/javascript" src="../ccData.js">
-
+<script type="text/javascript">
+var zhTWNo=0,zhCNNo=0;sortByElmentNo(master.mstCommandCode);
+function svtDataTable(a){var b="",c=null;$(".ceInfo").html("");for(var d in master.mstCommandCode)if(master.mstCommandCode[d].id==a){c=master.mstCommandCode[d];break}document.title=c.name+" - \u6307\u4ee4\u7d0b\u7ae0\u8cc7\u6599\u67e5\u8a62";$("#ceGraph").html('<img src="common/images/CommandGraph/'+a+'.png" onerror=javascript:this.src="common/images/CharaGraph/0.png" style="width:100%" />');$("#ceNo").html(c.collectionNo);for(a=0;a<c.rarity;a++)b+="\u2605";$("#ceRarity").html(b);$("#ceName").html(c.name);
+for(ccs in master.mstCommandCodeSkill)master.mstCommandCodeSkill[ccs].commandCodeId==c.id&&(b=master.mstCommandCodeSkill[ccs],$("#ceSkIcon").html('<img src="common/images/SkillIcon/SkillIcon_'+master.mstSkill[findName(master.mstSkill,b.skillId)].iconId+'.png" onerror=javascript:this.src="common/images/SkillIcon/SkillIcon_0.png" style="width:55px;" />'),$("#ceSkill").append(findSkDetailZh(b.skillId)));c.collectionNo>zhCNNo&&($("#cmtlang_zh").prop("checked",!1),$("#cmtlang_jp").prop("checked",!0));
+cmtRead($("input[name=cmtlang]:checked").val());$("img.lazyload").lazyload()}
+function cmtRead(a){try{$.get("common/CommandCodeComment/"+a+"/"+$("#svtid").val(),function(b){b=JSON.parse(base64.decode(b));$("#ceComment").html(b[0].comment.replace(/\n/g,"<br>").replace(/<br>$/,"<br><br>")+"</td></tr>");for(var a in master.mstIllustrator)if(master.mstIllustrator[a].id==b[0].illustratorId)break;$("#ceIll").html((1<master.mstIllustrator[a].id?'<a href="illustrator.html#'+master.mstIllustrator[a].id+'">':"")+master.mstIllustrator[a].name)},"text")}catch(b){console.log("Cannot find comment file."),
+"zh"==a&&cmtRead("jp")}}function optionInit(){for(var a in master.mstCommandCode)svtid.options.add(new Option("No."+master.mstCommandCode[a].collectionNo+" "+master.mstCommandCode[a].name,master.mstCommandCode[a].id));var b="1";getUrl("no")&&(b=getUrl("no"));if(b)for(a in master.mstCommandCode)if(b==master.mstCommandCode[a].collectionNo){$("#svtid").val(master.mstCommandCode[a].id);break}svtidChange()}function svtidChange(){svtDataTable(svtid.value)}
+function findSkDetailZh(a){var b;for(b in skDetail)if(a==skDetail[b][0]){var c=skDetail[b][1];break}if(document.getElementById("isJpTxt").checked||!c)for(b=0;b<master.mstSkillDetail.length;b++)if(a==master.mstSkillDetail[b].id){c=master.mstSkillDetail[b].detail;break}return c}
+function svtlocation(a){a="";for(var b in master.mstCommandCode)if(master.mstCommandCode[b].id==svtid.value){a=0!=master.mstCommandCode[b].collectionNo?a+("?no="+master.mstCommandCode[b].collectionNo):a+("?id="+master.mstCommandCode[b].id);break}"file:"==location.protocol?changeURL(location.protocol+"//"+location.pathname+a):changeURL(location.protocol+"//"+location.hostname+location.pathname+a);svtidChange()};
 </script>
 </head>
 <body onload="loadsidebar();optionInit();">
