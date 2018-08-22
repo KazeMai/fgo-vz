@@ -29,7 +29,7 @@
   ga('send', 'pageview');
 </script>
 <script type="text/javascript">
-var zhTWNo=410,zhCNNo=582;sortByElmentNo(master.mstSvt);
+var zhTWNo=411,zhCNNo=589;sortByElmentNo(master.mstSvt);
 function svtDataTable(a){var b="";$(".ceInfo").html("");for(var c in master.mstSvt)if(master.mstSvt[c].id==a)break;document.title=master.mstSvt[c].name+" - \u79ae\u88dd\u8cc7\u6599\u67e5\u8a62";for(var d in master.mstSvtLimit)if(master.mstSvtLimit[d].svtId==a)break;$("#ceGraph").html('<img src="common/images/CharaGraph/'+a+'a.png" onerror=javascript:this.src="common/images/CharaGraph/0.png" style="width:100%" />');$("#ceNo").html(master.mstSvt[c].collectionNo);for(a=0;a<master.mstSvtLimit[d].rarity;a++)b+=
 "\u2605";$("#ceRarity").html(b);$("#ceName").html(master.mstSvt[c].name);$("#ceHp").html(master.mstSvtLimit[d].hpBase+" / "+master.mstSvtLimit[d].hpMax);$("#ceAtk").html(master.mstSvtLimit[d].atkBase+" / "+master.mstSvtLimit[d].atkMax);for(a in master.mstIllustrator)if(master.mstIllustrator[a].id==master.mstSvt[c].illustratorId)break;$("#ceIll").html((1<master.mstIllustrator[a].id?'<a href="illustrator.html#'+master.mstIllustrator[a].id+'">':"")+master.mstIllustrator[a].name);for(a in master.mstSvtSkill)master.mstSvtSkill[a].svtId==
 master.mstSvt[c].id&&(0==master.mstSvtSkill[a].condLimitCount?(0==master.mstSvtSkill[a].eventId?($("#ceSkIcon").html('<img src="common/images/SkillIcon/SkillIcon_'+master.mstSkill[findName(master.mstSkill,master.mstSvtSkill[a].skillId)].iconId+'.png" onerror=javascript:this.src="common/images/SkillIcon/SkillIcon_0.png" style="width:55px;" />'),b=""):b="<br>",$("#ceSkill").append(b+findSkDetailZh(master.mstSvtSkill[a].skillId))):4==master.mstSvtSkill[a].condLimitCount&&(b=0==master.mstSvtSkill[a].eventId?
