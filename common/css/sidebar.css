@@ -796,3 +796,6 @@ table.mt-15 .star {
     color: #ffffff;
     text-shadow: 1px 1px 4px #000000;
 }
+.center{
+	text-align: center;
+}
