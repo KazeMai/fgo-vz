@@ -53,6 +53,62 @@ body {
 .table_color{
 	color: #684116;
 }
+
+
+/* 概念礼装周り */
+.star {
+	color: #dcb905;
+	font-size: 110%;
+}
+.gainen_ttl {
+	color: #00B893;
+}
+
+.gainen_atk {
+	color: #E74E58;
+}
+.gainen_hp {
+	color: #5C44F1;
+}
+.gainen_skill {
+	color: #21ADDF;
+}
+
+/* アイコン */
+.noticeicon {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #ffffff;
+	padding: 5px 15px;
+	background: -moz-linear-gradient(  top,  #fd6a88 0%,  #fd093a);
+	background: -webkit-gradient(  linear, left top, left bottom,  from(#fd6a88),  to(#fd093a));
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 7px;
+	border: 1px solid #fd093a;
+	-moz-box-shadow: 0px 1px 3px rgba(000,000,000,0.5),  inset 0px 0px 1px rgba(255,255,255,0.5);
+	-webkit-box-shadow: 0px 1px 3px rgba(000,000,000,0.5),  inset 0px 0px 1px rgba(255,255,255,0.5);
+	box-shadow: 0px 1px 3px rgba(000,000,000,0.5),  inset 0px 0px 1px rgba(255,255,255,0.5);
+	text-shadow: 0px -1px 0px rgba(000,000,000,0.7),  0px 1px 0px rgba(255,255,255,0.3);
+	width: 150px;
+	float: none;
+	margin: 0 auto 0 auto;
+	text-align: center;
+}
+
+
+
+/* 囲み枠 */
+.box1 {
+    padding: 1em 1em 0 1em;
+    border: solid 1.5px #B29DC0;
+	margin:10px;
+	
+}
+.box1 p {
+    margin: 0; 
+    padding: 0;
+}
 </style>
 </head>
 <body onload="loadsidebar();">
@@ -63,104 +119,628 @@ body {
     <!--選單區塊結束-->
     <!--主要內容區塊開始-->
     <div id="div_content"><div class="container">
+	<div class="topblock3">
+	<a href="#midashi_01"><div class="bkmk">活動概要</div></a>
+	<a href="#midashi_20"><div class="bkmk">活動的報酬</div></a>
+	<a href="#midashi_24"><div class="bkmk">主線逐日開放</div></a>
+	<a href="#midashi_05"><div class="bkmk">點數達成報酬</div></a>
+	<a href="#midashi_25"><div class="bkmk">點數對應加成效果</div></a><div style="clear:left;"></div>
+	<a href="#midashi_04"><div class="bkmk">超值攻略方法</div></a>
+	<a href="#midashi_06"><div class="bkmk">活動交換道具</div></a>
+	<a href="#midashi_07"><div class="bkmk">活動報酬禮裝</div></a>
+	<a href="#midashi_08"><div class="bkmk">活動報酬紋章</div></a>
+	<a href="#midashi_09"><div class="bkmk">酒吞童子(法)</div></a><div style="clear:left;"></div>
+	<a href="#midashi_11"><div class="bkmk">Pick Up召喚</div></a>
+	<a href="#midashi_33"><div class="bkmk">新登場Servant</div></a>
+	<a href="#midashi_13"><div class="bkmk">Pick Up Servant</div></a>
+	<a href="#midashi_14"><div class="bkmk">期間限定概念禮裝</div></a>
+	<a href="#midashi_15"><div class="bkmk">志度內</div></a>
+	</div>
 <article class="content textsize" style="width:840px">
-<p><img alt="TOPバナー" height="300" src="common/images/2018/halloween2018_e2nck/top_banner.png" width="800"/></p>
+<p><img alt="TOPバナー" height="300" src="common/images/2018/halloween2018_full_wfme3/top_banner.png" width="800"/></p>
 <div style="height:10px; margin-top:-30px;"></div>
 <!-- block -->
 <p><img alt="プロローグ" height="300" src="common/images/2018/halloween2018_e2nck/prologue.png" width="800"/></p>
 <!-- block -->
-<p style="margin-bottom: 5px; margin-top: -30px;"><img alt="" src="common/images/2018/halloween2018_e2nck/midashi_01.png"/></p>
-<p><span class="diamond">◆</span><span class="strong">活動舉辦時間</span><span class="diamond">◆</span><br/>
-<span class="em01">2018年10月24日(三) 17:00～(預定)</span></p>
+<p style="margin-bottom: 5px; margin-top: -40px"><img alt="" src="common/images/2018/halloween2018_e2nck/midashi_01.png" id="midashi_01"/></p>
+<p><span class="diamond">◆</span><span class="strong">活動舉辦期間</span><span class="diamond">◆</span><br/>
+<span class="em01">2018年10月24日(三) 17:00(預定)～11月7日(三) 11:59</span></p>
 <p><span class="diamond">◆</span><span class="strong">活動概要</span><span class="diamond">◆</span><br/>
 <span class="em01">舉辦期間限定活動「神秘之國ＯＮＩＬＡＮＤ!! ～鬼王與卡姆伊的黃金～」！<br/>
 歡迎來到安心又安全、愛與和平的娛樂殿堂！<br/>
 本Land來者不拒，歡迎所有的客人！<br/>
 本活動中進行主線關卡的話，活動限定「<span class="notice">★4(SR)Servant</span>」會以期間限定加入。<br/>
-再推進主線關卡，讓活動限定「<span class="notice">★4(SR)Servant</span>」正式加入吧！</span></p>
-<p style="margin-bottom: -5px; margin-top: -20px"><img alt="" src="common/images/2018/halloween2018_e2nck/info_image_04.png" width="100%"/></p>
-<p><span class="diamond">◆</span><span class="strong">活動參加條件</span><span class="diamond">◆</span><br/>
-<span class="em01 notice">只限通過第2部 第2章「Lostbelt No.2 無間冰焰世紀 諸神黃昏 不滅之火的好漢」的Master才能參加<br/>
-※不需要通過亞種特異點(從Ⅰ到Ⅳ)。</span></p>
-<!-- block -->
-<p style="margin-bottom: 5px;"><img alt="" src="common/images/2018/halloween2018_e2nck/midashi_05.png"/><br/></p>
-<p class="em01">【10月19日(五) 17:00追記】<br/>
-介紹預定自2018年10月24日(三) 17:00舉辦的期間限定活動「神秘之國ＯＮＩＬＡＮＤ!! ～鬼王與卡姆伊的黃金～」登場的「★4(SR)Servant」寶具演出！</p>
-<!-- <p><img alt="" src="common/images/2018/halloween2018_e2nck/info_ss_01.png"/></p> -->
-<div style="position:relative;height:0;padding-bottom:56.25%;margin-bottom:15px;">
-<iframe src="https://www.youtube.com/embed/nbDarOvNyA0?ecver=2" width="520" height="293" frameborder="0" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe>
-</div>
-<!-- block -->
-<p style="margin-bottom: 5px;"><img alt="" src="common/images/2018/halloween2018_e2nck/midashi_02.png"/></p>
-<p><img alt="" src="common/images/2018/halloween2018_e2nck/info_image_01.png"/></p>
-<!-- block -->
-<p style="margin-bottom: 5px;"><img alt="" src="common/images/2018/halloween2018_e2nck/midashi_03.png"/></p>
-<p><span class="em01">【10月19日(五) 17:00追記】<br/>
-期間限定活動「神秘之國ＯＮＩＬＡＮＤ!! ～鬼王與卡姆伊的黃金～」的活動關卡中，會賦予特定的Servant對活動攻略有利的效果！<br/>
-強化對象Servant，挑戰活動吧！<br/>
+再推進主線關卡，讓活動限定「<span class="notice">★4(SR)Servant</span>」正式加入吧！！<br/>
 <br/>
-<span class="notice">※自10月19日(五) 17:00，在Servant選擇畫面和Servant強化畫面等中，追加「下次活動對象」篩選器。<br/>
-由於是只顯示於下個舉辦活動活躍Servant的便利功能，敬請活用。</span></span></p>
+本活動中享受故事的主線關卡日將逐日開放，在10月30日(二) AM7:30，會開放<span class="notice">以活動參加中的Master全員挑戰強敵，特殊形式的關卡</span>！<br/>
+<br/>
+※關於真名尚未判明的Servant，透過主線記錄的進行會讓Servant的名稱變化。
+</span></p>
+<p><span class="diamond">◆</span><span class="strong">活動參加條件</span><span class="diamond">◆</span><br/>
+<span class="em01 notice">滿足以下條件的Master才能參加<br/>
+・通過第2部 第2章「Lostbelt No.2 無間冰焰世紀 諸神黃昏 不滅之火的好漢」<br/>	
+※不需要通過亞種特異點(從Ⅰ到Ⅳ)。</span></p>
+<p><img alt="" src="common/images/2018/halloween2018_full_wfme3/info_ss_01.png"/></p>
 <!-- block -->
-<p><span class="diamond">◆</span><span class="strong">對象Servant</span><span class="diamond">◆</span></p>
+<p style="margin-bottom: 5px;"><img alt="" src="common/images/2018/halloween2018_full_wfme3/midashi_01.png"/></p>
+<p><img alt="" src="common/images/2018/halloween2018_full_wfme3/info_image_01.png"/></p>
+<p><img alt="" src="common/images/2018/halloween2018_full_wfme3/info_image_02_a.png"/><br/>
+<img alt="" src="common/images/2018/halloween2018_full_wfme3/info_image_02_b.png" style="margin-top: -30px"/><br/>
+<img alt="" src="common/images/2018/halloween2018_full_wfme3/info_image_02_c.png"/><br/>
+<img alt="" src="common/images/2018/halloween2018_full_wfme3/info_image_02_d.png" style="margin-top: -40px"/></p>
+<!-- block -->
+<p style="margin-bottom: 5px;"><img alt="" src="common/images/2018/halloween2018_full_wfme3/midashi_20.png" id="midashi_20"/><br/></p>
+<p><img alt="" src="common/images/2018/halloween2018_full_wfme3/info_image_15.png"/></p>
+<!-- block -->
+<p style="margin-bottom: 5px;"><img alt="" src="common/images/2018/halloween2018_full_wfme3/midashi_24.png" id="midashi_24"/><br/></p>
+<p><span class="em01">故事楽しめる<span class="notice">主線關卡將逐日開放。</span><br/>
+通過主線關卡第2話後，會開放可收集活動道具的自由關卡。<br/>
+之後的自由關卡，會在通過主線關卡後的地點開放。<br/>
+※10/23(二) 18:10修正</span></p>
+<p style="margin-bottom: 0;"><span class="strong">【主線關卡的舉辦期間】</span></p>
+<!-- block -->
+<table align="center" class="trbgcolor" style=";;margin-bottom: 10px;" width="100%">
+<tbody>
+<tr>
+<th width="50%">關卡</th>
+<th width="50%">舉辦期間</th>
+</tr>
+<tr>
+<td style="text-align: center"><div class="noticeicon">初次記念一口氣開放二話！</div>
+<div style="margin-top: 10px;">主線關卡 第1話～第2話</div></td>
+<td>10月24日(三) 17:00(預定)～<br/>11月7日(三) 11:59</td>
+</tr>
+<tr>
+<td style="text-align: center">主線關卡 第3話</td>
+<td>10月25日(四) AM7:30～<br/>11月7日(三) 11:59</td>
+</tr>
+<tr>
+<td style="text-align: center">主線關卡 第4話</td>
+<td>10月26日(五) AM7:30～<br/>11月7日(三) 11:59</td>
+</tr>
+<tr>
+<td style="text-align: center">主線關卡 第5話</td>
+<td>10月27日(六) AM7:30～<br/>11月7日(三) 11:59</td>
+</tr>
+<tr>
+<td style="text-align: center">主線關卡 第6話</td>
+<td>10月28日(日) AM7:30～<br/>11月7日(三) 11:59</td>
+</tr>
+<tr>
+<td style="text-align: center">主線關卡 第7話</td>
+<td>10月29日(一) AM7:30～<br/>11月7日(三) 11:59</td>
+</tr>
+<tr>
+<td style="text-align: center"><div class="noticeicon">最終回特別！</div>
+<div style="margin-top: 10px;">主線關卡 第8話～第11話<br/>Epilogue
+</div></td>
+<td>10月30日(二) AM7:30～<br/>11月7日(三) 11:59</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<!-- block -->
+<p style="margin-bottom: 5px;"><img alt="" src="common/images/2018/halloween2018_full_wfme3/midashi_05.png" id="midashi_05"/><br/></p>
+<p><span class="em01">好朋友點數的総獲得量到達一定量後，可獲得達成報酬。<br/>
+達成報酬可在點擊管理室(ターミナル)畫面右上「活動報酬」所顯示的「好朋友點數報酬」畫面確認。<br/>
+<br/>
+※好朋友點數的総獲得量是計算在活動關卡掉落所獲得的好朋友點數。</span></p>
+<p><img alt="" src="common/images/2018/halloween2018_full_wfme3/info_image_11.png"/></p>
+<!-- block -->
+<p style="margin-bottom: 5px;"><img alt="" src="common/images/2018/halloween2018_full_wfme3/midashi_25.png" id="midashi_25"/></p>
+<p><span class="em01">本活動中，裝備可靠活動道具交換和好朋友點數達成報酬等入手で的活動限定概念禮裝「スリー・アングラー」「ロイヤル・アイシング」「氷結闘熊」的話，會提升<span class="notice">透過各概念禮裝對應種類指令卡的攻擊威力與好朋友點數的掉落獲得量</span>。<br/>
+<br/>
+另外，此活動限定概念禮裝的<span class="notice">「攻擊威力提升」的效果，好朋友點數的総獲得量超過一定値超的話會強化威力</span>。<br/>
+目前的「攻擊威力提升」的效果與下個威力提升前的必要點數，在推進故事的話會顯示在地圖畫面與活動報酬畫面的左側。<br/>
+<br/>
+由於與在主線關卡和撃退戰的強敵戰鬥有利，不斷收集好朋友點數，提高威力吧！
+</span></p>
+<p><img alt="" src="common/images/2018/halloween2018_full_wfme3/info_image_03_b.png"/></p>
+<p><img alt="" src="common/images/2018/halloween2018_full_wfme3/info_image_03_a.png"/></p>
+<!-- block -->
+<p style="margin-bottom: 5px;"><img alt="" src="common/images/2018/halloween2018_full_wfme3/midashi_04.png" id="midashi_04"/></p>
+<p><span class="diamond">◆</span><span class="strong">超值攻略方法・其1</span><span class="diamond">◆</span><br/>
+<span class="em01">
+將活動加成對象Servant編入隊伍吧！<br/>
+在本活動做為活動加成篩選器對象的下述Servant，會提升<span class="notice">好朋友點數</span>的掉落獲得量。<br/>
+<br/>
+※各Servant增加量有所差異。<br/>
+※關於真名尚未判明的Servant，透過主線記錄的進行會讓Servant的名稱變化。<br/>
+<span class="notice">※自10月19日(五) 17:00，在Servant選擇畫面和Servant強化畫面等中，追加「下次活動對象」篩選器。<br/>
+由於是只顯示在活動活躍Servant的便利功能，敬請活用。</span></span></p>
+<p><img alt="" src="common/images/2018/halloween2018_full_wfme3/info_image_14.png"/></p>
+<!-- block -->
+<p><span class="strong">【對象Servant】</span></p>
 <table align="center" class="trbgcolor" style=";;margin-bottom: 10px; margin-top: -10px" width="100%">
 <tbody>
 <tr>
-<th width="28%">職階</th>
-<th width="23%">稀有度</th>
-<th width="49%">Servant名</th>
+<th width="15%">掉落<br/>獲得量</th>
+<th width="20%">職階</th>
+<th width="20%">稀有度</th>
+<th width="45%">Servant名</th>
 </tr>
-<tr><td>Saber</td>
+<tr><td bgcolor="#FFF" rowspan="2">+30%</td>
+<td>Caster</td>
+<td class="servant_star">★★★★</td><td>酒吞童子</td></tr>
+<tr><td>Alterego</td>
+<td class="servant_star">★★★★★</td><td>志度內</td></tr>
+<tr><td bgcolor="#ECF2F3" rowspan="6">+20%</td><td>Lancer</td>
+<td class="servant_star">★★★★</td><td>茨木童子</td></tr>
+<tr><td>Caster</td>
+<td class="servant_star">★★★★★</td><td>李奧納多・達文西</td></tr>
+<tr><td rowspan="2">Assassin</td>
+<td class="servant_star">★★★★★</td><td>酒吞童子</td></tr>
+<tr><td class="servant_star">★★★★</td><td>Assassin・樂園</td></tr>
+<tr><td bgcolor="#ECF2F3">Berserker</td>
+<td class="servant_star">★★★★</td><td>茨木童子</td></tr>
+<tr><td bgcolor="#FFF">Shielder</td>
+<td class="servant_star">★★★</td><td>瑪琇・基利艾拉特</td></tr>
+<tr><td bgcolor="#FFF" rowspan="20">+10%</td><td bgcolor="#ECF2F3">Saber</td>
 <td class="servant_star">★★★★</td><td>弗蘭肯斯坦</td></tr>
-<tr><td rowspan="4">Archer</td>
+<tr><td bgcolor="#FFF" rowspan="4">Archer</td>
 <td class="servant_star">★★★★</td><td>克洛伊・馮・愛因茲貝倫</td></tr>
 <tr><td class="servant_star">★★★</td><td>尤瑞艾莉</td></tr>
 <tr><td class="servant_star">★★★</td><td>子吉爾</td></tr>
 <tr><td class="servant_star">★★★</td><td>比利小子</td></tr>
-<tr><td bgcolor="#FFF" rowspan="3">Lancer</td>
-<td class="servant_star">★★★★</td><td>茨木童子</td></tr>
-<tr><td class="servant_star">★★★★</td><td>貞德・Alter・聖誕・Lily</td></tr>
+<tr><td rowspan="2">Lancer</td>
+<td class="servant_star">★★★★</td><td>貞德・Alter・聖誕・Lily</td></tr>
 <tr><td class="servant_star">★★★★</td><td>美杜莎</td></tr>
-<tr><td bgcolor="#ECF2F3">Rider</td>
-<td class="servant_star">★★★</td><td>亞歷山大</td></tr>
-<tr><td bgcolor="#FFF" rowspan="5">Caster</td>
+<tr><td bgcolor="#FFF">Rider</td>
+<td bgcolor="#ECF2F3" class="servant_star">★★★</td><td>亞歷山大</td></tr>
+<tr><td bgcolor="#ECF2F3" rowspan="4">Caster</td>
 <td class="servant_star">★★★★★</td><td>伊莉雅絲菲爾・馮・愛因茲貝倫</td></tr>
-<tr><td class="servant_star">★★★★★</td><td>李奧納多・達文西</td></tr>
 <tr><td class="servant_star">★★★★</td><td>童謠</td></tr>
 <tr><td class="servant_star">★★★★</td><td>美狄亞〔Lily〕</td></tr>
 <tr><td class="servant_star">★★</td><td>漢斯・克里斯蒂安・安徒生</td></tr>
-<tr><td bgcolor="#ECF2F3" rowspan="5">Assassin</td>
+<tr><td bgcolor="#FFF" rowspan="3">Assassin</td>
 <td class="servant_star">★★★★★</td><td>開膛手傑克</td></tr>
-<tr><td class="servant_star">★★★★★</td><td>酒吞童子</td></tr>
-<tr><td class="servant_star">★★★★</td><td>Assassin・樂園</td></tr>
 <tr><td class="servant_star">★★★★</td><td>絲西娜</td></tr>
 <tr><td class="servant_star">★★★★</td><td>不夜城的Assassin</td></tr>
-<tr><td bgcolor="#FFF" rowspan="4">Berserker</td>
-<td class="servant_star">★★★★</td><td>茨木童子</td></tr>
-<tr><td class="servant_star">★★★★</td><td>茶茶</td></tr>
+<tr><td bgcolor="#ECF2F3" rowspan="3">Berserker</td>
+<td class="servant_star">★★★★</td><td>茶茶</td></tr>
 <tr><td class="servant_star">★★★★</td><td>弗蘭肯斯坦</td></tr>
 <tr><td class="servant_star">★</td><td>靠漫畫了解Berserker</td></tr>
 <tr><td>Foreigner</td>
 <td class="servant_star">★★★★★</td><td>阿比蓋爾・威廉斯</td></tr>
-<tr><td>Shielder</td>
-<td class="servant_star">★★★</td><td>瑪琇・基利艾拉特</td></tr>
 </tbody>
 </table>
-<p><img alt="" src="common/images/2018/halloween2018_e2nck/info_image_02.png"/></p>
+<p><span class="em01"><span class="notice">※就算成為對象Servant也會有在本活動的主線劇本未登場的情況。</span></span></p><!-- block -->
+<p><span class="diamond">◆</span><span class="strong">超值攻略方法・其2</span><span class="diamond">◆</span><br/>
+<span class="em01">期間限定活動「神秘之國ＯＮＩＬＡＮＤ!! ～鬼王與卡姆伊的黃金～」的一部份關卡以限定對「★4(SR)酒吞童子(Caster)」追加特殊效果！<br/>
+「★4(SR)酒吞童子(Caster)」在本活動的主線關卡及撃退戰，可以<span class="notice">自身的NP50％累積狀態</span>開始戰鬥。<br/>
+<br/>
+<span class="notice">※自由關卡為對象外。</span>
+</span></p>
+<p style="margin-top: -15px;"><img alt="" src="common/images/2018/halloween2018_full_wfme3/info_image_18.png" id="midashi_18"/></p>
 <!-- block -->
-<p style="margin-bottom: 5px;"><img alt="" src="common/images/2018/halloween2018_e2nck/midashi_04.png"/></p>
-<p><img alt="TOPバナー" height="300" src="common/images/2018/ap_cp_vsncu/top_banner.png" width="800"/></p>
+<p><span class="diamond">◆</span><span class="strong">超值攻略方法・其3</span><span class="diamond">◆</span><br/>
+<span class="em01">裝備期間限定概念禮裝會提升活動限定道具的掉落獲得數！<br/>
+裝備在聖晶石召喚Pick&#32;Up的期間限定概念禮裝「Welcome to ONILAND!!」「ただ紅く」「足柄ブラザーズ」的話，會提升活動専用道具「<span class="notice">小槌Sunday</span>」「<span class="notice">狼牙吉拿棒</span>」「<span class="notice">髑髏爆米花</span>」各自的掉落獲得數。<br/>
+<br/>
+※請注意各關卡的道具掉落率並非100％。
+</span></p>
+<p><img alt="" src="common/images/2018/halloween2018_full_wfme3/info_image_04.png"/></p>
+<!-- block -->
+<p style="margin-bottom: 5px;"><img alt="" src="common/images/2018/halloween2018_full_wfme3/midashi_06.png" id="midashi_06"/><br/></p>
+<p><span class="em01">活動専用道具可自點擊管理室(ターミナル)畫面右上「活動報酬」的「活動道具交換」畫面，交換以下的道具。<br/>
+<span class="notice">※英靈結晶・流星之芙芙ALL★4(HP)、英靈結晶・日輪之芙芙ALL★4(ATK)的交換在通過期間限定活動「神秘之國ＯＮＩＬＡＮＤ!! ～鬼王與卡姆伊的黃金～」主線關卡後開放。</span></span></p>
+<p><span class="diamond">◆</span><span class="strong">交換期間</span><span class="diamond">◆</span>
+<br/>
+<span class="em01"><span class="notice">2018年10月24日(三) 17:00(預定)～11月14日(三) 11:59</span><br/>
+※交換期間結束後「小槌Sunday」「狼牙吉拿棒」「髑髏爆米花」會消失。</span></p>
+<p><span class="diamond">◆</span><span class="strong">能用小槌Sunday交換的道具</span><span class="diamond">◆</span></p>
+<table class="table_non mt-15 table_color">
+<tbody>
+<tr>
+<td style="width:35%; vertical-align:top;"><img alt="" height="200" src="common/images/2018/halloween2018_full_wfme3/info_item_02.png" width="300"/></td>
+<td style="width:65%; vertical-align:top;">
+<p>【活動限定Servant】<br/>
+　★4(SR)「<span class="notice">酒吞童子(Caster)</span>」<br/>
+　(<span class="notice">寶具等級提升用</span>)<br/>
+　※在正式加入後開放。<br/>
+</p>
+<p>【活動限定概念禮裝】<br/>
+　★5(SSR)「<span class="notice">スリー・アングラー</span>」<br/>
+　★5(SSR)「<span class="notice">氷結闘熊</span>」
+</p>
+<p>【技能強化＆靈基再臨素材】<br/>
+　龍之逆鱗<br/>
+　黑獸脂<br/>
+　極光鋼
+</p>
+<p>【靈基再臨素材】<br/>
+　Caster金棋<br/>
+　Berserker金棋
+</p>
+<p>【其他道具】<br/>
+　英靈結晶・流星之芙芙ALL★4(HP)<br/>
+　英靈結晶・日輪之芙芙ALL★4(ATK)<br/>
+　Quick・Code・Opener<br/>
+　Code・Remover<br/>
+　10,000QP
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<p><span class="diamond">◆</span><span class="strong">能用狼牙吉拿棒交換的道具</span><span class="diamond">◆</span></p>
+<table class="table_non mt-15 table_color">
+<tbody>
+<tr>
+<td style="width:35%; vertical-align:top;"><img alt="" height="200" src="common/images/2018/halloween2018_full_wfme3/info_item_03.png" width="300"/></td>
+<td style="width:65%; vertical-align:top;">
+<p>【活動限定Servant】<br/>
+　★4(SR)「<span class="notice">酒吞童子(Caster)</span>」<br/>
+　(<span class="notice">寶具等級提升用</span>)<br/>
+　※在正式加入後開放。
+</p>
+<p>【活動限定概念禮裝】<br/>
+　★5(SSR)「<span class="notice">ロイヤル・アイシング</span>」<br/>
+　★5(SSR)「<span class="notice">氷結闘熊</span>」
+</p>
+<p>【技能強化＆靈基再臨素材】<br/>
+　蠻神心臟<br/>
+　封魔之燈<br/>
+　鳳凰羽毛
+</p>
+<p>【靈基再臨素材】<br/>
+　Caster銀像<br/>
+　Berserker銀像
+</p>
+<p>【其他道具】<br/>
+　英靈結晶・日輪之芙芙ALL★4(ATK)<br/>
+　Arts・Code・Opener<br/>
+　Code・Remover<br/>
+　小槌Sunday
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<p><span class="diamond">◆</span><span class="strong">能用髑髏爆米花交換的道具</span><span class="diamond">◆</span></p>
+<table class="table_non mt-15 table_color">
+<tbody>
+<tr>
+<td style="width:35%; vertical-align:top;"><img alt="" height="200" src="common/images/2018/halloween2018_full_wfme3/info_item_04.png" width="300"/></td>
+<td style="width:65%; vertical-align:top;">
+<p>【活動限定Servant】<br/>
+　★4(SR)「<span class="notice">酒吞童子(Caster)</span>」<br/>
+　(<span class="notice">寶具等級提升用</span>)<br/>
+　※在正式加入後開放。
+</p>
+<p>【活動限定概念禮裝】<br/>
+　★5(SSR)「<span class="notice">スリー・アングラー</span>」<br/>
+　★5(SSR)「<span class="notice">ロイヤル・アイシング</span>」
+</p>
+<p>【技能強化＆靈基再臨素材】<br/>
+　追憶的貝殼<br/>
+　萬死的毒針<br/>
+　魔術髓液
+</p>
+<p>【其他道具】<br/>
+　英靈結晶・流星之芙芙ALL★4(HP)<br/>
+　英靈結晶・星之芙芙ALL★3(HP)<br/>
+　英靈結晶・太陽之芙芙ALL★3(ATK)<br/>
+　叡智的猛火 ALL★4(SR)<br/>
+　叡智的大火 ALL★3(R)<br/>
+　Buster・Code・Opener<br/>
+　狼牙吉拿棒
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<!-- block -->
+<p style="margin-bottom: 5px;"><img alt="" src="common/images/2018/halloween2018_full_wfme3/midashi_07.png" id="midashi_07"/><br/></p>
+<table class="table_non mt-15 table_color">
+<tbody>
+<tr>
+<td style="width:30%; vertical-align:top;"><img align="left" alt="" src="common/images/2018/halloween2018_full_wfme3/gainenreisou_01.png" style="vertical-align:bottom;" width="90%"/></td>
+<td style="width:70%; vertical-align:top;">
+<p><span class="star">★★★★★SSR</span><br/>
+　<span class="gainen_ttl">スリー・アングラー</span><br/>
+　<span class="gainen_atk">ATK</span> 0　<span class="gainen_hp">HP</span> 750(最大:3000)
+<br/>
+　<span class="gainen_skill">技能</span><br/>
+<span class="skill01">自身的Quick卡的性能提升10%＆寶具威力提升10%＆Critical威力10%提升＋『神秘之國ＯＮＩＬＡＮＤ!!』中，Quick攻擊的威力提升100～500%&lt;根據好朋友點數量變化&gt;＆好朋友點數的掉落獲得量增加30%【『神秘之國ＯＮＩＬＡＮＤ!!』活動期間限定】<br/>
+<img alt="" src="common/images/2018/halloween2018_full_wfme3/info_gainenmax_01.png" width="100%"/></span></p></td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<!-- block -->
+<table class="table_non mt-15 table_color">
+<tbody>
+<tr>
+<td style="width:30%; vertical-align:top;"><img align="left" alt="" src="common/images/2018/halloween2018_full_wfme3/gainenreisou_02.png" style="vertical-align:bottom;" width="90%"/></td>
+<td style="width:70%; vertical-align:top;">
+<p><span class="star">★★★★★SSR</span><br/>
+　<span class="gainen_ttl">ロイヤル・アイシング</span><br/>
+　<span class="gainen_atk">ATK</span> 500(最大:2000)　<span class="gainen_hp">HP</span> 0
+<br/>
+　<span class="gainen_skill">技能</span><br/>
+<span class="skill01">自身的Arts卡性能提升10%＆寶具威力提升20%＋『神秘之國ＯＮＩＬＡＮＤ!!』中，Arts攻擊的威力提升100～500%&lt;根據好朋友點數量變化&gt;＆好朋友點數的掉落獲得量增加30%【『神秘之國ＯＮＩＬＡＮＤ!!』活動期間限定】<br/>
+<img alt="" src="common/images/2018/halloween2018_full_wfme3/info_gainenmax_01.png" width="100%"/></span></p></td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<!-- block -->
+<table class="table_non mt-15 table_color">
+<tbody>
+<tr>
+<td style="width:30%; vertical-align:top;"><img align="left" alt="" src="common/images/2018/halloween2018_full_wfme3/gainenreisou_03.png" style="vertical-align:bottom;" width="90%"/></td>
+<td style="width:70%; vertical-align:top;">
+<p><span class="star">★★★★★SSR</span><br/>
+　<span class="gainen_ttl">氷結闘熊</span><br/>
+　<span class="gainen_atk">ATK</span> 250(最大:1000)　<span class="gainen_hp">HP</span> 400(最大:1600)
+<br/>
+　<span class="gainen_skill">技能</span><br/>
+<span class="skill01">對自身賦予無敵貫通狀態＆Buster卡的性能提升8%＋『神秘之國ＯＮＩＬＡＮＤ!!』中，Buster攻擊的威力提升100～500%&lt;根據好朋友點數量變化&gt;＆好朋友點數的掉落獲得量增加30%【『神秘之國ＯＮＩＬＡＮＤ!!』活動期間限定】<br/>
+<img alt="" src="common/images/2018/halloween2018_full_wfme3/info_gainenmax_01.png" width="100%"/></span></p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<!-- block -->
+<p style="margin-bottom: 5px;"><img alt="" src="common/images/2018/halloween2018_full_wfme3/midashi_08.png" id="midashi_08"/><br/></p>
+<table class="table_non mt-15 table_color">
+<tbody>
+<tr>
+<td style="width:30%; vertical-align:top;"><img align="left" alt="" src="common/images/2018/halloween2018_full_wfme3/commandcode_01.png" style="vertical-align:bottom;" width="90%"/></td>
+<td style="width:70%; vertical-align:top;">
+<p><span class="notice">【活動限定】</span><br/>
+<span class="star">★★★★★SSR</span><br/>
+　<span class="gainen_ttl">黄昏の魔竜</span>
+<br/>
+　<span class="gainen_skill">技能</span><br/>
+<span class="skill01">在刻印賦予〔龍〕特攻20%效果</span></p></td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<!-- block -->
+<table class="table_non mt-15 table_color">
+<tbody>
+<tr>
+<td style="width:30%; vertical-align:top;"><img align="left" alt="" src="common/images/2018/halloween2018_full_wfme3/commandcode_02.png" style="vertical-align:bottom;" width="90%"/></td>
+<td style="width:70%; vertical-align:top;">
+<p><span class="star">★★★★SR</span><br/>
+　<span class="gainen_ttl">竜殺しの剣</span><br/>
+　<span class="gainen_skill">技能</span><br/>
+<span class="skill01">刻印卡對〔龍〕的Critical威力提升25%</span></p></td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<!-- block -->
+<table class="table_non mt-15 table_color">
+<tbody>
+<tr>
+<td style="width:30%; vertical-align:top;"><img align="left" alt="" src="common/images/2018/halloween2018_full_wfme3/commandcode_03.png" style="vertical-align:bottom;" width="90%"/></td>
+<td style="width:70%; vertical-align:top;">
+<p><span class="star">★★★R</span><br/>
+　<span class="gainen_ttl">白き器的令印</span><br/>
+　<span class="gainen_skill">技能</span><br/>
+<span class="skill01">在透過刻印卡攻擊時， 自身的弱體狀態解除1個</span></p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<!-- block -->
+<p style="margin-bottom: 5px;"><img alt="" src="common/images/2018/halloween2018_full_wfme3/midashi_09.png" id="midashi_09"/><br/>
+<img alt="" src="common/images/2018/halloween2018_full_wfme3/servant_details_l_01.png"/></p>
+<!-- block -->
+<p><span class="diamond">◆</span><span class="strong">靈基再臨</span><span class="diamond">◆</span>
+<br/>
+<span class="em01">使用可靠好朋友點數達成報酬入手的「<span class="notice">護法のステッキ</span>」，重複4次靈基再臨的話，卡面會有所變化！</span></p>
+<p><img alt="" src="common/images/2018/halloween2018_full_wfme3/info_image_05.png"/></p>
+<p><span class="em01 notice">※酒吞童子(Caster)不會隨靈基再臨使戰鬥角色的外觀變化。</span></p><br/>
+<!-- block -->
+<p style="margin-bottom: 5px;"><img alt="" src="common/images/2018/halloween2018_full_wfme3/midashi_03.png" id="midashi_03"/><br/></p>
+<p class="em01">介紹酒吞童子(Caster)的寶具演出！<br/>
+「Fate/Grand Order」官方網站內的公告中，公開了「★4(SR)酒吞童子(Caster)」的寶具演出。敬請確認。</p>
+<!-- <p><img alt="" src="common/images/2018/halloween2018_full_wfme3/info_ss_02.png"/></p> -->
+<div style="position:relative;height:0;padding-bottom:56.25%;margin-bottom:15px;">
+<iframe src="https://www.youtube.com/embed/z7DqZIMCXtg?ecver=2" width="520" height="293" frameborder="0" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe>
+</div>
+<!-- block -->
+<p style="margin-bottom: 5px;"><img alt="" src="common/images/2018/halloween2018_full_wfme3/midashi_28.png" id="midashi_28"/><br/></p>
+<p><span class="em01">在已刻印的★2(UC)以下的指令紋章，追加新指令紋章可「覆蓋」的功能。<br/>
+不使用指令紋章分離道具，能刻印新的指令紋章刻印。請注意將會失去先前刻印的指令紋章。
+</span><br/>
+<span class="diamond">◆</span><span class="strong">追加時間</span><span class="diamond">◆</span><br/>
+<span class="em01">2018年10月24日(三) 17:00～(預定)</span></p>
+<p><img alt="" src="common/images/2018/halloween2018_full_wfme3/info_image_06.png"/></p>
+<!-- block -->
+<p style="margin-bottom: 5px;"><img alt="" src="common/images/2018/halloween2018_full_wfme3/midashi_32.png" id="midashi_32"/><br/></p>
+<p><span class="em01">寶具演出速度追加可個別Servant設定的功能。<br/>
+能從Servant詳細，下述一樣地個別設定。<br/>
+　【無】　　　＝ 速度不個別設定，遵從全體的速度設定<br/>
+　【等速固定】＝ 無視全體的速度設定，速度固定在等倍速<br/>
+　【倍速固定】＝ 無視全體的速度設定，速度固定在二倍速</span>
+<br/>
+<span class="diamond">◆</span><span class="strong">追加時間</span><span class="diamond">◆</span><br/>
+<span class="em01">2018年10月24日(三) 17:00～(預定)</span></p>
+<p><img alt="" src="common/images/2018/halloween2018_full_wfme3/info_image_12.png"/></p> <!-- block -->
+<p style="margin-bottom: 5px;"><img alt="" src="common/images/2018/halloween2018_full_wfme3/midashi_31.png" id="midashi_31"/><br/></p>
+<p><span class="em01">追加可只限持有Servant初次使用寶具時，寶具演出速度以等倍速顯示的功能。<br/>
+<span class="notice">請注意隨著這個，本功能追加以後會進行Servant是否初次使用寶具的記錄。</span><br/>
+本功能可從遊戲選項設定為OFF。</span><br/>
+<span class="diamond">◆</span><span class="strong">追加時間</span><span class="diamond">◆</span><br/>
+<span class="em01">2018年10月24日(三) 17:00～(預定)</span></p>
+<p><img alt="" src="common/images/2018/halloween2018_full_wfme3/info_image_10.png"/></p> <!-- block -->
+<p style="margin-bottom: 5px;"><img alt="" src="common/images/2018/halloween2018_full_wfme3/midashi_30.png" id="midashi_30"/><br/></p>
+<p><span class="em01">於戰鬥結束後的「獲得戰利品」畫面，可確認獲得道具持有數的UI改善。</span><br/>
+<span class="diamond">◆</span><span class="strong">追加時間</span><span class="diamond">◆</span><br/>
+<span class="em01">2018年10月24日(三) 17:00～(預定)</span></p>
+<p><span class="em01">・獲得的戰利品畫面</span></p>
+<p style="margin-top: -15px;"><img alt="" src="common/images/2018/halloween2018_full_wfme3/info_image_08.png"/></p>
+<p><span class="em01">・活動點數報酬一覧畫面</span></p>
+<p style="margin-top: -15px;"><img alt="" src="common/images/2018/halloween2018_full_wfme3/info_image_09.png"/></p>
+<!-- block -->
+<p style="margin-bottom: 5px;"><img alt="" src="common/images/2018/halloween2018_full_wfme3/midashi_29.png" id="midashi_29"/><br/></p>
+<p><span class="em01">追加可確認上次施行關卡的顯示。</span><br/>
+<span class="diamond">◆</span><span class="strong">追加時間</span><span class="diamond">◆</span><br/>
+<span class="em01">2018年10月24日(三) 17:00～(預定)</span></p>
+<p><img alt="" src="common/images/2018/halloween2018_full_wfme3/info_image_07.png"/></p>
+<!-- block -->
+<p style="margin-bottom: 5px;"><img alt="" src="common/images/2018/halloween2018_full_wfme3/midashi_11.png" id="midashi_11"/><br/></p>
+<p><img alt="" src="common/images/2018/halloween2018_full_wfme3/summon_banner.png"/></p>
+<p><span class="diamond">◆</span><span class="strong">「萬聖節2018 Pick&#32;Up召喚(每日交替)」期間</span><span class="diamond">◆</span><br/>
+<span class="em01">期間:2018年10月24日(三) 17:00(預定)～11月7日(三) 11:59</span></p>
 <p><span class="em01">
-自2018年10月6日(六) 17:00，舉辦主線關卡第1部的AP消耗1/4、主線關卡第2部的AP消耗1/2的宣傳活動！<br/>
+舉辦期間限定「萬聖節2018 Pick&#32;Up召喚(每日交替)」！<br/>
+<span class="notice">※就算未通過第2部 第2章「Lostbelt No.2 無間冰焰世紀 諸神黃昏 不滅之火的好漢」的狀態也能進行「萬聖節2018 Pick&#32;Up召喚(每日交替)」。</span><br/>
+<br/>	
+期間限定活動「神秘之國ＯＮＩＬＡＮＤ!! ～鬼王與卡姆伊的黃金～」中活躍的「<span class="notice">★5(SSR)志度內</span>」新登場！<br/>
 <br/>
-還沒通過做為本活動參加條件的第2部 第2章「Lostbelt No.2 無間冰焰世紀 諸神黃昏 不滅之火的好漢」的Master，請藉此機會通過吧！<br/>
-詳情請在<a href="event_ap_cp.html">此處</a>的公告確認。</span>
+本次包含上述含Pick&#32;Up 3位Servant！<br/>
+「<span class="notice">★4(SR)Assassin・樂園</span>」「<span class="notice">★4(SR)茨木童子(Berserker)</span>」以每日交替Pick&#32;Up，「<span class="notice">★5(SSR)志度內</span>」常駐Pick&#32;Up。<br/>
 <br/>
-<span class="diamond">◆</span><span class="strong">舉辦期間</span><span class="diamond">◆</span><br/>
-<span class="em01">2018年10月6日(六) 17:00～10月24日(三) 11:59<br/>
+詳情請在聖晶石召喚畫面左下的召喚詳細確認。<br/>
+<br/>	
+做為期間限定概念禮裝「<span class="notice">★5(SSR)Welcome to ONILAND!!</span>」「<span class="notice">★4(SR)ただ紅く</span>」「<span class="notice">★3(R)足柄ブラザーズ</span>」登場！<br/>
+裝備上述3種概念禮裝的話，在期間限定活動「神秘之國ＯＮＩＬＡＮＤ!! ～鬼王與卡姆伊的黃金～」中會提升活動専用道具的掉落獲得數。
+</span></p>
+<div class="box1">
+<p><span class="diamond">◆</span><span class="strong">有關Servant的注意</span><span class="diamond">◆</span><br/>
+※志度內是自10月24日(三) 17:00(預定)在Lostbelt No.2通過後追加到故事召喚的Servant。<br/>	
+※Pick&#32;Up期間中。志度內就算通過Lostbelt No.2前也能入手。<br/>	
+※志度內、Assassin・樂園、茨木童子(Berserker)在Pick&#32;Up期間結束後仍會在故事召喚被抽出。<br/>
+※關於真名尚未判明的Servant，透過主線關卡的進行度會讓Servant及一部份寶具名稱變化。<br/>
 <br/>
-<span class="notice">※自由關卡為對象外。<br/>
-※強化關卡、幕間物語、曜日關卡為對象外。</span></span></p>
+<span class="diamond">◆</span><span class="strong">有關概念禮裝的注意</span><span class="diamond">◆</span><br/>
+※足柄ブラザーズ在Pick&#32;Up期間中，也能在友情點數召喚獲得。<br/>
+※請注意自友情點數召喚抽出足柄ブラザーズ在自動變還設定登錄★3(R)概念禮裝的情況，會變成自動變還的對象。</p></div>
+<p><span class="em01">		
+Pick&#32;Up期間中，Pick&#32;Up Servant、期間限定概念禮裝的出現機率提升！<br/>
+<br/>
+10次召喚中確定1張★4(SR)以上和確定1位★3(R)以上的Servant！<br/>
+<span class="notice">※確定★4(SR)以上包含Servant和概念禮裝。</span></span></p>
+<!-- block -->
+<table align="center" class="trbgcolor" style=";;margin-bottom: 10px;" width="100%">
+<tbody>
+<tr>
+<th width="40%">每日交替Pick&#32;Up期間</th>
+<th width="60%">每日交替Pick&#32;Up內容</th>
+</tr>
+<tr>
+<td>10月24日(三) 17:00(預定)～<br/>
+10月31日(三) 22:59</td>
+<td>志度內<br/>Assassin・樂園<br/>茨木童子(Berserker)</td>
+</tr>
+<tr>
+<td>10月31日(三) 23:00～<br/>11月2日(五) 22:59</td>
+<td>志度內<br/>茨木童子(Berserker)</td>
+</tr>
+<tr>
+<td>11月2日(五) 23:00～<br/>11月4日(日) 22:59</td>
+<td>志度內<br/>Assassin・樂園</td>
+</tr>
+<tr>
+<td>11月4日(日) 23:00～<br/>11月7日(三) 11:59</td>
+<td>志度內<br/>Assassin・樂園<br/>茨木童子(Berserker)</td>
+</tr>
+</tbody>
+</table>
+<p><span class="notice">※請注意會以每日交替變更Pick&#32;Up的Servant。</span></p>
+<!-- block -->
+<p style="margin-bottom: 5px;"><img alt="新登場Servant" src="common/images/2018/halloween2018_full_wfme3/midashi_33.png" id="midashi_33"/></p>
+<p><img alt="Servant名" src="common/images/2018/halloween2018_full_wfme3/servant_title_01.png"/><br/>
+<img alt="Servant詳細" src="common/images/2018/halloween2018_full_wfme3/servant_details_01.png"/><br/>
+<span class="em01">※上述「★5(SSR)志度內」的卡面為靈基再臨第2階段。</span></p>
+<p style="margin-bottom: 5px;"><img alt="Pick&#32;UpServant" src="common/images/2018/halloween2018_full_wfme3/midashi_13.png" id="midashi_13"/></p>
+<p><img alt="Servant名" src="common/images/2018/halloween2018_full_wfme3/servant_title_02.png"/><br/>
+<img alt="Servant詳細" src="common/images/2018/halloween2018_full_wfme3/servant_details_02.png"/></p>
+<p><img alt="Servant名" src="common/images/2018/halloween2018_full_wfme3/servant_title_03.png"/><br/>
+<img alt="Servant詳細" src="common/images/2018/halloween2018_full_wfme3/servant_details_03.png"/><br/>
+<span class="em01">※上述「★4(SR)茨木童子(Berserker)」的卡面為靈基再臨第2階段。</span></p>
+<!-- block -->
+<p style="margin-bottom: 5px;"><img alt="" src="common/images/2018/halloween2018_full_wfme3/midashi_14.png" id="midashi_14"/><br/></p>
+<table class="table_non mt-15 table_color">
+<tbody>
+<tr>
+<td style="width:30%; vertical-align:top;"><img align="left" alt="" src="common/images/2018/halloween2018_full_wfme3/gainenreisou_04.png" style="vertical-align:bottom;" width="90%"/></td>
+<td style="width:70%; vertical-align:top;">
+<p><span class="star">★★★★★SSR</span><br/>
+　<span class="gainen_ttl">Welcome to ONILAND!!</span><br/>
+　<span class="gainen_atk">ATK</span> 500(最大:2000)　<span class="gainen_hp">HP</span> 0
+<br/>
+　<span class="gainen_skill">技能</span><br/>
+<span class="skill01">自身的Arts卡性能提升10%＆Buster卡性能提升10%＆NP以40%累積狀態開始戰鬥＋小槌Sunday的掉落獲得數增加1個【『神秘之國ＯＮＩＬＡＮＤ!!』活動期間限定】<br/>
+<img alt="" src="common/images/2018/halloween2018_full_wfme3/info_gainenmax_04.png" width="100%"/></span></p></td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<table class="table_non mt-15 table_color">
+<tbody>
+<tr>
+<td style="width:30%; vertical-align:top;"><img align="left" alt="" src="common/images/2018/halloween2018_full_wfme3/gainenreisou_05.png" style="vertical-align:bottom;" width="90%"/></td>
+<td style="width:70%; vertical-align:top;">
+<p><span class="star">★★★★SR</span><br/>
+　<span class="gainen_ttl">ただ紅く</span><br/>
+　<span class="gainen_atk">ATK</span> 200(最大:750)　<span class="gainen_hp">HP</span> 320(最大:1200）
+<br/>
+　<span class="gainen_skill">技能</span><br/>
+<span class="skill01">自身的Buster卡性能提升8%＆Critical威力提升8%＆NP獲得量提升8%＋狼牙吉拿棒的掉落獲得數增加1個【『神秘之國ＯＮＩＬＡＮＤ!!』活動期間限定】<br/>
+<img alt="" src="common/images/2018/halloween2018_full_wfme3/info_gainenmax_05.png" width="100%"/></span></p></td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<table class="table_non mt-15 table_color">
+<tbody>
+<tr>
+<td style="width:30%; vertical-align:top;"><img align="left" alt="" src="common/images/2018/halloween2018_full_wfme3/gainenreisou_06.png" style="vertical-align:bottom;" width="90%"/></td>
+<td style="width:70%; vertical-align:top;">
+<p><span class="star">★★★R</span><br/>
+　<span class="gainen_ttl">足柄ブラザーズ</span><br/>
+　<span class="gainen_atk">ATK</span>  200(最大:1000)　<span class="gainen_hp">HP</span>  0
+<br/>
+　<span class="gainen_skill">技能</span><br/>
+<span class="skill01">自身的Quick卡的性能提升3%＆星星發生率5%提升
+＋髑髏爆米花的掉落獲得數增加1個【『神秘之國ＯＮＩＬＡＮＤ!!』活動期間限定】
+<br/>
+<img alt="" src="common/images/2018/halloween2018_full_wfme3/info_gainenmax_06.png" width="100%"/>
+</span></p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<!-- block -->
+<p><img alt="" src="common/images/2018/halloween2018_full_wfme3/midashi_15.png" id="midashi_15"/><br/>
+<img alt="" src="common/images/2018/halloween2018_full_wfme3/servant_details_l_02.png"/><br/>
+<span class="em01">※上述「★5(SSR)志度內」的立繪為靈基再臨第2階段。</span></p>
+<p><img alt="" src="common/images/2018/halloween2018_full_wfme3/midashi_16.png" id="midashi_16"/><br/>
+<img alt="" src="common/images/2018/halloween2018_full_wfme3/servant_details_l_03.png"/></p><p><img alt="" src="common/images/2018/halloween2018_full_wfme3/midashi_17.png"/><br/>
+<img alt="" src="common/images/2018/halloween2018_full_wfme3/servant_details_l_04.png"/><br/>
+<span class="em01">※上述「★4(SR)茨木童子(Berserker)」的立繪為靈基再臨第2階段。</span></p>
+<br/>
+<!-- block -->
+<p style="margin-bottom: 5px;"><img alt="" src="common/images/2018/halloween2018_full_wfme3/midashi_34.png" id="midashi_34"/></p>
+<p class="em01">介紹志度內的寶具演出！<br/>
+在「Fate/Grand Order」官方網站內的公告中，公開了「★5(SSR)志度內」的寶具演出。敬請確認。</p>
+<!-- <p><img alt="" src="common/images/2018/halloween2018_full_wfme3/info_ss_03.png"/></p> -->
+<div style="position:relative;height:0;padding-bottom:56.25%;margin-bottom:15px;">
+<iframe src="https://www.youtube.com/embed/v9dzy-PijL8?ecver=2" width="520" height="293" frameborder="0" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe>
+</div>
+<!-- block -->
+<p style="margin-bottom: 5px;"><img alt="Pick&#32;UpServant2騎的寶具演出介紹" src="common/images/2018/halloween2018_full_wfme3/midashi_18.png"/></p>
+<p class="em01">介紹Assassin・樂園、茨木童子(Berserker)的寶具演出！<br/>
+在「Fate/Grand Order」官方網站內的公告中，公開了「★4(SR)Assassin・樂園」「★4(SR)茨木童子(Berserker)」的寶具演出。敬請確認。</p>
+<!-- <p><img alt="" src="common/images/2018/halloween2018_full_wfme3/info_ss_04.png"/></p>
+<p><img alt="" src="common/images/2018/halloween2018_full_wfme3/info_ss_05.png"/></p> -->
+<div style="position:relative;height:0;padding-bottom:56.25%;margin-bottom:15px;">
+<iframe src="https://www.youtube.com/embed/FStf0Sp4S4o?ecver=2" width="520" height="293" frameborder="0" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe>
+</div>
+<div style="position:relative;height:0;padding-bottom:56.25%;margin-bottom:15px;">
+<iframe src="https://www.youtube.com/embed/BjRaE_4q8J4?ecver=2" width="520" height="293" frameborder="0" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe>
+</div>
 <!-- block -->
 </article>
 </div>
