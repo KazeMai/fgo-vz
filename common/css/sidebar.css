@@ -809,3 +809,18 @@ table.mt-15 .star {
     margin: 0; 
     padding: 0;
 }
+table.trbgcolor tr:nth-child(2n+1) {
+	background-color: #ECF2F3;
+}
+.float_box {
+  overflow: hidden;
+}
+.float_box .float_none_box {
+  float: none;
+}
+.float_box .float_left_box {
+  float: left;
+}
+.float_box .float_right_box {
+  float: right;
+}
