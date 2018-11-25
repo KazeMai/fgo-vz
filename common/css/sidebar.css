@@ -824,3 +824,8 @@ table.trbgcolor tr:nth-child(2n+1) {
 .float_box .float_right_box {
   float: right;
 }
+table {
+	font-size: 0.9em;
+	border-spacing: 0;
+	color: #000;
+}
