@@ -829,3 +829,8 @@ table {
 	border-spacing: 0;
 	color: #000;
 }
+.attention{
+	padding: 1em 1em 0 1em;
+	border: solid 1.5px #c2c2c2;
+	margin: 10px;
+}
