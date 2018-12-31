@@ -834,3 +834,18 @@ table {
 	border: solid 1.5px #c2c2c2;
 	margin: 10px;
 }
+.indent {
+text-indent: -1em;
+padding-left: 1em;
+display: block;
+}
+ul.indent_list {
+margin-bottom: 15px;
+word-wrap: break-word;
+}
+ul.indent_list li {
+font-size:0.9em;
+line-height: 1.4em;
+text-indent: -1em;
+padding-left: 1em;
+}
