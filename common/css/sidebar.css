@@ -849,3 +849,19 @@ line-height: 1.4em;
 text-indent: -1em;
 padding-left: 1em;
 }
+/*概念礼装*/
+.reisou_left{
+	width:30%;
+	vertical-align:top;
+}
+
+.reisou_left img{
+	align:left;
+	width:90%;
+	vertical-align:bottom;
+}
+
+.reisou_right{
+	 width:70%;
+	 vertical-align:top;
+}
