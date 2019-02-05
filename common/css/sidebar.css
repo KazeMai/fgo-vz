@@ -865,3 +865,48 @@ padding-left: 1em;
 	 width:70%;
 	 vertical-align:top;
 }
+
+
+
+/*ひしがた*/
+.article *.dia {
+	color: #000;
+	font-weight: bold;
+	font-size: 0.9em;
+	margin: 0;
+}
+
+.article *.dia:after, .article *.dia:before {
+	display: inline-block;
+	font-size: 1em;
+	content: "◆";
+	color: #cb0000;
+	vertical-align: middle;
+	margin-bottom: .2em;
+}
+
+
+/*小見出し*/
+.tips {
+    font-weight: bold;
+    font-size: 103%;
+    border-bottom: solid 3px #661810;
+    position: relative;
+    padding: 3px;
+    line-height: 30px;
+}
+
+.tips::before {
+    content: "▶";
+    color: #89313a;
+    font-size: 1.2em;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.sut_col{
+	color: #0857F7;
+}
+.sun_col{
+	color: #FF0004;
+}
