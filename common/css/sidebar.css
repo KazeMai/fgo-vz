@@ -910,3 +910,18 @@ padding-left: 1em;
 .sun_col{
 	color: #FF0004;
 }
+
+/*汎用小見出し*/
+.headline::before {
+    content: "■";
+    color: #cb0101;
+    font-size: 1.2em;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.headline {
+    font-weight: bold;
+    font-size: 103%;
+}
+
