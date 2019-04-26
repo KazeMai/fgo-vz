@@ -849,6 +849,14 @@ line-height: 1.4em;
 text-indent: -1em;
 padding-left: 1em;
 }
+
+/*囲み枠*/
+.attention{
+	padding: 1em 1em 0 1em;
+	border: solid 1.5px #c2c2c2;
+	margin: 10px;
+}
+
 /*概念礼装*/
 .reisou_left{
 	width:30%;
@@ -865,7 +873,6 @@ padding-left: 1em;
 	 width:70%;
 	 vertical-align:top;
 }
-
 
 
 /*ひしがた*/
@@ -911,6 +918,63 @@ padding-left: 1em;
 	color: #FF0004;
 }
 
+
+
+/*intermission*/
+/**Right_image**/
+.intermission_left_txt{
+	width: 53%; 
+	min-width: 250px; 
+	padding-left: 1%; 
+}
+
+.intermission_left_txt .clear{
+float: left; 
+max-width: 210px;
+}
+
+.intermission_left_txt .item{
+   float: left; 
+	margin-left: 10px; 
+	width: 40px;
+}
+
+.intermission_right_img{
+    width: 46%;
+	vertical-align: bottom;
+}
+
+
+/***Left_image***/
+.intermission_right_txt{
+	width: 53%; 
+	min-width: 250px; 
+	padding-left: 1%; 
+}
+
+.intermission_right_txt .clear{
+float: left; 
+max-width: 210px;
+}
+
+.intermission_right_txt .item{
+   float: left; 
+	margin-left: 10px; 
+	width: 40px;
+}
+
+.intermission_left_img{
+    width: 46%;
+	vertical-align: bottom;
+}
+
+.intermission_itemlist{
+	margin: 0; 
+	max-width:800px;
+	text-align: right;
+}
+
+
 /*汎用小見出し*/
 .headline::before {
     content: "■";
@@ -925,3 +989,40 @@ padding-left: 1em;
     font-size: 103%;
 }
 
+/*番号をリンクしない*/
+.no-tel a[href^="tel:"]  {
+    color: #000;
+    text-decoration: none;
+    pointer-events: none;
+}	
+
+/*赤字*/
+.font_red{
+	color: #FF0000;
+}
+
+/*追記*/
+.addition{
+	font-weight: bold;
+    font-size: 103%;	
+}
+
+
+/*破線 点線*/
+.dashed{
+  border-top: 1px dashed #bbb;
+  border-bottom: 1px dashed #eee;	
+}
+
+/* 表の背景水色 */
+.tb_col_dl{
+	background: no-repeat 2% center, rgb(0, 110, 150); /* Old browsers */
+	background: no-repeat 2% center, -moz-linear-gradient(top, rgb(0, 110, 150) 0%, rgb(20, 165, 210) 100%); /* FF3.6+ */
+	background: no-repeat 2% center, -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 110, 150)), color-stop(87%, rgba(20, 165, 210)), color-stop(100%, rgba(20, 165, 210))); /* 	Chrome,Safari4+ */
+	background: no-repeat 2% center, -webkit-linear-gradient(top, rgb(0, 110, 150) 0%, rgb(20, 165, 210) 100%);
+	; /* Chrome10+,Safari5.1+ */
+	background: no-repeat 2% center, -o-linear-gradient(top, rgb(0, 110, 150) 0%, rgb(20, 165, 210) 100%); /* Opera 11.10+ */
+	background: no-repeat 2% center, -ms-linear-gradient(top, rgb(0, 110, 150) 0%, rgb(20, 165, 210) 100%); /* IE10+ */
+	background: no-repeat 2% center, linear-gradient(to bottom, rgba(0, 110, 150,1) 0%, rgba(20, 165, 210,1) 87%, rgba(20, 165, 210,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006e96', endColorstr='#14a5d2', GradientType=0 ); /* IE6-9 */
+}
