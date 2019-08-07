@@ -49,6 +49,115 @@
     font-weight: bold;
 }
 
+
+/*******item_list*******/
+
+.table_box .item_list{
+	border-right: 0;
+	box-shadow:0px 2px 0px rgba(0,0,0,0.1);
+}
+
+.table_box .item_list_02{
+	border-right: 0;
+	border-left: 0;
+	box-shadow:0px 2px 0px rgba(0,0,0,0.1);
+}
+
+
+.table_box .bd_l_none{
+	border-left: 0;
+	padding: 0;
+	box-shadow:0px 2px 0px rgba(0,0,0,0.1);
+}
+
+.table_box .item_img{
+	max-width: 50%;
+	margin-top: 5px;
+	display: block;
+}
+
+
+/**************link_btn*************/
+
+p.btn {
+	display: block;
+	text-align: center;
+	padding: 5px 0;
+}
+
+p.btn a {
+	color: #0825D3;
+	font-size: 16px;
+	font-weight: 600;
+	display: block;
+	text-decoration: none;
+	max-width: 360px;
+	width: 90%;
+	padding: 15px 10px;
+	margin: 0 auto;
+	background: #2543B7;
+	border-radius: 10px;
+	background-image: -webkit-linear-gradient(#d7dce4 0%, #fafafa 100%);
+    background-image: linear-gradient(#d7dce4 0%, #fafafa 100%);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.40);
+}
+
+
+p.btn a:hover {
+	color:#028AF9;
+    background-image: -webkit-linear-gradient(#d7dce4 0%, #fafafa 60%);
+    background-image: linear-gradient(#d7dce4 0%, #fafafa 60%);
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.30);
+}
+
+
+
+/*********変更点********/
+
+.link_wrap{
+	margin: 10px;
+}
+
+.link {
+    background-color: #E54A4D;
+    color: #fff;
+    font-size: 0.9em;
+    height: 20px;
+    padding: 5px 0;
+    text-align: center;
+    font-weight: bold;
+    width: auto;
+}
+
+.linkbox {
+    padding: 1em 1em 0 1em;
+    border: solid 1px #E54A4D;
+    margin-bottom: 15px;
+    background-color: #FDF0F0;
+}
+
+
+
+
+/*囲み枠*/
+.attention_red{
+	padding: 1em 1em 0 1em;
+	border: solid 1.5px #fc0303;
+	margin: 10px;
+}
+
+
+
+
+
+.attention2{
+
+	padding: 1em 1em 0 1em;
+	border: solid 1.5px #fc0303;
+	margin: 10px;
+	max-width: 65%;
+
+}
 </style>
 </head>
 <body onload="loadsidebar();">
@@ -59,63 +168,1685 @@
     <!--選單區塊結束-->
     <!--主要內容區塊開始-->
     <div id="div_content"><div class="container">
-<!-- 	<div class="topblock">
-	<a href="#ttl1"><div class="bkmk">期間限定從者</div></a>
-	<a href="#ttl2"><div class="bkmk">期間限定概念禮裝</div></a>
-	<a href="#ttl3"><div class="bkmk">★5(SSR)BB</div></a>
-	<a href="#ttl4"><div class="bkmk">女王梅芙(劍)</div></a>
-	<a href="#ttl5"><div class="bkmk">謎之女主角XX(降)</div></a>
-	<a href="#ttl6"><div class="bkmk">簡易靈衣開放權</div></a>
-	</div> -->
+	<div class="topblock3">
+	<a href="#ttl1"><div class="bkmk">特別連續登入獎勵</div></a>
+	<a href="#ttl2"><div class="bkmk">2-1~3主線AP1/2</div></a>
+	<a href="#ttl3"><div class="bkmk">追加自由關任務</div></a>
+	<a href="#ttl4"><div class="bkmk">所有每日關AP1/2</div></a>
+	<a href="#ttl5"><div class="bkmk">大成功機率3倍</div></a>
+	<a href="#ttl6"><div class="bkmk">持有&保管欄位擴大</div></a><div style="clear:left;"></div>
+	<a href="#ttl7"><div class="bkmk">4周年強化關卡</div></a>
+	<a href="#ttl8"><div class="bkmk">指令卡強化</div></a>
+	<a href="#ttl9"><div class="bkmk">石抽次數增量</div></a>
+	<a href="#ttl10"><div class="bkmk">15石限定福袋</div></a>
+	<a href="#ttl11"><div class="bkmk">動作及演出翻新</div></a>
+	<a href="#ttl12"><div class="bkmk">友抽追加7位從者</div></a><div style="clear:left;"></div>
+	<a href="#ttl13"><div class="bkmk">特別再臨</div></a>
+	<a href="#ttl14"><div class="bkmk">4周年回憶關卡</div></a>
+	<a href="#ttl15"><div class="bkmk">最多撃破試行關</div></a>
+	<a href="#ttl16"><div class="bkmk">魔力稜鏡交換</div></a>
+	<a href="#ttl17"><div class="bkmk">稀有稜鏡交換</div></a>
+	<a href="#ttl18"><div class="bkmk">節目連動報酬</div></a><div style="clear:left;"></div>
+	</div>
 <article class="content textsize" style="width:840px">
 <!--block-->
-<p><img alt="TOPバナー" height="300" src="common/images/2019/4th_fgofes2019_ydygf/top_banner.png" width="800"/></p>
-<!-- block -->
-<p class="heading" id="ttl1"><img alt="見出し" src="common/images/2019/4th_fgofes2019_ydygf/midashi_a_01.png"/></p>
-<div class="em01">
-<p>
-	為了記念「Fate/Grand Order」的4周年，預定舉辦宣傳活動「Fate/Grand Order Fes. 2019 ～4th Anniversary～」！<br/>
-	從「Fate/Grand Order Fes. 2019 ～4th Anniversary～」之中，先行公開一部份情報。
-	</p>
-</div>
-<p><span class="diamond">◆</span><span class="strong">宣傳活動預定舉辦</span><span class="diamond">◆</span><br/>
-<span class="em01">2019年8月上旬</span></p>
+<p><img alt="TOPバナー" height="300" src="common/images/2019/4th_fgofes2019_full_sprju/top_banner.png" width="800"/></p>
+<img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/info_image_01.png"/>
+<p><span class="diamond">◆</span><span class="strong">宣傳活動舉辦期間</span><span class="diamond">◆</span><br/>
+<span class="em01">2019年8月3日(六) 8:00～8月14日(三) 11:59</span></p>
 <div class="attention">
 <p><span class="diamond">◆</span><span class="strong">有關從者真名的注意</span><span class="diamond">◆</span><br/>
 <span class="em01">在2018年12月31日(二) 23:00以後新配信的主線故事及期間限定活動、一部份關卡、宣傳活動及召喚中，會顯示隱藏真名的對象從者真名。
 	<span class="indent">
-	※已經配信的主線故事、復刻活動、一部份關卡中不在此限。
+	※已經配信的主線故事、復刻活動、一部份關卡中不在此限。	
+	</span></span>
+</p>
+</div>
+<div class="em01">
+<p>
+<span class="indent">
+	※本頁面皆為開發中圖片。會有與實際圖片相異的情況。	
+	</span>
+</p>
+</div>
+<p>
+<img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/ca10_banner.png"/>
+</p>
+<!--/block-->
+<!--blockその1-->
+<p class="heading" id="ttl1"><img alt="見出し" src="common/images/2019/4th_fgofes2019_full_sprju/midashi_a_01.png"/></p>
+<div class="float_box">
+<div class="float_right_box" style="width: 30%;">
+<img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/info_image_02.png"/>
+</div>
+<div class="float_none_box">
+<p>
+<span class="em01">
+	為了記念「Fate/Grand Order Fes. 2019 ～4th Anniversary～」舉辦，實施特別連續登入獎勵。<br/>
+	在下述期間中，10天內連續登入的話，贈送包含<span class="notice">英靈結晶・流星之芙芙ALL★4(HP)、英靈結晶・日輪之芙芙ALL★4(ATK)、稀有稜鏡、呼符10張(聖晶石召喚最大11次份)</span>等豪華報酬！<br/>
+<br/>
+<span class="notice indent">※(聖晶石召喚最大11次份)限在同一個聖晶石召喚進行的情況。</span>
+</span>
+</p>
+</div>
+</div>
+<p><span class="diamond">◆</span><span class="strong">舉辦期間</span><span class="diamond">◆</span><br/>
+<span class="em01">2019年8月5日(一) 3:00～8月19日(一) 2:59</span></p>
+<div class="attention">
+<p><span class="notice indent">※請注意在特別連續登入獎勵的舉辦期間中預定會實施維修。</span>
+</p>
+</div>
+<p><span class="diamond">◆</span><span class="strong">贈送對象</span><span class="diamond">◆</span><br/>
+<span class="em01"><span class="notice">所有的御主對象</span>
+<span class="indent">※新御主玩家必須推進至通過「特異點F 炎上汙染都市 冬木 第3節 進行度1」。</span>
+</span></p>
+<div class="table_box">
+<table align="center" class="trbgcolor" style=";;margin-bottom: 10px;" width="100%">
+<tbody>
+<tr>
+<th width="25%">連續登入天數</th>
+<th colspan="2" width="75%">贈送內容</th>
+</tr>
+<tr>
+<td>第1天</td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item01.png" width="100%"/></span>
+</td>
+<td class="bd_l_none">1,000萬QP</td>
+</tr>
+<tr>
+<td>第2天</td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item02.png" width="100%"/></span>
+</td>
+<td class="bd_l_none">友情點數 10萬pt
+</td>
+</tr>
+<tr>
+<td>第3天</td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item03.png" width="100%"/></span>
+</td>
+<td class="bd_l_none">叡智的猛火ALL★4(SR) 10張</td>
+</tr>
+<tr>
+<td>第4天</td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item04.png" width="100%"/></span>
+</td>
+<td class="bd_l_none">英靈結晶・太陽之芙芙ALL★3(ATK) 10張
+</td>
+</tr>
+<tr>
+<td>第5天</td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item05.png" width="100%"/></span>
+</td>
+<td class="bd_l_none">英靈結晶・星之芙芙ALL★3(HP) 10張
+</td>
+</tr>
+<tr>
+<td>第6天</td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item06.png" width="100%"/></span>
+</td>
+<td class="bd_l_none">魔力稜鏡 100個</td>
+</tr>
+<tr>
+<td>第7天</td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item07.png" width="100%"/></span>
+</td>
+<td class="bd_l_none"><span class="notice">稀有稜鏡 1個</span></td>
+</tr>
+<tr>
+<td>第8天</td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item09.png" width="100%"/></span>
+</td>
+<td class="bd_l_none"><span class="notice">英靈結晶・日輪之芙芙ALL★4(ATK) 1張</span></td>
+</tr>
+<tr>
+<td>第9天</td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item08.png" width="100%"/></span>
+</td>
+<td class="bd_l_none"><span class="notice">英靈結晶・流星之芙芙ALL★4(HP) 1張</span></td>
+</tr>
+<tr>
+<td>第10天</td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item10.png" width="100%"/></span>
+</td>
+<td class="bd_l_none"><span class="notice">呼符 10張(聖晶石召喚最大11次份)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="em01">
+<p>
+<span class="indent notice">
+※登入獎勵會在每天3:00配發。	
+</span>
+<span class="indent notice">
+※連續登入天數中斷後，無法領取之後的禮物。
+</span>
+<span class="indent">
+※最多能領取10次，但根據成為贈送對象的時間點，可能無法到此上限。
+</span>
+<span class="indent notice">
+※(聖晶石召喚最大11次份)限在同一個聖晶石召喚進行的情況。	
+</span>
+</p>
+</div>
+<!--/block-->
+<!--blockその2-->
+<p class="heading" id="ttl2"><img alt="見出し" src="common/images/2019/4th_fgofes2019_full_sprju/midashi_a_02.png"/></p>
+<div class="float_box">
+<div class="float_right_box" style="width: 30%;">
+<img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/info_image_03.png"/>
+</div>
+<div class="float_none_box">
+<p>
+<span class="em01">
+	以期間限定舉辦的主線關卡第2部 第1章～第3章AP消耗1/2宣傳活動，變更成永久舉辦。<br/>
+	另外，在從第2部 第1章到第2部 第3章的各章，追加聖晶石10個做為通過報酬。<br/>
+	通過所有從第2部 第1章到第2部 第3章的話可得到<span class="notice">最多30個(聖晶石召喚最大11次份)</span>的聖晶石！
+	</span>
+</p>
+<p>
+<span class="em01">
+<span class="indent notice">
+	※就算已經通過主線關卡第2部 第1章～第3章的玩家，也能同様領取通過報酬。
+	</span>
+<span class="indent notice">
+	※(聖晶石召喚最大11次份)限在同一個聖晶石召喚進行的情況	
+	</span>
+</span>
+</p>
+<p><span class="diamond">◆</span><span class="strong">翻新實施時間</span><span class="diamond">◆</span><br/>
+<span class="em01">2019年8月4日(日) 18:00～</span></p>
+</div>
+</div>
+<p><span class="diamond">◆</span><span class="strong">通過報酬的領取方式</span><span class="diamond">◆</span><br/>
+<span class="em01">在御主任務畫面顯示「額外(エクストラ)」項目內，會顯示有關通過主線關卡的任務，請點擊已通過的任務來領取達成報酬。</span></p>
+<p>
+<img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/info_image_04.png"/>
+</p>
+<div class="table_box">
+<p><span class="diamond">◆</span><span class="strong">追加額外任務</span><span class="diamond">◆</span></p>
+<table align="center" class="trbgcolor" style=";;margin-bottom: 10px;" width="100%">
+<tbody>
+<tr>
+<th width="55%">任務名稱</th>
+<th colspan="2" width="45%">任務達成報酬</th>
+</tr>
+<tr>
+<td><span class="notice">
+通過『Lostbelt No.1 永久凍土帝國 安娜塔西亞』	
+</span></td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item11.png" width="100%"/></span>
+</td>
+<td class="bd_l_none">聖晶石 10個</td>
+</tr>
+<tr>
+<td>
+<span class="notice">
+通過『Lostbelt No.2 無間冰焰世紀 諸神黃昏』	
+</span>
+</td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item11.png" width="100%"/></span>
+</td>
+<td class="bd_l_none">聖晶石 10個</td>
+</tr>
+<tr>
+<td>
+<span class="notice">
+通過『Lostbelt No.3 人智統合真國 SIN』	
+</span>
+</td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item11.png" width="100%"/></span>
+</td>
+<td class="bd_l_none">聖晶石 10個</td>
+</tr>
+</tbody>
+</table>
+</div><!--/tablebox-->
+<!--/block-->
+<!--blockその3-->
+<p class="heading" id="ttl3"><img alt="見出し" src="common/images/2019/4th_fgofes2019_full_sprju/midashi_a_03.png"/></p>
+<div class="em01">
+<p>
+	在御主任務(額外任務)，追加可靠「主線記錄的自由關卡」通過次數達成的新任務。<br/>
+	通過現在實裝的主線記錄自由關卡182個其中180個的話，可得到<span class="notice">最多180個(聖晶石召喚最大66次份)</span>的聖晶石！
+	</p>
+<p>
+<span class="indent notice">
+	※就算已經通過主線記錄自由關卡的玩家，也能同様領取通過報酬。
+	</span>
+<span class="indent notice">
+	※(聖晶石召喚最大66次份)限在同一個聖晶石召喚進行的情況
+	</span>
+</p>
+</div>
+<p><span class="diamond">◆</span><span class="strong">翻新實施時間</span><span class="diamond">◆</span><br/>
+<span class="em01">2019年8月4日(日) 18:00～</span></p>
+<p><span class="diamond">◆</span><span class="strong">通過報酬的領取方式</span><span class="diamond">◆</span><br/>
+<span class="em01">
+	在御主任務畫面顯示「額外(エクストラ)」項目內，會顯示有關通過自由關卡的任務，請點擊已通過的任務來領取達成報酬。
+	</span></p>
+<p>
+<img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/info_image_05.png"/>
+</p>
+<div class="table_box">
+<p><span class="diamond">◆</span><span class="strong">追加額外任務</span><span class="diamond">◆</span></p>
+<table align="center" class="trbgcolor" style=";;margin-bottom: 10px;" width="100%">
+<tbody>
+<tr>
+<th width="60%">任務名稱</th>
+<th colspan="2" width="40%">任務達成報酬</th>
+</tr>
+<tr>
+<td><span class="notice">通過10個主線記錄的自由關卡</span></td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item11.png" width="100%"/></span>
+</td>
+<td class="bd_l_none">聖晶石 10個</td>
+</tr>
+<tr>
+<td><span class="notice">通過20個主線記錄的自由關卡</span></td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item11.png" width="100%"/></span>
+</td>
+<td class="bd_l_none">聖晶石 10個</td>
+</tr>
+<tr>
+<td><span class="notice">通過30個主線記錄的自由關卡</span></td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item11.png" width="100%"/></span>
+</td>
+<td class="bd_l_none">聖晶石 10個</td>
+</tr>
+<tr>
+<td><span class="notice">通過40個主線記錄的自由關卡</span></td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item11.png" width="100%"/></span>
+</td>
+<td class="bd_l_none">聖晶石 10個</td>
+</tr>
+<tr>
+<td><span class="notice">通過50個主線記錄的自由關卡</span></td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item11.png" width="100%"/></span>
+</td>
+<td class="bd_l_none">聖晶石 10個</td>
+</tr>
+<tr>
+<td><span class="notice">通過60個主線記錄的自由關卡</span></td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item11.png" width="100%"/></span>
+</td>
+<td class="bd_l_none">聖晶石 10個</td>
+</tr>
+<tr>
+<td><span class="notice">通過70個主線記錄的自由關卡</span></td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item11.png" width="100%"/></span>
+</td>
+<td class="bd_l_none">聖晶石 10個</td>
+</tr>
+<tr>
+<td><span class="notice">通過80個主線記錄的自由關卡</span></td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item11.png" width="100%"/></span>
+</td>
+<td class="bd_l_none">聖晶石 10個</td>
+</tr>
+<tr>
+<td><span class="notice">通過90個主線記錄的自由關卡</span></td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item11.png" width="100%"/></span>
+</td>
+<td class="bd_l_none">聖晶石 10個</td>
+</tr>
+<tr>
+<td><span class="notice">通過100個主線記錄的自由關卡</span></td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item11.png" width="100%"/></span>
+</td>
+<td class="bd_l_none">聖晶石 10個</td>
+</tr>
+<tr>
+<td><span class="notice">通過110個主線記錄的自由關卡</span></td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item11.png" width="100%"/></span>
+</td>
+<td class="bd_l_none">聖晶石 10個</td>
+</tr>
+<tr>
+<td><span class="notice">通過120個主線記錄的自由關卡</span></td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item11.png" width="100%"/></span>
+</td>
+<td class="bd_l_none">聖晶石 10個</td>
+</tr>
+<tr>
+<td><span class="notice">通過130個主線記錄的自由關卡</span></td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item11.png" width="100%"/></span>
+</td>
+<td class="bd_l_none">聖晶石 10個</td>
+</tr>
+<tr>
+<td><span class="notice">通過140個主線記錄的自由關卡</span></td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item11.png" width="100%"/></span>
+</td>
+<td class="bd_l_none">聖晶石 10個</td>
+</tr>
+<tr>
+<td><span class="notice">通過150個主線記錄的自由關卡</span></td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item11.png" width="100%"/></span>
+</td>
+<td class="bd_l_none">聖晶石 10個</td>
+</tr>
+<tr>
+<td><span class="notice">通過160個主線記錄的自由關卡</span></td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item11.png" width="100%"/></span>
+</td>
+<td class="bd_l_none">聖晶石 10個</td>
+</tr>
+<tr>
+<td><span class="notice">通過170個主線記錄的自由關卡</span></td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item11.png" width="100%"/></span>
+</td>
+<td class="bd_l_none">聖晶石 10個</td>
+</tr>
+<tr>
+<td><span class="notice">通過180個主線記錄的自由關卡</span></td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item11.png" width="100%"/></span>
+</td>
+<td class="bd_l_none">聖晶石 10個</td>
+</tr>
+</tbody>
+</table>
+</div><!--/tablebox-->
+<!--/block-->
+<p class="heading" id="ttl_sub1"><img alt="見出し" src="common/images/2019/4th_fgofes2019_full_sprju/midashi_c_01.png"/></p>
+<div class="em01">
+<p>
+		所有<span class="notice">自由關卡初次通過</span>前的AP消耗量以期間限定變成<span class="notice">1/4</span>！<br/>
+		藉此機會以通過尚未攻略的自由關卡為目標吧！
+		</p>
+<p>
+<span class="indent notice">
+		※初次通過是指初次通過報酬入手的時間點前。	
+		</span>
+<span class="indent notice">※請注意強化關卡及幕間物語、曜日關卡為對象外。</span>
+<span class="indent notice">※就算在戰鬥中撤退的情況，AP的消耗仍是1/4。</span>
+</p>
+</div>
+<p><span class="diamond">◆</span><span class="strong">舉辦期間</span><span class="diamond">◆</span><br/>
+<span class="em01">2019年8月4日(日) 18:00～8月14日(三) 11:59</span></p>
+<!--/block-->
+<!--blockその4-->
+<p class="heading" id="ttl4"><img alt="見出し" src="common/images/2019/4th_fgofes2019_full_sprju/midashi_a_04.png"/></p>
+<div class="em01">
+<p>
+	在迦勒底之門內每天輪流出現的關卡以期間限定<span class="notice">所有的每日關卡AP消耗量變成1/2</span>！
+	</p>
+</div>
+<p><span class="diamond">◆</span><span class="strong">舉辦期間</span><span class="diamond">◆</span><br/>
+<span class="em01">2019年8月4日(日) 18:00～8月14日(三) 11:59</span></p>
+<p><span class="diamond">◆</span><span class="strong">對象關卡</span><span class="diamond">◆</span><br/>
+<span class="em01">
+	【4周年記念】蒐集種火&lt;槍･殺篇&gt;初級、中級、上級、超級<br/>
+	【4周年記念】蒐集種火&lt;劍･騎篇&gt;初級、中級、上級、超級<br/>
+	【4周年記念】蒐集種火&lt;弓･術篇&gt;初級、中級、上級、超級<br/>
+	【4周年記念】蒐集種火&lt;隨機篇&gt;初級、中級、上級、超級<br/>
+	【4周年記念】弓之修練場 初級、中級、上級、超級<br/>
+	【4周年記念】槍之修練場 初級、中級、上級、超級<br/>
+	【4周年記念】狂之修練場 初級、中級、上級、超級<br/>
+	【4周年記念】騎之修練場 初級、中級、上級、超級<br/>
+	【4周年記念】術之修練場 初級、中級、上級、超級<br/>
+	【4周年記念】殺之修練場 初級、中級、上級、超級<br/>
+	【4周年記念】劍之修練場 初級、中級、上級、超級<br/>
+	打開寶物庫之門 初級、中級、上級、超級
+	</span></p>
+<div class="em01">
+<p>※每日關卡的詳細如下。</p>
+</div>
+<div class="table_box">
+<h2 align="center">【打開寶物庫之門、蒐集種火 關卡的難易度等】</h2>
+<table align="center" class="trbgcolor" style=";;margin-bottom: 10px;" width="100%">
+<tbody>
+<tr>
+<th width="20%">難易度</th>
+<th width="20%">推薦Lv</th>
+<th width="20%">消耗AP</th>
+<th colspan="2" width="40%">初次通過報酬</th>
+</tr>
+<tr><td>初級</td>
+<td>5</td>
+<td>10→<span class="notice">5</span></td>
+<td class="item_list" width="12%"><span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item06.png"/></span></td>
+<td class="bd_l_none">魔力稜鏡 1個</td>
+</tr>
+<tr><td>中級</td>
+<td>10</td>
+<td>20→<span class="notice">10</span></td>
+<td class="item_list" width="12%"><span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item06.png"/></span></td>
+<td class="bd_l_none">魔力稜鏡 2個</td>
+</tr>
+<tr><td>上級</td>
+<td>25</td>
+<td>30→<span class="notice">15</span></td>
+<td class="item_list" width="12%"><span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item06.png"/></span></td>
+<td class="bd_l_none">魔力稜鏡 3個</td>
+</tr>
+<tr><td>超級</td>
+<td>40</td>
+<td>40→<span class="notice">20</span></td>
+<td class="item_list" width="12%"><span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item06.png"/></span></td>
+<td class="bd_l_none">魔力稜鏡 4個</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--/table-->
+<div class="table_box">
+<h2 align="center">【修練場 關卡的難易度等】</h2>
+<table align="center" class="trbgcolor" style=";;margin-bottom: 10px;" width="100%">
+<tbody>
+<tr>
+<th width="20%">難易度</th>
+<th width="20%">推薦Lv</th>
+<th width="20%">消耗AP</th>
+<th colspan="2" width="40%">初次通過報酬</th>
+</tr>
+<tr><td>初級</td>
+<td>10</td>
+<td>10→<span class="notice">5</span></td>
+<td class="item_list" width="12%"><span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item06.png"/></span></td>
+<td class="bd_l_none">魔力稜鏡 1個</td>
+</tr>
+<tr><td>中級</td>
+<td>25</td>
+<td>20→<span class="notice">10</span></td>
+<td class="item_list" width="12%"><span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item06.png"/></span></td>
+<td class="bd_l_none">魔力稜鏡 2個</td>
+</tr>
+<tr><td>上級</td>
+<td>40</td>
+<td>30→<span class="notice">15</span></td>
+<td class="item_list" width="12%"><span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item06.png"/></span></td>
+<td class="bd_l_none">魔力稜鏡 3個</td>
+</tr>
+<tr><td>超級</td>
+<td>60</td>
+<td>40→<span class="notice">20</span></td>
+<td class="item_list" width="12%"><span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item06.png"/></span></td>
+<td class="bd_l_none">魔力稜鏡 4個</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--/table-->
+<div class="em01">
+<p>
+<span class="indent notice">
+	※關卡通過報酬的魔力稜鏡只限初次通過時才可獲得。
+	</span>
+<span class="indent">
+	※關卡通過報酬的魔力稜鏡只有「打開寶物庫之門」是每日重置。	
+	</span>
+</p>
+</div>
+<!-- -->
+<p class="heading" id="ttl_sub2"><img alt="見出し" src="common/images/2019/4th_fgofes2019_full_sprju/midashi_c_02.png"/></p>
+<div class="em01">
+<p>
+	以期間限定開放全種類在迦勒底之門內每天輪流出現的關卡「蒐集種火」與「修練場」。
+	</p>
+</div>
+<p><span class="diamond">◆</span><span class="strong">舉辦期間</span><span class="diamond">◆</span><br/>
+<span class="em01">2019年8月4日(日) 18:00～8月14日(三) 11:59</span></p>
+<p><span class="diamond">◆</span><span class="strong">對象關卡</span><span class="diamond">◆</span><br/>
+	・蒐集種火<br/>
+<span class="em01">
+	【4周年記念】蒐集種火&lt;槍･殺篇&gt;初級、中級、上級、超級<br/>
+	【4周年記念】蒐集種火&lt;劍･騎篇&gt;初級、中級、上級、超級<br/>
+	【4周年記念】蒐集種火&lt;弓･術篇&gt;初級、中級、上級、超級<br/>
+	【4周年記念】蒐集種火&lt;隨機篇&gt;初級、中級、上級、超級</span>
+</p>
+<div>
+<p>
+	・修練場
+	<span class="em01">
+	【4周年記念】弓之修練場 初級、中級、上級、超級<br/>
+	【4周年記念】槍之修練場 初級、中級、上級、超級<br/>
+	【4周年記念】狂之修練場 初級、中級、上級、超級<br/>
+	【4周年記念】騎之修練場 初級、中級、上級、超級<br/>
+	【4周年記念】術之修練場 初級、中級、上級、超級<br/>
+	【4周年記念】殺之修練場 初級、中級、上級、超級<br/>
+	【4周年記念】劍之修練場 初級、中級、上級、超級
+	</span>
+</p>
+</div>
+<div class="em01">
+<p>
+<span class="indent notice">
+※關卡通過報酬的魔力稜鏡只限初次通過時才可獲。	
+</span>
+<span class="indent notice">
+※請注意由於以期間限定出現的「蒐集種火」及「修練場」與平常每天輪流出現的「蒐集種火」及「修練場」關卡不同，不會繼承「關卡情報」。	
+</span>
+<span class="indent notice">
+※舉辦期間中，不會重置關卡通過報酬。	
+</span>
+</p>
+</div>
+<div class="table_box">
+<h2 align="center">【每日關卡一覧】</h2>
+<table align="center" class="trbgcolor" style=";;margin-bottom: 10px;" width="100%">
+<tbody>
+<tr>
+<th width="15%">星期</th>
+<th width="30%">關卡名</th>
+<th width="35%">做為戰利品可獲得的<br/>主要道具</th>
+<th class="red" width="20%">攻略推薦<br/>職階</th>
+</tr>
+<tr>
+<td class="center" rowspan="3"><span class="week">一</span></td>
+<td>打開寶物庫之門<br/>
+<div class="noticeicon">AP1/2</div>
+</td>
+<td>QP</td>
+<td bgcolor="#F4E0ED"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/class_004.png" width="50%"/><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/class_007.png" width="50%"/></td>
+</tr>
+<tr>
+<td>【4周年記念】弓之修練場<br/>
+<div class="noticeicon">AP1/2</div>
+</td>
+<td>Archer的靈基再臨用道具、Archer的技能強化素材道具</td>
+<td bgcolor="#F4E0ED"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/class_003.png" width="50%"/></td>
+</tr>
+<tr>
+<td>【4周年記念】蒐集種火<br/>&lt;槍・殺篇&gt;
+<div class="noticeicon">AP1/2</div>
+</td>
+<td>Lancer、Assassin、Berserker的經驗值卡</td>
+<td bgcolor="#F4E0ED"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/class_001.png" width="50%"/><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/class_005.png" width="50%"/></td>
+</tr>
+<!-- -->
+<tr>
+<td class="center" rowspan="3"><span class="week">二</span></td>
+<td>打開寶物庫之門<br/>
+<div class="noticeicon">AP1/2</div>
+</td>
+<td>QP</td>
+<td bgcolor="#F4E0ED"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/class_004.png" width="50%"/><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/class_007.png" width="50%"/></td>
+</tr>
+<tr>
+<td>【4周年記念】槍之修練場 <br/>
+<div class="noticeicon">AP1/2</div>
+</td>
+<td>Lancer的靈基再臨用道具、Lancer的技能強化素材道具</td>
+<td bgcolor="#F4E0ED"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/class_001.png" width="50%"/></td>
+</tr>
+<tr>
+<td>【4周年記念】蒐集種火<br/>&lt;劍・騎篇&gt;
+	<div class="noticeicon">AP1/2</div>
+</td>
+<td>Saber、Rider、Berserker的經驗值卡</td>
+<td bgcolor="#F4E0ED"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/class_002.png" width="50%"/><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/class_006.png" width="50%"/></td>
+</tr>
+<!-- -->
+<tr>
+<td class="center" rowspan="3"><span class="week">三</span></td>
+<td>打開寶物庫之門 <br/>
+<div class="noticeicon">AP1/2</div>
+</td>
+<td>QP</td>
+<td bgcolor="#F4E0ED"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/class_004.png" width="50%"/><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/class_007.png" width="50%"/></td>
+</tr>
+<tr>
+<td>【4周年記念】狂之修練場 <br/>
+<div class="noticeicon">AP1/2</div>
+</td>
+<td>Berserker的靈基再臨用道具、Berserker的技能強化素材道具</td>
+<td bgcolor="#F4E0ED">ALL</td>
+</tr>
+<tr>
+<td>【4周年記念】蒐集種火<br/>&lt;弓・術篇&gt;
+	<div class="noticeicon">AP1/2</div>
+</td>
+<td>Archer、Caster、Berserker的經驗值卡</td>
+<td bgcolor="#F4E0ED"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/class_003.png" width="50%"/><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/class_004.png" width="50%"/></td>
+</tr>
+<!-- -->
+<tr>
+<td class="center" rowspan="3"><span class="week">四</span></td>
+<td>打開寶物庫之門 <br/>
+<div class="noticeicon">AP1/2</div>
+</td>
+<td>QP</td>
+<td bgcolor="#F4E0ED"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/class_004.png" width="50%"/><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/class_007.png" width="50%"/></td>
+</tr>
+<tr>
+<td>【4周年記念】騎之修練場  <br/>
+<div class="noticeicon">AP1/2</div>
+</td>
+<td>Rider的靈基再臨用道具、Rider的技能強化素材道具</td>
+<td bgcolor="#F4E0ED"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/class_006.png" width="50%"/><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/class_007.png" width="50%"/></td>
+</tr>
+<tr>
+<td>【4周年記念】蒐集種火<br/>&lt;槍・殺篇&gt;
+	<div class="noticeicon">AP1/2</div>
+</td>
+<td>Lancer、Assassin、Berserker的經驗值卡</td>
+<td bgcolor="#F4E0ED"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/class_001.png" width="50%"/><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/class_005.png" width="50%"/></td>
+</tr>
+<!-- -->
+<tr>
+<td class="center" rowspan="3"><span class="week">五</span></td>
+<td>打開寶物庫之門 <br/>
+<div class="noticeicon">AP1/2</div>
+</td>
+<td>QP</td>
+<td bgcolor="#F4E0ED"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/class_004.png" width="50%"/><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/class_007.png" width="50%"/></td>
+</tr>
+<tr>
+<td>【4周年記念】術之修練場<br/>
+<div class="noticeicon">AP1/2</div>
+</td>
+<td>Caster的靈基再臨用道具、Caster的技能強化素材道具</td>
+<td bgcolor="#F4E0ED"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/class_004.png" width="50%"/><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/class_007.png" width="50%"/></td>
+</tr>
+<tr>
+<td>【4周年記念】蒐集種火<br/>&lt;劍・騎篇&gt;
+	<div class="noticeicon">AP1/2</div>
+</td>
+<td>Saber、Rider、Berserker的經驗值卡</td>
+<td bgcolor="#F4E0ED"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/class_002.png" width="50%"/><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/class_006.png" width="50%"/></td>
+</tr>
+<!-- -->
+<tr>
+<td class="center" rowspan="3"><span class="week">六</span></td>
+<td>打開寶物庫之門 <br/>
+<div class="noticeicon">AP1/2</div>
+</td>
+<td>QP</td>
+<td bgcolor="#F4E0ED"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/class_004.png" width="50%"/><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/class_007.png" width="50%"/></td>
+</tr>
+<tr>
+<td>【4周年記念】殺之修練場<br/>
+<div class="noticeicon">AP1/2</div>
+</td>
+<td>Assassin的靈基再臨用道具、Assassin的技能強化素材道具</td>
+<td bgcolor="#F4E0ED"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/class_005.png" width="50%"/><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/class_007.png" width="50%"/></td>
+</tr>
+<tr>
+<td>【4周年記念】蒐集種火<br/>&lt;弓・術篇&gt;
+	<div class="noticeicon">AP1/2</div>
+</td>
+<td>Archer、Caster、Berserker的經驗值卡</td>
+<td bgcolor="#F4E0ED"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/class_003.png" width="50%"/><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/class_004.png" width="50%"/></td>
+</tr>
+<!-- -->
+<tr>
+<td class="center" rowspan="3"><span class="week">日</span></td>
+<td>寶物庫的扉開け <br/>
+<div class="noticeicon">AP1/2</div>
+</td>
+<td>QP</td>
+<td bgcolor="#F4E0ED"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/class_004.png" width="50%"/><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/class_007.png" width="50%"/></td>
+</tr>
+<tr>
+<td>【4周年記念】劍之修練場<br/>
+<div class="noticeicon">AP1/2</div>
+</td>
+<td>Saber的靈基再臨用道具、Saber的技能強化素材道具</td>
+<td bgcolor="#F4E0ED"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/class_002.png" width="50%"/></td>
+</tr>
+<tr>
+<td>【4周年記念】蒐集種火<br/>&lt;隨機篇&gt;
+	<div class="noticeicon">AP1/2</div>
+</td>
+<td>Saber、Archer、Lancer、Rider、Caster、Assassin、Berserker的經驗值卡(隨機)</td>
+<td bgcolor="#F4E0ED">-</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--/table-->
+<div class="em01">
+<p>
+<span class="indent">
+※Berserker在所有曜日關卡皆為有效職階。	
+</span>
+</p>
+</div>
+<p class="heading" id="ttl_sub3"><img alt="見出し" src="common/images/2019/4th_fgofes2019_full_sprju/midashi_c_04.png"/></p>
+<div class="em01">
+<p>
+	包含每日關卡的自由關卡為對象，追加在同個關卡挑戰好幾次時的便利新功能「<span class="notice">關卡連續出撃</span>」！<br/>
+	在挑戰已通過的關卡時，顯示戰鬥結算畫面後(進行好友申請情況之後)，不會有移動至管理室(ターミナル)和區域地圖的間隔，可連續出撃同個關卡。
+
+	</p>
+<p>
+	選擇「連續出撃」的話，會移動到支援選擇畫面，選擇支援的話就會<span class="notice">與前一次同様的隊伍編成</span>開始戰鬥。想變更隊伍編成，跟以往一樣先返回到管理室(ターミナル)和區域地圖等後再次選擇關卡，就可選擇不同的隊伍編成。
+	</p>
+</div>
+<p><span class="diamond">◆</span><span class="strong">追加時間</span><span class="diamond">◆</span><br/>
+<span class="em01">2019年8月4日(日) 18:00～</span></p>
+<p><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/info_image_06.png"/></p>
+<div class="em01">
+<p>
+<span class="indent">
+	※想要使用「關卡連續出撃」功能的話，在關卡看板必須要有「CLEAR」的文字顯示。	
+	</span>
+<span class="indent">
+	※一部份的自由關卡為「關卡連續出撃」功能的對象外。	
+	</span>
+</p>
+</div>
+<!--/block-->
+<!--blockその5-->
+<p class="heading" id="ttl5"><img alt="見出し" src="common/images/2019/4th_fgofes2019_full_sprju/midashi_a_05.png"/></p>
+<div class="em01">
+<p>
+下述的期間中，在進行從者及概念禮裝的強化時，大成功(經驗值2倍加成)・極大成功(經驗值3倍加成)發生機率以期間限定變成<span class="notice">3倍</span>！<br/>
+務必藉此機會強化中意的從者和概念禮裝吧！
+	</p>
+</div>
+<p><span class="diamond">◆</span><span class="strong">舉辦期間</span><span class="diamond">◆</span><br/>
+<span class="em01">2019年8月4日(日) 18:00～8月14日(三) 11:59</span></p>
+<!--/block-->
+<!--blockその6-->
+<p class="heading" id="ttl6"><img alt="見出し" src="common/images/2019/4th_fgofes2019_full_sprju/midashi_a_06.png"/></p>
+<div class="em01">
+<p>
+		向所有的御主對象，以追加擴張「從者的持有欄位」與「概念禮裝的持有欄位」50欄位。<br/>
+		目前為止的450欄位擴張至持有欄位500欄位。<br/>
+		另外，在達文西工房內的「從者保管欄位增加」「概念禮裝保管欄位增加」，可消耗魔力稜鏡追加的保管欄位上限數再追加20次份(合計100欄位)。
+
+		</p>
+</div>
+<p><span class="diamond">◆</span><span class="strong">翻新實施時間</span><span class="diamond">◆</span><br/>
+<span class="em01">2019年8月4日(日) 18:00～
+		</span></p>
+<div class="table_box">
+<p>【持有欄位的擴張數】</p>
+<table align="center" class="trbgcolor" style=";;margin-bottom: 10px;" width="100%">
+<tbody>
+<tr>
+<th width="50%">對象持有欄位</th>
+<th width="50%">擴張數</th>
+</tr>
+<tr>
+<td>從者持有欄位</td>
+<td>450→<span class="notice">500(50欄位追加)</span></td>
+</tr>
+<tr>
+<td>概念禮裝持有欄位</td>
+<td>450→<span class="notice">500(50欄位追加)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table_box">
+<p>【保管欄位的擴張數】</p>
+<table align="center" class="trbgcolor" style=";;margin-bottom: 10px;" width="100%">
+<tbody>
+<tr>
+<th width="40%">對象保管欄位</th>
+<th width="30%">剩餘次數</th>
+<th width="30%">最大擴張時</th>
+</tr>
+<tr>
+<td>從者保管欄位增加</td>
+<td>80→<span class="notice">100(20次份追加)</span></td>
+<td>500→<span class="notice">600(100欄位追加)</span></td>
+</tr>
+<tr>
+<td>概念禮裝保管欄位增加</td>
+<td>80→<span class="notice">100(20次份追加)</span></td>
+<td>500→<span class="notice">600(100欄位追加)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="em01">
+<p>
+<span class="indent notice">
+※請注意從者保管欄位的擴張及概念禮裝保管欄位的擴張，1次的擴張需要魔力稜鏡50個。	
+</span>
+</p>
+</div>
+<!--blockその7-->
+<p class="heading" id="ttl7"><img alt="見出し" src="common/images/2019/4th_fgofes2019_full_sprju/midashi_a_07.png"/></p>
+<div class="em01">
+<p>
+		舉辦強化從者的能力的特別關卡「從者強化關卡」第11彈！<br/>
+		本次為了記念4周年，共計14位的從者對象！<br/>
+		詳情請在<a href="event_4th_reinforcement.html">此處</a>的公告確認。
+		</p>
+</div>
+<p><span class="diamond">◆</span><span class="strong">追加時間</span><span class="diamond">◆</span><br/>
+<span class="em01">2019年8月4日(日) 18:00～
+		</span></p>
+<!--blockその8-->
+<p class="heading" id="ttl8"><img alt="見出し" src="common/images/2019/4th_fgofes2019_full_sprju/midashi_a_08.png"/></p>
+<div class="float_box">
+<div class="float_right_box" style="width: 26%;">
+<img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/info_image_07.png"/>
+</div>
+<div class="float_none_box">
+<p>
+<span class="em01">
+		強化從者指令卡的新系統「<span class="notice">指令卡強化</span>」登場！<br/>
+		個別強化從者各自持有的<span class="notice">5張指令卡，可讓「攻擊力」提高</span>！	
+		</span>
+</p>
+<p>
+<span class="em01">
+		「指令卡強化」必要的指令卡強化素材「<span class="notice">獸之足跡</span>」可做為<span class="notice">恆常連續登入獎勵</span>的報酬入手外，也能靠2019年8月4日(日) 18:00～8月14日(三) 11:59舉辦的<span class="notice">「指令卡強化」釋出記念關卡</span>入手。	
+		</span>
+</p>
+</div>
+</div>
+<p><span class="diamond">◆</span><span class="strong">追加時間</span><span class="diamond">◆</span><br/>
+<span class="em01">2019年8月4日(日) 18:00～</span></p>
+<div class="em01">
+<p>
+		有關「指令卡強化」的操作在主選單的「強化」＞「指令卡強化」進行。<br/>
+		「指令卡強化」進行時的順序如下。
+		<span class="notice indent">1.選擇從者</span>
+<span class="notice indent">2.選擇想強化指令卡</span>
+<span class="notice indent">3.使用QP與指令卡強化素材道具，執行指令卡強化</span>		
+		另外，強化內容是所有同從者共有。持有多個同從者的情況，也會反映強化內容到強化對象之外的所有同從者。
+		</p>
+<p>
+<span class="indent">
+		※關於透過「指令卡強化」，1張指令卡最多能強化到500。	
+		</span>
+<span class="indent">
+		※期間限定加入從者的指令卡無法強化。	
+		</span>
+<span class="indent notice">
+		※請注意強化過1次的指令卡無法回到原來的情況。	
+		</span>
+</p>
+</div>
+<div class="table_box">
+<p><span class="diamond">◆</span><span class="strong">新系統「指令卡強化」實裝後的恆常連續登入獎勵</span><span class="diamond">◆</span></p>
+<table align="center" class="trbgcolor" style=";;margin-bottom: 10px;" width="100%">
+<tbody>
+<tr>
+<th width="20%">連續登入<br/>天數</th>
+<th colspan="6" width="80%">贈送內容</th>
+</tr>
+<tr>
+<td>第1天</td>
+<td class="item_list" width="12%">
+<span class="item_img">
+<img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item18.png" width="100%"/>
+</span>
+</td>
+<td class="bd_l_none">素材交換券 1張
+</td>
+<td class="item_list_02" width="0%">
+<span class="item_img">
+<img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item02.png" width="100%"/>
+</span>
+</td>
+<td class="bd_l_none" colspan="3">友情點數 2,000pt
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>第2天</td>
+<td class="item_list" width="12%">
+<span class="item_img">
+<img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item18.png" width="100%"/>
+</span>
+</td>
+<td class="bd_l_none">素材交換券 1張
+</td>
+<td class="item_list_02" width="12%">
+<span class="item_img">
+<img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item11.png" width="100%"/>
+</span>
+</td>
+<td class="bd_l_none" colspan="3">聖晶石 1個</td>
+</tr>
+<!-- -->
+<tr>
+<td>第3天</td>
+<td class="item_list" width="12%">
+<span class="item_img">
+<img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item18.png" width="100%"/>
+</span>
+</td>
+<td class="bd_l_none">素材交換券 1張
+</td>
+<td class="item_list_02" width="12%">
+<span class="item_img">
+<img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item03.png" width="100%"/>
+</span>
+</td>
+<td class="bd_l_none" colspan="3">叡智的猛火ALL★4(SR) 1張</td>
+</tr>
+<!-- -->
+<tr>
+<td>第4天</td>
+<td class="item_list" width="12%">
+<span class="item_img">
+<img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item18.png" width="100%"/>
+</span>
+</td>
+<td class="bd_l_none">素材交換券 1張
+</td>
+<td class="item_list_02" width="12%">
+<span class="item_img">
+<img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item11.png" width="100%"/>
+</span>
+</td>
+<td class="bd_l_none" colspan="3">聖晶石 1個</td>
+</tr>
+<!-- -->
+<tr>
+<td>第5天</td>
+<td class="item_list" width="12%">
+<span class="item_img">
+<img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item18.png" width="100%"/>
+</span>
+</td>
+<td class="bd_l_none">素材交換券 1張
+</td>
+<td class="item_list_02" width="12%">
+<span class="item_img">
+<img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item03.png" width="100%"/>
+</span>
+</td>
+<td class="bd_l_none" colspan="3">叡智的猛火ALL★4(SR) 2張</td>
+</tr>
+<!-- -->
+<tr>
+<td>第6天</td>
+<td class="item_list" width="12%">
+<span class="item_img">
+<img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item18.png" width="100%"/>
+</span>
+</td>
+<td class="bd_l_none">素材交換券 1張
+</td>
+<td class="item_list_02" width="12%">
+<span class="item_img">
+<img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item11.png" width="100%"/>
+</span>
+</td>
+<td class="bd_l_none" colspan="3">聖晶石 2個</td>
+</tr>
+<!-- -->
+<tr>
+<td>第7天</td>
+<td class="item_list" width="12%">
+<span class="item_img">
+<img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item18.png" width="100%"/>
+</span>
+</td>
+<td class="bd_l_none">素材交換券 1張
+</td>
+<td class="item_list_02" width="12%">
+<span class="item_img">
+<img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item10.png" width="100%"/>
+</span>
+</td>
+<td class="bd_l_none" width="10%">呼符 1張</td>
+<td class="item_list_02" width="12%">
+<span class="item_img">
+<img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item19.png" width="100%"/>
+</span>
+</td>
+<td class="bd_l_none">
+<span class="notice">獸之足跡 1個</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="em01">
+<p>
+<span class="indent notice">
+※恆常連續登入獎勵自8/5(一) 3:00翻新成上述內容。
+</span>
+</p>
+</div>
+<p><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/info_image_08.png"/></p>
+<p class="heading" id="ttl_sub4"><img alt="見出し" src="common/images/2019/4th_fgofes2019_full_sprju/midashi_c_03.png"/></p>
+<div class="em01">
+<p>
+	通過下述的期間中在迦勒底之門出現的「指令卡強化」釋出記念關卡，得到指令卡強化素材「獸之足跡」吧！	
+	</p>
+<p>
+<span class="indent">
+	※請注意「指令卡強化」釋出記念關卡沒有文字冒險部份。	
+	</span>
+</p>
+</div>
+<p><span class="diamond">◆</span><span class="strong">舉辦期間</span><span class="diamond">◆</span><br/>
+<span class="em01">2019年8月4日(日) 18:00～8月14日(三) 11:59</span></p>
+<p><span class="diamond">◆</span><span class="strong">關卡開放條件</span><span class="diamond">◆</span><br/>
+<span class="em01">
+<span class="notice">滿足以下條件的御主才能參加</span>
+<span class="indent notice">・通過「特異點F 炎上汙染都市 冬木」
 	</span>
 </span></p>
-</div>
+<p><span class="diamond">◆</span><span class="strong">通過報酬</span><span class="diamond">◆</span><br/>
+<span class="em01">指令卡強化素材「獸之足跡」 1個</span></p>
+<!--/block-->
+<!--blockその9-->
+<p class="heading" id="ttl9"><img alt="見出し" src="common/images/2019/4th_fgofes2019_full_sprju/midashi_a_09.png"/></p>
 <div class="em01">
 <p>
-<span class="indent">※本頁面皆為開發中圖片。會有與實際圖片相異的情況。</span>
+		翻新聖晶石召喚，需要聖晶石數相同，10次召喚增量成11次召喚！<br/>
 </p>
 </div>
-<!-- block -->
-<p class="heading" id="ttl2"><img alt="見出し" src="common/images/2019/4th_fgofes2019_ydygf/midashi_a_02.png"/></p>
+<div class="attention_red">
+<p>
+		透過1次召喚的獎勵，各聖晶石召喚個別計算。<br/>
+		例如，在期間限定聖晶石召喚計算1次的情況，就算在故事召喚進行1次召喚，期間限定聖晶石召喚的計算仍是1。<br/>
+		同様地，就算在Pick&#32;Up召喚1進行9次1次召喚的情況，Pick&#32;Up召喚2的計算仍是1。<br/>
+		另外，無法橫跨期間限定聖晶石召喚保留計算。中途進行1次召喚完期間限定聖晶石召喚就結束，切換到新的期間限定聖晶石召喚時，計算從1重置。
+		</p>
+</div>
 <div class="em01">
 <p>
-	為了記念4周年，預定舉辦收集殘留特異點F及從亞種特異點Ⅰ到亞種特異點Ⅳ、從第2部 第1章到第2部 第4章印象的戰鬥「4周年記念回憶關卡」！<br/>
-	通過在迦勒底之門內出現「回憶關卡」的話，可入手<span class="notice">期間限定概念禮裝「英靈祭裝」</span>！<br/>
+		另外自本次的翻新實施後，★5(SSR)從者單獨Pick&#32;Up時的抽出機率調整為比以往來得高。	
+		</p>
+</div>
+<p><span class="diamond">◆</span><span class="strong">翻新實施時間</span><span class="diamond">◆</span><br/>
+<span class="em01">2019年8月4日(日) 18:00～</span></p>
+<p><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/info_image_09.png"/></p>
+<p><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/info_image_10.png"/></p>
+<div class="em01">
+<p>
+<span class="indent">
+	※中途進行1次召喚完期間限定聖晶石召喚就結束，<span class="notice">切換到新的期間限定聖晶石召喚時，計算從1重置</span>。	
+	</span>
+<span class="indent">
+	※所有靠有償聖晶石、無償聖晶石、呼符進行1次召喚情況同樣都計算召喚次數，在第10次進行獎勵的2次召喚。	
+	</span>
+<span class="indent notice">
+	※獎勵計算是各聖晶石召喚保存，不會與其他聖晶石召喚共有計算。
+	</span>
+<span class="indent">
+	※請注意在本修改前進行的1次召喚不包含在計算內。</span>
+<span class="indent">
+	※在友情點數召喚沒有獎勵召喚，與以往一樣是1次召喚或10次召喚。</span>
+</p>
+</div>
+<!--/block-->
+<!--blockその10-->
+<p class="heading" id="ttl10"><img alt="見出し" src="common/images/2019/4th_fgofes2019_full_sprju/midashi_a_10.png"/></p>
+<p><a href="gacha_4th_luckybag.html"><img alt="" src="common/images/2019/4th_luckybag_szots/top_banner.png"/></a></p>
+<div class="em01">
+<p>
+		舉辦★5(SSR)從者之中對象「只限期間限定從者」，確定1位★5(SSR)從者的「FGO Fes. 2019 ～4th Anniversary～ 福袋召喚」！<br/>
+		這次是用有償聖晶石15個進行比以往的福袋召喚多1次份的「11次召喚」！<br/>
+		詳情請自上述橫幅確認。
+
+		</p>
+</div>
+<p><img alt="" src="common/images/2019/4th_luckybag_szots/info_image_01.png"/></p>
+<!--block-->
+<p class="heading" id="ttl11"><img alt="見出し" src="common/images/2019/4th_fgofes2019_full_sprju/midashi_b_01.png"/></p>
+<div class="em01">
+<p>
+		翻新「★4(SR)美狄亞〔Lily〕」「★3(R)呂布奉先」的戰鬥動作及寶具演出！<br/>
+		在「Fate/Grand Order」在官方網站內的公告中，以影片公開寶具演出，敬請確認。
+
+		</p>
+</div>
+<p><span class="diamond">◆</span><span class="strong">翻新實施時間</span><span class="diamond">◆</span><br/>
+<span class="em01">2019年8月4日(日) 18:00～</span></p>
+<div class="em01">
+<p>
+【美狄亞〔Lily〕】	
+</p>
+<p><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/info_ss_05.png"/></p>
+</div>
+<!-- <p><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/info_ss_01.png"/></p> -->
+<div style="position:relative;height:0;padding-bottom:56.25%;margin-bottom:15px;">
+<iframe src="https://www.youtube.com/embed/JdD-WAw_dxY?ecver=2" width="520" height="293" frameborder="0" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe>
+</div>
+<div class="em01">
+<p>
+【呂布奉先】
+</p>
+<p><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/info_ss_06.png"/></p>
+</div>
+<!-- <p><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/info_ss_02.png"/></p> -->
+<div style="position:relative;height:0;padding-bottom:56.25%;margin-bottom:15px;">
+<iframe src="https://www.youtube.com/embed/SFH_VVU86dk?ecver=2" width="520" height="293" frameborder="0" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe>
+</div>
+<!--/block-->
+<!--block--->
+<p class="heading" id="ttl12"><img alt="見出し" src="common/images/2019/4th_fgofes2019_full_sprju/midashi_b_02.png"/></p>
+<div class="em01">
+<p>
+		在友情點數召喚新追加4位★2(UC)從者、3位★1(C)從者。<br/>
+		關於做為新登場的7位從者詳情，請在<a href="event_4th_newservant.html">此處</a>的公告確認。	
+		</p>
+</div>
+<p><span class="diamond">◆</span><span class="strong">追加時間</span><span class="diamond">◆</span><br/>
+<span class="em01">2019年8月4日(日) 18:00～</span></p>
+<p><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/info_image_11.png"/></p>
+<div class="table_box">
+<table align="center" class="trbgcolor" style=";;margin-bottom: 10px;" width="100%">
+<tbody>
+<tr>
+<th width="30%">職階</th>
+<th width="20%">稀有度</th>
+<th width="50%">從者名</th>
+</tr>
+<tr class="tr_height">
+<td>Saber</td>
+<td class="servant_star">★</td>
+<td>伊阿宋</td>
+</tr>
+<tr class="tr_height">
+<td>Archer</td>
+<td class="servant_star">★★</td>
+<td>帕里斯</td>
+</tr>
+<tr class="tr_height">
+<td>Lancer</td>
+<td class="servant_star">★★</td>
+<td>加雷斯</td>
+</tr>
+<tr class="tr_height">
+<td>Rider</td>
+<td class="servant_star">★</td>
+<td>巴沙洛繆・羅伯茨
+</td>
+</tr>
+<tr class="tr_height">
+<td>Caster</td>
+<td class="servant_star">★★</td>
+<td>陳宮
+</td>
+</tr>
+<tr class="tr_height">
+<td>Assassin</td>
+<td class="servant_star">★</td>
+<td>夏綠蒂・科黛
+</td>
+</tr>
+<tr class="tr_height">
+<td>Berserker</td>
+<td class="servant_star">★★</td>
+<td>莎樂美
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--/block-->
+<!--block-->
+<p class="heading" id="ttl13"><img alt="見出し" src="common/images/2019/4th_fgofes2019_full_sprju/midashi_b_03.png"/></p>
+<div class="em01">
+<p>
+		向所有的御主對象，實裝將1位從者進行無論從哪個再臨階段一口氣到最終再臨的「特別再臨」功能。<br/>
+		「特別再臨」可不消耗靈基再臨所需道具和QP，將喜好的從者靈基再臨到最終再臨。另外進行「特別再臨」的從者，會提升到在最終再臨的靈基再臨所需的等級。<br/>
+		「特別再臨」可自「MENU」＞「強化」的「特別再臨(從者進化)」進行。
+
+
+		</p>
+</div>
+<p><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/info_image_19.png"/></p>
+<p><span class="diamond">◆</span><span class="strong">追加時間</span><span class="diamond">◆</span><br/>
+<span class="em01">2019年8月4日(日) 18:00～</span></p>
+<div class="em01">
+<p>
+<span class="indent notice">
+		※新開始遊戲御主的使用期限是從通過「特異點F 炎上汙染都市 冬木 第3節 進行度1」後的90天內。	
+		</span>
+<span class="indent notice">
+		※在本功能實裝已經遊玩御主的使用期限在2019年11月2日(六) 17:59失效。	
+		</span>
+<span class="indent notice">
+		※進行「特別再臨」或未使用就超過期限的話，「特別再臨」鍵會自「強化」畫面一覧消失。	
+		</span>
+</p>
+</div>
+<p><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/info_image_12.png"/></p>
+<div class="attention">
+<p><span class="diamond">◆</span><span class="strong">有關「特別再臨」的注意</span><span class="diamond">◆</span><br/>
+<span class="indent">
+		※「特別再臨」的進行，<span class="notice">1個帳號只限1次</span>。	
+		</span>
+<span class="indent">
+		※就算在本功能實裝已經遊玩的御主，也能使用「特別再臨」。
+		</span>
+<span class="indent">
+		※關於配合故事進行而靈基再臨從者、期間限定加入從者、需要専用靈基再臨素材的從者無法進行「特別再臨」。	
+		</span>
+<span class="indent">
+		※請注意途中就算對尚未結束靈基再臨的從者進行「特別再臨」情況，也<span class="notice">不會返還在那之前使用的靈基再臨素材及QP</span>。</span>
+</p>
+</div>
+<!--/block-->
+<!--block--->
+<!--/block-->
+<!--block-->
+<p class="heading" id="ttl14"><img alt="見出し" src="common/images/2019/4th_fgofes2019_full_sprju/midashi_a_11.png"/></p>
+<div class="em01">
+<p>
+		為了記念4周年，舉辦收集殘留特異點F及從亞種特異點Ⅰ到亞種特異點Ⅳ、從第2部 第1章到第2部 第4章印象的戰鬥「4周年記念回憶關卡」！<br/>
+		通過在迦勒底之門內出現「回憶關卡」的話，可入手<span class="notice">期間限定概念禮裝「英靈祭裝」</span>！
+		</p>
+</div>
+<p><span class="diamond">◆</span><span class="strong">回憶關卡舉辦期間</span><span class="diamond">◆</span><br/>
+<span class="em01">2019年8月3日(六) 8:00～8月14日(三) 11:59</span></p>
+<p><span class="diamond">◆</span><span class="strong">期間限定概念禮裝「英靈祭裝」交換期間</span><span class="diamond">◆</span><br/>
+<span class="em01">2019年8月3日(六) 8:00～8月21日(三) 11:59</span></p>
+<div class="em01">
+<p>
+	期間限定概念禮裝「英靈祭裝」的所有插圖都是新繪製！	
+	</p>
+<p>
+	使用通過「回憶關卡」後入手的「FGO Fes. 2019 英靈祭裝券」，<span class="notice">可從全39張之中選擇最多2張喜愛的入手。</span>
+</p>
+<p>
+	「回憶關卡」就算通過後也不會消失，能無數次挑戰，可以變更從者和概念禮裝的組合後再次挑戰。	
+	</p>
+</div>
+<div class="attention">
+<p><span class="diamond">◆</span><span class="strong">「FGO Fes. 2019 英靈祭裝券」交換對象</span><span class="diamond">◆</span><br/>
+<span class="em01">做為交換對象「英靈祭裝」全39張開放條件的詳情請在<a href="event_4th_eireisaisou.html">此處</a>的公告確認。</span></p>
+</div>
+<p><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/info_image_13.png"/></p>
+<div class="em01">
+<p>
+<span class="indent notice">
+		※關卡通過報酬、戰利品、御主EXP、魔術禮裝EXP、絆點數只可在初次通過時獲得。
+		</span>
+<span class="indent">
+		※「FGO Fes. 2019 英靈祭裝券」可藉由點擊管理室(ターミナル)畫面右上的「活動報酬」鍵或在達文西工房內的「活動道具交換」點擊活動看板，交換活動道具。
+		</span>
+<span class="indent">
+		※透過通過「回憶關卡」入手的「FGO Fes. 2019 英靈祭裝券」最多2張。	
+		</span>
+<span class="indent notice">
+		※請注意做為交換對象的期間限定概念禮裝「英靈祭裝」種類會透過主線關卡通過狀況有所變化。
+		</span>
+</p>
+</div>
+<p><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/info_image_14.png"/></p>
+<p class="btn">
+<a href="event_4th_eireisaisou.html">關於全39張「英靈祭裝」的詳情在此</a></p>
+<!--/block-->
+<!--block-->
+<p class="heading" id="ttl15"><img alt="見出し" src="common/images/2019/4th_fgofes2019_full_sprju/midashi_b_04.png"/></p>
+<div class="float_box">
+<div class="float_right_box" style="width: 25%;">
+<img alt="" src="common/images/2019/4th_fgofes2019_02_noqdg/info_image_04.png"/>
+</div>
+<div class="float_none_box">
+<div class="em01">
+<p>
+	【8月3日(六) 8:00更新】<br/>
+	連續2天2019年8月3日(六)・4日(日)在幕張Messe 國際展示場舉辦的「Fate/Grand Order Fes. 2019 ～迦勒底樂園～」。<br/>
+	在那會場進行的最大傷害試行的活動，將做為遊戲內的關卡2天內間以限定配信！
+	</p>
+</div>
+<div class="attention2">
+<p>
+	並且，在活動會場無論哪個到場的御主，在會場內<span class="notice">撃破17名以上</span>的話贈送所有玩家<span class="notice">聖晶石30個</span>！<br/>
 <br/>
-	期間限定概念禮裝「英靈祭装」的所有插圖都是新繪製！<br/>
-	使用通過「回憶關卡」後入手的「FGO Fes. 2019 英靈祭裝券」，<span class="notice">可從全39張之中選擇最多2張喜愛的入手。</span><br/>
-	從那之中，介紹一部份期間限定概念禮裝「英靈祭裝」！
-	</p>
-<p>
-	
-	「回憶關卡」就算通過後也不會消失，能無數次挑戰，可以變更從者和概念禮裝的組合後再次挑戰。
-	</p>
+<span class="indent">※做為「niconico生放送特別節目連動宣傳活動報酬」一部份的「戰鬥競技場挑戰達成報酬」，在初次登入時贈送。(8/4 17:00追記)</span></p>
 </div>
-<p>
-<img alt="" src="common/images/2019/4th_fgofes2019_ydygf/info_image_01.png"/>
-</p>
+</div>
+</div>
 <div class="em01">
 <p>
-	關於今後預定的宣傳活動等將日後公開。	
+	4周年記念最多敵人撃破數試行關卡是競爭「以規定回合數擊倒幾位敵人」的特殊關卡。<br/>
+	通過後也不會消失，可以變更從者和概念禮裝的組合後無數次挑戰。<br/>
+	還有，最大敵人撃破數試行關卡只限自己的持有從者編成隊伍(無法使用支援的從者)<br/>
+	靠培育的自豪者挑戰，挑戰自己最高記錄吧！
 	</p>
+<p>
+<span class="indent notice">
+	※2種最多敵人撃破數試行關卡會在迦勒底之門內配信。
+	</span>
+<span class="indent notice">
+	※敵人撃破數各關卡分別統計，會做為最高的「最多撃破記錄」記錄。
+	</span>
+<span class="indent notice">
+	※請注意在4周年記念最多敵人撃破數試行關卡沒有關卡通過報酬等。
+	</span>
+<span class="indent notice">
+	※只限初次通過時可獲得戰利品、御主EXP、魔術禮裝EXP、絆點數。	
+	</span>
+<span class="indent notice">	
+	※本試行關卡中無法使用接關。
+	</span>
+<span class="indent notice">	
+	※透過敗北及撤退結束戰鬥的情況，無法保存記錄。
+	</span>
+</p>
+</div>
+<p><span class="diamond">◆</span><span class="strong">舉辦期間</span><span class="diamond">◆</span><br/>
+<span class="em01">關卡1:2019年8月3日(六) 8:00～22:59</span>
+<span class="em01">關卡2:2019年8月4日(日) 8:00～22:59</span>
+</p>
+<p><span class="diamond">◆</span><span class="strong">活動參加條件</span><span class="diamond">◆</span><br/>
+<span class="em01 notice">滿足以下條件的御主才能參加
+		<span class="indent">・通過「特異點F 炎上汙染都市 冬木」</span>
+</span>
+</p>
+<p><img alt="" src="common/images/2019/4th_fgofes2019_02_noqdg/info_ss_01.png"/></p>
+<!--/block-->
+<!--block-->
+<p class="heading" id="ttl16"><img alt="見出し" src="common/images/2019/4th_fgofes2019_full_sprju/midashi_a_12.png"/></p>
+<div class="em01">
+<p>
+		以期間限定在達文西工房的「<span class="notice">魔力稜鏡交換</span>」追加下述的概念禮裝及道具。	
+		</p>
+</div>
+<p><span class="diamond">◆</span><span class="strong">魔力稜鏡交換＆期間限定概念禮裝</span><span class="diamond">◆</span><br/></p>
+<table class="table_non mt-15 table_color">
+<tbody>
+<tr>
+<td class="reisou_left">
+<img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/gainenreisou_01.png"/>
+</td>
+<td class="reisou_right">
+<p>
+<span class="star">★★★★★SSR</span><br/>
+　<span class="gainen_ttl">名探偵フォウムズ</span><br/>
+　<span class="gainen_atk">ATK</span> 500(最大:2000)　<span class="gainen_hp">HP</span> 0 <br/>
+　<span class="gainen_skill">技能</span><br/>
+<span class="skill01">從掉落獲得的QP量增加1%＆通過關卡時獲得的絆增加1%
+</span>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<p><span class="diamond">◆</span><span class="strong">概念禮裝交換期間</span><span class="diamond">◆</span><br/>
+<span class="em01">2019年8月4日(日) 18:00～10月31日(四) 22:59
+		</span></p>
+<div class="table_box">
+<table align="center" class="trbgcolor" style=";;margin-bottom: 10px;" width="100%">
+<tbody>
+<tr>
+<th width="40%">追加道具</th>
+<th width="30%">能交換次數</th>
+<th width="30%">1次交換所需<br/>魔力稜鏡數</th>
+</tr>
+<tr class="tr_height">
+<td><span class="notice">【期間限定】</span><br/>
+名探偵フォウムズ
+</td>
+<td>5次</td>
+<td>1000個</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="em01">
+<p>
+<span class="indent">
+	※8月5日(一) 17:00誤字修正	
+	</span>
+</p>
+</div>
+<div class="float_box">
+<div class="float_right_box" style="width: 28%;">
+<img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/info_image_15.png"/>
+</div>
+<div class="float_none_box">
+<p><span class="diamond">◆</span><span class="strong">道具交換期間</span><span class="diamond">◆</span><br/>
+<span class="em01">2019年8月4日(日) 18:00～8月14日(三) 11:59
+		</span></p>
+</div>
+</div>
+<div class="table_box">
+<table align="center" class="trbgcolor" style=";;margin-bottom: 10px;" width="100%">
+<tbody>
+<tr>
+<th colspan="2" width="60%">追加道具</th>
+<th width="15%">能交換<br/>次數</th>
+<th width="25%">1次交換所需<br/>魔力稜鏡數</th>
+</tr>
+<tr>
+<td class="item_list" width="12%"><span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item12.png"/></span></td>
+<td class="bd_l_none"><span class="notice">【期間限定】</span><br/>Quick紋章開啟器</td>
+<td>3次</td>
+<td>50個</td>
+</tr>
+<tr>
+<td class="item_list" width="12%"><span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item13.png"/></span></td>
+<td class="bd_l_none"><span class="notice">【期間限定】</span><br/>Arts紋章開啟器</td>
+<td>3次</td>
+<td>50個</td>
+</tr>
+<tr>
+<td class="item_list" width="12%"><span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item14.png"/></span></td>
+<td class="bd_l_none"><span class="notice">【期間限定】</span><br/>Buster紋章開啟器</td>
+<td>3次</td>
+<td>50個</td>
+</tr>
+<tr>
+<td class="item_list" width="12%"><span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item15.png"/></span></td>
+<td class="bd_l_none"><span class="notice">【期間限定】</span><br/>紋章移除器</td>
+<td>3次</td>
+<td>100個</td>
+</tr>
+<tr>
+<td class="item_list" width="12%"><span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item10.png"/></span></td>
+<td class="bd_l_none"><span class="notice">【期間限定】</span><br/>呼符</td>
+<td>10次</td>
+<td>10個</td>
+</tr>
+<tr>
+<td class="item_list" width="12%"><span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item03.png"/></span></td>
+<td class="bd_l_none"><span class="notice">【期間限定】</span><br/>叡智的猛火ALL★4(SR)10張セット</td>
+<td>10次</td>
+<td>20個</td>
+</tr>
+<tr>
+<td class="item_list" width="12%"><span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item05.png"/></span></td>
+<td class="bd_l_none"><span class="notice">【期間限定】</span><br/>英靈結晶・星之芙芙ALL★3(HP)
+</td>
+<td>30次</td>
+<td>5個</td>
+</tr>
+<tr>
+<td class="item_list" width="12%"><span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item04.png"/></span></td>
+<td class="bd_l_none"><span class="notice">【期間限定】</span><br/>英靈結晶・太陽之芙芙ALL★3(ATK)
+</td>
+<td>30次</td>
+<td>5個</td>
+</tr>
+</tbody>
+</table>
+</div><!--table-->
+<br/>
+<!--/block-->
+<!--block-->
+<p class="heading" id="ttl17"><img alt="見出し" src="common/images/2019/4th_fgofes2019_full_sprju/midashi_a_13.png"/></p>
+<div class="float_box">
+<div class="float_right_box" style="width: 30%;">
+<img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/info_image_16.png"/>
+</div>
+<div class="float_none_box">
+<p>
+<span class="em01">以期間限定在達文西工房的「<span class="notice">稀有稜鏡交換</span>」追加下述的道具。</span>
+</p>
+</div>
+<p><span class="diamond">◆</span><span class="strong">道具交換期間</span><span class="diamond">◆</span><br/>
+<span class="em01">2019年8月4日(日) 18:00～8月14日(三) 11:59
+		</span></p>
+</div>
+<div class="table_box">
+<table align="center" class="trbgcolor" style=";;margin-bottom: 10px;" width="100%">
+<tbody>
+<tr>
+<th colspan="2" width="60%">追加道具</th>
+<th width="15%">能交換<br/>次數</th>
+<th width="25%">1次交換所需<br/>稀有稜鏡數</th>
+</tr>
+<tr>
+<td class="item_list" width="12%"><span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item17.png"/></span></td>
+<td class="bd_l_none"><span class="notice">【期間限定】</span><br/>迦勒底的夢火
+</td>
+<td>1次</td>
+<td>3個</td>
+</tr>
+<tr>
+<td class="item_list" width="12%"><span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item15.png"/></span></td>
+<td class="bd_l_none"><span class="notice">【期間限定】</span><br/>紋章移除器</td>
+<td>3次</td>
+<td>1個</td>
+</tr>
+<tr>
+<td class="item_list" width="12%"><span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item16.png"/></span></td>
+<td class="bd_l_none"><span class="notice">【期間限定】</span><br/>傳承結晶</td>
+<td>1次</td>
+<td>5個</td>
+</tr>
+<tr>
+<td class="item_list" width="12%"><span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item08.png"/></span></td>
+<td class="bd_l_none"><span class="notice">【期間限定】</span><br/>英靈結晶・流星之芙芙ALL★4(HP)
+</td>
+<td>1次</td>
+<td>3個</td>
+</tr>
+<tr>
+<td class="item_list" width="12%"><span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item09.png"/></span></td>
+<td class="bd_l_none"><span class="notice">【期間限定】</span><br/>英靈結晶・日輪之芙芙ALL★4(ATK)
+
+</td>
+<td>1次</td>
+<td>3個</td>
+</tr>
+<tr>
+<td class="item_list" width="12%"><span class="item_img"><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/list_item02.png"/></span></td>
+<td class="bd_l_none"><span class="notice">【期間限定】</span><br/>友情點數 20,000pt
+</td>
+<td>5次</td>
+<td>1個</td>
+</tr>
+</tbody>
+</table>
+</div><!--table-->
+<br/>
+<!--/block-->
+<!--block-->
+<!--block-->
+<p class="heading" id="ttl18"><img alt="見出し" src="common/images/2019/4th_fgofes2019_full_sprju/midashi_b_05.png"/></p>
+<div class="em01">
+<p>
+		贈送在2019年8月4日(日) 放送「Fate/Grand Order 迦勒底放送局 4周年SP」進行的特別節目連動宣傳活動報酬！
+		</p>
+</div>
+<div class="float_box">
+<div class="float_right_box" style="width: 35%">
+<img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/info_image_17.png"/>
+</div>
+<div class="float_none_box">
+<p><span class="diamond">◆</span><span class="strong">領取期間</span><span class="diamond">◆</span><br/>
+<span class="em01"><span class="notice">2019年8月5日(一) 3:00～8月12日(一) 2:59</span><br/>
+		上述期間中，在初次登入「Fate/Grand Order」時間點，贈予至禮物箱
+<p><span class="diamond">◆</span><span class="strong">贈送內容</span><span class="diamond">◆</span><br/>
+<span class="em01"><span class="notice">聖晶石 90個</span><br/>
+		(7萬RT達成報酬<span class="notice">60個</span>＋戰鬥競技場挑戰達成報酬<span class="notice">30個</span>)
+		</span></p>
+<p><span class="diamond">◆</span><span class="strong">領取條件</span><span class="diamond">◆</span><br/>
+<span class="em01">
+<span class="notice">
+		在2019年8月5日(一) 2:59前通過「特異點F 炎上汙染都市 冬木」的御主對象	
+		</span>
+</span></p>
+<p>
+<span class="em01">
+<span class="indent notice">
+		※期間內未登入的話無法領取。	
+		</span>
+<span class="indent">
+		※禮物只能領取1次。	
+		</span>
+</span>
+</p>
+</div>
+</div>
+<!--/block--->
+<!--block-->
+<p class="heading" id="ttl19"><img alt="見出し" src="common/images/2019/4th_fgofes2019_full_sprju/midashi_b_06.png"/></p>
+<div class="em01">
+<p>
+		在迦勒底之門內能觀賞TV動畫「Fate/Grand Order -絕對魔獸戰線巴比倫尼亞-」Episode0的特別關卡以期間限定登場！<br/>
+		在遊戲內搶先一步享受動畫的世界！
+
+		</p>
+<p>
+<span class="indent">
+		※資料下載所需總容量約262MB，請確保使用的裝置有足夠的空間。
+		</span>
+<span class="indent notice">
+		※請注意本影片觀賞也不會登錄到圖鑑(マテリアル)。	
+		</span>
+<span class="indent notice">
+		※使用行動網路的情況，請注意通訊限制等。	
+		</span>
+</p>
+</div>
+<div class="attention_red">
+<p>
+<span class="indent">
+		※本關卡會有根據使用裝置的音量設定讓一部份演出以大音量播放的情況。請事先確認使用裝置的音量，享受活動。
+		</span>
+</p>
+</div>
+<p><span class="diamond">◆</span><span class="strong">關卡配信期間</span><span class="diamond">◆</span><br/>
+<span class="em01">2019年8月4日(日) 18:00～8月11日(日) 11:59
+		</span></p>
+<p><span class="diamond">◆</span><span class="strong">參加條件</span><span class="diamond">◆</span><br/>
+<span class="em01">
+<span class="notice">所有的御主對象</span>
+<span class="indent">
+		※新御主玩家必須推進至通過「特異點F 炎上汙染都市 冬木 第3節 進行度1」。</span>
+</span></p>
+<p><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/info_ss_04.png"/></p>
+<p><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/info_image_20.png"/></p>
+<div class="em01">
+<p>
+		動畫製作：CloverWorks	
+		</p>
+</div>
+<p><img alt="" src="common/images/2019/4th_fgofes2019_full_sprju/info_image_18.png"/></p>
+<hr/>
+<div class="em01">
+<p>
+	其他還有，期間限定「FGO Fes. 2019 ～4th Anniversary～ Lostbelt＆亞種特異點Pick&#32;Up召喚(每日交替)」同時舉辦！<br/>
+	關於詳情，請自下述橫幅確認。
+	</p>
+<p>	
+	■「FGO Fes. 2019 ～4th Anniversary～ Lostbelt＆亞種特異點Pick&#32;Up召喚(每日交替)」詳細情報	
+	<a href="gacha_4th_pickup.html"><img alt="" src="common/images/2019/4th_pickup_qldmc/top_banner.png"/></a></p>
 </div>
 <!-- /block -->
 </article>
