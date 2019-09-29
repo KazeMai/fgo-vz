@@ -1026,3 +1026,29 @@ max-width: 210px;
 	background: no-repeat 2% center, linear-gradient(to bottom, rgba(0, 110, 150,1) 0%, rgba(20, 165, 210,1) 87%, rgba(20, 165, 210,1) 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006e96', endColorstr='#14a5d2', GradientType=0 ); /* IE6-9 */
 }
+
+
+/* 表の背景赤ピンク色 */
+.tb_col_pink {
+    background: no-repeat 2% center, rgb(190, 30, 40);
+    background: no-repeat 2% center, -moz-linear-gradient(top, rgb(190, 30, 40) 0%, rgb(230, 80, 90) 100%);
+    background: no-repeat 2% center, -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(190, 30, 40)), color-stop(87%, rgba(230, 80, 90)), color-stop(100%, rgba(230, 80, 90)));
+    background: no-repeat 2% center, -webkit-linear-gradient(top, rgb(190, 30, 40) 0%, rgb(230, 80, 90) 100%);
+    background: no-repeat 2% center, -o-linear-gradient(top, rgb(190, 30, 40) 0%, rgb(230, 80, 90) 100%);
+    background: no-repeat 2% center, -ms-linear-gradient(top, rgb(190, 30, 40) 0%, rgb(230, 80, 90) 100%);
+    background: no-repeat 2% center, linear-gradient(to bottom, rgba(190, 30, 40,1) 0%, rgba(230, 80, 90,1) 87%, rgba(230, 80, 90,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#be1e28', endColorstr='#e6505a', GradientType=0 );
+}
+
+
+.slash{
+	background: #bbb;
+}
+
+.table_box h2 {
+    color: #02509F;
+    margin-top: 0;
+    font-size: 1.1em;
+    text-shadow: 1px 1px 1px #c2c2c2;
+    font-weight: bold;
+}
