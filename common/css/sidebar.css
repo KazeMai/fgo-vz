@@ -15,6 +15,10 @@
   overflow:auto;*/
   margin:8px 0px 0px 255px;position:absolute;
 }
+.exchage_box{
+display: inline-block;
+vertical-align : top;
+}
 .sidebar{
 background-position: 35px;
   background-size:179px 35px;
