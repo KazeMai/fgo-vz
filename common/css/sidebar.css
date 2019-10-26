@@ -1056,3 +1056,44 @@ max-width: 210px;
     text-shadow: 1px 1px 1px #c2c2c2;
     font-weight: bold;
 }
+
+/*******item_list*******/
+
+.table_box .item_list{
+	border-right: 0;
+	box-shadow:0px 2px 0px rgba(0,0,0,0.1);
+}
+
+.table_box .item_list_02{
+	border-right: 0;
+	border-left: 0;
+	box-shadow:0px 2px 0px rgba(0,0,0,0.1);
+}
+
+
+.table_box .bd_l_none{
+	border-left: 0;
+	padding: 0;
+	box-shadow:0px 2px 0px rgba(0,0,0,0.1);
+}
+
+.table_box .item_img{
+	max-width: 50%;
+	margin-top: 5px;
+	display: block;
+}
+
+
+/*表の色変更*/
+
+.bg01{
+	background-color: #d5eaed;
+}
+
+.bg02{
+	background-color: #edd8db;
+}
+
+.bg03{
+	background-color: #f4e9e6;
+}
