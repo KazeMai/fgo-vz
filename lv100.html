@@ -32,7 +32,7 @@ var classarray=[],rarityarray=[],gTarray=[];
 function svtTableOut(){var b="";for(i in master.mstSvt)if((1==master.mstSvt[i].type||2==master.mstSvt[i].type)&&0!=master.mstSvt[i].collectionNo){for(var a in master.mstSvtLimit)if(master.mstSvtLimit[a].svtId==master.mstSvt[i].id&&master.mstSvtLimit[a].limitCount==master.mstSvt[i].limitMax)break;b+="<tr class='svtList' data-svtid='"+master.mstSvt[i].id+"' data-rarityl='"+master.mstSvtLimit[a].rarity+"' data-classl='"+master.mstSvt[i].classId+"' data-typel='"+master.mstSvt[i].battleSize+'\' align="center"><td>'+
 master.mstSvt[i].collectionNo+"</td><td><a href='svtData.html?no="+master.mstSvt[i].collectionNo+"'>"+findSvtNameZh2(master.mstSvt[i].id)+"</a></td><td><span style='display:none'>"+master.mstSvt[i].classId+"</span><img src='common/images/icon/class/class_"+findClassImageId(master.mstSvt[i].classId)+"_"+master.mstSvtLimit[a].rarity+".png' title='"+findClassName(master.mstSvt[i].classId)+"' class='classS' /></td><td>"+master.mstSvtLimit[a].rarity+"</td>";for(var c in master.mstSvtExp)if(master.mstSvt[i].expType==
 master.mstSvtExp[c].type&&master.mstSvtExp[c].lv==$("#svtlv").val())break;var d=Math.floor(master.mstSvtLimit[a].hpBase+(master.mstSvtLimit[a].hpMax-master.mstSvtLimit[a].hpBase)*master.mstSvtExp[c].curve/1E3),e=Math.floor(master.mstSvtLimit[a].atkBase+(master.mstSvtLimit[a].atkMax-master.mstSvtLimit[a].atkBase)*master.mstSvtExp[c].curve/1E3);b+="<td>"+d+"</td><td>"+e+"</td><td>"+(d+e)+"</td><td>"+(d+1E3)+"</td><td>"+(e+1E3)+"</td><td>"+(d+e+2E3)+"</td>"}$("#svtTable tbody").empty();$("#svtTable tbody").append(b);
-$("#svtTable").trigger("update",[this,"",""])}function initTable(){for(var b=100;0<b;b--)svtlv.options.add(new Option("Lv."+b,b));$(".rarityF").prop("checked",!0);$(".getType").prop("checked",!0);svtTableOut();$("#svtTable").tablesorter({sortList:[[0,1]],headers:{1:{sorter:!1}}});$(".classF").click(function(){classToggle($(this).data("classid"))})};
+$("#svtTable").trigger("update",[this,"",""])}function initTable(){for(var b=100;0<b;b--)svtlv.options.add(new Option("Lv."+b,b));svtTableOut();$("#svtTable").tablesorter({sortList:[[0,1]],headers:{1:{sorter:!1}}});$(".classF").click(function(){classToggle($(this).data("classid"))});$("input:checkbox").change(function(){$("#filterBtn").click()});classAllOff();$("#svtlv").change(function(){svtTableOut();updateTable()})};
 </script>
 </head>
 <body onload="loadsidebar();initTable();">
@@ -64,7 +64,8 @@ $("#svtTable").trigger("update",[this,"",""])}function initTable(){for(var b=100
     <legend>篩選條件</legend>
 	<img src="common/images/icon/class/class_1001_4.png" title="職階全選" onclick="classAllOn();" class="classA"/>
 	<img src="common/images/icon/class/class_1001_1.png" title="職階全消" onclick="classAllOff();" class="classA"/>
-	<img src="common/images/icon/class/star_new.png" title="稀有度全選/消" onclick="rarityAllOff();" class="classAR"/><br>
+	<img src="common/images/icon/class/star_new.png" title="稀有度全選" onclick="rarityAllOn();" class="classAR"/>
+	<img src="common/images/icon/class/star_clear.png" title="稀有度全消" onclick="rarityAllOff();" class="classAR"/><br>
 	<img src="common/images/icon/class/class_1_4.png" title="Saber" class="classF" data-choice="true" data-classid="1"/>
 	<img src="common/images/icon/class/class_2_4.png" title="Archer" class="classF" data-choice="true" data-classid="2"/>
 	<img src="common/images/icon/class/class_3_4.png" title="Lancer" class="classF" data-choice="true" data-classid="3"/>
@@ -91,7 +92,7 @@ $("#svtTable").trigger("update",[this,"",""])}function initTable(){for(var b=100
 	<input type="checkbox" id="gT4" class="getType" value="4"/>活動報酬
 	<input type="checkbox" id="gT5" class="getType" value="5"/>友抽限定
 	<br><select id="svtlv"></select>
-	<br><input type="button" value="開始篩選" onclick="svtTableOut();updateTable();">
+	<br><input type="button" id="filterBtn" value="開始篩選" onclick="updateTable();" style="display:none;">
   </fieldset>
 </form>
 <table onload="" id="svtTable" class="tablesorter nopadding mouseover" width=800>

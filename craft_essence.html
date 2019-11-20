@@ -34,7 +34,7 @@ master.mstSvt[b].id+'.png" />';a+="</a></td>";a+="<td>"+master.mstSvt[b].collect
 master.mstSvtLimit[c].atkMax+"</td>";for(d in master.mstSvtSkill)if(master.mstSvtSkill[d].svtId==master.mstSvt[b].id&&0==master.mstSvtSkill[d].eventId)if(0==master.mstSvtSkill[d].condLimitCount){for(var f in master.mstSkill)if(master.mstSkill[f].id==master.mstSvtSkill[d].skillId){a+="<td><img src=common/images/SkillIcon/SkillIcon_"+master.mstSkill[f].iconId+".png onerror=javascript:this.src='common/images/SkillIcon/SkillIcon_0.png' width=55></img></td>";break}a+="<td>"+findSkDetailZh(master.mstSvtSkill[d].skillId)+
 "<br>";a+="<font color=#CC00CC>"}else 4==master.mstSvtSkill[d].condLimitCount&&(a+=findSkDetailZh(master.mstSvtSkill[d].skillId));a+="</font></td>";a+="</tr>"}$("#svtTable tbody").empty();$("#svtTable tbody").append(a);updateTable();$("img.lazyload").lazyload()}
 function findSkDetailZh(a){var b="",c;for(c in skDetail)if(a==skDetail[c][0]){b=skDetail[c][1];break}if(document.getElementById("isJpTxt").checked||!b)for(c=0;c<master.mstSkillDetail.length;c++)if(a==master.mstSkillDetail[c].id){b=master.mstSkillDetail[c].detail;break}return b.replace(/<br><font color=#DDDDDD>.*<\/font>/g,"")}
-function initTable(){gTarray="1,2,3,4,5".split(/,/).slice(0);$(".rarityF").prop("checked",!0);$(".getType").prop("checked",!0);$("#gT5").prop("checked",!1);$("#gT6").prop("checked",!1);svtTableOut();$("#svtTable").tablesorter({sortList:[[1,1]],headers:{0:{sorter:!1},3:{sorter:!1},9:{sorter:!1},10:{sorter:!1},11:{sorter:!1}}})};
+function initTable(){gTarray="1,2,3,4,5".split(/,/).slice(0);$(".getType").prop("checked",!0);$("#gT5").prop("checked",!1);$("#gT6").prop("checked",!1);svtTableOut();$("#svtTable").tablesorter({sortList:[[1,1]],headers:{0:{sorter:!1},3:{sorter:!1},9:{sorter:!1},10:{sorter:!1},11:{sorter:!1}}});$("input:checkbox").change(function(){$("#filterBtn").click()})};
 </script>
 </head>
 <body onload="loadsidebar();initTable();">
@@ -51,7 +51,8 @@ function initTable(){gTarray="1,2,3,4,5".split(/,/).slice(0);$(".rarityF").prop(
 <form>
   <fieldset style="width:550px;text-align:center;">
     <legend>篩選條件</legend>
-	<img src="common/images/icon/class/star_new.png" title="稀有度全選/消" onclick="rarityAllOff();" class="classAR"/><br>
+	<img src="common/images/icon/class/star_new.png" title="稀有度全選" onclick="rarityAllOn();" class="classAR"/>
+	<img src="common/images/icon/class/star_clear.png" title="稀有度全消" onclick="rarityAllOff();" class="classAR"/><br>
 	<img src="common/images/icon/class/class_1001_4.png" title="ALL" class="classF" data-choice="true" data-classid="1001" style="display:none"/>
 	<input type="checkbox" id="rarity1" class="rarityF" value="1"/><span class="star">★</span>
 	<input type="checkbox" id="rarity2" class="rarityF" value="2"/><span class="star">★★</span>
@@ -61,9 +62,12 @@ function initTable(){gTarray="1,2,3,4,5".split(/,/).slice(0);$(".rarityF").prop(
 	<input type="checkbox" id="gT1" class="getType" value="1"/>一般常駐
 	<input type="checkbox" id="gT4" class="getType" value="4"/>絆禮裝
 	<input type="checkbox" id="gT3" class="getType" value="3"/>活動限定
+	<input type="checkbox" id="gT8" class="getType" value="8"/>綠方兌換<br>
+	<input type="checkbox" id="gT2" class="getType" value="2"/>故事限定
+	<input type="checkbox" id="gT7" class="getType" value="7"/>記念禮裝
 	<input type="checkbox" id="gT5" class="getType" value="5"/>友抽限定
 	<input type="checkbox" id="gT6" class="getType" value="6"/>強化EXP
-	<br><input type="button" value="開始篩選" onclick="updateTable();">
+	<br><input type="button" id="filterBtn" value="開始篩選" onclick="updateTable();" style="display:none;">
   </fieldset>
 </form>
 <table onload="" id="svtTable" class="tablesorter mouseover" width=1100><thead><tr><th width=60>圖示</th><th width=35>編號</th><th width=35>星數</th><th width=150>名稱</th><th width=30>Cost</th><th width=30>基本<br>HP</th><th width=30>最大<br>HP</th><th width=30>基本<br>ATK</th><th width=30>最大<br>ATK</th><th width=65>技能</th><th width=435>效果</th></tr></thead><tbody></tbody></table>
