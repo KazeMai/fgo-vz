@@ -500,26 +500,16 @@ dt.open .arrowAC{
 	font-size: 12px;
 	color: #ffffff;
 	padding: 0px 2px;
-	background: -moz-linear-gradient(
-		top,
-		#fd6a88 0%,
-		#fd093a);
-	background: -webkit-gradient(
-		linear, left top, left bottom,
-		from(#fd6a88),
-		to(#fd093a));
+	background: -moz-linear-gradient(  top,  #fd6a88 0%,  #fd093a);
+	background: -webkit-gradient(  linear, left top, left bottom,  from(#fd6a88),  to(#fd093a));
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
 	border-radius: 4px;
 	border: 1px solid #fd093a;
-	-moz-box-shadow: 0px 1px 3px rgba(000,000,000,0.5),
-		inset 0px 0px 1px rgba(255,255,255,0.5);
-	-webkit-box-shadow: 0px 1px 3px rgba(000,000,000,0.5),
-		inset 0px 0px 1px rgba(255,255,255,0.5);
-	box-shadow: 0px 1px 3px rgba(000,000,000,0.5),
-		inset 0px 0px 1px rgba(255,255,255,0.5);
-	text-shadow: 0px -1px 0px rgba(000,000,000,0.7),
-		0px 1px 0px rgba(255,255,255,0.3);
+	-moz-box-shadow: 0px 1px 3px rgba(000,000,000,0.5),  inset 0px 0px 1px rgba(255,255,255,0.5);
+	-webkit-box-shadow: 0px 1px 3px rgba(000,000,000,0.5),  inset 0px 0px 1px rgba(255,255,255,0.5);
+	box-shadow: 0px 1px 3px rgba(000,000,000,0.5),  inset 0px 0px 1px rgba(255,255,255,0.5);
+	text-shadow: 0px -1px 0px rgba(000,000,000,0.7),  0px 1px 0px rgba(255,255,255,0.3);
 	width: 40px;
 	float: right;
 	text-align: center;
