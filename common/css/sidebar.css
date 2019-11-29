@@ -169,6 +169,10 @@ div.large
 #chkJp:hover{
 	right:0px;
 }
+.deleted{
+	text-decoration: line-through;
+	color: #9E9E9E;
+}
 /* tablesorter */
 table.tablesorter {
 	font-size: 0.9em;
