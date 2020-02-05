@@ -28,7 +28,7 @@
 <script type="text/javascript">
 function cvDataOut()
 {sortByElmentType(master.mstSvt);
-	var cvTxt="<tr><th style='width:150px;'>繪師</th><th>Servant＆概念禮裝</th></tr>";
+	var cvTxt="<tr><th style='width:150px;'>繪師</th><th>從者/概念禮裝/指令紋章</th></tr>";
 	for(var i in master.mstIllustrator)
 	{
 		if(master.mstIllustrator[i].id>1)
@@ -41,11 +41,26 @@ function cvDataOut()
 					cvTxt+=svtFace(master.mstSvt[j].id);
 				}
 			}
+			for(var j in master.mstCommandCodeComment)
+			{
+				if(master.mstCommandCodeComment[j].illustratorId==master.mstIllustrator[i].id)
+				{
+					var tmpCommandCode = master.mstCommandCode[findName(master.mstCommandCode,master.mstCommandCodeComment[j].commandCodeId)];
+					cvTxt+='<a href="ccData.html?no='+tmpCommandCode.collectionNo+'"><img class="lazyload face_icon_cc face_icon_cc'+getBgKind(tmpCommandCode.rarity)+'" data-src="common/images/icon/CommandCodes/c_'+tmpCommandCode.id+'.png" /></a>';
+				}
+			}
 			cvTxt+="</td></tr>";
 		}
 	}
 	$("#cvData").append(cvTxt);
 	$("img.lazyload").lazyload();
+}
+function getBgKind(rarity)
+{
+	if(rarity==1||rarity==2) return 1;
+	else if(rarity==3) return 2;
+	else if(rarity==4||rarity==5) return 3;
+	return 0;
 }
 </script>
 </head>
