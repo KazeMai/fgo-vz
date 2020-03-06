@@ -873,6 +873,12 @@ padding-left: 1em;
     background-color: #f7d2d4;
 }
 
+.attention2{
+	padding: 1em 1em 0 1em;
+	border: solid 1.5px #e8000b;
+	margin: 10px;
+}
+
 
 /*概念礼装*/
 .reisou_left{
@@ -1096,6 +1102,12 @@ max-width: 210px;
 	display: block;
 }
 
+.table_box .border_non{
+	border-bottom: 0;
+	box-shadow: none;
+}
+
+
 
 /*表の色変更*/
 
@@ -1109,6 +1121,10 @@ max-width: 210px;
 
 .bg03{
 	background-color: #f4e9e6;
+}
+
+.bg04{
+	background-color: #ECF2F3;
 }
 
 .txt{
