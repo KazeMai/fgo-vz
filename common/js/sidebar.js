@@ -165,7 +165,7 @@ function svtFace(svtId)
 				else {txt+='no='+tmpSvt.collectionNo;}
 				
 				var dt = new Date();//AprilFool2020
-				if(dt.getMonth()==3&&dt.getDate()==1&&tmpSvt.collectionNo<=238&&tmpSvt.type!=9) {txt+='"><img data-src="common/images/icon/fgoquest/servant'+padLeft(tmpSvt.collectionNo, 3)+'_on.png" class="lazyload face_icon" title="'+findSvtNameZh2(tmpSvt.id)+'" /></a>';}
+				if(dt.getMonth()==3&&dt.getDate()==1&&tmpSvt.type!=9) {txt+='"><img data-src="common/images/icon/fgomycraft/icon_servant_'+padLeft(tmpSvt.collectionNo, 3)+'.png" class="lazyload face_icon" title="'+findSvtNameZh2(tmpSvt.id)+'" /></a>';}
 				else {txt+='"><img data-src="common/images/icon/faces/'+tmpSvt.id+'0.png" class="lazyload face_icon" title="'+findSvtNameZh2(tmpSvt.id)+'" /></a>';}
 			}
 			else if(tmpSvt.type==7)
