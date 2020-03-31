@@ -5,7 +5,7 @@ function loadsidebar()
 	 window.location.href = targetProtocol + window.location.href.substring(window.location.protocol.length);
 	}
 	if(!(location.pathname=='/fgo-vz/'||location.pathname.indexOf('index')!=-1)) {$('div.container').prepend('<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"><\/script><div style="margin:0px auto;width:728px;height:90px;background:url(\'common/images/info_banner.png\');"><ins class="adsbygoogle"     style="display:inline-block;width:728px;height:90px"     data-ad-client="ca-pub-3881979894805188"     data-ad-slot="5322095555"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});<\/script></div>');slideOpen();}
-	$('#div_right_sidebar').append('<a href="./"><div class="sidebarl" style="background-image:url(common/images/sidebar01.png);">首頁</div></a><a href="https://www.facebook.com/472978160149131/" target="_blank"><div class="sidebarl" style="background-image:url(common/images/sidebar17.png);">粉絲專頁</div></a><a href="https://discord.gg/nEaXVvS" target="_blank"><div class="sidebarl" style="background-image:url(common/images/sidebar17.png);">Discord</div></a><a href="servant.html"><div class="sidebarl" style="background-image:url(common/images/sidebar05.png);">從者</div></a><a href="skill.html"><div class="sidebar" style="background-image:url(common/images/sidebar00.png);">技能</div></a><a href="noble_phantasm.html"><div class="sidebar" style="background-image:url(common/images/sidebar00.png);">寶具</div></a><a href="lv100.html"><div class="sidebar" style="background-image:url(common/images/sidebar00.png);">HP與ATK</div></a><a href="hidden.html"><div class="sidebar" style="background-image:url(common/images/sidebar00.png);">隱藏數値</div></a><a href="craft_essence.html"><div class="sidebarl" style="background-image:url(common/images/sidebar09.png);">概念禮裝</div></a><a href="command_code.html"><div class="sidebarl" style="background-image:url(common/images/sidebar18.png);">指令紋章</div></a><a href="item_drop.html"><div class="sidebarl" style="background-image:url(common/images/sidebar15.png);">素材道具</div></a><a href="quest.html"><div class="sidebarl" style="background-image:url(common/images/sidebar04.png);">關卡</div></a><a href="master_equip.html"><div class="sidebarl" style="background-image:url(common/images/sidebar03.png);">御主相關</div></a><a href="donate.html"><div class="sidebarl" style="background-image:url(common/images/sidebar11.png);"><span class="red">贊助支持</span></div></a><div class="sidebarl" id="survey_bannner" style="background-image:url(common/images/sidebar08.png);">意見回饋</div><a href="event_history.html"><div class="sidebarl" style="background-image:url(common/images/sidebar10.png);">過去活動</div></a><a href="event_re_apocrypha.html" title="「復刻版:Apocrypha/Inheritance of Glory -Triumphal-」"><div class="sidebar_event" style="background-image:url(common/images/2020/re_apocrypha_hvazj/top_banner.png);"></div></a><a href="gacha_re_apocrypha_pu.html" title="「復刻 Fate/Apocrypha×Fate/Grand Order特別活動Pick Up召喚(每日交替)」"><div class="sidebar_event" style="background-image:url(common/images/2020/re_apocrypha_pu_xvtwl/top_banner.png);"></div></a><a href="event_atlantis_clear_cp.html" title="『「Lostbelt No.5 神代巨神海洋 亞特蘭提斯 擊落神之日」通過聲援宣傳活動』"><div class="sidebar_event" style="background-image:url(common/images/2020/atlantis_clear_cp_rdbmq/top_banner.png);"></div></a><a href="gacha_anime-ep7_cp4_pu.html" title="『TV動畫「Fate/Grand Order -絕對魔獸戰線巴比倫尼亞-」放送記念宣傳活動 第4彈 Pick Up召喚(每日交替)』"><div class="sidebar_event" style="background-image:url(common/images/2020/anime-ep7_cp4_pu_yumzm/top_banner.png);"></div></a><a href="event_anime-ep7_cp3.html" title="『TV動畫「Fate/Grand Order -絕對魔獸戰線巴比倫尼亞-」放送記念宣傳活動 第3彈』"><div class="sidebar_event" style="background-image:url(common/images/2020/anime-ep7_cp3_eqkmc/top_banner.png);"></div></a><div style="height:35px;"></div>');
+	$('#div_right_sidebar').append('<a href="./"><div class="sidebarl" style="background-image:url(common/images/sidebar01.png);">首頁</div></a><a href="https://www.facebook.com/472978160149131/" target="_blank"><div class="sidebarl" style="background-image:url(common/images/sidebar17.png);">粉絲專頁</div></a><a href="https://discord.gg/nEaXVvS" target="_blank"><div class="sidebarl" style="background-image:url(common/images/sidebar17.png);">Discord</div></a><a href="servant.html"><div class="sidebarl" style="background-image:url(common/images/sidebar05.png);">從者</div></a><a href="skill.html"><div class="sidebar" style="background-image:url(common/images/sidebar00.png);">技能</div></a><a href="noble_phantasm.html"><div class="sidebar" style="background-image:url(common/images/sidebar00.png);">寶具</div></a><a href="lv100.html"><div class="sidebar" style="background-image:url(common/images/sidebar00.png);">HP與ATK</div></a><a href="hidden.html"><div class="sidebar" style="background-image:url(common/images/sidebar00.png);">隱藏數値</div></a><a href="craft_essence.html"><div class="sidebarl" style="background-image:url(common/images/sidebar09.png);">概念禮裝</div></a><a href="command_code.html"><div class="sidebarl" style="background-image:url(common/images/sidebar18.png);">指令紋章</div></a><a href="item_drop.html"><div class="sidebarl" style="background-image:url(common/images/sidebar15.png);">素材道具</div></a><a href="quest.html"><div class="sidebarl" style="background-image:url(common/images/sidebar04.png);">關卡</div></a><a href="master_equip.html"><div class="sidebarl" style="background-image:url(common/images/sidebar03.png);">御主相關</div></a><a href="donate.html"><div class="sidebarl" style="background-image:url(common/images/sidebar11.png);"><span class="red">贊助支持</span></div></a><div class="sidebarl" id="survey_bannner" style="background-image:url(common/images/sidebar08.png);">意見回饋</div><a href="event_history.html"><div class="sidebarl" style="background-image:url(common/images/sidebar10.png);">過去活動</div></a><a href="event_re_apocrypha.html" title="「復刻版:Apocrypha/Inheritance of Glory -Triumphal-」"><div class="sidebar_event" style="background-image:url(common/images/2020/re_apocrypha_hvazj/top_banner.png);"></div></a><a href="gacha_re_apocrypha_pu.html" title="「復刻 Fate/Apocrypha×Fate/Grand Order特別活動Pick Up召喚(每日交替)」"><div class="sidebar_event" style="background-image:url(common/images/2020/re_apocrypha_pu_xvtwl/top_banner.png);"></div></a><a href="event_atlantis_clear_cp.html" title="『「Lostbelt No.5 神代巨神海洋 亞特蘭提斯 擊落神之日」通過聲援宣傳活動』"><div class="sidebar_event" style="background-image:url(common/images/2020/atlantis_clear_cp_rdbmq/top_banner.png);"></div></a><div style="height:35px;"></div>');
 	$('#survey_bannner').on("click", function() {
 		if(!confirm ('本站與FGO官方無任何關係，不受理任何投訴\n若非必要請盡量使用上面的粉絲專頁\n點擊[取消]前往') ){
 			var newwin = window.open();
@@ -153,24 +153,28 @@ function svtFace(svtId)
 	{
 		if(master.mstSvt[i].id==svtId)
 		{
-			if(master.mstSvt[i].type==6||master.mstSvt[i].type==98)
+			var tmpSvt = master.mstSvt[i];
+			if(tmpSvt.type==6||tmpSvt.type==98)
 			{
-				txt+='<a href="ceData.html?no='+master.mstSvt[i].collectionNo+'"><img data-src="common/images/icon/faces/'+master.mstSvt[i].id+'.png" class="lazyload face_icon" title="'+master.mstSvt[i].name+'" /></a>';
+				txt+='<a href="ceData.html?no='+tmpSvt.collectionNo+'"><img data-src="common/images/icon/faces/'+tmpSvt.id+'.png" class="lazyload face_icon" title="'+tmpSvt.name+'" /></a>';
 			}
-			else if(master.mstSvt[i].type==1||master.mstSvt[i].type==2||master.mstSvt[i].type==5||master.mstSvt[i].type==9||master.mstSvt[i].type==99)
+			else if(tmpSvt.type==1||tmpSvt.type==2||tmpSvt.type==5||tmpSvt.type==9||tmpSvt.type==99)
 			{
 				txt+='<a href="svtData.html?';
-				if(master.mstSvt[i].collectionNo==0) txt+='id='+master.mstSvt[i].id;
-				else txt+='no='+master.mstSvt[i].collectionNo;
-				txt+='"><img data-src="common/images/icon/faces/'+master.mstSvt[i].id+'0.png" class="lazyload face_icon" title="'+findSvtNameZh2(master.mstSvt[i].id)+'" /></a>';
+				if(tmpSvt.collectionNo==0) {txt+='id='+tmpSvt.id;}
+				else {txt+='no='+tmpSvt.collectionNo;}
+				
+				var dt = new Date();//AprilFool2020
+				if(dt.getMonth()==3&&dt.getDate()==1&&tmpSvt.collectionNo<=238&&tmpSvt.type!=9) {txt+='"><img data-src="common/images/icon/fgoquest/servant'+padLeft(tmpSvt.collectionNo, 3)+'_on.png" class="lazyload face_icon" title="'+findSvtNameZh2(tmpSvt.id)+'" /></a>';}
+				else {txt+='"><img data-src="common/images/icon/faces/'+tmpSvt.id+'0.png" class="lazyload face_icon" title="'+findSvtNameZh2(tmpSvt.id)+'" /></a>';}
 			}
-			else if(master.mstSvt[i].type==7)
+			else if(tmpSvt.type==7)
 			{
-				txt+='<img src="common/images/icon/faces/'+master.mstSvt[i].id+'0.png" onerror=\'this.style.display = "none"\' class="itemM" title="'+master.mstSvt[i].name+'" />';
+				txt+='<img src="common/images/icon/faces/'+tmpSvt.id+'0.png" onerror=\'this.style.display = "none"\' class="itemM" title="'+tmpSvt.name+'" />';
 			}
 			else
 			{
-				txt+='<img src="common/images/icon/faces/'+master.mstSvt[i].id+'.png" onerror=\'this.style.display = "none"\' class="itemM" title="'+master.mstSvt[i].name+'" />';
+				txt+='<img src="common/images/icon/faces/'+tmpSvt.id+'.png" onerror=\'this.style.display = "none"\' class="itemM" title="'+tmpSvt.name+'" />';
 			}
 			isFind = true;
 			break;
