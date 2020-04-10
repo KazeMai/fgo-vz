@@ -1109,6 +1109,7 @@ max-width: 210px;
 
 
 
+
 /*表の色変更*/
 
 .bg01{
@@ -1130,4 +1131,20 @@ max-width: 210px;
 .txt{
 	font-size: 120%;
 	font-weight: bold;
+}
+
+/**center**/
+.txt_center{
+	text-align: center!important;
+}
+
+/**textbreak**/
+.wrap{
+	word-break: break-all;
+}
+
+.align{
+clear:both;
+float:left;
+width:100px;
 }
