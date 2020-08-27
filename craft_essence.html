@@ -28,14 +28,59 @@
   ga('send', 'pageview');
 </script>
 <script type="text/javascript">
-var classarray=[],rarityarray=[],gTarray=[];
-function svtTableOut(){var a="",b;for(b in master.mstSvt)if(6==master.mstSvt[b].type||98==master.mstSvt[b].type){for(var c in master.mstSvtLimit)if(master.mstSvtLimit[c].svtId==master.mstSvt[b].id)break;a+="<tr class='svtList' data-svtid='"+master.mstSvt[b].id+"' data-rarityl='"+master.mstSvtLimit[c].rarity+"' data-classl='"+master.mstSvt[b].classId+"' data-typel='"+master.mstSvt[b].battleSize+"' align=\"center\"><td><a href='ceData.html?no="+master.mstSvt[b].collectionNo+"'>";a+='<img class="lazyload face_icon" data-src="common/images/icon/faces/'+
-master.mstSvt[b].id+'.png" />';a+="</a></td>";a+="<td>"+master.mstSvt[b].collectionNo+'</td><td class="star">';for(var d=0;d<master.mstSvtLimit[c].rarity;d++)a+="\u2605";a+="</td>";a+="<td><a href='ceData.html?no="+master.mstSvt[b].collectionNo+"'>";var e=findSvtNameZh(master.mstSvt[b].id);a=e?a+e:a+master.mstSvt[b].name;a+="</a></td>";a+="<td>"+master.mstSvt[b].cost+"</td>";a+="<td>"+master.mstSvtLimit[c].hpBase+"</td><td>"+master.mstSvtLimit[c].hpMax+"</td><td>"+master.mstSvtLimit[c].atkBase+"</td><td>"+
-master.mstSvtLimit[c].atkMax+"</td>";for(d in master.mstSvtSkill)if(master.mstSvtSkill[d].svtId==master.mstSvt[b].id&&0==master.mstSvtSkill[d].eventId)if(0==master.mstSvtSkill[d].condLimitCount){for(var f in master.mstSkill)if(master.mstSkill[f].id==master.mstSvtSkill[d].skillId){a+="<td><img src=common/images/SkillIcon/SkillIcon_"+master.mstSkill[f].iconId+".png onerror=javascript:this.src='common/images/SkillIcon/SkillIcon_0.png' width=55></img></td>";break}a+="<td>"+findSkDetailZh(master.mstSvtSkill[d].skillId)+
-"<br>";a+="<font color=#CC00CC>"}else 4==master.mstSvtSkill[d].condLimitCount&&(a+=findSkDetailZh(master.mstSvtSkill[d].skillId));a+="</font></td>";a+="</tr>"}$("#svtTable tbody").empty();$("#svtTable tbody").append(a);updateTable();$("img.lazyload").lazyload()}
-function findSkDetailZh(a){var b="",c;for(c in skDetail)if(a==skDetail[c][0]){b=skDetail[c][1];break}if(document.getElementById("isJpTxt").checked||!b)for(c=0;c<master.mstSkillDetail.length;c++)if(a==master.mstSkillDetail[c].id){b=master.mstSkillDetail[c].detail;break}return b.replace(/<br><font color=#DDDDDD>.*<\/font>/g,"")}
-function initTable(){gTarray="1,2,3,4,5".split(/,/).slice(0);$(".getType").prop("checked",!0);$("#gT7").prop("checked",!1);$("#gT5").prop("checked",!1);$("#gT6").prop("checked",!1);svtTableOut();$("#svtTable").tablesorter({sortList:[[1,1]],headers:{0:{sorter:!1},3:{sorter:!1},9:{sorter:!1},10:{sorter:!1},11:{sorter:!1}}});$("input:checkbox").change(function(){$("#filterBtn").click()})};
+var classarray=[],rarityarray=[],gTarray=[],cTarray=[];
+function svtTableOut(){var b="",a;for(a in master.mstSvt)if(6==master.mstSvt[a].type||98==master.mstSvt[a].type){for(var c in master.mstSvtLimit)if(master.mstSvtLimit[c].svtId==master.mstSvt[a].id)break;var e="",f=[];for(d in master.mstSvtSkill)if(master.mstSvtSkill[d].svtId==master.mstSvt[a].id&&0==master.mstSvtSkill[d].eventId){var g=master.mstSvtSkill[d];if(0==g.condLimitCount){for(var h in master.mstSkill)if(master.mstSkill[h].id==g.skillId){e+="<td><img src=common/images/SkillIcon/SkillIcon_"+
+master.mstSkill[h].iconId+".png onerror=javascript:this.src='common/images/SkillIcon/SkillIcon_0.png' width=55></img></td><td>";for(var k in master.mstSkillLv)if(master.mstSkillLv[k].skillId==master.mstSkill[h].id){for(var m in master.mstSkillLv[k].funcId)for(var l in master.mstFunc)if(master.mstFunc[l].id==master.mstSkillLv[k].funcId[m]&&0!=master.mstFunc[l].categoryId){f.push(master.mstFunc[l].categoryId);break}break}e.replace("tr ","tr data-funcl='"+f+"' ");break}e+=findSkDetailZh(g.skillId)+"<br>"}else 4==
+g.condLimitCount&&(e+="<font color=#CC00CC>"+findSkDetailZh(g.skillId)+"</font><br/>")}b+="<tr class='svtList' data-svtid='"+master.mstSvt[a].id+"' data-rarityl='"+master.mstSvtLimit[c].rarity+"' data-classl='"+master.mstSvt[a].classId+"' data-typel='"+master.mstSvt[a].battleSize+"' data-funcl='"+f+"' align=\"center\"><td><a href='ceData.html?no="+master.mstSvt[a].collectionNo+"'>";b+='<img class="lazyload face_icon" data-src="common/images/icon/faces/'+master.mstSvt[a].id+'.png" />';b+="</a></td>";
+b+="<td>"+master.mstSvt[a].collectionNo+'</td><td class="star">';for(var d=0;d<master.mstSvtLimit[c].rarity;d++)b+="\u2605";b+="</td>";b+="<td><a href='ceData.html?no="+master.mstSvt[a].collectionNo+"'>";b=(f=findSvtNameZh(master.mstSvt[a].id))?b+f:b+master.mstSvt[a].name;b+="</a></td>";b+="<td>"+master.mstSvt[a].cost+"</td>";b+="<td>"+master.mstSvtLimit[c].hpBase+"</td><td>"+master.mstSvtLimit[c].hpMax+"</td><td>"+master.mstSvtLimit[c].atkBase+"</td><td>"+master.mstSvtLimit[c].atkMax+"</td>";b+=
+e+"</td></tr>";b+=""}$("#svtTable tbody").empty();$("#svtTable tbody").append(b);updateTable();$("img.lazyload").lazyload()}function findSkDetailZh(b){var a="",c;for(c in skDetail)if(b==skDetail[c][0]){a=skDetail[c][1];break}if(document.getElementById("isJpTxt").checked||!a)for(c=0;c<master.mstSkillDetail.length;c++)if(b==master.mstSkillDetail[c].id){a=master.mstSkillDetail[c].detail;break}return a.replace(/<br><font color=#DDDDDD>.*<\/font>/g,"")}
+function initTable(){gTarray="1,2,3,4,5".split(/,/).slice(0);$(".getType").prop("checked",!0);$("#gT7").prop("checked",!1);$("#gT5").prop("checked",!1);$("#gT6").prop("checked",!1);svtTableOut();$("#svtTable").tablesorter({sortList:[[1,1]],headers:{0:{sorter:!1},3:{sorter:!1},9:{sorter:!1},10:{sorter:!1},11:{sorter:!1}}});$("input:checkbox").change(function(){$("#filterBtn").click()});$(document).ready(function(){$("#buffType").toggle();$(".btn").click(function(){$("#buffType").toggle()})})};
 </script>
+<style type="text/css">
+.buffIcon {
+  width:20px;
+  vertical-align:top;
+}
+p.btn {
+	display: block;
+	text-align: center;
+	padding: 5px 0;
+}
+
+
+/*ボタン背景色*/
+p.btn a {
+	font-size: 14px;
+	font-weight: 600;
+	display: block;
+	text-decoration: none;
+	letter-spacing: 3px;
+	max-width: 250px;
+	width: 80%;
+	text-align: center;
+	padding: 15px 10px;
+	margin: 0 auto;
+	border-radius: 10px;
+    text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+	color: #FFFFFF;
+ 	background-color: #a7cfdf; 
+    background-image: -webkit-linear-gradient(top, #d3c2f9 0%, #956ee5 100%);
+    background-image: -o-linear-gradient(top, #d3c2f9 0%, #956ee5 100%);
+    background-image: linear-gradient(top, #d3c2f9 0%, #956ee5 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#a7cfdf, endColorstr=#23538a);
+}
+
+p.btn a:hover {
+ background-color: #82bbd1;
+ background-image: -webkit-gradient(linear, left top, left bottom, from(#82bbd1), to(#193b61));
+ background-image: -webkit-linear-gradient(top, #ae8ff7 1%, #7b4ae2 100%);
+ background-image: -moz-linear-gradient(top, #ae8ff7 1%, #7b4ae2 100%);
+ background-image: -ms-linear-gradient(top, #ae8ff7 1%, #7b4ae2 100%);
+ background-image: -o-linear-gradient(top, #ae8ff7 1%, #7b4ae2 100%);
+ background-image: linear-gradient(to bottom, #ae8ff7 1%, #7b4ae2 100%);
+ filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#82bbd1, endColorstr=#193b61);
+}
+</style>
 </head>
 <body onload="loadsidebar();initTable();">
 <!--二欄橫幅主要區塊開始-->
@@ -49,7 +94,7 @@ function initTable(){gTarray="1,2,3,4,5".split(/,/).slice(0);$(".getType").prop(
 	<div class="bkmkO">概念禮裝列表</div>
 	<a href="illustrator.html"><div class="bkmk">繪師列表</div></a><div style="clear:left;"></div>
 <form>
-  <fieldset style="width:550px;text-align:center;">
+  <fieldset style="width:600px;text-align:center;">
     <legend>篩選條件</legend>
 	<img src="common/images/icon/class/star_new.png" title="稀有度全選" onclick="rarityAllOn();" class="classAR"/>
 	<img src="common/images/icon/class/star_clear.png" title="稀有度全消" onclick="rarityAllOff();" class="classAR"/><br>
@@ -67,7 +112,117 @@ function initTable(){gTarray="1,2,3,4,5".split(/,/).slice(0);$(".getType").prop(
 	<input type="checkbox" id="gT7" class="getType" value="7"/>記念禮裝
 	<input type="checkbox" id="gT5" class="getType" value="5"/>友抽限定
 	<input type="checkbox" id="gT6" class="getType" value="6"/>強化EXP
-	<br><input type="button" id="filterBtn" value="開始篩選" onclick="updateTable();" style="display:none;">
+	<br/><p class="return_btn">
+	<p class="btn"><a>展開／收起效果類型</a></p>
+	<table class="table_non" style="text-align:left;" id="buffType">
+	<tbody>
+	<tr><td colspan="4"><strong>攻擊系</strong></td></tr>
+	<tr><td>
+		<input type="checkbox" id="fc1-101" class="funcCategory" value="10201"/><img src="common/images/icon/BuffIcon/bufficon_300.png" class="buffIcon"/>攻擊力提升
+	</td><td>
+		<input type="checkbox" id="fc1-102" class="funcCategory" value="10202"/><img src="common/images/icon/BuffIcon/bufficon_312.png" class="buffIcon"/>Quick性能提升
+	</td><td>
+		<input type="checkbox" id="fc1-103" class="funcCategory" value="10203"/><img src="common/images/icon/BuffIcon/bufficon_313.png" class="buffIcon"/>Arts性能提升
+	</td><td>
+		<input type="checkbox" id="fc1-104" class="funcCategory" value="10204"/><img src="common/images/icon/BuffIcon/bufficon_314.png" class="buffIcon"/>Buster性能提升
+	</td></tr><tr><td>
+		<input type="checkbox" id="fc1-105" class="funcCategory" value="10205"/><img src="common/images/icon/BuffIcon/bufficon_302.png" class="buffIcon"/>威力提升
+	</td><td>
+		<input type="checkbox" id="fc1-106" class="funcCategory" value="10206"/><img src="common/images/icon/BuffIcon/bufficon_302.png" class="buffIcon"/>傷害加成
+	</td><td>
+		<input type="checkbox" id="fc1-201" class="funcCategory" value="10401"/><img src="common/images/icon/BuffIcon/bufficon_324.png" class="buffIcon"/>Critical威力提升
+	</td><td>
+		<input type="checkbox" id="fc1-202" class="funcCategory" value="10402"/><img src="common/images/icon/BuffIcon/bufficon_321.png" class="buffIcon"/>星星發生率提升
+	</td></tr><tr><td>
+		<input type="checkbox" id="fc1-203" class="funcCategory" value="10403"/><img src="common/images/icon/BuffIcon/bufficon_325.png" class="buffIcon"/>星星集中度提升
+	</td><td>
+		<input type="checkbox" id="fc1-204" class="funcCategory" value="10404"/><img src="common/images/icon/BuffIcon/bufficon_325.png" class="buffIcon"/>星星獲得
+	</td><td>
+		<input type="checkbox" id="fc1-205" class="funcCategory" value="10405"/><img src="common/images/icon/BuffIcon/bufficon_320.png" class="buffIcon"/>每回合星星獲得
+	</td><td>
+		<input type="checkbox" id="fc1-301" class="funcCategory" value="10601"/><img src="common/images/icon/BuffIcon/bufficon_310.png" class="buffIcon"/>寶具威力提升
+	</td></tr><tr><td>
+		<input type="checkbox" id="fc1-302" class="funcCategory" value="10602"/><img src="common/images/icon/BuffIcon/bufficon_303.png" class="buffIcon"/>NP獲得
+	</td><td>
+		<input type="checkbox" id="fc1-303" class="funcCategory" value="10603"/><img src="common/images/icon/BuffIcon/bufficon_319.png" class="buffIcon"/>每回合NP獲得
+	</td><td>
+		<input type="checkbox" id="fc1-304" class="funcCategory" value="10604"/><img src="common/images/icon/BuffIcon/bufficon_303.png" class="buffIcon"/>NP獲得量提升
+	</td><td>
+		<input type="checkbox" id="fc1-305" class="funcCategory" value="10605"/><img src="common/images/icon/BuffIcon/bufficon_336.png" class="buffIcon"/>蓄力階段提升
+	</td></tr><tr><td>
+		<input type="checkbox" id="fc1-401" class="funcCategory" value="10801"/><img src="common/images/icon/BuffIcon/bufficon_309.png" class="buffIcon"/>必中
+	</td><td>
+		<input type="checkbox" id="fc1-402" class="funcCategory" value="10802"/><img src="common/images/icon/BuffIcon/bufficon_329.png" class="buffIcon"/>無敵貫通
+	</td><td>
+		<input type="checkbox" id="fc1-403" class="funcCategory" value="10803"/><img src="common/images/icon/BuffIcon/bufficon_351.png" class="buffIcon"/>防禦無視
+	</td><td>
+		
+	</td></tr>
+	<tr><td colspan="4"><strong>防禦系</strong></td></tr>
+	<tr><td>
+		<input type="checkbox" id="fc2-101" class="funcCategory" value="20201"/><img src="common/images/icon/BuffIcon/bufficon_301.png" class="buffIcon"/>防禦力提升
+	</td><td>
+		<input type="checkbox" id="fc2-102" class="funcCategory" value="20202"/><img src="common/images/icon/BuffIcon/bufficon_301.png" class="buffIcon"/>傷害減免
+	</td><td>
+		<input type="checkbox" id="fc2-103" class="funcCategory" value="20203"/><img src="common/images/icon/BuffIcon/bufficon_305.png" class="buffIcon"/>迴避
+	</td><td>
+		<input type="checkbox" id="fc2-104" class="funcCategory" value="20204"/><img src="common/images/icon/BuffIcon/bufficon_311.png" class="buffIcon"/>無敵
+	</td></tr><tr><td>
+		<input type="checkbox" id="fc2-105" class="funcCategory" value="20205"/><img src="common/images/icon/BuffIcon/bufficon_304.png" class="buffIcon"/>根性
+	</td><td>
+		<input type="checkbox" id="fc2-106" class="funcCategory" value="20206"/><img src="common/images/icon/BuffIcon/bufficon_323.png" class="buffIcon"/>目標集中
+	</td><td>
+		<input type="checkbox" id="fc2-201" class="funcCategory" value="20401"/><img src="common/images/icon/BuffIcon/bufficon_328.png" class="buffIcon"/>HP回復量提升
+	</td><td>
+		<input type="checkbox" id="fc2-202" class="funcCategory" value="20402"/><img src="common/images/icon/BuffIcon/bufficon_318.png" class="buffIcon"/>每回合HP回復
+	</td></tr><tr><td>
+		<input type="checkbox" id="fc2-203" class="funcCategory" value="20403"/><img src="common/images/icon/BuffIcon/bufficon_330.png" class="buffIcon"/>最大HP提升
+	</td><td>
+		
+	</td><td>
+		
+	</td><td>
+		
+	</td></tr>
+	<tr><td colspan="4"><strong>狀態異常系</strong></td></tr>
+	<tr><td>
+		<input type="checkbox" id="fc3-101" class="funcCategory" value="30201"/><img src="common/images/icon/BuffIcon/bufficon_306.png" class="buffIcon"/>弱體耐性提升
+	</td><td>
+		<input type="checkbox" id="fc3-102" class="funcCategory" value="30202"/><img src="common/images/icon/BuffIcon/bufficon_322.png" class="buffIcon"/>弱體無效
+	</td><td>
+		<input type="checkbox" id="fc3-103" class="funcCategory" value="30203"/><img src="common/images/icon/BuffIcon/bufficon_307.png" class="buffIcon"/>弱體成功率提升
+	</td><td>
+		<input type="checkbox" id="fc3-104" class="funcCategory" value="30204"/><img src="common/images/icon/BuffIcon/bufficon_306.png" class="buffIcon"/>被強化成功率提升
+	</td></tr><tr><td>
+		<input type="checkbox" id="fc3-105" class="funcCategory" value="30401"/><img src="common/images/icon/BuffIcon/bufficon_338.png" class="buffIcon"/>即死耐性提升
+	</td><td>
+		<input type="checkbox" id="fc3-106" class="funcCategory" value="30402"/><img src="common/images/icon/BuffIcon/bufficon_337.png" class="buffIcon"/>即死成功率提升
+	</td><td>
+		
+	</td><td>
+		
+	</td></tr>
+	<tr><td colspan="4"><strong>輔助系・其他</strong></td></tr>
+	<tr><td>
+		<input type="checkbox" id="fc4-101" class="funcCategory" value="40201"/><img src="common/images/icon/BuffIcon/bufficon_1009.png" class="buffIcon"/>友情點數提升
+	</td><td>
+		<input type="checkbox" id="fc4-102" class="funcCategory" value="40202"/><img src="common/images/icon/BuffIcon/bufficon_1009.png" class="buffIcon"/>御主EXP提升
+	</td><td>
+		<input type="checkbox" id="fc4-103" class="funcCategory" value="40203"/><img src="common/images/icon/BuffIcon/bufficon_1009.png" class="buffIcon"/>魔術禮裝EXP提升
+	</td><td>
+		<input type="checkbox" id="fc4-104" class="funcCategory" value="40204"/><img src="common/images/icon/BuffIcon/bufficon_1009.png" class="buffIcon"/>絆提升
+	</td></tr><tr><td>
+		<input type="checkbox" id="fc4-105" class="funcCategory" value="40205"/><img src="common/images/icon/BuffIcon/bufficon_1009.png" class="buffIcon"/>QP提升
+	</td><td>
+		<input type="checkbox" id="fc4-106" class="funcCategory" value="40206"/><img src="common/images/icon/BuffIcon/bufficon_331.png" class="buffIcon"/>特定時發動
+	</td><td>
+		<input type="checkbox" id="fc4-107" class="funcCategory" value="40207"/><img src="common/images/icon/BuffIcon/bufficon_1009.png" class="buffIcon"/>概念禮裝EXP卡
+	</td><td>
+		<input type="checkbox" id="fc4-9901" class="funcCategory" value="59801"/><img src="common/images/icon/BuffIcon/bufficon_1015.png" class="buffIcon"/>無效果
+	</td></tr>
+	</tbody></table>
+	<br/>
+	<input type="button" id="filterBtn" value="開始篩選" onclick="updateTable();" style="display:none;">
   </fieldset>
 </form>
 <table onload="" id="svtTable" class="tablesorter mouseover" width=1100><thead><tr><th width=60>圖示</th><th width=35>編號</th><th width=35>星數</th><th width=150>名稱</th><th width=30>Cost</th><th width=30>基本<br>HP</th><th width=30>最大<br>HP</th><th width=30>基本<br>ATK</th><th width=30>最大<br>ATK</th><th width=65>技能</th><th width=435>效果</th></tr></thead><tbody></tbody></table>

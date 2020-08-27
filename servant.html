@@ -30,7 +30,7 @@
   ga('send', 'pageview');
 </script>
 <script type="text/javascript">
-var classarray=[],rarityarray=[],gTarray=[];
+var classarray=[],rarityarray=[],gTarray=[],cTarray=[];
 function svtTableOut(){var a="";for(i in master.mstSvt)if((1==master.mstSvt[i].type||2==master.mstSvt[i].type||5==master.mstSvt[i].type||9==master.mstSvt[i].type||99==master.mstSvt[i].type)&&0!=master.mstSvt[i].collectionNo){for(var c in master.mstSvtLimit)if(master.mstSvtLimit[c].svtId==master.mstSvt[i].id)break;a+="<tr class='svtList' data-svtid='"+master.mstSvt[i].id+"' data-rarityl='"+master.mstSvtLimit[c].rarity+"' data-classl='"+master.mstSvt[i].classId+"' data-typel='"+master.mstSvt[i].battleSize+
 "' align=\"center\"><td><a href='svtData.html?no="+master.mstSvt[i].collectionNo+"'>"+svtFace(master.mstSvt[i].id)+"</td>";a+="<td>"+master.mstSvt[i].collectionNo+'</td><td class="star">';0==master.mstSvtLimit[c].rarity&&(a+="\uff0d");for(var b=0;b<master.mstSvtLimit[c].rarity;b++)a+="\u2605";a+="</td>";a=0==master.mstSvt[i].collectionNo?a+("<td><a href='svtData.html?id="+master.mstSvt[i].id+"'>"):a+("<td><a href='svtData.html?no="+master.mstSvt[i].collectionNo+"'>");a=(b=findSvtNameZh(master.mstSvt[i].id))?
 a+("<div class=ruby>"+master.mstSvt[i].ruby+"</div>"+b):a+master.mstSvt[i].name;a+="</a></td>";a+="<td><span style='display:none'>"+master.mstSvt[i].classId+"</span><img src='common/images/icon/class/class_"+findClassImageId(master.mstSvt[i].classId)+"_"+master.mstSvtLimit[c].rarity+".png' title='"+findClassName(master.mstSvt[i].classId)+"' class='itemS' /></td>";a+="<td>"+master.mstSvtLimit[c].hpBase+"</td><td>"+master.mstSvtLimit[c].hpMax+"</td><td>"+master.mstSvtLimit[c].atkBase+"</td><td>"+master.mstSvtLimit[c].atkMax+
