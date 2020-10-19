@@ -822,6 +822,27 @@ table.mt-15 .star {
 .float_box .float_right_box {
   float: right;
 }
+article .table_box{
+	margin-bottom: 15px;
+}
+article .table_box p{
+	margin: 0 0 5px 0;
+	padding: 0;
+	font-weight:bold;
+	float: none
+}
+
+article .card_box{
+	margin: 0 0 15px 0;
+}
+
+article .card_box p{
+	margin: 0 0 0 0;
+}
+
+article .heading{
+	margin: 0 0 5px 0;
+}
 
 table {
 	font-size: 0.9em;
@@ -899,14 +920,14 @@ padding-left: 1em;
 
 
 /*ひしがた*/
-.article *.dia {
+article *.dia {
 	color: #000;
 	font-weight: bold;
 	font-size: 0.9em;
 	margin: 0;
 }
 
-.article *.dia:after, .article *.dia:before {
+article *.dia:after, article *.dia:before {
 	display: inline-block;
 	font-size: 1em;
 	content: "◆";
@@ -1097,7 +1118,7 @@ max-width: 210px;
 }
 
 .table_box .item_img{
-	max-width: 50%;
+	max-width: 75%;
 	margin-top: 5px;
 	display: block;
 }
@@ -1106,7 +1127,6 @@ max-width: 210px;
 	border-bottom: 0;
 	box-shadow: none;
 }
-
 
 
 
@@ -1147,4 +1167,15 @@ max-width: 210px;
 clear:both;
 float:left;
 width:100px;
+}
+
+/****table_title_txtcolor****/
+
+
+.red_txt {
+    color: #EC0002;
+}
+
+.green_txt2 {
+    color: #03b40a;
 }
