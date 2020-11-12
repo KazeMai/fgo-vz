@@ -474,7 +474,11 @@ table.table_non tr
 	width: 91%;
 	margin-top: 10px;
 }
-
+.notice2 {
+	font-size: 1.1em;
+	font-weight: bold;
+	color: #E30003;
+}
 dl.accordion dd.acd {
 	display:none;
 	margin:0px 0px 0px 0px;
@@ -1073,7 +1077,7 @@ max-width: 210px;
 
 
 /* 表の背景赤ピンク色 */
-.tb_col_pink {
+.pdd_regulation .tb_col_pink {
     background: no-repeat 2% center, rgb(190, 30, 40);
     background: no-repeat 2% center, -moz-linear-gradient(top, rgb(190, 30, 40) 0%, rgb(230, 80, 90) 100%);
     background: no-repeat 2% center, -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(190, 30, 40)), color-stop(87%, rgba(230, 80, 90)), color-stop(100%, rgba(230, 80, 90)));
@@ -1082,6 +1086,14 @@ max-width: 210px;
     background: no-repeat 2% center, -ms-linear-gradient(top, rgb(190, 30, 40) 0%, rgb(230, 80, 90) 100%);
     background: no-repeat 2% center, linear-gradient(to bottom, rgba(190, 30, 40,1) 0%, rgba(230, 80, 90,1) 87%, rgba(230, 80, 90,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#be1e28', endColorstr='#e6505a', GradientType=0 );
+}
+
+
+/**PUテキスト文字**/
+
+.pu_txt_red{
+	font-weight: bold;
+	color: #cb0000;
 }
 
 
