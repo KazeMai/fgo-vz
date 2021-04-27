@@ -1167,7 +1167,7 @@ max-width: 210px;
 }
 
 /**textbreak**/
-.wrap{
+article{
 	word-break: break-all;
 }
 
@@ -1269,4 +1269,18 @@ width:100px;
 	font-weight: bold;
 	color: #004DD8;
 
+}
+
+/**枠内センター**/
+.center_2 {
+    text-align: center!important;
+    margin-bottom: 10px!important;
+}
+
+
+/**************pu_icon*************/
+.txt_mg {
+    clear: both;
+    padding: 21px 0 21px 0;
+    display: block;
 }
