@@ -1284,3 +1284,75 @@ width:100px;
     padding: 21px 0 21px 0;
     display: block;
 }
+
+
+/**************icon_table_202105追加*************/
+
+/**下線と下シャドウ削除***/
+.ic_table_bdn{
+	border-bottom: none!important;
+	box-shadow: none!important;
+}
+
+
+/**td内のpd間隔上無し***/
+.pdd_regulation_none table th {
+	color: #fff;
+	padding: 8px 8px!important;
+	background: no-repeat 2% center, rgb(2,41,88); /* Old browsers */
+	background: no-repeat 2% center, -moz-linear-gradient(top, rgba(2,41,88,1) 0%, rgba(9,77,157,1) 87%, rgba(9,77,157,1) 100%); /* FF3.6+ */
+	background: no-repeat 2% center, -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(2,41,88,1)), color-stop(87%, rgba(9,77,157,1)), color-stop(100%, rgba(9,77,157,1))); /*  Chrome,Safari4+ */
+	background: no-repeat 2% center, -webkit-linear-gradient(top, rgba(2,41,88,1) 0%, rgba(9,77,157,1) 87%, rgba(9,77,157,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: no-repeat 2% center, -o-linear-gradient(top, rgba(2,41,88,1) 0%, rgba(9,77,157,1) 87%, rgba(9,77,157,1) 100%); /* Opera 11.10+ */
+	background: no-repeat 2% center, -ms-linear-gradient(top, rgba(2,41,88,1) 0%, rgba(9,77,157,1) 87%, rgba(9,77,157,1) 100%); /* IE10+ */
+	background: no-repeat 2% center, linear-gradient(to bottom, rgba(2,41,88,1) 0%, rgba(9,77,157,1) 87%, rgba(9,77,157,1) 100%); /* W3C */
+ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#022958', endColorstr='#094d9d', GradientType=0 ); /* IE6-9 */
+	font-weight: bold;
+	border-left: 1px solid #666666;
+	border-top: 1px solid #666666;
+	border-bottom: 1px solid #666666;
+	line-height: 120%;
+	text-align: center;
+	text-shadow: 1px 1px 4px #000000;
+	box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
+}
+
+.pdd_regulation_none table tr td {
+	padding: 0px 7px!important;
+	border-bottom: 1px solid #666666;
+	border-left: 1px solid #666666;
+}
+
+
+/* td内のpd間隔上無しの場合_水色**/
+.pdd_regulation_none .tb_col_dl{
+	background: no-repeat 2% center, rgb(0, 110, 150); /* Old browsers */
+	background: no-repeat 2% center, -moz-linear-gradient(top, rgb(0, 110, 150) 0%, rgb(20, 165, 210) 100%); /* FF3.6+ */
+	background: no-repeat 2% center, -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 110, 150)), color-stop(87%, rgba(20, 165, 210)), color-stop(100%, rgba(20, 165, 210))); /* 	Chrome,Safari4+ */
+	background: no-repeat 2% center, -webkit-linear-gradient(top, rgb(0, 110, 150) 0%, rgb(20, 165, 210) 100%);
+	; /* Chrome10+,Safari5.1+ */
+	background: no-repeat 2% center, -o-linear-gradient(top, rgb(0, 110, 150) 0%, rgb(20, 165, 210) 100%); /* Opera 11.10+ */
+	background: no-repeat 2% center, -ms-linear-gradient(top, rgb(0, 110, 150) 0%, rgb(20, 165, 210) 100%); /* IE10+ */
+	background: no-repeat 2% center, linear-gradient(to bottom, rgba(0, 110, 150,1) 0%, rgba(20, 165, 210,1) 87%, rgba(20, 165, 210,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006e96', endColorstr='#14a5d2', GradientType=0 ); /* IE6-9 */
+}
+
+
+/* td内のpd間隔上無しの場合_ピンク色**/
+.pdd_regulation_none .tb_col_pink {
+    background: no-repeat 2% center, rgb(190, 30, 40);
+    background: no-repeat 2% center, -moz-linear-gradient(top, rgb(190, 30, 40) 0%, rgb(230, 80, 90) 100%);
+    background: no-repeat 2% center, -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(190, 30, 40)), color-stop(87%, rgba(230, 80, 90)), color-stop(100%, rgba(230, 80, 90)));
+    background: no-repeat 2% center, -webkit-linear-gradient(top, rgb(190, 30, 40) 0%, rgb(230, 80, 90) 100%);
+    background: no-repeat 2% center, -o-linear-gradient(top, rgb(190, 30, 40) 0%, rgb(230, 80, 90) 100%);
+    background: no-repeat 2% center, -ms-linear-gradient(top, rgb(190, 30, 40) 0%, rgb(230, 80, 90) 100%);
+    background: no-repeat 2% center, linear-gradient(to bottom, rgba(190, 30, 40,1) 0%, rgba(230, 80, 90,1) 87%, rgba(230, 80, 90,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#be1e28', endColorstr='#e6505a', GradientType=0 );
+}
+
+/* アイコン隣テキスト */
+.icon_right_txt{
+	clear: both;
+    padding: 5px 0 3px 0;
+    display: block;
+}
