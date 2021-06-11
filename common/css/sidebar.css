@@ -1356,3 +1356,56 @@ width:100px;
     padding: 5px 0 3px 0;
     display: block;
 }
+
+
+
+/*******表アイコン*****/
+
+
+.pu_gl {
+    clear: both;
+    padding: 5px 0 35px 0;
+    display: block;
+}
+
+.txt_mg_2 {
+    clear: both;
+    padding: 10px 0 3px 0;
+    display: block;
+}
+
+
+.tag_1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px!important;
+    color: #ffffff;
+    padding: 1px 4px;
+    background: #C00303;
+    border-radius: 4px;
+    width: 132px;
+    float: left;
+    text-align: center;
+    transform: scale(0.6, 1);
+    margin-left: -27px;
+    font-weight: bold;
+    letter-spacing: 0.2em;
+
+}
+
+
+.tag_2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px!important;
+    color: #ffffff;
+    padding: 1px 5px;
+    background: #0053b7;
+    border-radius: 4px;
+    width: 173px;
+    float: left;
+    text-align: center;
+    transform: scale(0.5, 1);
+    margin-left: -45px;
+    font-weight: bold;
+    letter-spacing: 0.2em;
+
+}
