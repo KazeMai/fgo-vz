@@ -1122,7 +1122,7 @@ max-width: 210px;
 }
 
 .table_box .item_img{
-	max-width: 75%;
+	max-width: 40px;
 	margin-top: 5px;
 	display: block;
 }
