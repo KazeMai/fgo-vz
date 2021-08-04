@@ -34,11 +34,15 @@
  background-image:none;
 }
 </style>
-<script type="text/javascript">
-function indi_show(b){$(".indi_td").empty();var c=0<indi_list[b].svt.length,e=0<indi_list[b].enemy.length;c&&$("#indi_svt").append(indi_list[b].svt+"<br>");e&&$("#indi_enemy").append(indi_list[b].enemy+"<br>");for(var d in master.mstSvt){var a=master.mstSvt[d],g=!1;var h=-1!=$.inArray(parseInt(b),a.individuality);if(-1!=$.inArray(a.type,[1,2])&&0!=a.collectionNo){if(h==c||g||($("#indi_svt").append('<a href="svtData.html?no='+a.collectionNo+'"><div class="itemMTR" style="background-image: url(\'common/images/icon/faces/'+
-a.id+'0.png\')"  title="'+findSvtNameZh2(a.id)+'"></div></a>'),g=!0),!g)for(var f in master.mstSvtLimitAdd)master.mstSvtLimitAdd[f].svtId==a.id&&0<master.mstSvtLimitAdd[f].individuality.length&&(-1==$.inArray(parseInt(b),master.mstSvtLimitAdd[f].individuality)||c||$("#indi_svt").append('<a href="svtData.html?no='+a.collectionNo+'"><div class="itemMTR" style="background-image: url(\'common/images/icon/faces/'+a.id+'0.png\')"  title="'+findSvtNameZh2(a.id)+'">'+master.mstSvtLimitAdd[f].limitCount+"</div></a>"))}else-1!=
-$.inArray(a.type,[-1,4,5,9])&&h!=e&&null!=enemyName[a.id]&&$("#indi_enemy").append('<div class="itemMTR" style="background-image: url(\'common/images/icon/enemy/'+a.id+'1.png\')"  title="'+enemyName[a.id]+'"></div>')}$("img.lazyload").lazyload()}function difference(b,c){for(var e=[],d=0;d<b.length;d++)-1===c.indexOf(b[d])&&e.push(b[d]);return e}function indiOut(){$.each(indi_list,function(b,c){$("#indi_id").append($("<option></option>").attr("value",b).text(c.name))})}
-function atrriRelation(){for(var b,c,e=document.getElementsByClassName("attriR"),d=0;d<e.length;d++){b=e[d].id.replace(/ar/g,"").split(/-/);c=1E3;for(var a in master.mstAttriRelation)if(master.mstAttriRelation[a].atkAttri==b[0]&&master.mstAttriRelation[a].defAttri==b[1]){c=master.mstAttriRelation[a].attackRate;break}1E3==c?document.getElementById(e[d].id).innerHTML="\uff0d":1E3<c?document.getElementById(e[d].id).innerHTML="<span class='red'>"+c/1E3+"</span>":1E3>c&&(document.getElementById(e[d].id).innerHTML=
+<script type="text/javascript" >
+function indi_show(b){$(".indi_td").empty();var c=0<indi_list[b].svt.length,f=0<indi_list[b].enemy.length;c&&$("#indi_svt").append(indi_list[b].svt+"<br>");f&&$("#indi_enemy").append(indi_list[b].enemy+"<br>");for(var d in master.mstSvt){var a=master.mstSvt[d],e=!1;var g=-1!=$.inArray(parseInt(b),a.individuality);if(-1!=$.inArray(a.type,[1,2])&&0!=a.collectionNo){if(g==c||e||($("#indi_svt").append('<a href="svtData.html?no='+a.collectionNo+'"><div class="itemMTR" style="background-image: url(\'common/images/icon/faces/'+
+a.id+'0.png\')"  title="'+findSvtNameZh2(a.id)+'"></div></a>'),e=!0),!e)for(var h in master.mstSvtLimitAdd)master.mstSvtLimitAdd[h].svtId==a.id&&0<master.mstSvtLimitAdd[h].individuality.length&&(-1==$.inArray(parseInt(b),master.mstSvtLimitAdd[h].individuality)||c||$("#indi_svt").append('<a href="svtData.html?no='+a.collectionNo+'"><div class="itemMTR" style="background-image: url(\'common/images/icon/faces/'+a.id+'0.png\')"  title="'+findSvtNameZh2(a.id)+'">'+master.mstSvtLimitAdd[h].limitCount+"</div></a>"))}else-1!=
+$.inArray(a.type,[-1,4,5,9])&&g!=f&&null!=enemyName[a.id]&&$("#indi_enemy").append('<div class="itemMTR" style="background-image: url(\'common/images/icon/enemy/'+a.id+'1.png\')"  title="'+enemyName[a.id]+'"></div>')}$("img.lazyload").lazyload()}function difference(b,c){for(var f=[],d=0;d<b.length;d++)-1===c.indexOf(b[d])&&f.push(b[d]);return f}function indiOut(){$.each(indi_list,function(b,c){$("#indi_id").append($("<option></option>").attr("value",b).text(c.name))})}$("#classAtkBtn").click(classRelation2);
+function classRelation2(){var b=[],c,f="",d={1:"Saber",2:"Archer",3:"Lancer",4:"Rider",5:"Caster",6:"Assassin",7:"Berserker",8:"Shielder",9:"Ruler",11:"Avenger",10:"Alterego",23:"MoonCancer",25:"Foreigner",28:"Pretender",22:"BeastI",20:"BeastII",24:"Beast\u2162\uff0fR",26:"Beast\u2162\uff0fL",27:"Beast\uff1f"};for(e in d)d.hasOwnProperty(e)&&b.push(e);for(c=0;c<b.length;c++){var a="";var e=b[c];var g=master.mstClass[findName(master.mstClass,e)];0!=c&&(a+="<tr>");a+='<th><img src="common/images/icon/class/class_'+
+g.iconImageId+'_5.png" title="'+d[e]+'" class="classS"/></th>';a+="<td>";a=1E3<g.attackRate?a+('<span class="red">'+g.attackRate/1E3+"</span>"):1E3>g.attackRate?a+('<span class="blue">'+g.attackRate/1E3+"</span>"):a+"\uff0d";a+="</td>";for(e=0;e<b.length;e++){g=!1;for(var h in master.mstClassRelation)if(master.mstClassRelation[h].atkClass==master.mstClass[findName(master.mstClass,b[c])].relationId&&master.mstClassRelation[h].defClass==master.mstClass[findName(master.mstClass,b[e])].relationId){g=
+!0;a+="<td>";a=1E3<master.mstClassRelation[h].attackRate?a+('<span class="red">'+master.mstClassRelation[h].attackRate/1E3+"</span>"):1E3>master.mstClassRelation[h].attackRate?a+('<span class="blue">'+master.mstClassRelation[h].attackRate/1E3+"</span>"):a+"\uff0d";a+="</td>";break}g||(a+="<td>\uff1f</td>")}a+="</tr>";f+=a}a="";for(c=0;c<b.length;c++)e=b[c],g=master.mstClass[findName(master.mstClass,e)],a+='<th><img src="common/images/icon/class/class_'+g.iconImageId+'_5.png" title="'+d[e]+'" class="classS"/></th>';
+$("#classAtk").append("<tr><th colspan=2 rowspan=2>\u8077\u968e</th><th rowspan=2>\u50b7\u5bb3\u500d\u7387</th><th colspan="+b.length+">\u9632\u79a6\u5074</th></tr><tr>"+a+"</tr><tr><th rowspan="+b.length+">\u653b\u64ca\u5074</th>"+f);$("#classAtk").css("display","block")}
+function atrriRelation(){for(var b,c,f=document.getElementsByClassName("attriR"),d=0;d<f.length;d++){b=f[d].id.replace(/ar/g,"").split(/-/);c=1E3;for(var a in master.mstAttriRelation)if(master.mstAttriRelation[a].atkAttri==b[0]&&master.mstAttriRelation[a].defAttri==b[1]){c=master.mstAttriRelation[a].attackRate;break}1E3==c?document.getElementById(f[d].id).innerHTML="\uff0d":1E3<c?document.getElementById(f[d].id).innerHTML="<span class='red'>"+c/1E3+"</span>":1E3>c&&(document.getElementById(f[d].id).innerHTML=
 "<span class='blue'>"+c/1E3+"</span>")}};
 
 </script>
@@ -61,7 +65,7 @@ function atrriRelation(){for(var b,c,e=document.getElementsByClassName("attriR")
 <h1>特性搜找</h1>
 <p>
 若有數字代表靈基再臨幾次
-<p>
+</p>
 <select id="indi_id" onchange="indi_show(this.value);">
 	<option value="0">請選擇</option>
 </select>
@@ -74,6 +78,14 @@ function atrriRelation(){for(var b,c,e=document.getElementsByClassName("attriR")
 
 <h1 id="class">職階相性</h1>
 <span class="notice">・第六章以前的？魔神柱適用BeastI相性<br>・第七章的？<span style="color:black; background-color:black">牛若丸</span>適用BeastII相性<br>・CCC特別活動的<span style="color:black; background-color:black">Emiya［Alter］</span>適用BeastIII／R相性</span>
+
+<p>
+<button onClick="classRelation2()"; id="classAtkBtn">顯示相性表</button>
+</p>
+<table style="text-align:center;width:100%;display:none;" id="classAtk">
+
+</table>
+<!-- 
 <table style="text-align:center;width:100%;">
 <tr><th colspan=2 rowspan=2>職階</th><th rowspan=2>傷害倍率</th><th colspan=18>防禦側</th></tr>
 <tr>
@@ -476,6 +488,7 @@ function atrriRelation(){for(var b,c,e=document.getElementsByClassName("attriR")
 <td>－</td>
 </tr>
 </table>
+ -->
 <hr>
 <h1 id="attribute">分類相性</h1>
 <div class="info_paragraph">
