@@ -83,6 +83,14 @@ function getUrl(getStr)
 }
 function questRea(qstId)
 {
+	for(var w in master.mstWar)
+	{
+		if(master.mstWar[w].lastQuestId==qstId)
+		{
+			return '「'+master.mstWar[w].longName+'」';
+			break;
+		}
+	}
 	var skillText="<span class='hint' title='";
 	for(var k in master.mstQuest)
 	{
