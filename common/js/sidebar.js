@@ -81,6 +81,25 @@ function getUrl(getStr)
 	}
 	return str_value;
 }
+function commonReleaseCheck(cId)
+{
+	for(var c in master.mstCommonRelease)
+	{
+		if(master.mstCommonRelease[c].id==cId)
+		{
+			var tmpC = master.mstCommonRelease[c];
+			switch(tmpC.condType)
+			{
+				case 1:
+					return '通過'+questRea(tmpC.condId);
+					break;
+
+				default:
+				return '';
+			}
+		}
+	}
+}
 function questRea(qstId)
 {
 	for(var w in master.mstWar)
