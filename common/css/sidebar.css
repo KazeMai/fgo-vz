@@ -300,21 +300,21 @@ div.warIcon {
 	float:left;
 }
 .itemS {
-	height: 30px;
+	height: 35px;
 	vertical-align: middle;
 }
 .itemSH {
-	height: 30px;
+	height: 35px;
 	vertical-align: middle;
 	border:2px red solid;
 }
 .itemST {
-	height: 30px;
-	width: 30px;
+	height: 35px;
+	width: 35px;
 	vertical-align: middle;
 	background-repeat: no-repeat;
 	background-size: auto 100%;
-	font-size: 12px;
+	font-size: 10px;
 	color: #FFFFFF;
 	text-shadow: 1px 1px 1px black, -1px -1px 1px black, -1px 1px 1px black, 1px -1px 1px black;
 	text-align: right;
