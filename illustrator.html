@@ -27,23 +27,36 @@
 </script>
 <script type="text/javascript">
 function cvDataOut()
-{sortByElmentType(master.mstSvt);
+{
+var combiSpilt = [[104,106],[104,81],[110,81],[117,2],[117,23],[117,52],[117,12],[148,147],[200,93],[201,99],[225,2],[225,19],[225,7],[225,32],[225,33],[225,49],[225,46],[225,51],[359,15],[359,21],[380,208]];
+var cvList = new Array();
+sortByElmentType(master.mstSvt);
 	var cvTxt="<tr><th style='width:150px;'>繪師</th><th>從者/概念禮裝/指令紋章</th></tr>";
 	for(var i in master.mstIllustrator)
 	{
 		if(master.mstIllustrator[i].id>1)
 		{
 			cvTxt+="<tr><td style='text-align:center;' id='"+master.mstIllustrator[i].id+"'>"+master.mstIllustrator[i].name.replace(/\(/g,"<br>(").replace(/＆/g,"<br>＆")+"</td><td>";
+			
+			cvList = [master.mstIllustrator[i].id];
+			for(var j in combiSpilt)
+			{
+				if(combiSpilt[j][1]==master.mstIllustrator[i].id)
+				{
+					cvList.push(combiSpilt[j][0]);
+				}
+			}
+			
 			for(var j in master.mstSvt)
 			{
-				if(master.mstSvt[j].illustratorId==master.mstIllustrator[i].id)
+				if(cvList.indexOf(master.mstSvt[j].illustratorId)!=-1)
 				{
 					cvTxt+=svtFace(master.mstSvt[j].id);
 				}
 			}
 			for(var j in master.mstCommandCodeComment)
 			{
-				if(master.mstCommandCodeComment[j].illustratorId==master.mstIllustrator[i].id)
+				if(cvList.indexOf(master.mstCommandCodeComment[j].illustratorId)!=-1)
 				{
 					var tmpCommandCode = master.mstCommandCode[findName(master.mstCommandCode,master.mstCommandCodeComment[j].commandCodeId)];
 					cvTxt+='<a href="ccData.html?no='+tmpCommandCode.collectionNo+'"><img class="lazyload face_icon_cc face_icon_cc'+getBgKind(tmpCommandCode.rarity)+'" data-src="common/images/icon/CommandCodes/c_'+tmpCommandCode.id+'.png" /></a>';
@@ -74,7 +87,7 @@ function getBgKind(rarity)
     <div id="div_content">
 <div class="container">
 <article class="content textsize" style="width:840px">
-	<a href="servant.html"><div class="bkmk">Servant列表</div></a>
+	<a href="servant.html"><div class="bkmk">從者列表</div></a>
 	<a href="cv.html"><div class="bkmk">ＣＶ列表</div></a>
 	<div class="bkmkO">繪師列表</div>
 	<a href="craft_essence.html"><div class="bkmk">概念禮裝列表</div></a><div style="clear:left;"></div>

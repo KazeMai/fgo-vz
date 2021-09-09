@@ -27,16 +27,29 @@
 </script>
 <script type="text/javascript">
 function cvDataOut()
-{sortByElmentType(master.mstSvt);
-	var cvTxt="<tr><th style='width:150px;'>ＣＶ</th><th>Servant</th></tr>";
+{
+var combiSpilt = [[16,14],[16,15],[19,17],[19,18],[57,96],[92,120],[95,55],[95,48],[150,35],[150,7]];
+var cvList = new Array();
+sortByElmentType(master.mstSvt);
+	var cvTxt="<tr><th style='width:150px;'>ＣＶ</th><th>從者</th></tr>";
 	for(var i in master.mstCv)
 	{
 		if(master.mstCv[i].id>1&&master.mstCv[i].name.length!=0)
 		{
 			cvTxt+="<tr><td style='text-align:center;' id='"+master.mstCv[i].id+"'>"+master.mstCv[i].name+"</td><td>";
+			
+			cvList = [master.mstCv[i].id];
+			for(var j in combiSpilt)
+			{
+				if(combiSpilt[j][1]==master.mstCv[i].id)
+				{
+					cvList.push(combiSpilt[j][0]);
+				}
+			}
+			if(cvList.length>1) alert(cvList);
 			for(var j in master.mstSvt)
 			{
-				if(master.mstSvt[j].cvId==master.mstCv[i].id&&master.mstSvt[j].type!=5)
+				if(cvList.indexOf(master.mstSvt[j].cvId)!=-1&&master.mstSvt[j].type!=5)
 				{
 					//alert(svtFace(master.mstSvt[j].id));
 					cvTxt+=svtFace(master.mstSvt[j].id);
