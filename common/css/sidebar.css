@@ -1155,6 +1155,10 @@ max-width: 210px;
 .bg05{
 	background-color: #FFF7EB;
 }
+.bg06{
+	background-color: #fff!important;
+	
+}
 
 .txt{
 	font-size: 120%;
@@ -1285,6 +1289,13 @@ width:100px;
     display: block;
 }
 
+.txt_mg2 {
+    clear: both;
+    padding: 10px 0 10px 0;
+    display: block;
+}
+
+
 
 /**************icon_table_202105追加*************/
 
@@ -1373,6 +1384,14 @@ width:100px;
     padding: 10px 0 3px 0;
     display: block;
 }
+
+/*******表アイコン(テキスト2行)*****/
+.pu_gl_02 {
+    clear: both;
+    padding: 15px 0 5px 0;
+    display: block;
+}
+
 
 
 .tag_1 {
