@@ -826,25 +826,25 @@ table.mt-15 .star {
 .float_box .float_right_box {
   float: right;
 }
-article .table_box{
+.table_box{
 	margin-bottom: 15px;
 }
-article .table_box p{
+.table_box p{
 	margin: 0 0 5px 0;
 	padding: 0;
 	font-weight:bold;
 	float: none
 }
 
-article .card_box{
+.card_box{
 	margin: 0 0 15px 0;
 }
 
-article .card_box p{
+.card_box p{
 	margin: 0 0 0 0;
 }
 
-article .heading{
+.heading{
 	margin: 0 0 5px 0;
 }
 
