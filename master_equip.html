@@ -36,7 +36,7 @@ function equipDataOut(searchData,searchId)
 	equipDataTxt="";
 	for(var i in master.mstEquip)
 	{
-		equipDataTxt+="<tr id='eqp"+master.mstEquip[i].id+"'><th colspan=14 class='th_red'>"+master.mstEquip[i].name+"</th></tr><tr><td rowspan=4 colspan=5 style='width:30%;'><div class='clearfix' style='text-align:center;'><ul style='margin:0px auto;'><li><a href='common/images/icon/master/figure"+padLeft(master.mstEquip[i].maleImageId, 5)+".png' rel='shadowbox[eqp"+master.mstEquip[i].id+"]' title='"+master.mstEquip[i].name+"(男)' class='zoom1'><div style='display:inline;'><img src='common/images/icon/master/face"+padLeft(master.mstEquip[i].maleImageId, 5)+".png'  onerror=javascript:this.src='common/images/icon/faces/0.png' width=70 /><img src='common/images/icon/equip/"+master.mstEquip[i].maleImageId+".png'  onerror=javascript:this.src='common/images/icon/faces/0.png' width=70 /></div></a></li><li><a href='common/images/icon/master/figure"+padLeft(master.mstEquip[i].femaleImageId, 5)+".png' rel='shadowbox[eqp"+master.mstEquip[i].id+"]' title='"+master.mstEquip[i].name+"(女)' class='zoom1'><div style='display:inline;'><img src='common/images/icon/master/face"+padLeft(master.mstEquip[i].femaleImageId, 5)+".png'  onerror=javascript:this.src='common/images/icon/faces/0.png' width=70 /><img src='common/images/icon/equip/"+master.mstEquip[i].femaleImageId+".png'  onerror=javascript:this.src='common/images/icon/faces/0.png' width=70 /></div></a></li></ul></td><td colspan=9>"+master.mstEquip[i].detail.replace(/\n/g,"<br>")+"</td></tr><tr><th colspan=9>升級所需Exp(累積)</th></tr><tr><th>Lv.1→2</th><th>Lv.2→3</th><th>Lv.3→4</th><th>Lv.4→5</th><th>Lv.5→6</th><th>Lv.6→7</th><th>Lv.7→8</th><th>Lv.8→9</th><th colspan=2>Lv.9→10</th></tr><tr>";
+		equipDataTxt+="<tr id='eqp"+master.mstEquip[i].id+"'><th colspan=14 class='th_red'>"+master.mstEquip[i].name+"</th></tr><tr><td rowspan=4 colspan=5 style='width:35%;'><div class='clearfix' style='text-align:center;'><ul style='margin:0px auto;'><li><a href='common/images/icon/master/figure"+padLeft(master.mstEquip[i].maleImageId, 5)+".png' rel='shadowbox[eqp"+master.mstEquip[i].id+"]' title='"+master.mstEquip[i].name+"(男)' class='zoom1'><div style='display:inline;'><img src='common/images/icon/master/face"+padLeft(master.mstEquip[i].maleImageId, 5)+".png'  onerror=javascript:this.src='common/images/icon/faces/0.png' width=70 /><img src='common/images/icon/equip/"+master.mstEquip[i].maleImageId+".png'  onerror=javascript:this.src='common/images/icon/faces/0.png' width=70 /></div></a></li><li><a href='common/images/icon/master/figure"+padLeft(master.mstEquip[i].femaleImageId, 5)+".png' rel='shadowbox[eqp"+master.mstEquip[i].id+"]' title='"+master.mstEquip[i].name+"(女)' class='zoom1'><div style='display:inline;'><img src='common/images/icon/master/face"+padLeft(master.mstEquip[i].femaleImageId, 5)+".png'  onerror=javascript:this.src='common/images/icon/faces/0.png' width=70 /><img src='common/images/icon/equip/"+master.mstEquip[i].femaleImageId+".png'  onerror=javascript:this.src='common/images/icon/faces/0.png' width=70 /></div></a></li></ul></td><td colspan=9>"+master.mstEquip[i].detail.replace(/\n/g,"<br>")+"</td></tr><tr><th colspan=9>升級所需Exp(累積)</th></tr><tr><th>Lv.1→2</th><th>Lv.2→3</th><th>Lv.3→4</th><th>Lv.4→5</th><th>Lv.5→6</th><th>Lv.6→7</th><th>Lv.7→8</th><th>Lv.8→9</th><th colspan=2>Lv.9→10</th></tr><tr>";
 		var equipCount=1;
 		for(var j in master.mstEquipExp)
 		{
@@ -190,9 +190,11 @@ function expDataOut()
 	<a href="#eqp120"><div class="bkmk">酷熱夏日</div></a>
 	<a href="#eqp130"><div class="bkmk">華美的新年</div></a>
 	<a href="#eqp150"><div class="bkmk">迦勒底船長</div></a>
-	<a href="#eqp160"><div class="bkmk">第五真說要素</div></a>
+	<a href="#eqp160"><div class="bkmk">第五真說要素</div></a><div style="clear:left;"></div>
 	<a href="#eqp170"><div class="bkmk">迦勒底開拓者</div></a>
-<table id="eqpData" width=1100><tr><td></td></tr></table>
+	<a href="#eqp190"><div class="bkmk">萬聖王室</div></a>
+	<a href="#eqp210"><div class="bkmk">決戰用迦勒底制服</div></a>
+<table id="eqpData" style="width:1300px;"><tr><td></td></tr></table>
 <h1 id="user_exp">御主等級經驗</h1>
 <p>5周年好友數＋5、6周年＋3</p>
 	<a href="#lv1"><div class="bkmk">Lv.1~25</div></a>

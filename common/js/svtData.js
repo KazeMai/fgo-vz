@@ -3,9 +3,9 @@ object_extend("mstSvtSkill",'{"svtId":9940380,"num":1,"priority":1,"skillId":960
 object_extend("mstSvtTreasureDevice",'{"damage":[100],"svtId":9935400,"num":1,"priority":426,"imageIndex":0,"treasureDeviceId":441,"condQuestId":0,"condQuestPhase":0,"condLv":0,"condFriendshipRank":0,"motion":50,"cardId":1},{"damage":[16,33,51],"svtId":9935500,"num":1,"priority":101,"imageIndex":0,"treasureDeviceId":9935511,"condQuestId":0,"condQuestPhase":0,"condLv":0,"condFriendshipRank":0,"motion":50,"cardId":1},{"damage":[100],"strengthStatus":0,"svtId":9943610,"num":1,"priority":1,"flag":0,"imageIndex":0,"treasureDeviceId":725,"condQuestId":0,"condQuestPhase":0,"condLv":0,"condFriendshipRank":0,"motion":30,"cardId":1}');
 //伊吹童子
 object_extend("mstSkill",'');
-object_extend("mstSkillDetail",'{"id":2000550,"detail":"？？？","detailShort":"？？？"},{"id":2008550,"detail":"？？？","detailShort":"？？？"}');
+object_extend("mstSkillDetail",'');
 object_extend("mstSkillLv",'');
-object_extend("mstSvtSkill",'{"svtId":9943520,"num":1,"priority":1,"skillId":2000550,"condQuestId":0,"condLv":0,"condLimitCount":-1}');
+object_extend("mstSvtSkill",'');
 
 function object_extend(key,extendtxt)
 {
