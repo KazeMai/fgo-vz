@@ -1428,3 +1428,42 @@ width:100px;
     letter-spacing: 0.2em;
 
 }
+
+.link_cl {
+    font-weight: bold;
+}
+
+/*********coin***********/
+
+.float_box_sum{
+	overflow: hidden;
+}
+
+.float_box_sum .float_left_box {
+    float: left;
+}
+
+.float_box_sum .float_right_box {
+   float: left!important;
+   padding: 2% 0 0 2%;
+}
+
+/*********pu_imagelist***********/
+.pu_im_list{
+	width: 100%;
+	clear: both;
+	overflow: hidden;
+}
+
+.pu_im_list .im_list_l{
+	width: 49.5%;
+	float: left;
+}
+.pu_im_list .im_list_r{
+	width: 49.5%;
+	float: right;
+}
+
+.cb{
+	clear: both;
+}
