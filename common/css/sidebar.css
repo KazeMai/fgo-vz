@@ -1464,6 +1464,12 @@ width:100px;
 	float: right;
 }
 
+.pu_im_list .im_list_c{
+	width: 49.5%;
+	display: block;
+	margin: auto;
+}
+
 .cb{
 	clear: both;
 }
