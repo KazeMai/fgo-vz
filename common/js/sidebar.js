@@ -94,7 +94,7 @@ function commonReleaseCheck(cId)
 					return '預設';
 					break;
 				case 1:
-					return '通過'+master.mstQuest[findName(master.mstQuest,tmpC.condId)].name+'後';
+					return '通過'+questRea(tmpC.condId)+'後';
 					break;
 
 				default:
