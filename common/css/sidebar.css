@@ -1473,3 +1473,9 @@ width:100px;
 .cb{
 	clear: both;
 }
+
+
+/*********表_赤***********/
+.cell_col_red{
+	background-color: #FFEEE4;
+}
