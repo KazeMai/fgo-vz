@@ -371,6 +371,12 @@ div.warIcon {
 	height: 60px;
 	vertical-align: middle;
 }
+.itemblur {
+  -webkit-filter:blur(5px);
+}
+.itemblur:hover {
+  -webkit-filter:blur(0px);
+}
 table .box{
 	background:#eee;
 	display:none;
