@@ -1542,3 +1542,16 @@ width:100px;
 .add{
 	float: none;
 }
+
+.headline2::before {
+    content: "■";
+    color: #cb0101;
+    font-size: 1.2em;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.headline2 {
+    font-weight: bold;
+    font-size: 19px!important;
+}
