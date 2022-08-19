@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Servant一覽</title>
+<title>從者一覽</title>
 <link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon">
 <link href="common/css/common.css" rel="stylesheet" type="text/css" />
 <link href="common/css/detail_info.css" rel="stylesheet" type="text/css" />
@@ -34,10 +34,16 @@ var classarray=[],rarityarray=[],gTarray=[],cTarray=[];
 function svtTableOut(){var a="";for(i in master.mstSvt)if((1==master.mstSvt[i].type||2==master.mstSvt[i].type||5==master.mstSvt[i].type||9==master.mstSvt[i].type||99==master.mstSvt[i].type)&&0!=master.mstSvt[i].collectionNo){for(var c in master.mstSvtLimit)if(master.mstSvtLimit[c].svtId==master.mstSvt[i].id)break;a+="<tr class='svtList' data-svtid='"+master.mstSvt[i].id+"' data-rarityl='"+master.mstSvtLimit[c].rarity+"' data-classl='"+master.mstSvt[i].classId+"' data-typel='"+master.mstSvt[i].battleSize+
 "' align=\"center\"><td><a href='svtData.html?no="+master.mstSvt[i].collectionNo+"'>"+svtFace(master.mstSvt[i].id)+"</td>";a+="<td>"+master.mstSvt[i].collectionNo+'</td><td class="star">';0==master.mstSvtLimit[c].rarity&&(a+="\uff0d");for(var b=0;b<master.mstSvtLimit[c].rarity;b++)a+="\u2605";a+="</td>";a=0==master.mstSvt[i].collectionNo?a+("<td><a href='svtData.html?id="+master.mstSvt[i].id+"'>"):a+("<td><a href='svtData.html?no="+master.mstSvt[i].collectionNo+"'>");a=(b=findSvtNameZh(master.mstSvt[i].id))?
 a+("<div class=ruby>"+master.mstSvt[i].ruby+"</div>"+b):a+master.mstSvt[i].name;a+="</a></td>";a+="<td><span style='display:none'>"+master.mstSvt[i].classId+"</span><img src='common/images/icon/class/class_"+findClassImageId(master.mstSvt[i].classId)+"_"+master.mstSvtLimit[c].rarity+".png' title='"+findClassName(master.mstSvt[i].classId)+"' class='itemS' /></td>";a+="<td>"+master.mstSvtLimit[c].hpBase+"</td><td>"+master.mstSvtLimit[c].hpMax+"</td><td>"+master.mstSvtLimit[c].atkBase+"</td><td>"+master.mstSvtLimit[c].atkMax+
-"</td>";a+="<td width=200>";for(b=0;b<master.mstSvt[i].cardIds.length;b++)a+="<img src='common/images/icon/cmdCard/icon_cmdCard_"+master.mstSvt[i].cardIds[b]+".png' width=60",b!=master.mstSvt[i].cardIds.length-1&&(a+=" style='margin-right: -30px;'"),a+="></img>";for(b=0;b<master.mstSvt[i].cardIds.length;b++)a+="<span style='display:none'>"+master.mstSvt[i].cardIds[b]+"</span>";a+="</td>";a+="<td>";for(b in master.mstSvtTreasureDevice)if(master.mstSvt[i].id==master.mstSvtTreasureDevice[b].svtId&&1==
-master.mstSvtTreasureDevice[b].num){a+="<img src='common/images/icon/cmdCard/icon_cmdCard_"+master.mstSvtTreasureDevice[b].cardId+".png' width=60></img>";a+="<span style='display:none'>"+master.mstSvtTreasureDevice[b].cardId+"</span>";break}a+="</td>";a+="<td>"+master.mstSvt[i].cost+"</td>";a+="</tr>"}$("#svtTable tbody").empty();$("#svtTable tbody").append(a);$("img.lazyload").lazyload()}
-function initTable(){svtTableOut();$("#svtTable").tablesorter({sortList:[[1,1]],headers:{0:{sorter:!1},3:{sorter:!1}}});$(".classF").click(function(){classToggle($(this).data("classid"))});$("input:checkbox").change(function(){$("#filterBtn").click()});classAllOff()};
+"</td>";a+="<td width=200>";for(b=0;b<master.mstSvt[i].cardIds.length;b++)a+="<img src='common/images/icon/cmdCard/icon_cmdCard_"+master.mstSvt[i].cardIds[b]+".png' width=60",b!=master.mstSvt[i].cardIds.length-1&&(a+=" style='margin-right: -30px;'"),a+="></img>";for(b=0;b<master.mstSvt[i].cardIds.length;b++)a+="<span style='display:none'>"+master.mstSvt[i].cardIds[b]+"</span>";a+="</td>";a+="<td>";var d=["","4001","4002","4003"];for(b in master.mstSvtTreasureDevice)if(master.mstSvt[i].id==master.mstSvtTreasureDevice[b].svtId&&
+1==master.mstSvtTreasureDevice[b].num){a+="<img src='common/images/icon/cmdCard/icon_cmdCard_"+master.mstSvtTreasureDevice[b].cardId+".png' width=60></img>";a+="<span style='display:none'>"+master.mstSvtTreasureDevice[b].cardId+"</span>";a=a.replace("tr class='svtList' data-svtid='"+master.mstSvt[i].id+"'","tr class='svtList' data-svtid='"+master.mstSvt[i].id+"' data-funcl='"+d[master.mstSvtTreasureDevice[b].cardId]+"' ");break}a+="</td>";a+="<td>"+master.mstSvt[i].cost+"</td>";a+="</tr>"}$("#svtTable tbody").empty();
+$("#svtTable tbody").append(a);$("img.lazyload").lazyload()}function initTable(){svtTableOut();$("#svtTable").tablesorter({sortList:[[1,1]],headers:{0:{sorter:!1},3:{sorter:!1}}});$(".classF").click(function(){classToggle($(this).data("classid"))});$("input:checkbox").change(function(){$("#filterBtn").click()});classAllOff()};
 </script>
+<style type="text/css">
+.cmdIcon {
+  height:20px;
+  vertical-align:top;
+}
+</style>
 </head>
 <body onload="loadsidebar();initTable();">
 <!--二欄橫幅主要區塊開始-->
@@ -80,12 +86,18 @@ function initTable(){svtTableOut();$("#svtTable").tablesorter({sortList:[[1,1]],
 	<input type="checkbox" id="rarity2" class="rarityF" value="2"/><span class="star">★★</span>
 	<input type="checkbox" id="rarity3" class="rarityF" value="3"/><span class="star">★★★</span>
 	<input type="checkbox" id="rarity4" class="rarityF" value="4"/><span class="star">★★★★</span>
-	<input type="checkbox" id="rarity5" class="rarityF" value="5"/><span class="star">★★★★★</span><br>
+	<input type="checkbox" id="rarity5" class="rarityF" value="5"/><span class="star">★★★★★</span>
+    <br>
 	<input type="checkbox" id="gT1" class="getType" value="1"/>一般常駐
 	<input type="checkbox" id="gT2" class="getType" value="2"/>故事限定
 	<input type="checkbox" id="gT3" class="getType" value="3"/>期間限定
 	<input type="checkbox" id="gT4" class="getType" value="4"/>活動報酬
 	<input type="checkbox" id="gT5" class="getType" value="5"/>友抽限定
+    <br>
+    <input type="checkbox" id="fc1-101" class="funcCategory" value="4003"/><img src="common/images/icon/cmdCard/icon_commandcard_quick.png"/ class="cmdIcon">Quick寶具
+	<input type="checkbox" id="fc1-102" class="funcCategory" value="4001"/><img src="common/images/icon/cmdCard/icon_commandcard_arts.png"/ class="cmdIcon">Arts寶具
+	<input type="checkbox" id="fc1-103" class="funcCategory" value="4002"/><img src="common/images/icon/cmdCard/icon_commandcard_buster.png"/ class="cmdIcon">Buster寶具
+
 	<br><input type="button" id="filterBtn" value="開始篩選" onclick="updateTable();" style="display:none;">
   </fieldset>
 </form>
