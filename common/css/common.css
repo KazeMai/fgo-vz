@@ -100,32 +100,6 @@ header, section, footer, aside, article, figure {
 	text-shadow:1px 1px 1px #fff;
 }
 
-.headline2 {
-	display: inline-block;
-	font-size: 0.9em;
-	font-weight: bold;
-	color: #ffffff;
-	text-shadow: 1px 1px 4px #000000;
-	letter-spacing: 0;
-	border: none;
-	box-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.4);
-	border-radius: 5px;
-	padding-top: 10px;
-	padding-left: 35px;
-	padding-bottom: 10px;
-	background: url("../images/img_bgmark_logo.png") no-repeat 2% center, rgb(2,41,88); /* Old browsers */
-	background: url("../images/img_bgmark_logo.png") no-repeat 2% center, -moz-linear-gradient(top,  rgba(2,41,88,1) 0%, rgba(9,77,157,1) 87%, rgba(9,77,157,1) 100%); /* FF3.6+ */
-	background: url("../images/img_bgmark_logo.png") no-repeat 2% center, -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(2,41,88,1)), color-stop(87%,rgba(9,77,157,1)), color-stop(100%,rgba(9,77,157,1))); /* 	Chrome,Safari4+ */
-	background: url("../images/img_bgmark_logo.png") no-repeat 2% center, -webkit-linear-gradient(top,  rgba(2,41,88,1) 0%,rgba(9,77,157,1) 87%,rgba(9,77,157,1) 100%); /* Chrome10+,Safari5.1+ */
-	background: url("../images/img_bgmark_logo.png") no-repeat 2% center, -o-linear-gradient(top,  rgba(2,41,88,1) 0%,rgba(9,77,157,1) 87%,rgba(9,77,157,1) 100%); /* Opera 11.10+ */
-	background: url("../images/img_bgmark_logo.png") no-repeat 2% center, -ms-linear-gradient(top,  rgba(2,41,88,1) 0%,rgba(9,77,157,1) 87%,rgba(9,77,157,1) 100%); /* IE10+ */
-	background: url("../images/img_bgmark_logo.png") no-repeat 2% center, linear-gradient(to bottom,  rgba(2,41,88,1) 0%,rgba(9,77,157,1) 87%,rgba(9,77,157,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#022958', endColorstr='#094d9d',GradientType=0 ); /* IE6-9 */
-	width: 90%;
-	margin-top: 10px;
-	padding-right: 10px;
-}
-
 .headline3 {
 	display: inline-block;
 	font-size: 0.9em;
