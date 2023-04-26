@@ -904,6 +904,13 @@ padding-left: 1em;
     background-color: #f7d2d4;
 }
 
+.attention_blue {
+    padding: 1em 1em 0 1em;
+    border: solid 2px #004DD8;
+    margin: 10px;
+    background-color: #EBF3FA;
+}
+
 .attention2{
 	padding: 1em 1em 0 1em;
 	border: solid 1.5px #e8000b;
