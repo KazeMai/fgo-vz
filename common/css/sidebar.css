@@ -1442,6 +1442,24 @@ width:100px;
 
 }
 
+
+.tag_3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px!important;
+    color: #ffffff;
+    padding: 1px 5px;
+    background: #027a18;
+    border-radius: 4px;
+    width: 173px;
+    float: left;
+    text-align: center;
+    transform: scale(0.5, 1);
+    margin-left: -45px;
+    font-weight: bold;
+    letter-spacing: 0.2em;
+}
+
+
 .link_cl {
     font-weight: bold;
 }
