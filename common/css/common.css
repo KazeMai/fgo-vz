@@ -5,7 +5,7 @@ body {
 	margin: 0;
 	padding: 0;
 	color: #000;
-	background-image: url(../images/bg.jpg);
+	background-image: url(https://fgo.kazemai.io/common/images/bg.jpg);
 	height: auto;
 	background-repeat: repeat;
 	background-size: 30px 30px;
@@ -113,13 +113,13 @@ header, section, footer, aside, article, figure {
 	padding-top: 10px;
 	padding-left: 35px;
 	padding-bottom: 10px;
-	background: url("../images/img_bgmark_logo.png") no-repeat 2% center, rgb(2,41,88); /* Old browsers */
-	background: url("../images/img_bgmark_logo.png") no-repeat 2% center, -moz-linear-gradient(top,  rgba(2,41,88,1) 0%, rgba(9,77,157,1) 87%, rgba(9,77,157,1) 100%); /* FF3.6+ */
-	background: url("../images/img_bgmark_logo.png") no-repeat 2% center, -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(2,41,88,1)), color-stop(87%,rgba(9,77,157,1)), color-stop(100%,rgba(9,77,157,1))); /* 	Chrome,Safari4+ */
-	background: url("../images/img_bgmark_logo.png") no-repeat 2% center, -webkit-linear-gradient(top,  rgba(2,41,88,1) 0%,rgba(9,77,157,1) 87%,rgba(9,77,157,1) 100%); /* Chrome10+,Safari5.1+ */
-	background: url("../images/img_bgmark_logo.png") no-repeat 2% center, -o-linear-gradient(top,  rgba(2,41,88,1) 0%,rgba(9,77,157,1) 87%,rgba(9,77,157,1) 100%); /* Opera 11.10+ */
-	background: url("../images/img_bgmark_logo.png") no-repeat 2% center, -ms-linear-gradient(top,  rgba(2,41,88,1) 0%,rgba(9,77,157,1) 87%,rgba(9,77,157,1) 100%); /* IE10+ */
-	background: url("../images/img_bgmark_logo.png") no-repeat 2% center, linear-gradient(to bottom,  rgba(2,41,88,1) 0%,rgba(9,77,157,1) 87%,rgba(9,77,157,1) 100%); /* W3C */
+	background: url("https://fgo.kazemai.io/common/images/img_bgmark_logo.png") no-repeat 2% center, rgb(2,41,88); /* Old browsers */
+	background: url("https://fgo.kazemai.io/common/images/img_bgmark_logo.png") no-repeat 2% center, -moz-linear-gradient(top,  rgba(2,41,88,1) 0%, rgba(9,77,157,1) 87%, rgba(9,77,157,1) 100%); /* FF3.6+ */
+	background: url("https://fgo.kazemai.io/common/images/img_bgmark_logo.png") no-repeat 2% center, -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(2,41,88,1)), color-stop(87%,rgba(9,77,157,1)), color-stop(100%,rgba(9,77,157,1))); /* 	Chrome,Safari4+ */
+	background: url("https://fgo.kazemai.io/common/images/img_bgmark_logo.png") no-repeat 2% center, -webkit-linear-gradient(top,  rgba(2,41,88,1) 0%,rgba(9,77,157,1) 87%,rgba(9,77,157,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: url("https://fgo.kazemai.io/common/images/img_bgmark_logo.png") no-repeat 2% center, -o-linear-gradient(top,  rgba(2,41,88,1) 0%,rgba(9,77,157,1) 87%,rgba(9,77,157,1) 100%); /* Opera 11.10+ */
+	background: url("https://fgo.kazemai.io/common/images/img_bgmark_logo.png") no-repeat 2% center, -ms-linear-gradient(top,  rgba(2,41,88,1) 0%,rgba(9,77,157,1) 87%,rgba(9,77,157,1) 100%); /* IE10+ */
+	background: url("https://fgo.kazemai.io/common/images/img_bgmark_logo.png") no-repeat 2% center, linear-gradient(to bottom,  rgba(2,41,88,1) 0%,rgba(9,77,157,1) 87%,rgba(9,77,157,1) 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#022958', endColorstr='#094d9d',GradientType=0 ); /* IE6-9 */
 	width: 91%;
 	margin-top: 10px;

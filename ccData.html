@@ -29,8 +29,8 @@
 </script>
 <script type="text/javascript">
 var zhTWNo=0,zhCNNo=0;sortByElmentNo(master.mstCommandCode);
-function svtDataTable(a){var b="",c=null;$(".ceInfo").html("");for(var d in master.mstCommandCode)if(master.mstCommandCode[d].id==a){c=master.mstCommandCode[d];break}document.title=c.name+" - \u6307\u4ee4\u7d0b\u7ae0\u8cc7\u6599\u67e5\u8a62";$("#ceGraph").html('<img src="common/images/CommandGraph/'+a+'.png" onerror=javascript:this.src="common/images/CharaGraph/0.png" style="width:100%" />');$("#ceNo").html(c.collectionNo);for(a=0;a<c.rarity;a++)b+="\u2605";$("#ceRarity").html(b);$("#ceName").html(c.name);
-for(ccs in master.mstCommandCodeSkill)master.mstCommandCodeSkill[ccs].commandCodeId==c.id&&(b=master.mstCommandCodeSkill[ccs],$("#ceSkIcon").html('<img src="common/images/SkillIcon/SkillIcon_'+master.mstSkill[findName(master.mstSkill,b.skillId)].iconId+'.png" onerror=javascript:this.src="common/images/SkillIcon/SkillIcon_0.png" style="width:55px;" />'),$("#ceSkill").append(findSkDetailZh(b.skillId)));c.collectionNo>zhCNNo&&($("#cmtlang_zh").prop("checked",!1),$("#cmtlang_jp").prop("checked",!0));
+function svtDataTable(a){var b="",c=null;$(".ceInfo").html("");for(var d in master.mstCommandCode)if(master.mstCommandCode[d].id==a){c=master.mstCommandCode[d];break}document.title=c.name+" - \u6307\u4ee4\u7d0b\u7ae0\u8cc7\u6599\u67e5\u8a62";$("#ceGraph").html('<img src="https://fgo.kazemai.io/common/images/CommandGraph/'+a+'.png" onerror=javascript:this.src="https://fgo.kazemai.io/common/images/CharaGraph/0.png" style="width:100%" />');$("#ceNo").html(c.collectionNo);for(a=0;a<c.rarity;a++)b+="\u2605";$("#ceRarity").html(b);$("#ceName").html(c.name);
+for(ccs in master.mstCommandCodeSkill)master.mstCommandCodeSkill[ccs].commandCodeId==c.id&&(b=master.mstCommandCodeSkill[ccs],$("#ceSkIcon").html('<img src="https://fgo.kazemai.io/common/images/SkillIcon/SkillIcon_'+master.mstSkill[findName(master.mstSkill,b.skillId)].iconId+'.png" onerror=javascript:this.src="https://fgo.kazemai.io/common/images/SkillIcon/SkillIcon_0.png" style="width:55px;" />'),$("#ceSkill").append(findSkDetailZh(b.skillId)));c.collectionNo>zhCNNo&&($("#cmtlang_zh").prop("checked",!1),$("#cmtlang_jp").prop("checked",!0));
 cmtRead($("input[name=cmtlang]:checked").val());$("img.lazyload").lazyload()}
 function cmtRead(a){try{$.get("common/CommandCodeComment/"+a+"/"+$("#svtid").val(),function(b){b=JSON.parse(base64.decode(b));$("#ceComment").html(b[0].comment.replace(/\n/g,"<br>").replace(/<br>$/,"<br><br>")+"</td></tr>");for(var a in master.mstIllustrator)if(master.mstIllustrator[a].id==b[0].illustratorId)break;$("#ceIll").html((1<master.mstIllustrator[a].id?'<a href="illustrator.html#'+master.mstIllustrator[a].id+'">':"")+master.mstIllustrator[a].name)},"text")}catch(b){console.log("Cannot find comment file."),
 "zh"==a&&cmtRead("jp")}}function optionInit(){for(var a in master.mstCommandCode)svtid.options.add(new Option("No."+master.mstCommandCode[a].collectionNo+" "+master.mstCommandCode[a].name,master.mstCommandCode[a].id));var b="1";getUrl("no")&&(b=getUrl("no"));if(b)for(a in master.mstCommandCode)if(b==master.mstCommandCode[a].collectionNo){$("#svtid").val(master.mstCommandCode[a].id);break}svtidChange()}function svtidChange(){svtDataTable(svtid.value)}
@@ -63,13 +63,13 @@ function svtlocation(a){a="";for(var b in master.mstCommandCode)if(master.mstCom
  -->
 <table id="svtNrmlData" style="width:100%;">
 <tr><td rowspan=9 style="width:300px;">
-<span class="ceInfo" id="ceGraph"><img src="common/images/CharaGraph/0.png" style="width:300px;"></span>
+<span class="ceInfo" id="ceGraph"><img src="https://fgo.kazemai.io/common/images/CharaGraph/0.png" style="width:300px;"></span>
 </td><th style="width:100px;height:15px;">編號</th><th style="width:100px;height:15px;">星數</th><th style="height:15px;">名稱</th></tr>
 <tr style="text-align:center;height:30px;"><td>No.<span class="ceInfo" id="ceNo"></span></td><td><span class="ceInfo star" id="ceRarity"></span></td><td rowspan=3><span class="ceInfo" id="ceName"></span></td></tr>
 <tr style="text-align:center;height:15px;"><th colspan=2>繪師</th></tr>
 <tr style="text-align:center;height:30px;"><td colspan=2><span class="ceInfo" id="ceIll"></span></td></tr>
 <tr style="text-align:center;height:15px;"><th colspan=3>保有技能</th></tr>
-<tr><th style="height:60px;"><span class="ceInfo" id="ceSkIcon"><img src="common/images/SkillIcon/SkillIcon_0.png" width=55></span></th><td colspan=2><span class="ceInfo" id="ceSkill"></span></td></tr>
+<tr><th style="height:60px;"><span class="ceInfo" id="ceSkIcon"><img src="https://fgo.kazemai.io/common/images/SkillIcon/SkillIcon_0.png" width=55></span></th><td colspan=2><span class="ceInfo" id="ceSkill"></span></td></tr>
 <!-- <tr style="height:60px;"><th><span class="ceInfo" id="ceType">最大解放</span></th><td colspan=2><span class="ceInfo" id="ceSkill2"></span></td></tr> -->
 <tr style="text-align:center;height:15px;"><th colspan=2>解說</th><th>
 		<form id="cmtlangDiv">
@@ -87,7 +87,7 @@ $('#cmtlangDiv input[type=radio]').change(function() {
 <div id="chart_div"></div>
 </article>
 </div>
-<div id="gotop"><a href="#"><img src="common/images/btn_gotop_off.jpg" width="47" height="47" alt="返回頂端" /></a></div>
+<div id="gotop"><a href="#"><img src="https://fgo.kazemai.io/common/images/btn_gotop_off.jpg" width="47" height="47" alt="返回頂端" /></a></div>
 <div id="chkJp"><input type=checkbox id="isJpTxt" onchange="svtidChange();">顯示日文原文<br></div>
     </div>
     <!--主要內容區塊結束-->

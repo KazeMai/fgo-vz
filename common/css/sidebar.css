@@ -82,7 +82,7 @@ background-position: 14px;
   opacity: 0.6;
 }
 .bkmk{
-  background-image:url("../images/bkmk_off.png");
+  background-image:url("https://fgo.kazemai.io/common/images/bkmk_off.png");
   background-size:140px 40px;
   background-repeat:no-repeat;
   width:140px;
@@ -95,10 +95,10 @@ background-position: 14px;
   float:left;
 }
 .bkmk:hover{
-  background-image:url("../images/bkmk_on.png");
+  background-image:url("https://fgo.kazemai.io/common/images/bkmk_on.png");
 }
 .bkmkO{
-  background-image:url("../images/bkmk_on.png");
+  background-image:url("https://fgo.kazemai.io/common/images/bkmk_on.png");
   background-size:140px 40px;
   background-repeat:no-repeat;
   width:140px;
@@ -124,12 +124,12 @@ background-position: 14px;
 	padding-left: 35px;
 	padding-right: 10px;
 	padding-bottom: 10px;
-	background: url("../images/img_bgmark_logo.png") no-repeat 2% center, rgb(2,41,88); /* Old browsers */
-	background: url("../images/img_bgmark_logo.png") no-repeat 2% center, -moz-linear-gradient(top, rgb(90,15,27) 0%,rgb(207,35,36) 100%); /* FF3.6+ */
-	background: url("../images/img_bgmark_logo.png") no-repeat 2% center, -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(90,15,27)), color-stop(87%,rgba(207,35,36)), color-stop(100%,rgba(207,35,36))); /* 	Chrome,Safari4+ */
-	background: url("../images/img_bgmark_logo.png") no-repeat 2% center, -webkit-linear-gradient(top, rgb(90,15,27) 0%,rgb(207,35,36) 100%);; /* Chrome10+,Safari5.1+ */
-	background: url("../images/img_bgmark_logo.png") no-repeat 2% center, -o-linear-gradient(top, rgb(90,15,27) 0%,rgb(207,35,36) 100%); /* Opera 11.10+ */
-	background: url("../images/img_bgmark_logo.png") no-repeat 2% center, -ms-linear-gradient(top, rgb(90,15,27) 0%,rgb(207,35,36) 100%); /* IE10+ */
+	background: url("https://fgo.kazemai.io/common/images/img_bgmark_logo.png") no-repeat 2% center, rgb(2,41,88); /* Old browsers */
+	background: url("https://fgo.kazemai.io/common/images/img_bgmark_logo.png") no-repeat 2% center, -moz-linear-gradient(top, rgb(90,15,27) 0%,rgb(207,35,36) 100%); /* FF3.6+ */
+	background: url("https://fgo.kazemai.io/common/images/img_bgmark_logo.png") no-repeat 2% center, -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(90,15,27)), color-stop(87%,rgba(207,35,36)), color-stop(100%,rgba(207,35,36))); /* 	Chrome,Safari4+ */
+	background: url("https://fgo.kazemai.io/common/images/img_bgmark_logo.png") no-repeat 2% center, -webkit-linear-gradient(top, rgb(90,15,27) 0%,rgb(207,35,36) 100%);; /* Chrome10+,Safari5.1+ */
+	background: url("https://fgo.kazemai.io/common/images/img_bgmark_logo.png") no-repeat 2% center, -o-linear-gradient(top, rgb(90,15,27) 0%,rgb(207,35,36) 100%); /* Opera 11.10+ */
+	background: url("https://fgo.kazemai.io/common/images/img_bgmark_logo.png") no-repeat 2% center, -ms-linear-gradient(top, rgb(90,15,27) 0%,rgb(207,35,36) 100%); /* IE10+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#022958', endColorstr='#094d9d',GradientType=0 ); /* IE6-9 */
 	width: 91%;
 	margin-top: 10px;
@@ -164,7 +164,7 @@ div.large
 	box-shadow:0px 0px 3px #000;
 	font-size: 0.9em;
 	text-align:right;
-	background-image: url(../images/detail_bg.png);
+	background-image: url(https://fgo.kazemai.io/common/images/detail_bg.png);
 }
 #chkJp:hover{
 	right:0px;
@@ -231,7 +231,7 @@ table.tablesorter tr:last-child td {
 	box-shadow: 2px 2px 1px rgba(0,0,0,0.1);
 }
 table.tablesorter thead tr .header {
-	background-image: url(../images/tablesorter/bg.gif);
+	background-image: url(https://fgo.kazemai.io/common/images/tablesorter/bg.gif);
 	background-repeat: no-repeat;
 	background-position: center right;
 	cursor: pointer;
@@ -240,10 +240,10 @@ table.tablesorter tbody tr.odd td {
 	background-color:#F0F0F6;
 }
 table.tablesorter thead tr .headerSortUp {
-	background-image: url(../images/tablesorter/asc.gif);
+	background-image: url(https://fgo.kazemai.io/common/images/tablesorter/asc.gif);
 }
 table.tablesorter thead tr .headerSortDown {
-	background-image: url(../images/tablesorter/desc.gif);
+	background-image: url(https://fgo.kazemai.io/common/images/tablesorter/desc.gif);
 }
 table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
 	background-color: #d48227;
@@ -402,7 +402,7 @@ div.spotname{
 	text-align: center;
 	padding: 5px 10px;
 	margin-top: 2px;
-	background-image: url("../images/icon/war/spot_name.png");
+	background-image: url("https://fgo.kazemai.io/common/images/icon/war/spot_name.png");
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: 100% 30px;
@@ -470,12 +470,12 @@ table.table_non tr
 	padding-left: 35px;
 	padding-right: 10px;
 	padding-bottom: 10px;
-	background: url("../images/img_bgmark_logo.png?t=20150718") no-repeat 2% center, rgb(236,117,0); /* Old browsers */
-	background: url("../images/img_bgmark_logo.png?t=20150718") no-repeat 2% center, -moz-linear-gradient(top, rgb(236,117,0) 0%,rgb(255,235,64) 100%); /* FF3.6+ */
-	background: url("../images/img_bgmark_logo.png?t=20150718") no-repeat 2% center, -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(236,117,0,1)), color-stop(87%,rgba(255,235,646)), color-stop(100%,rgba(207,35,36))); /* 	Chrome,Safari4+ */
-	background: url("../images/img_bgmark_logo.png?t=20150718") no-repeat 2% center, -webkit-linear-gradient(top, rgb(236,117,0) 0%,rgb(255,235,64) 100%);; /* Chrome10+,Safari5.1+ */
-	background: url("../images/img_bgmark_logo.png?t=20150718") no-repeat 2% center, -o-linear-gradient(top, rgb(236,117,0) 0%,rgb(255,235,64) 100%); /* Opera 11.10+ */
-	background: url("../images/img_bgmark_logo.png?t=20150718") no-repeat 2% center, -ms-linear-gradient(top, rgb(236,117,0)) 0%,rgb(255,235,64) 100%); /* IE10+ */
+	background: url("https://fgo.kazemai.io/common/images/img_bgmark_logo.png?t=20150718") no-repeat 2% center, rgb(236,117,0); /* Old browsers */
+	background: url("https://fgo.kazemai.io/common/images/img_bgmark_logo.png?t=20150718") no-repeat 2% center, -moz-linear-gradient(top, rgb(236,117,0) 0%,rgb(255,235,64) 100%); /* FF3.6+ */
+	background: url("https://fgo.kazemai.io/common/images/img_bgmark_logo.png?t=20150718") no-repeat 2% center, -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(236,117,0,1)), color-stop(87%,rgba(255,235,646)), color-stop(100%,rgba(207,35,36))); /* 	Chrome,Safari4+ */
+	background: url("https://fgo.kazemai.io/common/images/img_bgmark_logo.png?t=20150718") no-repeat 2% center, -webkit-linear-gradient(top, rgb(236,117,0) 0%,rgb(255,235,64) 100%);; /* Chrome10+,Safari5.1+ */
+	background: url("https://fgo.kazemai.io/common/images/img_bgmark_logo.png?t=20150718") no-repeat 2% center, -o-linear-gradient(top, rgb(236,117,0) 0%,rgb(255,235,64) 100%); /* Opera 11.10+ */
+	background: url("https://fgo.kazemai.io/common/images/img_bgmark_logo.png?t=20150718") no-repeat 2% center, -ms-linear-gradient(top, rgb(236,117,0)) 0%,rgb(255,235,64) 100%); /* IE10+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#022958', endColorstr='#094d9d',GradientType=0 ); /* IE6-9 */
 	width: 91%;
 	margin-top: 10px;
@@ -494,7 +494,7 @@ dl.accordion dd p {
 	margin: 0;
 }
 dt.act .arrowAC{
-	background-image: url("../images/2016/03/arrow_open.png");
+	background-image: url("https://fgo.kazemai.io/common/images/2016/03/arrow_open.png");
 	background-size: 20px 20px;
 	background-repeat: no-repeat;
 	width: 20px;
@@ -502,7 +502,7 @@ dt.act .arrowAC{
 	float: right;
 }
 dt.open .arrowAC{
-	background-image: url("../images/2016/03/arrow_close.png");
+	background-image: url("https://fgo.kazemai.io/common/images/2016/03/arrow_close.png");
 	background-size: 20px 20px;
 	background-repeat: no-repeat;
 	width: 20px;
@@ -579,11 +579,11 @@ h2 {
 }
 /* line 53, ../sass/view/_index.scss */
 .slide .slick-prev:before {
-  background-image: url('../images/left_btn.png?1449451608');
+  background-image: url('https://fgo.kazemai.io/common/images/left_btn.png?1449451608');
 }
 /* line 56, ../sass/view/_index.scss */
 .slide .slick-next:before {
-  background-image: url('../images/right_btn.png?1449451608');
+  background-image: url('https://fgo.kazemai.io/common/images/right_btn.png?1449451608');
 }
 /* line 60, ../sass/view/_index.scss */
 .slide .slick-slide img {
@@ -679,7 +679,7 @@ padding-left: 1em;
 position:fixed;
 _position:absolute;
 top:0;
-background-image: url(../images/detail_bg.png);
+background-image: url(https://fgo.kazemai.io/common/images/detail_bg.png);
 margin-top:-30px;
 opacity:0.3;
 }
@@ -691,7 +691,7 @@ opacity:1;
 position:fixed;
 _position:absolute;
 top:0;
-background-image: url(../images/detail_bg.png);
+background-image: url(https://fgo.kazemai.io/common/images/detail_bg.png);
 margin-top:-70px;
 opacity:0.3;
 }
@@ -703,7 +703,7 @@ opacity:1;
 position:fixed;
 _position:absolute;
 top:0;
-background-image: url(../images/detail_bg.png);
+background-image: url(https://fgo.kazemai.io/common/images/detail_bg.png);
 margin-top:-110px;
 opacity:0.3;
 }
@@ -718,7 +718,7 @@ span.new {
   left: 10px;*/
   width: 49px;
   height: 19px;
-  background: url('../images/new_tab.png') no-repeat;
+  background: url('https://fgo.kazemai.io/common/images/new_tab.png') no-repeat;
   background-size: contain;
   float:left;
 }
@@ -763,14 +763,14 @@ table.mt-15 .star {
 	font-style:italic;
 }
 .face_icon {
-	background-image:url("../images/icon/faces/0.png");
+	background-image:url("https://fgo.kazemai.io/common/images/icon/faces/0.png");
 	background-size: 60px 60px;
 	background-repeat: no-repeat;
 	width:60px;
 	height:60px;
 }
 .face_icon50 {
-	background-image:url("../images/icon/faces/0.png");
+	background-image:url("https://fgo.kazemai.io/common/images/icon/faces/0.png");
 	background-size: 50px 50px;
 	background-repeat: no-repeat;
 	width:50px;
@@ -783,13 +783,13 @@ table.mt-15 .star {
 	height:60px;
 }
 .face_icon_cc1 {
-	background-image:url("../images/icon/frames/listcframes1_bg.png");
+	background-image:url("https://fgo.kazemai.io/common/images/icon/frames/listcframes1_bg.png");
 }
 .face_icon_cc2 {
-	background-image:url("../images/icon/frames/listcframes2_bg.png");
+	background-image:url("https://fgo.kazemai.io/common/images/icon/frames/listcframes2_bg.png");
 }
 .face_icon_cc3 {
-	background-image:url("../images/icon/frames/listcframes3_bg.png");
+	background-image:url("https://fgo.kazemai.io/common/images/icon/frames/listcframes3_bg.png");
 }
 
 .period{

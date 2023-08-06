@@ -30,9 +30,9 @@
 </script>
 <script type="text/javascript">
 var $jscomp=$jscomp||{};$jscomp.scope={};$jscomp.arrayIteratorImpl=function(a){var b=0;return function(){return b<a.length?{done:!1,value:a[b++]}:{done:!0}}};$jscomp.arrayIterator=function(a){return{next:$jscomp.arrayIteratorImpl(a)}};$jscomp.makeIterator=function(a){var b="undefined"!=typeof Symbol&&Symbol.iterator&&a[Symbol.iterator];return b?b.call(a):$jscomp.arrayIterator(a)};var zhTWNo=1482,zhCNNo=1625;sortByElmentNo(master.mstSvt);
-function svtDataTable(a){var b="";$(".ceInfo").html("");for(var d in master.mstSvt)if(master.mstSvt[d].id==a)break;document.title=master.mstSvt[d].name+" - \u79ae\u88dd\u8cc7\u6599\u67e5\u8a62";for(var e in master.mstSvtLimit)if(master.mstSvtLimit[e].svtId==a)break;$("#ceGraph").html('<img src="common/images/CharaGraph/'+a+'a.png" onerror=javascript:this.src="common/images/CharaGraph/0.png" style="width:100%" />');$("#ceNo").html(master.mstSvt[d].collectionNo);for(var c=0;c<master.mstSvtLimit[e].rarity;c++)b+=
+function svtDataTable(a){var b="";$(".ceInfo").html("");for(var d in master.mstSvt)if(master.mstSvt[d].id==a)break;document.title=master.mstSvt[d].name+" - \u79ae\u88dd\u8cc7\u6599\u67e5\u8a62";for(var e in master.mstSvtLimit)if(master.mstSvtLimit[e].svtId==a)break;$("#ceGraph").html('<img src="https://fgo.kazemai.io/common/images/CharaGraph/'+a+'a.png" onerror=javascript:this.src="https://fgo.kazemai.io/common/images/CharaGraph/0.png" style="width:100%" />');$("#ceNo").html(master.mstSvt[d].collectionNo);for(var c=0;c<master.mstSvtLimit[e].rarity;c++)b+=
 "\u2605";$("#ceRarity").html(b);$("#ceName").html(master.mstSvt[d].name);$("#ceHp").html(master.mstSvtLimit[e].hpBase+" / "+master.mstSvtLimit[e].hpMax);$("#ceAtk").html(master.mstSvtLimit[e].atkBase+" / "+master.mstSvtLimit[e].atkMax);for(c in master.mstIllustrator)if(master.mstIllustrator[c].id==master.mstSvt[d].illustratorId)break;$("#ceIll").html((1<master.mstIllustrator[c].id?'<a href="illustrator.html#'+master.mstIllustrator[c].id+'">':"")+master.mstIllustrator[c].name);e=0;for(c in master.mstSvtSkill)if(master.mstSvtSkill[c].svtId==
-master.mstSvt[d].id)if(0==master.mstSvtSkill[c].condLimitCount){if(0==master.mstSvtSkill[c].eventId){var f=master.mstSkill[findName(master.mstSkill,master.mstSvtSkill[c].skillId)];$("#ceSkIcon").html('<img src="common/images/SkillIcon/SkillIcon_'+f.iconId+'.png" onerror=javascript:this.src="common/images/SkillIcon/SkillIcon_0.png" style="width:55px;" />');b="";if(0<f.actIndividuality.length)for(var g in f.actIndividuality)null!=findSvtNameZh(f.actIndividuality[g])&&(e=f.actIndividuality[g])}else b=
+master.mstSvt[d].id)if(0==master.mstSvtSkill[c].condLimitCount){if(0==master.mstSvtSkill[c].eventId){var f=master.mstSkill[findName(master.mstSkill,master.mstSvtSkill[c].skillId)];$("#ceSkIcon").html('<img src="https://fgo.kazemai.io/common/images/SkillIcon/SkillIcon_'+f.iconId+'.png" onerror=javascript:this.src="https://fgo.kazemai.io/common/images/SkillIcon/SkillIcon_0.png" style="width:55px;" />');b="";if(0<f.actIndividuality.length)for(var g in f.actIndividuality)null!=findSvtNameZh(f.actIndividuality[g])&&(e=f.actIndividuality[g])}else b=
 "<br> \uff0b ";$("#ceSkill").append(b+findSkDetailZh(master.mstSvtSkill[c].skillId))}else 4==master.mstSvtSkill[c].condLimitCount&&(b=0==master.mstSvtSkill[c].eventId?"":"<br> \uff0b ",$("#ceSkill2").append(b+findSkDetailZh(master.mstSvtSkill[c].skillId)));$("#ceType").html("\u6700\u5927\u89e3\u653e");0!=e&&($("#ceType").html("\u5c08\u5c6c\u5f9e\u8005"),$("#ceSkill2").html(svtFace(e)));b=$jscomp.makeIterator(Object.entries(ValCE));for(c=b.next();!c.done;c=b.next())if(c=$jscomp.makeIterator(c.value),
 g=c.next().value,-1!=c.next().value.join().search(a)){$("#ceType").html("\u5c08\u5c6c\u5f9e\u8005");$("#ceSkill2").html(svtFace(g));break}master.mstSvt[d].collectionNo>zhCNNo&&($("#cmtlang_zh").prop("checked",!1),$("#cmtlang_jp").prop("checked",!0));cmtRead($("input[name=cmtlang]:checked").val());$("img.lazyload").lazyload()}
 function cmtRead(a){try{$.get("common/svtcomment/"+a+"/"+$("#svtid").val(),function(b){b=JSON.parse(base64.decode(b));$("#ceComment").html(b[0].comment.replace(/\n/g,"<br>").replace(/<br>$/,"<br><br>")+"</td></tr>")},"text")}catch(b){console.log("Cannot find comment file."),"zh"==a&&cmtRead("jp")}}
@@ -66,13 +66,13 @@ function svtlocation(a){a="";for(var b in master.mstSvt)if(master.mstSvt[b].id==
 </p>
 <table id="svtNrmlData" style="width:100%;">
 <tr><td rowspan=9 style="width:300px;">
-<span class="ceInfo" id="ceGraph"><img src="common/images/CharaGraph/0.png" style="width:300px;"></span>
+<span class="ceInfo" id="ceGraph"><img src="https://fgo.kazemai.io/common/images/CharaGraph/0.png" style="width:300px;"></span>
 </td><th style="width:100px;height:15px;">編號</th><th style="width:100px;height:15px;">星數</th><th style="height:15px;">名稱</th></tr>
 <tr style="text-align:center;height:30px;"><td>No.<span class="ceInfo" id="ceNo"></span></td><td><span class="ceInfo star" id="ceRarity"></span></td><td><span class="ceInfo" id="ceName"></span></td></tr>
 <tr style="text-align:center;height:15px;"><th>HP</th><th>ATK</th><th>繪師</th></tr>
 <tr style="text-align:center;height:30px;"><td><span class="ceInfo" id="ceHp"></span></td><td><span class="ceInfo" id="ceAtk"></span></td><td><span class="ceInfo" id="ceIll"></span></td></tr>
 <tr style="text-align:center;height:15px;"><th colspan=3>保有技能</th></tr>
-<tr><th style="height:60px;"><span class="ceInfo" id="ceSkIcon"><img src="common/images/SkillIcon/SkillIcon_0.png" width=55></span></th><td colspan=2><span class="ceInfo" id="ceSkill"></span></td></tr>
+<tr><th style="height:60px;"><span class="ceInfo" id="ceSkIcon"><img src="https://fgo.kazemai.io/common/images/SkillIcon/SkillIcon_0.png" width=55></span></th><td colspan=2><span class="ceInfo" id="ceSkill"></span></td></tr>
 <tr style="height:60px;"><th><span class="ceInfo" id="ceType">最大解放</span></th><td colspan=2><span class="ceInfo" id="ceSkill2"></span></td></tr>
 <tr style="text-align:center;height:15px;"><th colspan=2>解說</th><th>
 		<form id="cmtlangDiv">
@@ -90,7 +90,7 @@ $('#cmtlangDiv input[type=radio]').change(function() {
 <div id="chart_div"></div>
 </article>
 </div>
-<div id="gotop"><a href="#"><img src="common/images/btn_gotop_off.jpg" width="47" height="47" alt="返回頂端" /></a></div>
+<div id="gotop"><a href="#"><img src="https://fgo.kazemai.io/common/images/btn_gotop_off.jpg" width="47" height="47" alt="返回頂端" /></a></div>
 <div id="chkJp"><input type=checkbox id="isJpTxt" onchange="svtidChange();">顯示日文原文<br></div>
     </div>
     <!--主要內容區塊結束-->

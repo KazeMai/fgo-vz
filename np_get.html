@@ -32,7 +32,7 @@
 <script type="text/javascript">
 sortByElmentNo(master.mstSvt);var npUp=0,classarray=[],rarityarray=[],gTarray=[],cTarray=[];
 function svtTableOut(){var c="";for(i in master.mstSvt)if((1==master.mstSvt[i].type||2==master.mstSvt[i].type)&&0!=master.mstSvt[i].collectionNo){for(var a in master.mstSvtLimit)if(master.mstSvtLimit[a].svtId==master.mstSvt[i].id)break;var b=getBaseNP(master.mstSvt[i].id);npUp=b.npUp;c+="<tr class='svtList' data-svtid='"+master.mstSvt[i].id+"' data-rarityl='"+master.mstSvtLimit[a].rarity+"' data-classl='"+master.mstSvt[i].classId+"' data-typel='"+master.mstSvt[i].battleSize+"' onclick='svtClick("+
-master.mstSvt[i].id+");'><td>"+master.mstSvt[i].collectionNo+"</td><td><a href='svtData.html?";c=0==master.mstSvt[i].collectionNo?c+("id="+master.mstSvt[i].id):c+("no="+master.mstSvt[i].collectionNo);c+="'>"+findSvtNameZh2(master.mstSvt[i].id)+"</td><td><span style='display:none'>"+master.mstSvt[i].classId+"</span><img src='common/images/icon/class/class_"+findClassImageId(master.mstSvt[i].classId)+"_"+master.mstSvtLimit[a].rarity+".png' title='"+findClassName(master.mstSvt[i].classId)+"' class='classS' /></td><td>"+
+master.mstSvt[i].id+");'><td>"+master.mstSvt[i].collectionNo+"</td><td><a href='svtData.html?";c=0==master.mstSvt[i].collectionNo?c+("id="+master.mstSvt[i].id):c+("no="+master.mstSvt[i].collectionNo);c+="'>"+findSvtNameZh2(master.mstSvt[i].id)+"</td><td><span style='display:none'>"+master.mstSvt[i].classId+"</span><img src='https://fgo.kazemai.io/common/images/icon/class/class_"+findClassImageId(master.mstSvt[i].classId)+"_"+master.mstSvtLimit[a].rarity+".png' title='"+findClassName(master.mstSvt[i].classId)+"' class='classS' /></td><td>"+
 master.mstSvtLimit[a].rarity+"</td><td>"+b.npbaseA/100+"</td><td>"+b.artHit+"</td><td>"+npCal(1,30,b.artUp,b.artHit,b.npbaseA)+"</td><td>"+npCal(0,45,b.artUp,b.artHit,b.npbaseA)+"</td><td>"+npCal(1,45,b.artUp,b.artHit,b.npbaseA)+"</td><td>"+npCal(0,60,b.artUp,b.artHit,b.npbaseA)+"</td><td>"+npCal(1,60,b.artUp,b.artHit,b.npbaseA)+"</td><td>"+b.npbaseQ/100+"</td><td>"+b.quickHit+"</td><td>"+npCal(0,10,b.quickUp,b.quickHit,b.npbaseQ)+"</td><td>"+npCal(0,15,b.quickUp,b.quickHit,b.npbaseQ)+"</td><td>"+
 npCal(1,15,b.quickUp,b.quickHit,b.npbaseQ)+"</td><td>"+npCal(0,20,b.quickUp,b.quickHit,b.npbaseQ)+"</td><td>"+npCal(1,20,b.quickUp,b.quickHit,b.npbaseQ)+"</td><td>"+b.npbaseEx/100+"</td><td>"+b.exHit+"</td><td>"+npCal(0,10,0,b.exHit,b.npbaseEx)+"</td><td>"+npCal(1,10,0,b.exHit,b.npbaseEx)+"</td><td>"+b.npbaseB/100+"</td><td>"+b.busterHit+"</td><td>"+npCal(1,0,b.busterUp,b.busterHit,b.npbaseB)+"</td><td>"+b.npbase/100+"</td><td>"+b.npHit+"</td>";var f=0;1==b.npType?f=npCal(0,30,b.artUp,b.npHit,b.npbase):
 2==b.npType?f=npCal(0,0,b.busterUp,b.npHit,b.npbase):3==b.npType&&(f=npCal(0,10,b.quickUp,b.npHit,b.npbase));c+="<td>"+f+"</td></tr>"}$("#svtTable tbody").empty();$("#svtTable tbody").append(c)}function initTable(){svtTableOut();$("#svtTable").tablesorter({sortList:[[0,1]],headers:{1:{sorter:!1}}});svtClick(800100);$(".classF").click(function(){classToggle($(this).data("classid"))});$("input:checkbox").change(function(){$("#filterBtn").click()});classAllOff()}
@@ -43,7 +43,7 @@ a.npbaseEx=master.mstTreasureDeviceLv[d].tdPointEx)}for(d in master.mstSvt[b].cl
 (a.busterUp+=parseInt(master.mstSkillLv[e].svals[h].replace(/\[|\]/g,"").split(/,/)[3]));break}return a}function npCal(c,a,b,f,d){return Math.round(d*(1E4*c+parseInt(a)*(1E3+parseInt(b)))*(1E3+parseInt(npUp))/1E7)*f/100}function formatFloat(c,a){var b=Math.pow(10,a);return Math.round(c*b)/b}
 function classidChange(){var c;for(c=svtid.options.length-1;0<=c;c--)svtid.remove(c);if(0==classid.value)for(c=0;c<master.mstSvt.length;c++){if(1==master.mstSvt[c].type||2==master.mstSvt[c].type||5==master.mstSvt[c].type||9==master.mstSvt[c].type){var a=findSvtNameZh(master.mstSvt[c].id);a?svtid.options.add(new Option("No."+master.mstSvt[c].collectionNo+" "+a,master.mstSvt[c].id)):svtid.options.add(new Option("No."+master.mstSvt[c].collectionNo+" "+master.mstSvt[c].name,master.mstSvt[c].id))}}else for(c=
 0;c<master.mstSvt.length;c++)master.mstSvt[c].classId!=classid.value||1!=master.mstSvt[c].type&&2!=master.mstSvt[c].type&&5!=master.mstSvt[c].type&&9!=master.mstSvt[c].type||((a=findSvtNameZh(master.mstSvt[c].id))?svtid.options.add(new Option("No."+master.mstSvt[c].collectionNo+" "+a,master.mstSvt[c].id)):svtid.options.add(new Option("No."+master.mstSvt[c].collectionNo+" "+master.mstSvt[c].name,master.mstSvt[c].id)));svtidChange()}
-function svtidChange(){var c=getBaseNP(svtid.value);in_np.value=c.npUp/10;in_art.value=c.artUp/10;in_quick.value=c.quickUp/10;$("#svtface").css("background-image","url(common/images/icon/faces/"+svtid.value+"0.png)");svtCal(svtid.value)}function svtClick(c){$("#classid").val(0);classidChange();$("#svtid").val(c);svtidChange()}
+function svtidChange(){var c=getBaseNP(svtid.value);in_np.value=c.npUp/10;in_art.value=c.artUp/10;in_quick.value=c.quickUp/10;$("#svtface").css("background-image","url(https://fgo.kazemai.io/common/images/icon/faces/"+svtid.value+"0.png)");svtCal(svtid.value)}function svtClick(c){$("#classid").val(0);classidChange();$("#svtid").val(c);svtidChange()}
 function svtCal(c){c="";var a=getBaseNP(svtid.value);npUp=rateLimit(10*in_np.value,5E3);a.artUp=rateLimit(10*in_art.value,5E3);a.quickUp=rateLimit(10*in_quick.value,5E3);c+="<tr><th class='blue' width=40>A%</th><th class='blue' width=40>AH</th><th class='blue' width=40>A1+</th><th class='blue' width=40>A2</th><th class='blue' width=40>A2+</th><th class='blue' width=40>A3</th><th class='blue' width=40>A3+</th></tr><tr align=center><td>"+a.npbaseA/100+"%</td><td>"+a.artHit+"</td><td>"+npCal(1,30,a.artUp,
 a.artHit,a.npbaseA)+"</td><td>"+npCal(0,45,a.artUp,a.artHit,a.npbaseA)+"</td><td>"+npCal(1,45,a.artUp,a.artHit,a.npbaseA)+"</td><td>"+npCal(0,60,a.artUp,a.artHit,a.npbaseA)+"</td><td>"+npCal(1,60,a.artUp,a.artHit,a.npbaseA)+"</td></tr><tr><th class='green'>Q%</th><th class='green'>QH</th><th class='green'>Q1</th><th class='green'>Q2</th><th class='green'>Q2+</th><th class='green'>Q3</th><th class='green'>Q3+</th></tr><tr align=center><td>"+a.npbaseQ/100+"%</td><td>"+a.quickHit+"</td><td>"+npCal(0,
 10,a.quickUp,a.quickHit,a.npbaseQ)+"</td><td>"+npCal(0,15,a.quickUp,a.quickHit,a.npbaseQ)+"</td><td>"+npCal(1,15,a.quickUp,a.quickHit,a.npbaseQ)+"</td><td>"+npCal(0,20,a.quickUp,a.quickHit,a.npbaseQ)+"</td><td>"+npCal(1,20,a.quickUp,a.quickHit,a.npbaseQ)+"</td></tr><tr><th>Ex%</th><th>ExH</th><th>Ex</th><th>Ex+</th><th class='red'>B%</th><th class='red'>BH</th><th class='red'>B+</th></tr><tr align=center><td>"+a.npbaseEx/100+"%</td><td>"+a.exHit+"</td><td>"+npCal(0,10,0,a.exHit,a.npbaseEx)+"</td><td>"+
@@ -86,7 +86,7 @@ c};
 </td><td colspan=2>
 	<select id="svtid" onchange="svtidChange();"></select>
 </td></tr>
-<tr><td rowspan=4 align="center"><div id="svtface" style="margin: 0 auto;width:60px;height:60px;background-image:url(common/images/icon/faces/0.png);background-size:60px 60px;"></div>
+<tr><td rowspan=4 align="center"><div id="svtface" style="margin: 0 auto;width:60px;height:60px;background-image:url(https://fgo.kazemai.io/common/images/icon/faces/0.png);background-size:60px 60px;"></div>
 <!-- <p id="svtNpbase">基礎NP獲得量<br>0%</p> --></td>
 <td>NP獲得量</td><td><input id="in_np" type="text" size="5">%</td></tr>
 <tr><td>Arts卡性能</td><td><input id="in_art" type="text" size="5">%</td></tr>
@@ -100,24 +100,24 @@ c};
 <form>
   <fieldset style="width:780px;text-align:center;">
     <legend>篩選條件</legend>
-	<img src="common/images/icon/class/class_1001_4.png" title="職階全選" onclick="classAllOn();" class="classA"/>
-	<img src="common/images/icon/class/class_1001_1.png" title="職階全消" onclick="classAllOff();" class="classA"/>
-	<img src="common/images/icon/class/star_new.png" title="稀有度全選" onclick="rarityAllOn();" class="classAR"/>
-	<img src="common/images/icon/class/star_clear.png" title="稀有度全消" onclick="rarityAllOff();" class="classAR"/><br>
-	<img src="common/images/icon/class/class_1_4.png" title="Saber" class="classF" data-choice="true" data-classid="1"/>
-	<img src="common/images/icon/class/class_2_4.png" title="Archer" class="classF" data-choice="true" data-classid="2"/>
-	<img src="common/images/icon/class/class_3_4.png" title="Lancer" class="classF" data-choice="true" data-classid="3"/>
-	<img src="common/images/icon/class/class_4_4.png" title="Rider" class="classF" data-choice="true" data-classid="4" />
-	<img src="common/images/icon/class/class_5_4.png" title="Caster" class="classF" data-choice="true" data-classid="5"/>
-	<img src="common/images/icon/class/class_6_4.png" title="Assassin" class="classF" data-choice="true" data-classid="6"/>
-	<img src="common/images/icon/class/class_7_4.png" title="Berserker" class="classF" data-choice="true" data-classid="7"/>
-	<img src="common/images/icon/class/class_8_4.png" title="Shielder" class="classF" data-choice="true" data-classid="8"/>
-	<img src="common/images/icon/class/class_9_4.png" title="Ruler" class="classF" data-choice="true" data-classid="9"/>
-	<img src="common/images/icon/class/class_11_4.png" title="Avenger" class="classF" data-choice="true" data-classid="11"/>
-	<img src="common/images/icon/class/class_10_4.png" title="Alterego" class="classF" data-choice="true" data-classid="10"/>
-	<img src="common/images/icon/class/class_23_4.png" title="MoonCancer" class="classF" data-choice="true" data-classid="23"/>
-	<img src="common/images/icon/class/class_25_4.png" title="Foreigner" class="classF" data-choice="true" data-classid="25"/>
-	<img src="common/images/icon/class/class_28_4.png" title="Pretender" class="classF" data-choice="true" data-classid="28"/>
+	<img src="https://fgo.kazemai.io/common/images/icon/class/class_1001_4.png" title="職階全選" onclick="classAllOn();" class="classA"/>
+	<img src="https://fgo.kazemai.io/common/images/icon/class/class_1001_1.png" title="職階全消" onclick="classAllOff();" class="classA"/>
+	<img src="https://fgo.kazemai.io/common/images/icon/class/star_new.png" title="稀有度全選" onclick="rarityAllOn();" class="classAR"/>
+	<img src="https://fgo.kazemai.io/common/images/icon/class/star_clear.png" title="稀有度全消" onclick="rarityAllOff();" class="classAR"/><br>
+	<img src="https://fgo.kazemai.io/common/images/icon/class/class_1_4.png" title="Saber" class="classF" data-choice="true" data-classid="1"/>
+	<img src="https://fgo.kazemai.io/common/images/icon/class/class_2_4.png" title="Archer" class="classF" data-choice="true" data-classid="2"/>
+	<img src="https://fgo.kazemai.io/common/images/icon/class/class_3_4.png" title="Lancer" class="classF" data-choice="true" data-classid="3"/>
+	<img src="https://fgo.kazemai.io/common/images/icon/class/class_4_4.png" title="Rider" class="classF" data-choice="true" data-classid="4" />
+	<img src="https://fgo.kazemai.io/common/images/icon/class/class_5_4.png" title="Caster" class="classF" data-choice="true" data-classid="5"/>
+	<img src="https://fgo.kazemai.io/common/images/icon/class/class_6_4.png" title="Assassin" class="classF" data-choice="true" data-classid="6"/>
+	<img src="https://fgo.kazemai.io/common/images/icon/class/class_7_4.png" title="Berserker" class="classF" data-choice="true" data-classid="7"/>
+	<img src="https://fgo.kazemai.io/common/images/icon/class/class_8_4.png" title="Shielder" class="classF" data-choice="true" data-classid="8"/>
+	<img src="https://fgo.kazemai.io/common/images/icon/class/class_9_4.png" title="Ruler" class="classF" data-choice="true" data-classid="9"/>
+	<img src="https://fgo.kazemai.io/common/images/icon/class/class_11_4.png" title="Avenger" class="classF" data-choice="true" data-classid="11"/>
+	<img src="https://fgo.kazemai.io/common/images/icon/class/class_10_4.png" title="Alterego" class="classF" data-choice="true" data-classid="10"/>
+	<img src="https://fgo.kazemai.io/common/images/icon/class/class_23_4.png" title="MoonCancer" class="classF" data-choice="true" data-classid="23"/>
+	<img src="https://fgo.kazemai.io/common/images/icon/class/class_25_4.png" title="Foreigner" class="classF" data-choice="true" data-classid="25"/>
+	<img src="https://fgo.kazemai.io/common/images/icon/class/class_28_4.png" title="Pretender" class="classF" data-choice="true" data-classid="28"/>
 	<br>
 	<input type="checkbox" id="rarity0" class="rarityF" value="0"/><span class="star">－</span>
 	<input type="checkbox" id="rarity1" class="rarityF" value="1"/><span class="star">★</span>
@@ -135,7 +135,7 @@ c};
 </form>
 <table onload="" id="svtTable" class="tablesorter nopadding mouseover" style="width:1600px;text-align:center;"><thead><tr><th>No.</th><th>Servant</th><th>職</th><th>★</th><th class='blue'>A%</th><th class='blue'>AH</th><th class='blue'>A1+</th><th class='blue'>A2</th><th class='blue'>A2+</th><th class='blue'>A3</th><th class='blue'>A3+</th><th class='green'>Q%</th><th class='green'>QH</th><th class='green'>Q1</th><th class='green'>Q2</th><th class='green'>Q2+</th><th class='green'>Q3</th><th class='green'>Q3+</th><th>Ex%</th><th>ExH</th><th>Ex</th><th>Ex+</th><th class='red'>B%</th><th class='red'>BH</th><th class='red'>B+</th><th>NP%</th><th>NPH</th><th>NP</th></tr></thead><tbody></tbody></table>
 </article>
-<div id="gotop"><a href="#"><img src="common/images/btn_gotop_off.jpg" width="47" height="47" alt="返回頂端" /></a></div>
+<div id="gotop"><a href="#"><img src="https://fgo.kazemai.io/common/images/btn_gotop_off.jpg" width="47" height="47" alt="返回頂端" /></a></div>
     </div>
     <!--主要內容區塊結束-->
 </div>

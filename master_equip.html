@@ -36,7 +36,7 @@ function equipDataOut(searchData,searchId)
 	equipDataTxt="";
 	for(var i in master.mstEquip)
 	{
-		equipDataTxt+="<tr id='eqp"+master.mstEquip[i].id+"'><th colspan=14 class='th_red'>"+master.mstEquip[i].name+"</th></tr><tr><td rowspan=4 colspan=5 style='width:35%;'><div class='clearfix' style='text-align:center;'><ul style='margin:0px auto;'><li><a href='common/images/icon/master/figure"+padLeft(master.mstEquip[i].maleImageId, 5)+".png' rel='shadowbox[eqp"+master.mstEquip[i].id+"]' title='"+master.mstEquip[i].name+"(男)' class='zoom1'><div style='display:inline;'><img src='common/images/icon/master/face"+padLeft(master.mstEquip[i].maleImageId, 5)+".png'  onerror=javascript:this.src='common/images/icon/faces/0.png' width=70 /><img src='common/images/icon/equip/"+master.mstEquip[i].maleImageId+".png'  onerror=javascript:this.src='common/images/icon/faces/0.png' width=70 /></div></a></li><li><a href='common/images/icon/master/figure"+padLeft(master.mstEquip[i].femaleImageId, 5)+".png' rel='shadowbox[eqp"+master.mstEquip[i].id+"]' title='"+master.mstEquip[i].name+"(女)' class='zoom1'><div style='display:inline;'><img src='common/images/icon/master/face"+padLeft(master.mstEquip[i].femaleImageId, 5)+".png'  onerror=javascript:this.src='common/images/icon/faces/0.png' width=70 /><img src='common/images/icon/equip/"+master.mstEquip[i].femaleImageId+".png'  onerror=javascript:this.src='common/images/icon/faces/0.png' width=70 /></div></a></li></ul></td><td colspan=9>"+master.mstEquip[i].detail.replace(/\n/g,"<br>")+"</td></tr><tr><th colspan=9>升級所需Exp(累積)</th></tr><tr><th>Lv.1→2</th><th>Lv.2→3</th><th>Lv.3→4</th><th>Lv.4→5</th><th>Lv.5→6</th><th>Lv.6→7</th><th>Lv.7→8</th><th>Lv.8→9</th><th colspan=2>Lv.9→10</th></tr><tr>";
+		equipDataTxt+="<tr id='eqp"+master.mstEquip[i].id+"'><th colspan=14 class='th_red'>"+master.mstEquip[i].name+"</th></tr><tr><td rowspan=4 colspan=5 style='width:35%;'><div class='clearfix' style='text-align:center;'><ul style='margin:0px auto;'><li><a href='https://fgo.kazemai.io/common/images/icon/master/figure"+padLeft(master.mstEquip[i].maleImageId, 5)+".png' rel='shadowbox[eqp"+master.mstEquip[i].id+"]' title='"+master.mstEquip[i].name+"(男)' class='zoom1'><div style='display:inline;'><img src='https://fgo.kazemai.io/common/images/icon/master/face"+padLeft(master.mstEquip[i].maleImageId, 5)+".png'  onerror=javascript:this.src='https://fgo.kazemai.io/common/images/icon/faces/0.png' width=70 /><img src='https://fgo.kazemai.io/common/images/icon/equip/"+master.mstEquip[i].maleImageId+".png'  onerror=javascript:this.src='https://fgo.kazemai.io/common/images/icon/faces/0.png' width=70 /></div></a></li><li><a href='https://fgo.kazemai.io/common/images/icon/master/figure"+padLeft(master.mstEquip[i].femaleImageId, 5)+".png' rel='shadowbox[eqp"+master.mstEquip[i].id+"]' title='"+master.mstEquip[i].name+"(女)' class='zoom1'><div style='display:inline;'><img src='https://fgo.kazemai.io/common/images/icon/master/face"+padLeft(master.mstEquip[i].femaleImageId, 5)+".png'  onerror=javascript:this.src='https://fgo.kazemai.io/common/images/icon/faces/0.png' width=70 /><img src='https://fgo.kazemai.io/common/images/icon/equip/"+master.mstEquip[i].femaleImageId+".png'  onerror=javascript:this.src='https://fgo.kazemai.io/common/images/icon/faces/0.png' width=70 /></div></a></li></ul></td><td colspan=9>"+master.mstEquip[i].detail.replace(/\n/g,"<br>")+"</td></tr><tr><th colspan=9>升級所需Exp(累積)</th></tr><tr><th>Lv.1→2</th><th>Lv.2→3</th><th>Lv.3→4</th><th>Lv.4→5</th><th>Lv.5→6</th><th>Lv.6→7</th><th>Lv.7→8</th><th>Lv.8→9</th><th colspan=2>Lv.9→10</th></tr><tr>";
 		var equipCount=1;
 		for(var j in master.mstEquipExp)
 		{
@@ -124,7 +124,7 @@ function skillDetail(skillId)
 				skillText+="</td></tr>";
 			}
 			var sklTxt="";
-			sklTxt+="<tr><td align=center rowspan="+skillrowCount+"><img src=common/images/SkillIcon/SkillIcon_"+master.mstSkill[c].iconId+".png onerror=javascript:this.src='common/images/SkillIcon/SkillIcon_0.png' width=55></img></td><td rowspan="+skillrowCount+"><b>"+master.mstSkill[c].name+"</b></td>";
+			sklTxt+="<tr><td align=center rowspan="+skillrowCount+"><img src=https://fgo.kazemai.io/common/images/SkillIcon/SkillIcon_"+master.mstSkill[c].iconId+".png onerror=javascript:this.src='https://fgo.kazemai.io/common/images/SkillIcon/SkillIcon_0.png' width=55></img></td><td rowspan="+skillrowCount+"><b>"+master.mstSkill[c].name+"</b></td>";
 			
 			sklTxt+="<td rowspan="+skillrowCount+" align=center>";
 			for(k=0;k<master.mstSkillLv.length;k++)
@@ -208,7 +208,7 @@ function expDataOut()
 <table id="expData" width=500><tr><td></td></tr></table>
 </article>
 </div>
-<div id="gotop"><a href="#"><img src="common/images/btn_gotop_off.jpg" width="47" height="47" alt="返回頂端" /></a></div>
+<div id="gotop"><a href="#"><img src="https://fgo.kazemai.io/common/images/btn_gotop_off.jpg" width="47" height="47" alt="返回頂端" /></a></div>
 <div id="chkJp"><input type=checkbox id="isJpTxt" onchange="equipDataOut();">顯示日文原文<br><span class="notice">※倍率會消失</span></div>
     </div>
     <!--主要內容區塊結束-->

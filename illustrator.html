@@ -59,7 +59,7 @@ sortByElmentType(master.mstSvt);
 				if(cvList.indexOf(master.mstCommandCodeComment[j].illustratorId)!=-1)
 				{
 					var tmpCommandCode = master.mstCommandCode[findName(master.mstCommandCode,master.mstCommandCodeComment[j].commandCodeId)];
-					cvTxt+='<a href="ccData.html?no='+tmpCommandCode.collectionNo+'"><img class="lazyload face_icon_cc face_icon_cc'+getBgKind(tmpCommandCode.rarity)+'" data-src="common/images/icon/CommandCodes/c_'+tmpCommandCode.id+'.png" /></a>';
+					cvTxt+='<a href="ccData.html?no='+tmpCommandCode.collectionNo+'"><img class="lazyload face_icon_cc face_icon_cc'+getBgKind(tmpCommandCode.rarity)+'" data-src="https://fgo.kazemai.io/common/images/icon/CommandCodes/c_'+tmpCommandCode.id+'.png" /></a>';
 				}
 			}
 			cvTxt+="</td></tr>";
@@ -94,7 +94,7 @@ function getBgKind(rarity)
 <table id="cvData" style="width:100%"><tr><td></td></tr></table>
 </article>
 </div>
-<div id="gotop"><a href="#"><img src="common/images/btn_gotop_off.jpg" width="47" height="47" alt="返回頂端" /></a></div>
+<div id="gotop"><a href="#"><img src="https://fgo.kazemai.io/common/images/btn_gotop_off.jpg" width="47" height="47" alt="返回頂端" /></a></div>
     </div>
     <!--主要內容區塊結束-->
 </div>

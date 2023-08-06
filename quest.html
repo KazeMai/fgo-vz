@@ -29,17 +29,17 @@
 <script type="text/javascript">
 function dataRead(){var a="",x=nowTime(),q=[[2038,"\u967d\u5149"],[2039,"\u6c34\u908a"],[2073,"\u68ee\u6797"],[2121,"\u71c3\u71d2"],[2392,"\u90fd\u5e02"]];0>$("#fexpup").prop("value")?$("#fexpup").prop("value",0):100<$("#fexpup").prop("value")?$("#fexpup").prop("value",100):$("#fexpup").prop("value",Math.floor($("#fexpup").prop("value")));for(var c in master.mstQuest)if(master.mstQuest[c].closedAt>=x&&2!=master.mstQuest[c].flag&&!master.mstQuest[c].name.match(/^[a-z0-9]*$/)&&(!$("#nofree").prop("checked")||
 1!=master.mstQuest[c].afterClear)){a+='<tr><td style="text-align:left;">';var y=null!=findName(master.mstSpot,master.mstQuest[c].spotId)?master.mstSpot[findName(master.mstSpot,master.mstQuest[c].spotId)]:null!=findName(master.mstBlankEarthSpot,master.mstQuest[c].spotId)?master.mstBlankEarthSpot[findName(master.mstBlankEarthSpot,master.mstQuest[c].spotId)]:mstSpot[0];var f=master.mstWar[findName(master.mstWar,y.warId)];0<master.mstQuest[c].chapterSubId&&1==master.mstQuest[c].type&&(a+=f.name+" \u7b2c"+
-master.mstQuest[c].chapterSubId+"\u7bc0 ");if(3==master.mstQuest[c].type||0!=master.mstQuest[c].charaIconId)a:for(var m in master.mstSvt)for(var z in master.mstSvt[m].relateQuestIds)if(master.mstSvt[m].relateQuestIds[z]==master.mstQuest[c].id){a+='<a href="svtData.html?';a=0==master.mstSvt[m].collectionNo?a+("id="+master.mstSvt[m].id):a+("no="+master.mstSvt[m].collectionNo);a+='"><img src="common/images/icon/faces/'+master.mstSvt[m].id+'0.png" class="itemS" title="'+findSvtNameZh2(master.mstSvt[m].id)+
-'" onerror="javascript:this.src=\'common/images/icon/items/0.png\'" /></a> ';break a}a+=master.mstQuest[c].name;a+="</td><td>";2==master.mstQuest[c].consumeType&&(a+="BP ");if(3!=master.mstQuest[c].consumeType)a+=master.mstQuest[c].actConsume;else for(var n in master.mstQuestConsumeItem)if(master.mstQuestConsumeItem[n].questId==master.mstQuest[c].id)for(var r in master.mstQuestConsumeItem[n].itemIds){var b=findName(master.mstItem,master.mstQuestConsumeItem[n].itemIds[r]);a+='<div class="itemST" style="background-image: url(\'common/images/icon/items/'+
+master.mstQuest[c].chapterSubId+"\u7bc0 ");if(3==master.mstQuest[c].type||0!=master.mstQuest[c].charaIconId)a:for(var m in master.mstSvt)for(var z in master.mstSvt[m].relateQuestIds)if(master.mstSvt[m].relateQuestIds[z]==master.mstQuest[c].id){a+='<a href="svtData.html?';a=0==master.mstSvt[m].collectionNo?a+("id="+master.mstSvt[m].id):a+("no="+master.mstSvt[m].collectionNo);a+='"><img src="https://fgo.kazemai.io/common/images/icon/faces/'+master.mstSvt[m].id+'0.png" class="itemS" title="'+findSvtNameZh2(master.mstSvt[m].id)+
+'" onerror="javascript:this.src=\'https://fgo.kazemai.io/common/images/icon/items/0.png\'" /></a> ';break a}a+=master.mstQuest[c].name;a+="</td><td>";2==master.mstQuest[c].consumeType&&(a+="BP ");if(3!=master.mstQuest[c].consumeType)a+=master.mstQuest[c].actConsume;else for(var n in master.mstQuestConsumeItem)if(master.mstQuestConsumeItem[n].questId==master.mstQuest[c].id)for(var r in master.mstQuestConsumeItem[n].itemIds){var b=findName(master.mstItem,master.mstQuestConsumeItem[n].itemIds[r]);a+='<div class="itemST" style="background-image: url(\'https://fgo.kazemai.io/common/images/icon/items/'+
 master.mstItem[b].imageId+'.png\')" title="'+master.mstItem[b].name+'">'+(1<master.mstQuestConsumeItem[n].nums[r]?master.mstQuestConsumeItem[n].nums[r]:"")+"</div>"}a+="</td><td>";b=[];for(var h in master.mstQuestPhase)master.mstQuestPhase[h].questId==master.mstQuest[c].id&&b.push([master.mstQuestPhase[h].classIds,master.mstQuestPhase[h].individuality,master.mstQuestPhase[h].qp,master.mstQuestPhase[h].playerExp,master.mstQuestPhase[h].friendshipExp]);0==b.length&&b.push([[97],[],0,0,0]);for(var k in b)if(0!=
 b[k][2]&&0!=b[k][3]&&0!=b[k][4])break;b[k][4]+=parseInt($("#fexpup").prop("value"));a+=b[k][4];a+="</td><td>";a=1==master.mstQuest[c].consumeType&&0!=master.mstQuest[c].actConsume?a+Math.round(100*b[k][4]/master.mstQuest[c].actConsume)/100:a+"0";a+="</td><td>";a+=b[k][3];a+="</td><td>";a=1==master.mstQuest[c].consumeType&&0!=master.mstQuest[c].actConsume?a+Math.round(100*b[k][3]/master.mstQuest[c].actConsume)/100:a+"0";a+="</td><td>";a+=b[k][2];a+='</td><td style="text-align:left;">';var l=[],t;for(t in q){l.length=
-0;for(h in b)for(var A in b[h][1])b[h][1][A]==q[t][0]&&l.push(parseInt(h)+1);0<l.length&&(a+="\u3014"+q[t][1]+"\u3015");a+=l;0<l.length&&(a+="<br>")}a+="</td><td>";if(8==master.mstQuest[c].giftIconId||9==master.mstQuest[c].giftIconId||40==master.mstQuest[c].giftIconId)a+='<img src="common/images/icon/items/'+master.mstQuest[c].giftIconId+'.png" class="itemS" />';b="";l=master.mstQuest[c].giftId;var u=0,d;for(d in master.mstGift)if(l==master.mstGift[d].id){switch(master.mstGift[d].type){case 2:var v=
-master.mstItem[findName(master.mstItem,master.mstGift[d].objectId)];b+='<div class="itemST" style="background-image: url(\'common/images/icon/items/'+v.imageId+'.png\')" title="'+v.name+'">'+(1<master.mstGift[d].num?addCommas(master.mstGift[d].num):"")+"</div>";break;case 8:b+='<div class="itemST" style="background-image: url(\'common/images/icon/items/'+master.mstGift[d].objectId+'.png\')" title="'+v.name+'">'+(1<master.mstGift[d].num?addCommas(master.mstGift[d].num):"")+"</div>";break;case 1:case 7:b+=
-'<div class="itemST" style="background-image: url(\'common/images/icon/faces/'+master.mstGift[d].objectId;var g=master.mstSvt[findName(master.mstSvt,master.mstGift[d].objectId)].type;6!=g&&3!=g&&(b+="0");b+='.png" title="'+findSvtNameZh2(master.mstGift[d].objectId)+'">'+(1<master.mstGift[d].num?addCommas(master.mstGift[d].num):"")+"</div>";break;case 3:b+=addCommas(master.mstGift[d].num)+"\u7d46";break;case 4:b+=addCommas(master.mstGift[d].num)+"Exp";break;case 5:g=master.mstEquip[findName(master.mstEquip,
-master.mstGift[d].objectId)];b+='<div class="itemST" style="background-image: url(\'common/images/icon/equip/'+g.maleImageId+'.png\')" title="'+g.name+'"></div><div class="itemST" style="background-image: url(\'common/images/icon/equip/'+g.femaleImageId+'.png\')" title="'+g.name+'"></div>';break;case 6:b+='<div class="itemST" style="background-image: url(\'common/images/icon/faces/'+master.mstGift[d].objectId+'0.png\')" title="'+findSvtNameZh2(master.mstGift[d].objectId)+'">\u9650\u6642</div>';break;
-case 9:case 10:for(var p in master.mstSvtCostume)if(100*master.mstSvtCostume[p].svtId+master.mstSvtCostume[p].id==master.mstGift[d].objectId){for(var w in master.mstSvtLimitAdd)if(master.mstSvtLimitAdd[w].svtId==master.mstSvtCostume[p].svtId&&master.mstSvtLimitAdd[w].limitCount==master.mstSvtCostume[p].id){b+='<div class="itemST" style="background-image: url(\'common/images/icon/faces/'+master.mstSvtLimitAdd[w].battleCharaId+'0.png\')" title="'+master.mstSvtCostume[p].name+'"><img src="common/images/icon/items/23.png" style="width:50%;"/></div>';
-break}break}break;case 11:g=master.mstCommandCode[findName(master.mstCommandCode,master.mstGift[d].objectId)],b+='<a href="ccData.html?no='+g.collectionNo+'"><div class="itemST" style="background-image: url(\'common/images/icon/CommandCodes/c_'+g.id+'.png\')" title="'+g.name+'">'+(1<master.mstGift[d].num?addCommas(master.mstGift[d].num):"")+"</div></a>"}u++}a+=b+'<div style="float: none;" />';a+='<div style="float: inline-start;"><img src="common/images/icon/war/'+f.id+'.png" title="'+f.longName.replace(/\\n/g,
-"<br>")+'" onerror="javascript:this.src=\'common/images/icon/war/9999.png\'" class="itemS" /></div>';a+='<div class="spotname"><span data-flow="top" data-tooltip="';master.mstQuest[c].openedAt>x&&(f=new Date,localTime=f.getTime(),localOffset=6E4*f.getTimezoneOffset(),f=new Date(1E3*master.mstQuest[c].openedAt),f.getFullYear(),b=f.getMonth()+1,l=f.getDate(),u=f.getHours(),g=addZero(f.getMinutes()),addZero(f.getSeconds()),a+=b+"/"+l+" "+ +u+":"+g+"\uff5e\n");for(var e in master.mstQuestRelease)if(master.mstQuestRelease[e].questId==
+0;for(h in b)for(var A in b[h][1])b[h][1][A]==q[t][0]&&l.push(parseInt(h)+1);0<l.length&&(a+="\u3014"+q[t][1]+"\u3015");a+=l;0<l.length&&(a+="<br>")}a+="</td><td>";if(8==master.mstQuest[c].giftIconId||9==master.mstQuest[c].giftIconId||40==master.mstQuest[c].giftIconId)a+='<img src="https://fgo.kazemai.io/common/images/icon/items/'+master.mstQuest[c].giftIconId+'.png" class="itemS" />';b="";l=master.mstQuest[c].giftId;var u=0,d;for(d in master.mstGift)if(l==master.mstGift[d].id){switch(master.mstGift[d].type){case 2:var v=
+master.mstItem[findName(master.mstItem,master.mstGift[d].objectId)];b+='<div class="itemST" style="background-image: url(\'https://fgo.kazemai.io/common/images/icon/items/'+v.imageId+'.png\')" title="'+v.name+'">'+(1<master.mstGift[d].num?addCommas(master.mstGift[d].num):"")+"</div>";break;case 8:b+='<div class="itemST" style="background-image: url(\'https://fgo.kazemai.io/common/images/icon/items/'+master.mstGift[d].objectId+'.png\')" title="'+v.name+'">'+(1<master.mstGift[d].num?addCommas(master.mstGift[d].num):"")+"</div>";break;case 1:case 7:b+=
+'<div class="itemST" style="background-image: url(\'https://fgo.kazemai.io/common/images/icon/faces/'+master.mstGift[d].objectId;var g=master.mstSvt[findName(master.mstSvt,master.mstGift[d].objectId)].type;6!=g&&3!=g&&(b+="0");b+='.png" title="'+findSvtNameZh2(master.mstGift[d].objectId)+'">'+(1<master.mstGift[d].num?addCommas(master.mstGift[d].num):"")+"</div>";break;case 3:b+=addCommas(master.mstGift[d].num)+"\u7d46";break;case 4:b+=addCommas(master.mstGift[d].num)+"Exp";break;case 5:g=master.mstEquip[findName(master.mstEquip,
+master.mstGift[d].objectId)];b+='<div class="itemST" style="background-image: url(\'https://fgo.kazemai.io/common/images/icon/equip/'+g.maleImageId+'.png\')" title="'+g.name+'"></div><div class="itemST" style="background-image: url(\'https://fgo.kazemai.io/common/images/icon/equip/'+g.femaleImageId+'.png\')" title="'+g.name+'"></div>';break;case 6:b+='<div class="itemST" style="background-image: url(\'https://fgo.kazemai.io/common/images/icon/faces/'+master.mstGift[d].objectId+'0.png\')" title="'+findSvtNameZh2(master.mstGift[d].objectId)+'">\u9650\u6642</div>';break;
+case 9:case 10:for(var p in master.mstSvtCostume)if(100*master.mstSvtCostume[p].svtId+master.mstSvtCostume[p].id==master.mstGift[d].objectId){for(var w in master.mstSvtLimitAdd)if(master.mstSvtLimitAdd[w].svtId==master.mstSvtCostume[p].svtId&&master.mstSvtLimitAdd[w].limitCount==master.mstSvtCostume[p].id){b+='<div class="itemST" style="background-image: url(\'https://fgo.kazemai.io/common/images/icon/faces/'+master.mstSvtLimitAdd[w].battleCharaId+'0.png\')" title="'+master.mstSvtCostume[p].name+'"><img src="https://fgo.kazemai.io/common/images/icon/items/23.png" style="width:50%;"/></div>';
+break}break}break;case 11:g=master.mstCommandCode[findName(master.mstCommandCode,master.mstGift[d].objectId)],b+='<a href="ccData.html?no='+g.collectionNo+'"><div class="itemST" style="background-image: url(\'https://fgo.kazemai.io/common/images/icon/CommandCodes/c_'+g.id+'.png\')" title="'+g.name+'">'+(1<master.mstGift[d].num?addCommas(master.mstGift[d].num):"")+"</div></a>"}u++}a+=b+'<div style="float: none;" />';a+='<div style="float: inline-start;"><img src="https://fgo.kazemai.io/common/images/icon/war/'+f.id+'.png" title="'+f.longName.replace(/\\n/g,
+"<br>")+'" onerror="javascript:this.src=\'https://fgo.kazemai.io/common/images/icon/war/9999.png\'" class="itemS" /></div>';a+='<div class="spotname"><span data-flow="top" data-tooltip="';master.mstQuest[c].openedAt>x&&(f=new Date,localTime=f.getTime(),localOffset=6E4*f.getTimezoneOffset(),f=new Date(1E3*master.mstQuest[c].openedAt),f.getFullYear(),b=f.getMonth()+1,l=f.getDate(),u=f.getHours(),g=addZero(f.getMinutes()),addZero(f.getSeconds()),a+=b+"/"+l+" "+ +u+":"+g+"\uff5e\n");for(var e in master.mstQuestRelease)if(master.mstQuestRelease[e].questId==
 master.mstQuest[c].id)try{1==master.mstQuestRelease[e].type&&(a+="\u901a\u904e\uff1a"+master.mstQuest[findName(master.mstQuest,master.mstQuestRelease[e].targetId)].name+"\n"),2==master.mstQuestRelease[e].type&&(a+="\u5165\u624b\uff1a"+master.mstItem[findName(master.mstItem,master.mstQuestRelease[e].targetId)].name,1<master.mstQuestRelease[e].value&&(a+="x"+master.mstQuestRelease[e].value),a+="\n"),7==master.mstQuestRelease[e].type&&(a+=findSvtNameZh2(master.mstQuestRelease[e].targetId)+"\uff1a\u9748\u57fa\u518d\u81e8\u7b2c"+
 master.mstQuestRelease[e].value+"\u968e\u6bb5\n"),9==master.mstQuestRelease[e].type&&(a+=findSvtNameZh2(master.mstQuestRelease[e].targetId)+"\uff1a\u7d46\u7b49\u7d1a"+master.mstQuestRelease[e].value+"\n"),24==master.mstQuestRelease[e].type&&(a+="\u9054\u6210\uff1a\u4efb\u52d9No."+master.mstEventMission[findName(master.mstEventMission,master.mstQuestRelease[e].targetId)].dispNo+"\n")}catch(B){console.log("questid:"+master.mstQuestRelease[e].questId+" target:"+master.mstQuestRelease[e].targetId+" value:"+
 master.mstQuestRelease[e].value)}a+='">'+y.name+"</span></div>";a+="</td></tr>"}$("#dataTable tbody").empty();$("#dataTable tbody").append(a)}function initTable(){dataRead();$("#dataTable").tablesorter({headers:{0:{sorter:!1},7:{sorter:!1},8:{sorter:!1},9:{sorter:!1}}});spotAdjust()}function updateTable2(){$("#dataTable");dataRead();$("#dataTable").trigger("update");setTimeout(function(){$("#dataTable").trigger("sorton",[$("#dataTable")[0].config.sortList])},10);spotAdjust()}
@@ -47,7 +47,7 @@ function spotAdjust(){$(".spotname").each(function(a){9<$(this).text().length&&$
 </script>
 <style type="text/css">
 dl.accordion dt {
-	background: url(common/images/2016/03/arrow_open.png) 97% center no-repeat #091f4b;
+	background: url(https://fgo.kazemai.io/common/images/2016/03/arrow_open.png) 97% center no-repeat #091f4b;
 	background-size: 20px 20px;
 	border-bottom: 1px solid #EEE;
 	height: 40px;
@@ -58,7 +58,7 @@ dl.accordion dt {
 	font-weight: bold;
 }
 dl.accordion dt.open {
-	background: url(common/images/2016/03/arrow_close.png) 97% center no-repeat #091f4b;
+	background: url(https://fgo.kazemai.io/common/images/2016/03/arrow_close.png) 97% center no-repeat #091f4b;
 	background-size: 20px 20px;
 }
 dl.accordion dd {
@@ -102,82 +102,82 @@ float:left;
 <table style="width:80%;text-align:center;margin:auto;">
 <tr><th>章節</th><th>地點</th><th>解鎖條件</th></tr>
 <tr>
-<td><img src="common/images/icon/war/104.png" title="第四特異點 死界魔霧都市 倫敦" class="itemS" ></td>
+<td><img src="https://fgo.kazemai.io/common/images/icon/war/104.png" title="第四特異點 死界魔霧都市 倫敦" class="itemS" ></td>
 <td>ハイドパーク(海德公園)</td>
 <td>ソーホー(蘇活區)：魅惑の繁華街</td>
 </tr>
 <tr>
-<td><img src="common/images/icon/war/105.png" title="第五特異點 北美神話大戰 合眾為一" class="itemS" /></td>
+<td><img src="https://fgo.kazemai.io/common/images/icon/war/105.png" title="第五特異點 北美神話大戰 合眾為一" class="itemS" /></td>
 <td>シカゴ(芝加哥)</td>
 <td>ワシントン(華盛頓)：特別行政区</td>
 </tr>
 <tr>
-<td><img src="common/images/icon/war/106.png" title="第六特異點 神聖圓桌領域 卡美洛" class="itemS" /></td>
+<td><img src="https://fgo.kazemai.io/common/images/icon/war/106.png" title="第六特異點 神聖圓桌領域 卡美洛" class="itemS" /></td>
 <td>無の大地(無之大地)</td>
 <td>聖都正門：聖別の門</td>
 </tr>
 <tr>
-<td><img src="common/images/icon/war/201.png" title="亞種特異點Ⅰ 惡性隔絕魔境 新宿" class="itemS" /></td>
+<td><img src="https://fgo.kazemai.io/common/images/icon/war/201.png" title="亞種特異點Ⅰ 惡性隔絕魔境 新宿" class="itemS" /></td>
 <td>新宿御苑</td>
 <td>新宿四丁目：ホテル街</td>
 </tr>
 <tr>
-<td><img src="common/images/icon/war/201.png" title="亞種特異點Ⅰ 惡性隔絕魔境 新宿" class="itemS" /></td>
+<td><img src="https://fgo.kazemai.io/common/images/icon/war/201.png" title="亞種特異點Ⅰ 惡性隔絕魔境 新宿" class="itemS" /></td>
 <td>新宿二丁目</td>
 <td>歌舞伎町：不夜城</td>
 </tr>
 <tr>
-<td><img src="common/images/icon/war/202.png" title="亞種特異點Ⅱ 傳承地底世界 雅戈泰" class="itemS" /></td>
+<td><img src="https://fgo.kazemai.io/common/images/icon/war/202.png" title="亞種特異點Ⅱ 傳承地底世界 雅戈泰" class="itemS" /></td>
 <td>大地の裂け目(大地裂隙)</td>
 <td>エルドラド(黃金國)：黄金郷</td>
 </tr>
 <tr>
-<td><img src="common/images/icon/war/203.png" title="亞種平行世界 屍山血河舞台 下總國" class="itemS" /></td>
+<td><img src="https://fgo.kazemai.io/common/images/icon/war/203.png" title="亞種平行世界 屍山血河舞台 下總國" class="itemS" /></td>
 <td>荒川の原(荒川之原)</td>
 <td>里(村落)：寂寂たる集落</td>
 </tr>
 <tr>
-<td><img src="common/images/icon/war/204.png" title="亞種特異點Ⅳ 禁忌降臨庭園 塞勒姆" class="itemS" /></td>
+<td><img src="https://fgo.kazemai.io/common/images/icon/war/204.png" title="亞種特異點Ⅳ 禁忌降臨庭園 塞勒姆" class="itemS" /></td>
 <td>留置所(拘留所)</td>
 <td>ガローの丘(絞刑丘陵)：エクスキューションサイト</td>
 </tr>
 <tr>
-<td><img src="common/images/icon/war/301.png" title="Lostbelt No.1 永久凍土帝國 安娜塔西亞" class="itemS" /></td>
+<td><img src="https://fgo.kazemai.io/common/images/icon/war/301.png" title="Lostbelt No.1 永久凍土帝國 安娜塔西亞" class="itemS" /></td>
 <td>ヤガ・リャザン(雅嘎．梁贊)</td>
 <td>ヤガ・トゥーラ(雅嘎．圖拉)：悴む教会</td>
 </tr>
 <tr>
-<td><img src="common/images/icon/war/302.png" title="Lostbelt No.2 無間冰焰世紀 諸神黃昏" class="itemS" /></td>
+<td><img src="https://fgo.kazemai.io/common/images/icon/war/302.png" title="Lostbelt No.2 無間冰焰世紀 諸神黃昏" class="itemS" /></td>
 <td>忘れられた神殿(被遺忘的神殿)</td>
 <td>果てへと至る道(通往盡頭之路)：絶佳峡谷</td>
 </tr>
 <tr>
-<td><img src="common/images/icon/war/303.png" title="Lostbelt No.3 人智統合真國 SIN" class="itemS" /></td>
+<td><img src="https://fgo.kazemai.io/common/images/icon/war/303.png" title="Lostbelt No.3 人智統合真國 SIN" class="itemS" /></td>
 <td>八門洞</td>
 <td>山陽丘：有朋遠来</td>
 </tr>
 <tr>
-<td><img src="common/images/icon/war/304.png" title="Lostbelt No.4 創世滅亡輪迴 宇迦．剎多羅" class="itemS" /></td>
+<td><img src="https://fgo.kazemai.io/common/images/icon/war/304.png" title="Lostbelt No.4 創世滅亡輪迴 宇迦．剎多羅" class="itemS" /></td>
 <td>東の花園(東之花園)</td>
 <td>隠遁窟(隱遁窟)：瞑想の岩屋</td>
 </tr>
 <tr>
-<td><img src="common/images/icon/war/305.png" title="Losbelt No.5 神代巨神海洋 亞特蘭提斯" class="itemS" /></td>
+<td><img src="https://fgo.kazemai.io/common/images/icon/war/305.png" title="Losbelt No.5 神代巨神海洋 亞特蘭提斯" class="itemS" /></td>
 <td>タナトス島(塔納托斯島)</td>
 <td>アストライア島(阿斯特蕾亞島)：正義の神殿</td>
 </tr>
 <tr>
-<td><img src="common/images/icon/war/306.png" title="Lostbelt No.5 星間都市山脈 奧林帕斯" class="itemS" /></td>
+<td><img src="https://fgo.kazemai.io/common/images/icon/war/306.png" title="Lostbelt No.5 星間都市山脈 奧林帕斯" class="itemS" /></td>
 <td>地下機構帯・外周部(地下機構帶．外圍)</td>
 <td>星間都市東部(星間都市東部)：美と愛の都</td>
 </tr>
 <tr>
-<td><img src="common/images/icon/war/307.png" title="地獄界曼荼羅 平安京" class="itemS" /></td>
+<td><img src="https://fgo.kazemai.io/common/images/icon/war/307.png" title="地獄界曼荼羅 平安京" class="itemS" /></td>
 <td>三条三坊</td>
 <td>大江山：鬼の棲み処</td>
 </tr>
 <tr>
-<td><img src="common/images/icon/war/308.png" title="Lostbelt No.6 妖精円卓領域 アヴァロン・ル・フェ" class="itemS" /></td>
+<td><img src="https://fgo.kazemai.io/common/images/icon/war/308.png" title="Lostbelt No.6 妖精円卓領域 アヴァロン・ル・フェ" class="itemS" /></td>
 <td>ドーバーハウス</td>
 <td>ロンディニウム：希望の廃都</td>
 </tr>
@@ -192,7 +192,7 @@ float:left;
 </table>
 </article>
 </div>
-<div id="gotop"><a href="#"><img src="common/images/btn_gotop_off.jpg" width="47" height="47" alt="返回頂端" /></a></div>
+<div id="gotop"><a href="#"><img src="https://fgo.kazemai.io/common/images/btn_gotop_off.jpg" width="47" height="47" alt="返回頂端" /></a></div>
     </div>
     <!--主要內容區塊結束-->
 </div>

@@ -35,15 +35,15 @@
 }
 </style>
 <script type="text/javascript" >
-function indi_show(b){$(".indi_td").empty();var c=0<indi_list[b].svt.length,g=0<indi_list[b].enemy.length;c&&$("#indi_svt").append(indi_list[b].svt+"<br>");g&&$("#indi_enemy").append(indi_list[b].enemy+"<br>");for(var e in master.mstSvt){var a=master.mstSvt[e],f=!1;var h=-1!=$.inArray(parseInt(b),a.individuality);if(-1!=$.inArray(a.type,[1,2])&&0!=a.collectionNo){if(h==c||f||($("#indi_svt").append('<a href="svtData.html?no='+a.collectionNo+'"><div class="itemMTR" style="background-image: url(\'common/images/icon/faces/'+
-a.id+'0.png\')"  title="'+findSvtNameZh2(a.id)+'"></div></a>'),f=!0),!f){for(var d in master.mstSvtLimitAdd)if(master.mstSvtLimitAdd[d].svtId==a.id&&0<master.mstSvtLimitAdd[d].individuality.length&&-1!=$.inArray(parseInt(b),master.mstSvtLimitAdd[d].individuality)&&!c)if(11>master.mstSvtLimitAdd[d].limitCount)$("#indi_svt").append('<a href="svtData.html?no='+a.collectionNo+'"><div class="itemMTR" style="background-image: url(\'common/images/icon/faces/'+a.id+'0.png\')"  title="'+findSvtNameZh2(a.id)+
-'">'+master.mstSvtLimitAdd[d].limitCount+"</div></a>");else for(var k in master.mstSvtCostume)if(master.mstSvtCostume[k].svtId==a.id&&master.mstSvtCostume[k].id==master.mstSvtLimitAdd[d].limitCount){$("#indi_svt").append('<a href="svtData.html?no='+a.collectionNo+'"><div class="itemMTR" style="background-image: url(\'common/images/icon/faces/'+master.mstSvtLimitAdd[d].battleCharaId+'0.png\')"  title="'+findSvtNameZh2(a.id)+'"><img src="common/images/icon/items/23.png" style="width:50%;"></div></a>');
-break}for(d in master.mstSvtIndividuality)master.mstSvtIndividuality[d].svtId==a.id&&0<master.mstSvtIndividuality[d].individuality.length&&(-1==$.inArray(parseInt(b),master.mstSvtIndividuality[d].individuality)||c||(-1==master.mstSvtIndividuality[d].limitCount?$("#indi_svt").append('<a href="svtData.html?no='+a.collectionNo+'"><div class="itemMTR" style="background-image: url(\'common/images/icon/faces/'+a.id+'0.png\')"  title="'+findSvtNameZh2(a.id)+'"></div></a>'):
-11>master.mstSvtIndividuality[d].limitCount&&$("#indi_svt").append('<a href="svtData.html?no='+a.collectionNo+'"><div class="itemMTR" style="background-image: url(\'common/images/icon/faces/'+a.id+'0.png\')"  title="'+findSvtNameZh2(a.id)+'">'+master.mstSvtIndividuality[d].limitCount+"</div></a>")))}}else-1!=$.inArray(a.type,[-1,4,5,9])&&h!=g&&null!=enemyName[a.id]&&$("#indi_enemy").append('<div class="itemMTR" style="background-image: url(\'common/images/icon/enemy/'+a.id+'1.png\')"  title="'+enemyName[a.id]+
+function indi_show(b){$(".indi_td").empty();var c=0<indi_list[b].svt.length,g=0<indi_list[b].enemy.length;c&&$("#indi_svt").append(indi_list[b].svt+"<br>");g&&$("#indi_enemy").append(indi_list[b].enemy+"<br>");for(var e in master.mstSvt){var a=master.mstSvt[e],f=!1;var h=-1!=$.inArray(parseInt(b),a.individuality);if(-1!=$.inArray(a.type,[1,2])&&0!=a.collectionNo){if(h==c||f||($("#indi_svt").append('<a href="svtData.html?no='+a.collectionNo+'"><div class="itemMTR" style="background-image: url(\'https://fgo.kazemai.io/common/images/icon/faces/'+
+a.id+'0.png\')"  title="'+findSvtNameZh2(a.id)+'"></div></a>'),f=!0),!f){for(var d in master.mstSvtLimitAdd)if(master.mstSvtLimitAdd[d].svtId==a.id&&0<master.mstSvtLimitAdd[d].individuality.length&&-1!=$.inArray(parseInt(b),master.mstSvtLimitAdd[d].individuality)&&!c)if(11>master.mstSvtLimitAdd[d].limitCount)$("#indi_svt").append('<a href="svtData.html?no='+a.collectionNo+'"><div class="itemMTR" style="background-image: url(\'https://fgo.kazemai.io/common/images/icon/faces/'+a.id+'0.png\')"  title="'+findSvtNameZh2(a.id)+
+'">'+master.mstSvtLimitAdd[d].limitCount+"</div></a>");else for(var k in master.mstSvtCostume)if(master.mstSvtCostume[k].svtId==a.id&&master.mstSvtCostume[k].id==master.mstSvtLimitAdd[d].limitCount){$("#indi_svt").append('<a href="svtData.html?no='+a.collectionNo+'"><div class="itemMTR" style="background-image: url(\'https://fgo.kazemai.io/common/images/icon/faces/'+master.mstSvtLimitAdd[d].battleCharaId+'0.png\')"  title="'+findSvtNameZh2(a.id)+'"><img src="https://fgo.kazemai.io/common/images/icon/items/23.png" style="width:50%;"></div></a>');
+break}for(d in master.mstSvtIndividuality)master.mstSvtIndividuality[d].svtId==a.id&&0<master.mstSvtIndividuality[d].individuality.length&&(-1==$.inArray(parseInt(b),master.mstSvtIndividuality[d].individuality)||c||(-1==master.mstSvtIndividuality[d].limitCount?$("#indi_svt").append('<a href="svtData.html?no='+a.collectionNo+'"><div class="itemMTR" style="background-image: url(\'https://fgo.kazemai.io/common/images/icon/faces/'+a.id+'0.png\')"  title="'+findSvtNameZh2(a.id)+'"></div></a>'):
+11>master.mstSvtIndividuality[d].limitCount&&$("#indi_svt").append('<a href="svtData.html?no='+a.collectionNo+'"><div class="itemMTR" style="background-image: url(\'https://fgo.kazemai.io/common/images/icon/faces/'+a.id+'0.png\')"  title="'+findSvtNameZh2(a.id)+'">'+master.mstSvtIndividuality[d].limitCount+"</div></a>")))}}else-1!=$.inArray(a.type,[-1,4,5,9])&&h!=g&&null!=enemyName[a.id]&&$("#indi_enemy").append('<div class="itemMTR" style="background-image: url(\'https://fgo.kazemai.io/common/images/icon/enemy/'+a.id+'1.png\')"  title="'+enemyName[a.id]+
 '"></div>')}$("img.lazyload").lazyload()}function difference(b,c){for(var g=[],e=0;e<b.length;e++)-1===c.indexOf(b[e])&&g.push(b[e]);return g}function indiOut(){$.each(indi_list,function(b,c){$("#indi_id").append($("<option></option>").attr("value",b).text(c.name))})}$("#classAtkBtn").click(classRelation2);
-function classRelation2(){var b=[],c,g="",e={1:"Saber",2:"Archer",3:"Lancer",4:"Rider",5:"Caster",6:"Assassin",7:"Berserker",8:"Shielder",9:"Ruler",11:"Avenger",10:"Alterego",23:"MoonCancer",25:"Foreigner",28:"Pretender",22:"BeastI",20:"BeastII",24:"Beast\u2162\uff0fR",26:"Beast\u2162\uff0fL",27:"Beast\uff1f",29:"Beast\u2163",30:"\uff1f",32:"\uff1f",33:"Beast",34:"Beast\u2165",35:"Beast\u2165\uff1a\u9b54\u7378\u8d6b\u30fb\u771f\u9ad4"};for(f in e)e.hasOwnProperty(f)&&b.push(f);for(c=0;c<b.length;c++){var a="";var f=b[c];var h=master.mstClass[findName(master.mstClass,f)];0!=c&&(a+="<tr>");a+='<th><img src="common/images/icon/class/class_'+
+function classRelation2(){var b=[],c,g="",e={1:"Saber",2:"Archer",3:"Lancer",4:"Rider",5:"Caster",6:"Assassin",7:"Berserker",8:"Shielder",9:"Ruler",11:"Avenger",10:"Alterego",23:"MoonCancer",25:"Foreigner",28:"Pretender",22:"BeastI",20:"BeastII",24:"Beast\u2162\uff0fR",26:"Beast\u2162\uff0fL",27:"Beast\uff1f",29:"Beast\u2163",30:"\uff1f",32:"\uff1f",33:"Beast",34:"Beast\u2165",35:"Beast\u2165\uff1a\u9b54\u7378\u8d6b\u30fb\u771f\u9ad4"};for(f in e)e.hasOwnProperty(f)&&b.push(f);for(c=0;c<b.length;c++){var a="";var f=b[c];var h=master.mstClass[findName(master.mstClass,f)];0!=c&&(a+="<tr>");a+='<th><img src="https://fgo.kazemai.io/common/images/icon/class/class_'+
 h.iconImageId+'_5.png" title="'+e[f]+'" class="classS"/></th>';a+="<td>";a=1E3<h.attackRate?a+('<span class="red">'+h.attackRate/1E3+"</span>"):1E3>h.attackRate?a+('<span class="blue">'+h.attackRate/1E3+"</span>"):a+"\uff0d";a+="</td>";for(f=0;f<b.length;f++){h=!1;for(var d in master.mstClassRelation)if(master.mstClassRelation[d].atkClass==master.mstClass[findName(master.mstClass,b[c])].relationId&&master.mstClassRelation[d].defClass==master.mstClass[findName(master.mstClass,b[f])].relationId){h=
-!0;a+="<td>";a=1E3<master.mstClassRelation[d].attackRate?a+('<span class="red">'+master.mstClassRelation[d].attackRate/1E3+"</span>"):1E3>master.mstClassRelation[d].attackRate?a+('<span class="blue">'+master.mstClassRelation[d].attackRate/1E3+"</span>"):a+"\uff0d";a+="</td>";break}h||(a+="<td>\uff1f</td>")}a+="</tr>";g+=a}a="";for(c=0;c<b.length;c++)f=b[c],h=master.mstClass[findName(master.mstClass,f)],a+='<th><img src="common/images/icon/class/class_'+h.iconImageId+'_5.png" title="'+e[f]+'" class="classS"/></th>';
+!0;a+="<td>";a=1E3<master.mstClassRelation[d].attackRate?a+('<span class="red">'+master.mstClassRelation[d].attackRate/1E3+"</span>"):1E3>master.mstClassRelation[d].attackRate?a+('<span class="blue">'+master.mstClassRelation[d].attackRate/1E3+"</span>"):a+"\uff0d";a+="</td>";break}h||(a+="<td>\uff1f</td>")}a+="</tr>";g+=a}a="";for(c=0;c<b.length;c++)f=b[c],h=master.mstClass[findName(master.mstClass,f)],a+='<th><img src="https://fgo.kazemai.io/common/images/icon/class/class_'+h.iconImageId+'_5.png" title="'+e[f]+'" class="classS"/></th>';
 $("#classAtk").append("<tr><th colspan=2 rowspan=2>\u8077\u968e</th><th rowspan=2>\u50b7\u5bb3\u500d\u7387</th><th colspan="+b.length+">\u9632\u79a6\u5074</th></tr><tr>"+a+"</tr><tr><th rowspan="+b.length+">\u653b<br>\u64ca<br>\u5074</th>"+g);$("#classAtk").css("display","block");$("#classAtkBtn").css("display","none")}
 function atrriRelation(){for(var b,c,g=document.getElementsByClassName("attriR"),e=0;e<g.length;e++){b=g[e].id.replace(/ar/g,"").split(/-/);c=1E3;for(var a in master.mstAttriRelation)if(master.mstAttriRelation[a].atkAttri==b[0]&&master.mstAttriRelation[a].defAttri==b[1]){c=master.mstAttriRelation[a].attackRate;break}1E3==c?document.getElementById(g[e].id).innerHTML="\uff0d":1E3<c?document.getElementById(g[e].id).innerHTML="<span class='red'>"+c/1E3+"</span>":1E3>c&&(document.getElementById(g[e].id).innerHTML=
 "<span class='blue'>"+c/1E3+"</span>")}};
@@ -92,27 +92,27 @@ function atrriRelation(){for(var b,c,g=document.getElementsByClassName("attriR")
 <table style="text-align:center;width:100%;">
 <tr><th colspan=2 rowspan=2>職階</th><th rowspan=2>傷害倍率</th><th colspan=18>防禦側</th></tr>
 <tr>
-<th><img src="common/images/icon/class/class_1_4.png" title="Saber" class="classS"/></th>
-<th><img src="common/images/icon/class/class_2_4.png" title="Archer" class="classS"/></th>
-<th><img src="common/images/icon/class/class_3_4.png" title="Lancer" class="classS"/></th>
-<th><img src="common/images/icon/class/class_4_4.png" title="Rider" class="classS"/></th>
-<th><img src="common/images/icon/class/class_5_4.png" title="Caster" class="classS"/></th>
-<th><img src="common/images/icon/class/class_6_4.png" title="Assassin" class="classS"/></th>
-<th><img src="common/images/icon/class/class_7_4.png" title="Berserker" class="classS"/></th>
-<th><img src="common/images/icon/class/class_8_4.png" title="Shielder" class="classS"/></th>
-<th><img src="common/images/icon/class/class_9_4.png" title="Ruler" class="classS"/></th>
-<th><img src="common/images/icon/class/class_11_4.png" title="Avenger" class="classS"/></th>
-<th><img src="common/images/icon/class/class_10_4.png" title="Alterego" class="classS"/></th>
-<th><img src="common/images/icon/class/class_23_4.png" title="MoonCancer" class="classS"/></th>
-<th><img src="common/images/icon/class/class_25_4.png" title="Foreigner" class="classS"/></th>
-<th><img src="common/images/icon/class/class_21_5.png" title="BeastI" class="classS"/></th>
-<th><img src="common/images/icon/class/class_20_5.png" title="BeastII" class="classS"/></th>
-<th><img src="common/images/icon/class/class_24_5.png" title="BeastⅢ／R" class="classS"/></th>
-<th><img src="common/images/icon/class/class_24_5.png" title="BeastⅢ／L" class="classS"/></th>
-<th><img src="common/images/icon/class/class_26_5.png" title="Beast？" class="classS"/></th>
+<th><img src="https://fgo.kazemai.io/common/images/icon/class/class_1_4.png" title="Saber" class="classS"/></th>
+<th><img src="https://fgo.kazemai.io/common/images/icon/class/class_2_4.png" title="Archer" class="classS"/></th>
+<th><img src="https://fgo.kazemai.io/common/images/icon/class/class_3_4.png" title="Lancer" class="classS"/></th>
+<th><img src="https://fgo.kazemai.io/common/images/icon/class/class_4_4.png" title="Rider" class="classS"/></th>
+<th><img src="https://fgo.kazemai.io/common/images/icon/class/class_5_4.png" title="Caster" class="classS"/></th>
+<th><img src="https://fgo.kazemai.io/common/images/icon/class/class_6_4.png" title="Assassin" class="classS"/></th>
+<th><img src="https://fgo.kazemai.io/common/images/icon/class/class_7_4.png" title="Berserker" class="classS"/></th>
+<th><img src="https://fgo.kazemai.io/common/images/icon/class/class_8_4.png" title="Shielder" class="classS"/></th>
+<th><img src="https://fgo.kazemai.io/common/images/icon/class/class_9_4.png" title="Ruler" class="classS"/></th>
+<th><img src="https://fgo.kazemai.io/common/images/icon/class/class_11_4.png" title="Avenger" class="classS"/></th>
+<th><img src="https://fgo.kazemai.io/common/images/icon/class/class_10_4.png" title="Alterego" class="classS"/></th>
+<th><img src="https://fgo.kazemai.io/common/images/icon/class/class_23_4.png" title="MoonCancer" class="classS"/></th>
+<th><img src="https://fgo.kazemai.io/common/images/icon/class/class_25_4.png" title="Foreigner" class="classS"/></th>
+<th><img src="https://fgo.kazemai.io/common/images/icon/class/class_21_5.png" title="BeastI" class="classS"/></th>
+<th><img src="https://fgo.kazemai.io/common/images/icon/class/class_20_5.png" title="BeastII" class="classS"/></th>
+<th><img src="https://fgo.kazemai.io/common/images/icon/class/class_24_5.png" title="BeastⅢ／R" class="classS"/></th>
+<th><img src="https://fgo.kazemai.io/common/images/icon/class/class_24_5.png" title="BeastⅢ／L" class="classS"/></th>
+<th><img src="https://fgo.kazemai.io/common/images/icon/class/class_26_5.png" title="Beast？" class="classS"/></th>
 </tr>
 <tr><th rowspan=18>攻擊側</th>
-<th><img src="common/images/icon/class/class_1_4.png" title="Saber" class="classS"/></th>
+<th><img src="https://fgo.kazemai.io/common/images/icon/class/class_1_4.png" title="Saber" class="classS"/></th>
 <td>－</td>
 <td>－</td>
 <td><span class="blue">0.5</span></td>
@@ -133,7 +133,7 @@ function atrriRelation(){for(var b,c,g=document.getElementsByClassName("attriR")
 <td>－</td>
 <td>－</td>
 </tr>
-<tr><th><img src="common/images/icon/class/class_2_4.png" title="Archer" class="classS"/></th>
+<tr><th><img src="https://fgo.kazemai.io/common/images/icon/class/class_2_4.png" title="Archer" class="classS"/></th>
 <td><span class="blue">0.95</span></td>
 <td><span class="red">2</span></td>
 <td>－</td>
@@ -154,7 +154,7 @@ function atrriRelation(){for(var b,c,g=document.getElementsByClassName("attriR")
 <td>－</td>
 <td>－</td>
 </tr>
-<tr><th><img src="common/images/icon/class/class_3_4.png" title="Lancer" class="classS"/></th>
+<tr><th><img src="https://fgo.kazemai.io/common/images/icon/class/class_3_4.png" title="Lancer" class="classS"/></th>
 <td><span class="red">1.05</span></td>
 <td><span class="blue">0.5</span></td>
 <td><span class="red">2</span></td>
@@ -175,7 +175,7 @@ function atrriRelation(){for(var b,c,g=document.getElementsByClassName("attriR")
 <td>－</td>
 <td>－</td>
 </tr>
-<tr><th><img src="common/images/icon/class/class_4_4.png" title="Rider" class="classS"/></th>
+<tr><th><img src="https://fgo.kazemai.io/common/images/icon/class/class_4_4.png" title="Rider" class="classS"/></th>
 <td>－</td>
 <td>－</td>
 <td>－</td>
@@ -196,7 +196,7 @@ function atrriRelation(){for(var b,c,g=document.getElementsByClassName("attriR")
 <td>－</td>
 <td>－</td>
 </tr>
-<tr><th><img src="common/images/icon/class/class_5_4.png" title="Caster" class="classS"/></th>
+<tr><th><img src="https://fgo.kazemai.io/common/images/icon/class/class_5_4.png" title="Caster" class="classS"/></th>
 <td><span class="blue">0.9</span></td>
 <td>－</td>
 <td>－</td>
@@ -217,7 +217,7 @@ function atrriRelation(){for(var b,c,g=document.getElementsByClassName("attriR")
 <td>－</td>
 <td>－</td>
 </tr>
-<tr><th><img src="common/images/icon/class/class_6_4.png" title="Assassin" class="classS"/></th>
+<tr><th><img src="https://fgo.kazemai.io/common/images/icon/class/class_6_4.png" title="Assassin" class="classS"/></th>
 <td><span class="blue">0.9</span></td>
 <td>－</td>
 <td>－</td>
@@ -238,7 +238,7 @@ function atrriRelation(){for(var b,c,g=document.getElementsByClassName("attriR")
 <td>－</td>
 <td>－</td>
 </tr>
-<tr><th><img src="common/images/icon/class/class_7_4.png" title="Berserker" class="classS"/></th>
+<tr><th><img src="https://fgo.kazemai.io/common/images/icon/class/class_7_4.png" title="Berserker" class="classS"/></th>
 <td><span class="red">1.1</span></td>
 <td><span class="red">1.5</span></td>
 <td><span class="red">1.5</span></td>
@@ -259,7 +259,7 @@ function atrriRelation(){for(var b,c,g=document.getElementsByClassName("attriR")
 <td>－</td>
 <td>－</td>
 </tr>
-<tr><th><img src="common/images/icon/class/class_8_4.png" title="Shielder" class="classS"/></th>
+<tr><th><img src="https://fgo.kazemai.io/common/images/icon/class/class_8_4.png" title="Shielder" class="classS"/></th>
 <td>－</td>
 <td>－</td>
 <td>－</td>
@@ -280,7 +280,7 @@ function atrriRelation(){for(var b,c,g=document.getElementsByClassName("attriR")
 <td>－</td>
 <td>－</td>
 </tr>
-<tr><th><img src="common/images/icon/class/class_9_4.png" title="Ruler" class="classS"/></th>
+<tr><th><img src="https://fgo.kazemai.io/common/images/icon/class/class_9_4.png" title="Ruler" class="classS"/></th>
 <td><span class="red">1.1</span></td>
 <td>－</td>
 <td>－</td>
@@ -301,7 +301,7 @@ function atrriRelation(){for(var b,c,g=document.getElementsByClassName("attriR")
 <td>－</td>
 <td>－</td>
 </tr>
-<tr><th><img src="common/images/icon/class/class_11_4.png" title="Avenger" class="classS"/></th>
+<tr><th><img src="https://fgo.kazemai.io/common/images/icon/class/class_11_4.png" title="Avenger" class="classS"/></th>
 <td><span class="red">1.1</span></td>
 <td>－</td>
 <td>－</td>
@@ -322,7 +322,7 @@ function atrriRelation(){for(var b,c,g=document.getElementsByClassName("attriR")
 <td>－</td>
 <td>－</td>
 </tr>
-<tr><th><img src="common/images/icon/class/class_10_4.png" title="Alterego" class="classS"/></th>
+<tr><th><img src="https://fgo.kazemai.io/common/images/icon/class/class_10_4.png" title="Alterego" class="classS"/></th>
 <td>－</td>
 <td><span class="blue">0.5</span></td>
 <td><span class="blue">0.5</span></td>
@@ -343,7 +343,7 @@ function atrriRelation(){for(var b,c,g=document.getElementsByClassName("attriR")
 <td><span class="red">1.2</span></td>
 <td>－</td>
 </tr>
-<tr><th><img src="common/images/icon/class/class_23_4.png" title="MoonCancer" class="classS"/></th>
+<tr><th><img src="https://fgo.kazemai.io/common/images/icon/class/class_23_4.png" title="MoonCancer" class="classS"/></th>
 <td>－</td>
 <td>－</td>
 <td>－</td>
@@ -364,7 +364,7 @@ function atrriRelation(){for(var b,c,g=document.getElementsByClassName("attriR")
 <td>－</td>
 <td>－</td>
 </tr>
-<tr><th><img src="common/images/icon/class/class_25_5.png" title="Foreigner" class="classS"/></th>
+<tr><th><img src="https://fgo.kazemai.io/common/images/icon/class/class_25_5.png" title="Foreigner" class="classS"/></th>
 <td>－</td>
 <td>－</td>
 <td>－</td>
@@ -385,7 +385,7 @@ function atrriRelation(){for(var b,c,g=document.getElementsByClassName("attriR")
 <td><span class="red">1.2</span></td>
 <td>－</td>
 </tr>
-<tr><th><img src="common/images/icon/class/class_21_5.png" title="BeastI" class="classS"/></th>
+<tr><th><img src="https://fgo.kazemai.io/common/images/icon/class/class_21_5.png" title="BeastI" class="classS"/></th>
 <td>－</td>
 <td><span class="red">2</span></td>
 <td><span class="red">2</span></td>
@@ -406,7 +406,7 @@ function atrriRelation(){for(var b,c,g=document.getElementsByClassName("attriR")
 <td>－</td>
 <td>－</td>
 </tr>
-<tr><th><img src="common/images/icon/class/class_20_5.png" title="BeastII" class="classS"/></th>
+<tr><th><img src="https://fgo.kazemai.io/common/images/icon/class/class_20_5.png" title="BeastII" class="classS"/></th>
 <td>－</td>
 <td>－</td>
 <td>－</td>
@@ -427,7 +427,7 @@ function atrriRelation(){for(var b,c,g=document.getElementsByClassName("attriR")
 <td>－</td>
 <td>－</td>
 </tr>
-<tr><th><img src="common/images/icon/class/class_24_5.png" title="BeastⅢ／R" class="classS"/></th>
+<tr><th><img src="https://fgo.kazemai.io/common/images/icon/class/class_24_5.png" title="BeastⅢ／R" class="classS"/></th>
 <td>－</td>
 <td>－</td>
 <td>－</td>
@@ -448,7 +448,7 @@ function atrriRelation(){for(var b,c,g=document.getElementsByClassName("attriR")
 <td>－</td>
 <td>－</td>
 </tr>
-<tr><th><img src="common/images/icon/class/class_24_5.png" title="BeastⅢ／L" class="classS"/></th>
+<tr><th><img src="https://fgo.kazemai.io/common/images/icon/class/class_24_5.png" title="BeastⅢ／L" class="classS"/></th>
 <td>－</td>
 <td>－</td>
 <td>－</td>
@@ -469,7 +469,7 @@ function atrriRelation(){for(var b,c,g=document.getElementsByClassName("attriR")
 <td>－</td>
 <td>－</td>
 </tr>
-<tr><th><img src="common/images/icon/class/class_26_5.png" title="Beast？" class="classS"/></th>
+<tr><th><img src="https://fgo.kazemai.io/common/images/icon/class/class_26_5.png" title="Beast？" class="classS"/></th>
 <td>－</td>
 <td>－</td>
 <td>－</td>
@@ -560,10 +560,10 @@ function atrriRelation(){for(var b,c,g=document.getElementsByClassName("attriR")
 <h3>Overkill補正</h3>
 <p>有Overkill的話為1.5倍</p>
 </div>
-<a href="np_get.html"><div class='sidebar' style='background-image:url(common/images/sidebar00.png);float:left;ma'>前往計算</div></a>
+<a href="np_get.html"><div class='sidebar' style='background-image:url(https://fgo.kazemai.io/common/images/sidebar00.png);float:left;ma'>前往計算</div></a>
 <div style="clear:left;"></div>
 </article>
-<div id="gotop"><a href="#"><img src="common/images/btn_gotop_off.jpg" width="47" height="47" alt="返回頂端" /></a></div>
+<div id="gotop"><a href="#"><img src="https://fgo.kazemai.io/common/images/btn_gotop_off.jpg" width="47" height="47" alt="返回頂端" /></a></div>
     </div>
     <!--主要內容區塊結束-->
 </div>
