@@ -1580,3 +1580,68 @@ width:100px;
     font-weight: bold;
     font-size: 19px!important;
 }
+
+/***btn****/
+
+.btn_wrap_pu {
+    width: 100%;
+    clear: both;
+    overflow: hidden;
+    padding: 0.5em 0.5em 1.2em 0.5em;
+}
+
+.attention_btn_pu{
+	display: block;
+	margin:0 auto;
+	padding: 5px 0;
+	width: 100%;
+	text-align: center!important;
+}
+
+
+.attention_btn_pu a {
+    color: #970000;
+    font-size: 15px;
+    font-weight: 600;
+    display: block;
+    text-decoration: none;
+    width: 50%;
+    padding: 15px 3px;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-image: linear-gradient(#fbf1f1 0%, #f5b3b3 100%);;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.40);
+}
+
+
+.attention_btn_pu a:hover {
+    color: #e73d3d;
+    background-image: linear-gradient(#fff7f7 0%, #f3cccc 60%);
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.30);
+}
+
+/* tips画像風border */
+.gray_frmae {
+	border: solid 6px #ddd;
+    border-radius: 10px;
+    padding: 0.5em;
+    margin-bottom: 1em;
+}
+
+/*正式加入アイコン*/
+.noticeicon {
+    font-size: 12px;
+    padding: 5px 8px;
+    border-radius: 7px;
+    border: 1px solid #fd093a;
+    width: 150px;
+    float: left;
+    margin: 0 auto 0 auto;
+    text-align: center;
+}
+
+/**/
+.bttom_txt{
+margin-top: 10px;
+float: left
+}
