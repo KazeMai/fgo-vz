@@ -1173,6 +1173,11 @@ max-width: 210px;
 	
 }
 
+.bg07{
+	background-color: #FFEFD2;
+}
+
+
 .txt{
 	font-size: 120%;
 	font-weight: bold;
@@ -1271,6 +1276,11 @@ width:100px;
 .pu_txt_red{
 	font-weight: bold;
 	color: #cb0000;
+}
+
+.pu_txt_blue {
+    font-weight: bold;
+    color: #1B00CB;
 }
 
 
@@ -1479,7 +1489,6 @@ width:100px;
    padding: 2% 0 0 2%;
 }
 
-/*********pu_imagelist***********/
 .pu_im_list{
 	width: 100%;
 	clear: both;
@@ -1506,11 +1515,11 @@ width:100px;
 }
 
 
+
 /*********表_赤***********/
 .cell_col_red{
 	background-color: #FFEEE4;
 }
-
 
 
 
