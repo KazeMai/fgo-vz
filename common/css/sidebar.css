@@ -1654,3 +1654,25 @@ width:100px;
 margin-top: 10px;
 float: left
 }
+
+
+.attention_gray{
+	padding: 1em 1em 0 1em;
+    border: solid 1.5px #ededed;
+    margin: 10px;
+    background: #ededed;
+}
+
+.attention_gold {
+    padding: 1em 1em 0 1em;
+    border: solid 2px #DDBE1C;
+    margin: 10px;
+    background-color: #FCF5D3;
+}
+
+/* ハイライト */
+.highlight {
+	background: linear-gradient(transparent 10%, #FFFF00 10% 90%, transparent 90%);
+	font-weight: bold;
+	color: #FF0004;
+}
