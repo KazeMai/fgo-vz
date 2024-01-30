@@ -67,4 +67,5 @@ var indi_list = {
 	"2875": { "name":"〔靈基第一・第二階段〕", "svt":"", "enemy":""},
 	"2876": { "name":"〔靈基第三階段〕", "svt":"", "enemy":""},
 	"2881": { "name":"〔多人組成一位的從者〕", "svt":"", "enemy":""},
+	"2883": { "name":"〔Fate/stay night的從者〕", "svt":"", "enemy":""},
 };
