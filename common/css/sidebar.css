@@ -365,7 +365,7 @@ div.warIcon {
 	text-align: right;
 	padding: 0px 0px 0px 0px;
 	box-sizing: border-box;
-  float: none;
+  float: left;
 }
 .itemMTR {
 	height: 50px;
