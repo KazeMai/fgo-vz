@@ -203,8 +203,8 @@ function svtFace(svtId)
 				if(tmpSvt.collectionNo==0) {txt+='id='+tmpSvt.id;}
 				else {txt+='no='+tmpSvt.collectionNo;}
 				
-				var dt = new Date();//AprilFool2022
-				if(dt.getMonth()==3&&dt.getDate()==1&&tmpSvt.type!=9&&tmpSvt.collectionNo<=336) {txt+='"><img data-src="https://fgo.kazemai.io/common/images/icon/fgopw/servant'+padLeft(tmpSvt.collectionNo, 3)+'_icon.png" class="lazyload face_icon" title="'+findSvtNameZh2(tmpSvt.id)+'" /></a>';}
+				var dt = new Date();//AprilFool2024
+				if(dt.getMonth()==3&&dt.getDate()==1&&tmpSvt.type!=9&&tmpSvt.collectionNo<=408) {txt+='"><img data-src="https://fgo.kazemai.io/common/images/icon/fate-ds/icon_servant_'+padLeft(tmpSvt.collectionNo, 3)+'.png" class="lazyload face_icon" title="'+findSvtNameZh2(tmpSvt.id)+'" /></a>';}
 				else {txt+='"><img data-src="https://fgo.kazemai.io/common/images/icon/faces/'+tmpSvt.id+'0.png" class="lazyload face_icon" title="'+findSvtNameZh2(tmpSvt.id)+'" /></a>';}
 			}
 			else if(tmpSvt.type==7)
