@@ -967,6 +967,113 @@ article *.dia:after, article *.dia:before {
 	margin-bottom: .2em;
 }
 
+/* ------------見出し------------ */
+.heading_ttl{
+    width: 100%;
+    height: auto;
+    margin: 1em 0 0.5em 0!important;
+    font-feature-settings: "palt";
+    position: relative;
+    text-align: left!important;
+}
+
+.heading_ttl p {
+    margin-bottom: 0px!important;
+}
+
+.heading_ttl .item_box .text_box{
+    padding-left: 11.5%;
+}
+
+.heading_ttl .item_box_ev .text_box{
+    padding-left: 11.5%;
+}
+
+.heading_ttl .item_box_st {
+	padding-left: 11.5%;
+}
+
+/* 見出し汎用 */
+.heading_ttl .item_box{
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: block;
+    padding: 0.2em 0em 0.3em 0em;
+    font-family: 'Times New Roman', 'Yu Mincho Medium', '游明朝 Medium', 'Yu Mincho', '游明朝', 'YuMincho', '游明朝体', 'Hiragino Mincho ProN', 'ＭＳ Ｐ明朝', serif;
+    font-weight: bold;
+    font-size: 1.375em!important;
+    line-height: 1.2!important;
+}
+ 
+.heading_ttl .item_box::before {    
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+}
+
+/* 見出しイベント用 */
+.heading_ttl .item_box_ev{
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 0.5em 0.5em 0.2em 0em;
+    font-family: 'Times New Roman', 'Yu Mincho Medium', '游明朝 Medium', 'Yu Mincho', '游明朝', 'YuMincho', '游明朝体', 'Hiragino Mincho ProN', 'ＭＳ Ｐ明朝', serif;
+    font-weight: bold;
+    font-size: 1.375em!important;
+    line-height: 1.2!important;
+}
+ 
+.heading_ttl .item_box_ev::before {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+}
+
+/* 見出し章用 */
+.heading_ttl .item_box_st {
+    font-family: 'Times New Roman', 'Yu Mincho Medium', '游明朝 Medium', 'Yu Mincho', '游明朝', 'YuMincho', '游明朝体', 'Hiragino Mincho ProN', 'ＭＳ Ｐ明朝', serif;
+    font-weight: bold;
+    font-size: 1.375em!important;
+    line-height: 1.2!important;
+}
+
+.heading_ttl .item_box_st .text_box {
+    display: inline-flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+}
+ 
+.heading_ttl .item_box_st .text_box:last-child{
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding-bottom: 0.32em;
+}
+ 
+.heading_ttl .item_box_st::before {
+    height: 61px;
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+}
+
+/* 見出しテキスト用 */
+.heading_ttl .hd_text {
+    text-shadow: 0 0 1px rgb(0 0 0);
+}  
+
+/* ------------見出しココマデ------------ */
 
 /*小見出し*/
 .tips {
