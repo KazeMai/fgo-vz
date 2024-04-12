@@ -187,11 +187,11 @@ function svtFace(svtId)
 
 			if(tmpSvt.type==6&&(tmpSvt.flag&4))//Bone CE
 			{
-                txt+='<a href="ceData.html?no='+tmpSvt.collectionNo+'"><div class="itemMTR_Face" style="background-image: url(\'https://fgo.kazemai.io/common/images/icon/faces/'+tmpSvt.id+'.png\')" title="'+tmpSvt.name+'"><img src="https://fgo.kazemai.io/common/images/icon/frames/img_bond_category.png" style="width:40%;"/></div></a>';
+                txt+='<a href="ceData.html?no='+tmpSvt.collectionNo+'"><div class="itemMTR_Face itemblur" style="background-image: url(\'https://fgo.kazemai.io/common/images/icon/faces/'+tmpSvt.id+'.png\')" title="'+tmpSvt.name+'"><img src="https://fgo.kazemai.io/common/images/icon/frames/img_bond_category.png" style="width:40%;"/></div></a>';
 			}
 			else if(tmpSvt.type==6&&(tmpSvt.flag&32))//Chocolate CE
 			{
-                txt+='<a href="ceData.html?no='+tmpSvt.collectionNo+'"><div class="itemMTR_Face" style="background-image: url(\'https://fgo.kazemai.io/common/images/icon/faces/'+tmpSvt.id+'.png\')" title="'+tmpSvt.name+'"><img src="https://fgo.kazemai.io/common/images/icon/frames/img_chocolate_category.png" style="width:40%;"/></div></a>';
+                txt+='<a href="ceData.html?no='+tmpSvt.collectionNo+'"><div class="itemMTR_Face itemblur" style="background-image: url(\'https://fgo.kazemai.io/common/images/icon/faces/'+tmpSvt.id+'.png\')" title="'+tmpSvt.name+'"><img src="https://fgo.kazemai.io/common/images/icon/frames/img_chocolate_category.png" style="width:40%;"/></div></a>';
 			}
 			else if(tmpSvt.type==6||tmpSvt.type==98)
 			{
