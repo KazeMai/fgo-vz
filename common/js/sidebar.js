@@ -185,7 +185,7 @@ function svtFace(svtId)
 		{
 			var tmpSvt = master.mstSvt[i];
 
-			if(tmpSvt.type==6&&(tmpSvt.flag&4))//Bone CE
+			if(tmpSvt.type==6&&(tmpSvt.flag&4))//Bond CE
 			{
                 txt+='<a href="ceData.html?no='+tmpSvt.collectionNo+'"><div class="itemMTR_Face itemblur" style="background-image: url(\'https://fgo.kazemai.io/common/images/icon/faces/'+tmpSvt.id+'.png\')" title="'+tmpSvt.name+'"><img src="https://fgo.kazemai.io/common/images/icon/frames/img_bond_category.png" style="width:40%;"/></div></a>';
 			}
