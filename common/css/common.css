@@ -37,6 +37,9 @@ a img {
 a:link {
 	text-decoration: none;
 }
+.attention a:link {
+	text-decoration: underline;
+}
 
 a:visited {
 	text-decoration: none;
