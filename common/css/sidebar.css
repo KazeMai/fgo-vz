@@ -451,6 +451,7 @@ span.hint {
 a.hint {
 	cursor: help;
 	color: #4d0000;
+    text-decoration: dotted #4d0000 underline;
 }
 .headline5 {
 	display: inline-block;
@@ -768,10 +769,10 @@ padding-left: 1em;
 	margin: 0;
 	padding-left: 1em;
 }
-.star {
-	color: #c0972d;
-	font-weight: bold;
-}
+/* .star { */
+	/* color: #c0972d; */
+	/* font-weight: bold; */
+/* } */
 .servant_star {
 	color: #FFD500;
 	text-shadow: 1px 1px 1px #000000;
