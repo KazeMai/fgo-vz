@@ -444,11 +444,7 @@ th.green{
 th.blue{
 	color: #0099FF;
 }
-span.hint {
-	cursor: help;
-	border-bottom: 1px dotted;
-}
-a.hint {
+span.hint,a.hint {
 	cursor: help;
 	color: #4d0000;
     text-decoration: dotted #4d0000 underline;
