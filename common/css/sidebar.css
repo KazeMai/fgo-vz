@@ -1867,6 +1867,14 @@ width:100px;
 }
 
 /***btn****/
+.btn_wrap {
+    width: 100%;
+    height: auto;
+    display: flex;
+    padding: 1em;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
 
 .btn_wrap_pu {
     width: 100%;
@@ -1878,11 +1886,21 @@ width:100px;
 .attention_btn_pu{
 	display: block;
 	margin:0 auto;
-	padding: 5px 0;
 	width: 100%;
 	text-align: center!important;
 }
 
+.attention_btn_st{
+	display: block;
+	width: 48%;
+	text-align: center!important;
+}
+
+.attention_btn_ce{
+	display: block;
+	width: 48%;
+	text-align: center!important;
+}
 
 .attention_btn_pu a {
     color: #970000;
@@ -1898,10 +1916,49 @@ width:100px;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.40);
 }
 
+.attention_btn_st a {
+    color: #ce7e15;
+    font-size: 15px;
+    font-weight: 600;
+    display: block;
+    text-decoration: none;
+    width: 100%;
+    padding: 15px 3px;
+    margin: 0 auto;
+    border-radius: 10px;
+	background-image: linear-gradient(#fbf8f1 0%, #f7d6a6 100%);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.40);
+}
+
+.attention_btn_ce a {
+	color: #0d6194;
+    font-size: 15px;
+    font-weight: 600;
+    display: block;
+    text-decoration: none;
+    width: 100%;
+    padding: 15px 3px;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-image: linear-gradient(#f1fafb 0%, #b3e8f5 100%);   
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.40);
+}
 
 .attention_btn_pu a:hover {
     color: #e73d3d;
     background-image: linear-gradient(#fff7f7 0%, #f3cccc 60%);
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.30);
+}
+
+.attention_btn_st a:hover {
+    color: #e79d3d;
+    background-image: linear-gradient(#fbf8f1 0%, #f3e1c6 100%);
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.30);
+}
+
+.attention_btn_ce a:hover {
+    color: #3d73e7;
+    background-image: linear-gradient(#f1fafb 0%, #d6eff5 100%);
 	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.30);
 }
 
@@ -1962,4 +2019,9 @@ table.noborder tr td
 table.noborder tr
 {
 	background:none;
+}
+table.table_non tr td
+{
+	border:0px;
+	box-shadow:0px 0px 0px;
 }
