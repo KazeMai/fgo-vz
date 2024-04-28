@@ -27,6 +27,7 @@ function object_extend(key,extendtxt)
 	if(isErr) alert('存取錯誤');
 }
 /*暫時應對*/
+sortByElmentNo(master.mstSvt);
 var zhTWNo=350,zhCNNo=379,statusNo=414,personalityList=" \u5584 \u60e1 \u4e2d\u7acb \u72c2 \u4e2d\u5eb8 \u5584\uff0f\u60e1 \u82b1\u5ac1 \u590f".split(" "),policyList=" \u4e2d\u7acb \u6df7\u6c8c \u79e9\u5e8f \u4e2d\u5eb8 \u79e9\u5e8f\uff0f\u6df7\u6c8c \u7a7a\u5bc6".split(" "),attriList="\uff1f \u4eba \u5929 \u5730 \u661f \u7378     \u7121".split(" "),genderTypeList=["","\u7537\u6027","\u5973\u6027","\u4e0d\u660e"],cardList=["","0000ff","ff0000","00ff00"],svtStatusList=" A B C D E EX ? ? ".split(" "),
 svtStatusPlusList="  + ++ - +++ - ? \uff1f \uff0d".split(" ");
 function svtDataTable(e){var a,k;for(k in master.mstSvt)if(master.mstSvt[k].id==e)break;var m=null;for(t in master.mstSvtLimit)if(master.mstSvtLimit[t].svtId==e){m=master.mstSvtLimit[t];break}var t=null;for(a in master.mstSvtLimit)if(master.mstSvtLimit[a].svtId==e&&master.mstSvtLimit[a].limitCount==master.mstSvt[k].limitMax){t=master.mstSvtLimit[a];break}var b="<tr>";master.mstSvt[k].collectionNo<=statusNo&&9!=master.mstSvt[k].type?(b+="<td rowspan=7 align=center style='width:25%;height:300px;'>",
