@@ -88,21 +88,47 @@ function commonReleaseCheck(cId)
 		if(master.mstCommonRelease[c].id==cId)
 		{
 			var tmpC = master.mstCommonRelease[c];
-			switch(tmpC.condType)
-			{
-				case 0:
-					return '預設';
-					break;
-				case 1:
-					return '通過'+questRea(tmpC.condId)+'後';
-					break;
-
-				default:
-				return '';
-			}
+			return condtionRead(tmpC.condType,tmpC.condId,tmpC.condNum);
 		}
 	}
+    return '';
 }
+function condtionRead(cType,cId,cNum)
+{
+	switch(cType)
+    {
+        case 0://NONE
+            return '預設';
+            break;
+        case 1://QUEST_CLEAR
+            return '通過'+questRea(cId)+'後';
+            break;
+        case 2://ITEM_GET
+            var tmpItem = master.mstItem[findName(master.mstItem,cId)];
+            if(tmpItem!=null)
+            {
+                return '入手<div class="itemST" style="background-image: url("https://fgo.kazemai.io/common/images/icon/items/'+tmpItem.imageId+'") alt="+tmpItem.name+">'+cNum>1 ? cNum : ''+'</div>';
+            }
+            break;
+        case 7://SVT_LIMIT
+            return '〔'+findSvtNameZh2(cId)+'〕靈基再臨第'+cNum+'階段';
+            break;
+        case 9://SVT_FRIENDSHIP
+            return '〔'+findSvtNameZh2(cId)+'〕羈絆等級Lv.'+cNum+'';
+            break;
+        case 24://EVENT_MISSION_ACHIEVE
+            var tmpMission = master.mstEventMission[findName(master.mstEventMission,cId)];
+            if(tmpMission!=null)
+            {
+                return '達成任務No.'+tmpMission.dispNo+'：'+tmpMission.name;
+            }
+            break;
+        default:
+        return '';
+    }
+    return '';
+}
+
 function questRea(qstId)
 {
 	for(var w in master.mstWar)
