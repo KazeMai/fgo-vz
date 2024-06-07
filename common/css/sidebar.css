@@ -1122,7 +1122,7 @@ article *.dia:after, article *.dia:before {
 .heading_ttl{
     width: 100%;
     height: auto;
-    margin: 1em 0 0.5em 0!important;
+    margin: 1.7em 0 0.5em 0 !important;
     font-feature-settings: "palt";
     position: relative;
     text-align: left!important;
@@ -1133,7 +1133,7 @@ article *.dia:after, article *.dia:before {
 }
 
 .heading_ttl .item_box .text_box{
-    padding-left: 11.5%;
+	padding-left: 10.5%;
 }
 
 .heading_ttl .item_box_ev .text_box{
