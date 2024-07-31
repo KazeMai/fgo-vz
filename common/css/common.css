@@ -37,7 +37,7 @@ a img {
 a:link {
 	text-decoration: none;
 }
-.attention a:link {
+.attention a:link,.cp_list a:link {
 	text-decoration: underline;
 }
 
