@@ -50,7 +50,19 @@ function findItemName(itemid)
 function findName(searchData,searchId)
 {
 	for(var i=0;i<searchData.length;i++)
-		if(searchData[i].id==searchId) return i;
+    {
+		if(searchData[i].id==searchId)
+        {return i;}
+    }
+	return null;
+}
+function findElement(searchData,searchId)
+{
+	for(var i=0;i<searchData.length;i++)
+    {
+		if(searchData[i].id==searchId)
+        {return searchData[i];}
+    }
 	return null;
 }
 function nowTime()
