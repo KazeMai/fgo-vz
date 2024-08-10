@@ -742,6 +742,11 @@ text-indent: -1em;
 padding-left: 1em;
 }
 
+.indent_2 {
+text-indent: -9.3em;
+padding-left: 9.3em;
+display: block;
+}
 
 .strong {
 	font-weight: bold;
