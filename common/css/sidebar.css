@@ -2054,3 +2054,6 @@ table.table_non tr td
 	border:0px;
 	box-shadow:0px 0px 0px;
 }
+span[class^='item_img_ny'] img{
+	width: 75%;
+}
