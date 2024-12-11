@@ -1081,6 +1081,20 @@ h2 {
     background-color: #EBF3FA;
 }
 
+.attention_green {
+    padding: 1em 1em 0 1em;
+    border: solid 2px #3db851;
+    margin: 10px;
+    background-color: #edfff0;
+}
+
+.attention_purple {
+    padding: 1em 1em 0 1em;
+    border: solid 2px #6f40ad;
+    margin: 10px;
+    background-color: #f2e8ff;
+}
+
 .attention2{
 	padding: 1em 1em 0 1em;
 	border: solid 1.5px #e8000b;
@@ -1485,6 +1499,10 @@ width:100px;
 
 .green_txt2 {
     color: #03b40a;
+}
+
+.purple_txt {
+    color: #9834eb;
 }
 
 
