@@ -2075,3 +2075,6 @@ table.table_non tr td
 span[class^='item_img_ny'] img{
 	width: 75%;
 }
+.cp_link_txt a{
+	text-decoration:underline;
+}
