@@ -135,6 +135,27 @@ function condtionRead(cType,cId,cNum)
                 return '達成任務No.'+tmpMission.dispNo+'：'+tmpMission.name;
             }
             break;
+        case 113://COMMON_RELEASE
+			txt = '';
+			for(var c in master.mstCommonRelease)
+			{
+				tmpC = master.mstCommonRelease[c]
+				if(tmpC.id==cId)
+				{
+					txt+=condtionRead(tmpC.condType,tmpC.condId,tmpC.condNum)+'<br>'
+				}
+			}
+            return txt;
+            break;
+        case 242://USER_LEVEL_ABOVE
+            return '御主等級不小於Lv.'+cId
+            break;
+        case 243://USER_LEVEL_BELOW
+            return '御主等級不大於Lv.'+cId
+            break;
+        case 244://USER_LEVEL_EQUAL
+            return '御主等級Lv.'+cId
+            break;
         default:
         return '';
     }
