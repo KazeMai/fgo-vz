@@ -1,7 +1,7 @@
 function loadsidebar()
 {
 	var targetProtocol = "https:";
-	if (window.location.protocol != targetProtocol && window.location.protocol != "file:") {
+	if (window.location.protocol != targetProtocol && window.location.protocol != "file:" && window.location.href.indexOf('localhost')==-1) {alert("轉網址");
 	 window.location.href = targetProtocol + window.location.href.substring(window.location.protocol.length);
 	}
 	if(!(location.pathname=='/fgo-vz/'||location.pathname.indexOf('index')!=-1)) {$('div.container').prepend('<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"><\/script><div style="margin:0px auto;width:728px;height:90px;background:url(\'https://fgo.kazemai.io/common/images/info_banner.png\');"><ins class="adsbygoogle"     style="display:inline-block;width:728px;height:90px"     data-ad-client="ca-pub-3881979894805188"     data-ad-slot="5322095555"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});<\/script></div>');slideOpen();}
@@ -322,7 +322,7 @@ function svtFace(svtId)
 function changeURL(url)
 {
 	//var url = document.getElementById('url').value;
-	window.history.pushState({},0,url);      
+	history.pushState({},"",url);      
 }
 function padLeft(str, len) {
 	str = '' + str;

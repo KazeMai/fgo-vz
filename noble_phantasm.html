@@ -41,7 +41,7 @@ function trdvDataOut(searchData,searchId)
 			for(t in master.mstSvtTreasureDevice)
 			if(master.mstSvt[c].id==master.mstSvtTreasureDevice[t].svtId&&master.mstSvtTreasureDevice[t].num==1&&master.mstSvtTreasureDevice[t].priority>100){console.log(master.mstSvtTreasureDevice[t].treasureDeviceId);
 			for(var k in master.mstTreasureDevice){
-				if(master.mstTreasureDevice[k].id==master.mstSvtTreasureDevice[t].treasureDeviceId){
+				if(master.mstTreasureDevice[k].id==master.mstSvtTreasureDevice[t].treasureDeviceId&&master.mstTreasureDevice[k].individuality.indexOf(3000)!=-1){
 					skillText="";
 					skillrowCount=0;
 					var tdDetailTxt = new Array();
@@ -109,6 +109,10 @@ function trdvDataOut(searchData,searchId)
 					sklTxt+="</td><td align=center rowspan="+skillrowCount+">"+master.mstTreasureDevice[k].rank+"</td><td align=center rowspan="+skillrowCount+">"+master.mstTreasureDevice[k].typeText.replace(/／/g,"／<br>").replace(/対/g,"對").replace(/宝/g,"寶").replace(/剣/g,"劍").replace(/悪/g,"惡").replace(/奥/g,"奧").replace(/セイバー/g,"Saber").replace(/竜/g,"龍")+"</td>";
 					
 					sklTxt+="<td align=center rowspan="+skillrowCount+">";
+					if(typeof tdDetailTxt[1] === "undefined")
+					{
+						tdDetailTxt[1]="";
+					}
 					if(tdDetailTxt[1].search(/攻擊[^力]|攻撃[^力]/)==-1) sklTxt+="－";
 					else
 					{
