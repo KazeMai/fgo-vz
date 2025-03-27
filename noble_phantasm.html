@@ -40,8 +40,10 @@ function trdvDataOut(searchData,searchId)
 			var sklTxt="";
 			for(t in master.mstSvtTreasureDevice)
 			if(master.mstSvt[c].id==master.mstSvtTreasureDevice[t].svtId&&master.mstSvtTreasureDevice[t].num==1&&master.mstSvtTreasureDevice[t].priority>100){console.log(master.mstSvtTreasureDevice[t].treasureDeviceId);
+			var filteredInid = [3000,3001,3002];
 			for(var k in master.mstTreasureDevice){
-				if(master.mstTreasureDevice[k].id==master.mstSvtTreasureDevice[t].treasureDeviceId&&master.mstTreasureDevice[k].individuality.indexOf(3000)!=-1){
+			filteredResult = $(filteredInid).filter(master.mstTreasureDevice[k].individuality).toArray();
+				if(master.mstTreasureDevice[k].id==master.mstSvtTreasureDevice[t].treasureDeviceId&&filteredResult.length>0){
 					skillText="";
 					skillrowCount=0;
 					var tdDetailTxt = new Array();
