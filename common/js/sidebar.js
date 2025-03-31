@@ -282,7 +282,11 @@ function svtFace(svtId)
 			}
 			else if(tmpSvt.type==9)
 			{
-				txt+='<a href="svtData.html?no='+tmpSvt.collectionNo+'"><img data-src="https://fgo.kazemai.io/Asset/JP/Faces/f_'+tmpSvt.id+'0.png" class="lazyload face_icon itemblur" title="'+findSvtNameZh2(tmpSvt.id)+'" /></a>';
+				var dt = new Date();//AprilFool2025
+				if(dt.getMonth()==3&&dt.getDate()==1&&tmpSvt.collectionNo<=437) {txt+='<a href="svtData.html?no='+tmpSvt.collectionNo+'"><img data-src="https://fgo.kazemai.io/common/images/icon/fate-fj/icon_servant_'+padLeft(tmpSvt.collectionNo, 3)+'.png" class="lazyload face_icon" title="'+findSvtNameZh2(tmpSvt.id)+'" /></a>';}
+				else {
+					txt+='<a href="svtData.html?no='+tmpSvt.collectionNo+'"><img data-src="https://fgo.kazemai.io/Asset/JP/Faces/f_'+tmpSvt.id+'0.png" class="lazyload face_icon itemblur" title="'+findSvtNameZh2(tmpSvt.id)+'" /></a>';
+				}
 			}
 			else if(tmpSvt.type==1||tmpSvt.type==2||tmpSvt.type==5||tmpSvt.type==99)
 			{
@@ -290,8 +294,8 @@ function svtFace(svtId)
 				if(tmpSvt.collectionNo==0) {txt+='id='+tmpSvt.id;}
 				else {txt+='no='+tmpSvt.collectionNo;}
 				
-				var dt = new Date();//AprilFool2024
-				if(dt.getMonth()==3&&dt.getDate()==1&&tmpSvt.collectionNo<=408) {txt+='"><img data-src="https://fgo.kazemai.io/common/images/icon/fate-ds/icon_servant_'+padLeft(tmpSvt.collectionNo, 3)+'.png" class="lazyload face_icon" title="'+findSvtNameZh2(tmpSvt.id)+'" /></a>';}
+				var dt = new Date();//AprilFool2025
+				if(dt.getMonth()==3&&dt.getDate()==1&&tmpSvt.collectionNo<=437) {txt+='"><img data-src="https://fgo.kazemai.io/common/images/icon/fate-fj/icon_servant_'+padLeft(tmpSvt.collectionNo, 3)+'.png" class="lazyload face_icon" title="'+findSvtNameZh2(tmpSvt.id)+'" /></a>';}
 				else {txt+='"><img data-src="https://fgo.kazemai.io/Asset/JP/Faces/f_'+tmpSvt.id+'0.png" class="lazyload face_icon" title="'+findSvtNameZh2(tmpSvt.id)+'" /></a>';}
 			}
 			else if(tmpSvt.type==7)
