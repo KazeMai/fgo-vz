@@ -128,6 +128,13 @@ function condtionRead(cType,cId,cNum)
         case 9://SVT_FRIENDSHIP
             return '〔'+findSvtNameZh2(cId)+'〕羈絆等級Lv.'+cNum+'';
             break;
+        case 16://WAR_CLEAR
+			var tmpWar = master.mstWar[findName(master.mstWar,cId)];
+            if(tmpWar!=null)
+            {
+                return '通過「'+tmpWar.name+'」後';
+            }
+            break;
         case 24://EVENT_MISSION_ACHIEVE
             var tmpMission = master.mstEventMission[findName(master.mstEventMission,cId)];
             if(tmpMission!=null)
@@ -168,7 +175,7 @@ function questRea(qstId)
 	{
 		if(master.mstWar[w].lastQuestId==qstId)
 		{
-			return '「'+master.mstWar[w].longName+'」';
+			return '「'+master.mstWar[w].name+'」';
 			break;
 		}
 	}
