@@ -142,6 +142,20 @@ function condtionRead(cType,cId,cNum)
                 return '達成任務No.'+tmpMission.dispNo+'：'+tmpMission.name;
             }
             break;
+        case 70://EQUIP_WITH_TARGET_COSTUME
+			var spTxt = "";
+			for(var sc in master.mstSvtCostume)
+			{
+				if(master.mstSvtCostume[sc].svtId==cId && master.mstSvtCostume[sc].id==cNum)
+				{
+					if(master.mstSvtCostume[sc].flag&64 && master.mstSvtCostume[sc].costumeCollectionNo==0)//NOT_GET_OPEN_RIGHT_HIDE
+					{
+						spTxt="(劇情限定)";
+					}
+					return '切換靈衣「'+master.mstSvtCostume[sc].shortName+spTxt+'」';
+				}
+			}
+            break;
         case 113://COMMON_RELEASE
 			txt = '';
 			for(var c in master.mstCommonRelease)
@@ -164,7 +178,7 @@ function condtionRead(cType,cId,cNum)
             return '御主等級Lv.'+cId
             break;
         default:
-        return '';
+			return '未知條件:Type'+tmpC.condType+',Id'+tmpC.condId+',Num'+tmpC.condNum;
     }
     return '';
 }
