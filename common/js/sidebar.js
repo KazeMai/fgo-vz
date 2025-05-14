@@ -5,7 +5,7 @@ function loadsidebar()
 	 window.location.href = targetProtocol + window.location.href.substring(window.location.protocol.length);
 	}
 	if(!(location.pathname=='/fgo-vz/'||location.pathname.indexOf('index')!=-1)) {$('div.container').prepend('<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"><\/script><div style="margin:0px auto;width:728px;height:90px;background:url(\'https://fgo.kazemai.io/common/images/info_banner.png\');"><ins class="adsbygoogle"     style="display:inline-block;width:728px;height:90px"     data-ad-client="ca-pub-3881979894805188"     data-ad-slot="5322095555"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});<\/script></div>');slideOpen();}
-	$('#div_right_sidebar').append('<a href="./"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar01.png);">首頁</div></a><a href="https://www.facebook.com/472978160149131/" target="_blank"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar17.png);">Facebook</div></a><a href="https://discord.gg/nEaXVvS" target="_blank"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar17.png);">Discord</div></a><a href="servant.html"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar05.png);">從者</div></a><a href="skill.html"><div class="sidebar" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar00.png);">技能</div></a><a href="noble_phantasm.html"><div class="sidebar" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar00.png);">寶具</div></a><a href="lv100.html"><div class="sidebar" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar00.png);">HP與ATK</div></a><a href="hidden.html"><div class="sidebar" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar00.png);">隱藏數値</div></a><a href="relate_quest.html"><div class="sidebar" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar00.png);">幕間與強化</div></a><a href="craft_essence.html"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar09.png);">概念禮裝</div></a><a href="command_code.html"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar18.png);">指令紋章</div></a><a href="item_drop.html"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar15.png);">素材道具</div></a><a href="quest.html"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar04.png);">關卡</div></a><a href="master_equip.html"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar03.png);">御主相關</div></a><a href="donate.html"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar11.png);"><span class="red">贊助支持</span></div></a><div class="sidebarl" id="survey_bannner" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar08.png);">意見回饋</div><a href="event_history.html"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar10.png);">過去活動</div></a><a href="gacha_mooncancer_weekly_pu.html" title="「【每週交替】MoonCancer Pick Up召喚」"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/mooncancer_weekly_pu_otgda/top_banner.png);"></div></a><a href="event_grand_cp.html" title="『「冠位肖像系統」解放＆「冠位戴冠戰」開幕 前夕宣傳活動』"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/grand_cp_zhlsx/top_banner.png);"></div></a><a href="gacha_2025_saber_pu.html" title="『「冠位戴冠戰：Saber」Pick Up召喚』"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/2025_saber_pu_eoakg/top_banner.png);"></div></a><a href="gacha_ordeal_call_4_pu4.html" title="「三位一體・梅塔特隆尼奥斯Pick Up4召喚」"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/ordeal_call_4_pu4_nepkp/top_banner.png);"></div></a><a href="event_feasts_cp13.html" title="「巡靈的祝祭 第13彈」"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/feasts_cp13_hpokc/top_banner.png);"></div></a><a href="story_ordeal_call_4.html" title="「奏章Ⅳ 人類裁決法庭 三位一體・梅塔特隆尼奥斯」"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/ordeal_call_4_full_cyxji/top_banner_2.png);"></div></a><a href="gacha_ordeal_call_4_pu.html" title="「三位一體・梅塔特隆尼奥斯 梅塔特隆・貞德Pick Up召喚」"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/ordeal_call_4_pu_hyhgr/top_banner.png);"></div></a><a href="event_ordeal_call_4_opening_cp.html" title="『「奏章Ⅳ」開幕記念起跑衝刺宣傳活動』"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/ordeal_call_4_opening_cp_koqpw/top_banner.png);"></div></a><a href="event_ordeal_call_4_cp.html" title="『「奏章Ⅳ」開幕前夕宣傳活動 第3彈』"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/ordeal_call_4_cp_03_lywxp/top_banner.png);"></div></a><a href="event_0301info25.html" title="魔力稜鏡交換限定概念禮裝追加！"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/0301info_qojrv/top_banner.png);"></div></a><div style="height:35px;"></div>');
+	$('#div_right_sidebar').append('<a href="./"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar01.png);">首頁</div></a><a href="https://www.facebook.com/472978160149131/" target="_blank"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar17.png);">Facebook</div></a><a href="https://discord.gg/nEaXVvS" target="_blank"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar17.png);">Discord</div></a><a href="servant.html"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar05.png);">從者</div></a><a href="skill.html"><div class="sidebar" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar00.png);">技能</div></a><a href="noble_phantasm.html"><div class="sidebar" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar00.png);">寶具</div></a><a href="lv100.html"><div class="sidebar" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar00.png);">HP與ATK</div></a><a href="hidden.html"><div class="sidebar" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar00.png);">隱藏數値</div></a><a href="relate_quest.html"><div class="sidebar" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar00.png);">幕間與強化</div></a><a href="craft_essence.html"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar09.png);">概念禮裝</div></a><a href="command_code.html"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar18.png);">指令紋章</div></a><a href="item_drop.html"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar15.png);">素材道具</div></a><a href="quest.html"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar04.png);">關卡</div></a><a href="master_equip.html"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar03.png);">御主相關</div></a><a href="donate.html"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar11.png);"><span class="red">贊助支持</span></div></a><div class="sidebarl" id="survey_bannner" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar08.png);">意見回饋</div><a href="event_history.html"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar10.png);">過去活動</div></a><a href="gacha_mooncancer_weekly_pu.html" title="「【每週交替】MoonCancer Pick Up召喚」"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/mooncancer_weekly_pu_otgda/top_banner.png);"></div></a><a href="event_grand_cp.html" title="『「冠位肖像系統」解放＆「冠位戴冠戰」開幕 前夕宣傳活動』"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/grand_cp_zhlsx/top_banner.png);"></div></a><a href="gacha_2025_saber_pu.html" title="『「冠位戴冠戰：Saber」Pick Up召喚』"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/2025_saber_pu_eoakg/top_banner.png);"></div></a><a href="gacha_ordeal_call_4_pu4.html" title="「三位一體・梅塔特隆尼奥斯Pick Up4召喚」"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/ordeal_call_4_pu4_nepkp/top_banner.png);"></div></a><a href="event_feasts_cp13.html" title="「巡靈的祝祭 第13彈」"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/feasts_cp13_hpokc/top_banner.png);"></div></a><a href="story_ordeal_call_4.html" title="「奏章Ⅳ 人類裁決法庭 三位一體・梅塔特隆尼奥斯」"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/ordeal_call_4_full_cyxji/top_banner_2.png);"></div></a><a href="event_ordeal_call_4_opening_cp.html" title="『「奏章Ⅳ」開幕記念起跑衝刺宣傳活動』"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/ordeal_call_4_opening_cp_koqpw/top_banner.png);"></div></a><a href="event_0301info25.html" title="魔力稜鏡交換限定概念禮裝追加！"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/0301info_qojrv/top_banner.png);"></div></a><div style="height:35px;"></div>');
 	$('#survey_bannner').on("click", function() {
 		if(!confirm ('本站與FGO官方無任何關係，不受理任何投訴\n點擊[取消]前往') ){
 			var newwin = window.open();
@@ -105,6 +105,20 @@ function commonReleaseCheck(cId)
 	}
     return '';
 }
+function timeConverter(UNIX_timestamp){
+	var d=new Date();
+	localTime = d.getTime();
+	localOffset=d.getTimezoneOffset()*60000
+	var a = new Date(UNIX_timestamp * 1000);
+	var year = a.getFullYear();
+	var month = a.getMonth()+1;
+	var date = a.getDate();
+	var hour = a.getHours();
+	var min = addZero(a.getMinutes());
+	var sec = addZero(a.getSeconds());
+	var time = year + '/' + month + '/' + date + ' ' + hour + ':' + min + ':' + sec;
+	return time;
+}
 function condtionRead(cType,cId,cNum)
 {
 	switch(cType)
@@ -114,6 +128,9 @@ function condtionRead(cType,cId,cNum)
             break;
         case 1://QUEST_CLEAR
             return '通過'+questRea(cId)+'後';
+            break;
+        case 46://QUEST_CLEAR_PHASE
+            return '通過'+questRea(cId)+'進行度'+cNum+'後';
             break;
         case 2://ITEM_GET
             var tmpItem = master.mstItem[findName(master.mstItem,cId)];
@@ -127,6 +144,9 @@ function condtionRead(cType,cId,cNum)
             break;
         case 9://SVT_FRIENDSHIP
             return '〔'+findSvtNameZh2(cId)+'〕羈絆等級Lv.'+cNum+'';
+            break;
+        case 12://DATE
+            return timeConverter(cNum);
             break;
         case 16://WAR_CLEAR
 			var tmpWar = master.mstWar[findName(master.mstWar,cId)];
@@ -155,6 +175,10 @@ function condtionRead(cType,cId,cNum)
 					return '切換靈衣「'+master.mstSvtCostume[sc].shortName+spTxt+'」';
 				}
 			}
+            break;
+        case 81://PLAYER_GENDER_TYPE
+			var genTxt = {1:"男",2:"女"};
+			return '御主性別：'+genTxt[cNum];
             break;
         case 113://COMMON_RELEASE
 			txt = '';
