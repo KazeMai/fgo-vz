@@ -82,7 +82,8 @@ function trdvDataOut(searchData,searchId)
 						tdDetailArray[d]=tdDetailArray[d].replace(/】/g,"】</font>");
 						tdDetailArray[d]=tdDetailArray[d].replace(/\[Lv.]/g,"<font color=\"#CC00CC \">[Lv.]</font>");
 						tdDetailArray[d]=tdDetailArray[d].replace(/\n/g,"<br>");
-						tdDetailArray[d]=tdDetailArray[d].replace(/\[g\]\[o\]▲\[\/o\]\[\/g\]/g,"<font color=\"#ff7f0f \">▲</font>");
+						tdDetailArray[d]=tdDetailArray[d].replace(/\[g\]\[o\]▲\[\/o\]\[\/g\]/g,"▲");
+						tdDetailArray[d]=tdDetailArray[d].replace(/▲/g,"<font color=\"#ff7f0f \">▲</font>");
 						
 						if(document.getElementById('isJpTxt').checked) skillText+="<td colspan=6>"+tdDetailArray[d]+"</td>";
 						else{
@@ -129,7 +130,7 @@ function trdvDataOut(searchData,searchId)
 			}}
 			if(master.mstSvt[c].collectionNo==0) trdvDataTxt+="<tr><td align=center rowspan="+svtTrdvrowCount+"><a href='svtData.html?id="+master.mstSvt[c].id+"'>";
 			else trdvDataTxt+="<tr><td align=center rowspan="+svtTrdvrowCount+"><a href='svtData.html?no="+master.mstSvt[c].collectionNo+"'>";
-				trdvDataTxt+='<img class="lazyload face_icon" data-src="https://fgo.kazemai.io/common/images/icon/faces/'+master.mstSvt[c].id+'0.png" title="'+findSvtNameZh2(master.mstSvt[c].id)+'" />';
+				trdvDataTxt+='<img class="lazyload face_icon" data-src="https://fgo.kazemai.io/Asset/JP/Faces/f_'+master.mstSvt[c].id+'0.png" title="'+findSvtNameZh2(master.mstSvt[c].id)+'" />';
 				/*for(d in svtName)
 					if(svtName[d][0]==master.mstSvt[c].id){trdvDataTxt+=svtName[d][2]+"<br>";break;}*/
 			trdvDataTxt+="</a></td>";
