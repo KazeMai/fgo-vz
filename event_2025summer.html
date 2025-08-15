@@ -30,31 +30,194 @@
 <style type="text/css">
 /* 菱形 */
 .diamond {
-	color:#009df5;
+	color:#28a7e1;
+}
+
+/* 小見出し */
+.tips {
+    border-color: #FFC083;
+	font-size: 17px!important;
+}
+
+.tips::before {
+    color: #28a7e1;
+}
+
+.bd_blue{
+	border-bottom: 2px solid #699df2;
 }
 
 
+/* 見出し */
+.heading_ttl p{
+padding-bottom: 1em;
+}
+
 .heading_ttl .item_box {
-    background: url(https://fgo.kazemai.io/common/images/2025/2025summer_oimxa/midashi_bg.png) no-repeat bottom/100% auto;
+    background: url(https://fgo.kazemai.io/common/images/2025/2025summer_full_bzlsm/midashi_bg.png) no-repeat bottom/100% auto;
 }
 
 .heading_ttl .item_box::before {
-    content: url(https://fgo.kazemai.io/common/images/2025/2025summer_oimxa/midashi_icon.png);
+    content: url(https://fgo.kazemai.io/common/images/2025/2025summer_full_bzlsm/midashi_icon.png);
 }
 
 .heading_ttl .item_box .text_box {
-    padding-left: 11.5%;
+    padding-left: 12%;
+    display: flex;
 }
 
-.heading_ttl .hd_text {
-    text-shadow: 0 0 1px;
-    color: #1193db;
-    position: relative;
-    letter-spacing: -0.005em;
+.m_top{
+	margin-top: -10px !important;	
 }
 
-.midashi_top{
-	margin-top: -0.9em !important;
+/************************/
+.ev_btn_wrap {
+    width: 100%;
+    clear: both;
+    overflow: hidden;
+	margin: 0 auto;
+	display: inline-flex;
+	justify-content: center;
+}
+
+.ev_btn_wrap .link_btn {
+	display: block;
+	width: 33.3%;
+}
+
+.ev_btn_wrap .link_btn a {
+	display: block;
+	padding: 0px 3px 0px 0px;
+	margin: 0 0 15px 0;
+}
+
+
+.ev_btn_wrap .link_btn a:hover {
+	opacity:0.5;
+	filter:alpha(opacity=50);
+	-ms-filter: “alpha( opacity=50 )”;
+}
+
+.ev_btn_wrap .link_bnr a:hover {
+	opacity:0.5;
+	filter:alpha(opacity=50);
+	-ms-filter: “alpha( opacity=50 )”;
+}
+
+.ank_link_box{
+	width: 100%;
+    overflow: hidden;
+    display: block;
+}
+
+.komidashi_top{
+	margin-top: -1em !important;
+}
+
+/***btn****/
+
+
+.dl_btn{
+	display: block;
+	margin:0 auto;
+	padding: 5px 0;
+	width: 100%;
+	text-align: center!important;
+}
+
+
+.dl_btn a {
+	color: #6C0C0C;
+	font-size: 15px;
+	font-weight: 600;
+	display: block;
+	text-decoration: none;
+	width: 70%;
+	padding: 15px 3px;
+	margin: 0 auto;
+	border-radius: 10px;
+    background-image: linear-gradient(#dddbd2  0%, #fafafa 100%);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.40);
+}
+
+
+/*表アイコン*/
+
+.tb_noticeicon_01{
+ 	width: 30%;
+	padding: 2px 4px;
+    text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #ffffff;
+	background: -moz-linear-gradient(  top,  #fd6a88 0%,  #fd093a);
+	background: -webkit-gradient(  linear, left top, left bottom,  from(#fd6a88),  to(#fd093a));
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	border: 1px solid #fd093a;
+	-moz-box-shadow: 0px 1px 3px rgba(000,000,000,0.5),  inset 0px 0px 1px rgba(255,255,255,0.5);
+	-webkit-box-shadow: 0px 1px 3px rgba(000,000,000,0.5),  inset 0px 0px 1px rgba(255,255,255,0.5);
+	box-shadow: 0px 1px 3px rgba(000,000,000,0.5),  inset 0px 0px 1px rgba(255,255,255,0.5);
+	text-shadow: 0px -1px 0px rgba(000,000,000,0.7),  0px 1px 0px rgba(255,255,255,0.3);
+}
+
+
+.komidashi_top{
+	margin-top: -1.5em !important;
+}
+
+/*ボタン*/
+
+.btn_wrap {
+    width: 100%;
+    clear: both;
+    overflow: hidden;
+    padding: 0 0.5em 0.5em 0.5em;
+}
+.attention_btn{
+	display: block;
+	margin:0 auto;
+	padding: 5px 0;
+	width: 100%;
+	text-align: center!important;
+}
+
+
+.attention_btn a {
+    color: #501C97;
+    font-size: 15px;
+    font-weight: 600;
+    display: block;
+    text-decoration: none;
+    width: 50%;
+    padding: 15px 3px;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-image: linear-gradient(#f7f9ff 0%, #bfb3f5 60%);	
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.40);
+}
+
+
+.attention_btn a:hover {
+    color: #7F32E9;
+    background-image: linear-gradient(#f1fafb 0%, #bfb3f5  100%);;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.30);
+}
+
+/*************アイテムラインナップ************/
+.skil_item_txt{
+	clear: both;
+	display: block;
+}
+
+.skil_item{
+	float: left;
+	width: 6%;
+	margin: 0 1% 0 0;
+}
+
+.skil_txt{	
 }
 </style>
 </head>
@@ -84,6 +247,19 @@
 </div>
 </div>
 <p><img alt="" src="https://fgo.kazemai.io/common/images/2025/2025summer_full_bzlsm/prologue.png"/></p>
+<!-------info--追記------>
+<div class="attention">
+<p>
+<span class="diamond">◆</span><span class="strong">公告的主要追記・更新履歷</span><span class="diamond">◆</span><br/>
+<span class="highlight">【8月15日(五) 17:00追記】</span><br/>
+<span class="strong">
+<span class="indent">
+<a href="#ttl18">■智慧型手機用的桌布追加！</a>
+</span>
+</span>
+</p>
+</div>
+<!-------info-------->
 <!-- block -->
 <div class="heading_ttl" id="ttl1">
 <div class="item_box"><div class="text_box"><img alt="" src="https://fgo.kazemai.io/common/images/2025/2025summer_full_bzlsm/midashi_01.png"/></div></div>
@@ -154,6 +330,26 @@
 <div class="item_box"><div class="text_box"><img alt="" src="https://fgo.kazemai.io/common/images/2025/2025summer_full_bzlsm/midashi_02.png"/></div></div>
 </div>
 <p><img alt="" src="https://fgo.kazemai.io/common/images/2025/2025summer_full_bzlsm/servant_details_l.png"/></p>
+<p>
+<span class="tips">
+介紹「★4(SR)呼延灼(Berserker)」的寶具演出！	
+</span>
+</p>
+<!-- <p><img alt="" src="https://fgo.kazemai.io/common/images/2025/2025summer_full_bzlsm/info_ss_01.png"/></p> -->
+<div style="position:relative;height:0;padding-bottom:56.25%">
+<iframe src="https://www.youtube.com/embed/L0udQlxRJMw?si=Hb7V3dsJU7w7jKVy" width="640" height="360" frameborder="0" gesture="media" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe></div>
+<div class="em01">
+<p>
+<span class="indent">
+※8月14日(四) 16:00 寶具影片追加	
+</span>
+</p>
+</div>
+<!-- <div class="em01"> -->
+<!-- <p> -->
+<!-- 「Fate/Grand Order」在官方網站內的公告中，以影片公開寶具演出，敬請確認。	 -->
+<!-- </p> -->
+<!-- </div> -->
 <!-- //block -->
 <!-- block -->
 <div class="heading_ttl" id="ttl3">
@@ -2013,7 +2209,10 @@ Hyper捕蟲網
 <div class="item_box"><div class="text_box"><img alt="" src="https://fgo.kazemai.io/common/images/2025/2025summer_full_bzlsm/midashi_18.png"/></div></div>
 </div>
 <p>
-<img alt="" src="https://fgo.kazemai.io/common/images/2025/2025summer_full_bzlsm/wallpaper.png"/>
+<img alt="" src="https://fgo.kazemai.io/common/images/2025/2025summer_full_02_qmoqm/wallpaper.png"/>
+<span class="notice">
+※8月15日(五) 17:00 圖片更新
+</span>
 </p>
 <div class="em01">
 <p>
