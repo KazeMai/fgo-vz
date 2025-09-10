@@ -150,7 +150,7 @@ function expDataOut()
 		totalCost+=master.mstUserExp[i].addCostMax;
 		totalFriend+=master.mstUserExp[i].addFriendMax;
 		if(master.mstUserExp[i].lv%25==1)
-			userDataTxt+="<tr><th>Lv.</th><th>累積Exp</th><th>升級所需Exp</th><th>最大AP</th><th>總Cost</th><th>好友數</th><th>條件</th></tr>";
+			userDataTxt+="<tr><th>Lv.</th><th>累積Exp</th><th>升級所需Exp</th><th>最大AP</th><th>總Cost</th><th>好友數</th><th>條件與獎勵</th></tr>";
 		userDataTxt+="<tr align=center id='lv"+master.mstUserExp[i].lv+"'><td>"+master.mstUserExp[i].lv+"</td><td>";
 		
 		if(i==0) userDataTxt+="－</td><td>"+addCommas(master.mstUserExp[i].exp);
@@ -159,7 +159,11 @@ function expDataOut()
 		userDataTxt+="</td><td>"+totalAp+"</td><td>"+totalCost+"</td><td>"+totalFriend+"</td><td>";
 		if(master.mstUserExp[i].condType!=0)
 		{
-			userDataTxt+=condtionRead(master.mstUserExp[i].condType,master.mstUserExp[i].condId,master.mstUserExp[i].condNum)
+			userDataTxt+=condtionRead(master.mstUserExp[i].condType,master.mstUserExp[i].condId,master.mstUserExp[i].condNum);
+		}
+		if(master.mstUserExp[i].giftId!=0)
+		{
+			userDataTxt+=giftRead(master.mstUserExp[i].giftId);
 		}
 		userDataTxt+="</td>";
 		totalExp+=master.mstUserExp[i].exp;
@@ -216,7 +220,7 @@ function expDataOut()
 	<a href="#lv101"><div class="bkmk">Lv.101~125</div></a>
 	<a href="#lv126"><div class="bkmk">Lv.126~150</div></a><div style="clear:left;"></div>
 	<a href="#lv151"><div class="bkmk">Lv.151~175</div></a>
-	<a href="#lv176"><div class="bkmk">Lv.176~180</div></a><div style="clear:left;"></div>
+	<a href="#lv176"><div class="bkmk">Lv.176~190</div></a><div style="clear:left;"></div>
 <table id="expData" width=800><tr><td></td></tr></table>
 </article>
 </div>

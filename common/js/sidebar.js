@@ -5,7 +5,7 @@ function loadsidebar()
 	 window.location.href = targetProtocol + window.location.href.substring(window.location.protocol.length);
 	}
 	if(!(location.pathname=='/fgo-vz/'||location.pathname.indexOf('index')!=-1)) {$('div.container').prepend('<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"><\/script><div style="margin:0px auto;width:728px;height:90px;background:url(\'https://fgo.kazemai.io/common/images/info_banner.png\');"><ins class="adsbygoogle"     style="display:inline-block;width:728px;height:90px"     data-ad-client="ca-pub-3881979894805188"     data-ad-slot="5322095555"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});<\/script></div>');slideOpen();}
-	$('#div_right_sidebar').append('<a href="./"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar01.png);">首頁</div></a><a href="https://www.facebook.com/472978160149131/" target="_blank"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar17.png);">Facebook</div></a><a href="https://discord.gg/nEaXVvS" target="_blank"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar17.png);">Discord</div></a><a href="servant.html"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar05.png);">從者</div></a><a href="skill.html"><div class="sidebar" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar00.png);">技能</div></a><a href="noble_phantasm.html"><div class="sidebar" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar00.png);">寶具</div></a><a href="lv100.html"><div class="sidebar" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar00.png);">HP與ATK</div></a><a href="hidden.html"><div class="sidebar" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar00.png);">隱藏數値</div></a><a href="relate_quest.html"><div class="sidebar" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar00.png);">幕間與強化</div></a><a href="craft_essence.html"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar09.png);">概念禮裝</div></a><a href="command_code.html"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar18.png);">指令紋章</div></a><a href="item_drop.html"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar15.png);">素材道具</div></a><a href="quest.html"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar04.png);">關卡</div></a><a href="master_equip.html"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar03.png);">御主相關</div></a><a href="donate.html"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar11.png);"><span class="red">贊助支持</span></div></a><div class="sidebarl" id="survey_bannner" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar08.png);">意見回饋</div><a href="event_history.html"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar10.png);">過去活動</div></a><a href="event_2025_lb5_clear_cp.html" title="「Final Order Project [Lostbelt No.5]通過聲援宣傳活動」"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/2025_lb5_clear_cp_xzonz/top_banner.png);"></div></a><a href="gacha_vanished_beginning_pu2.html" title="「失落的創世(Vanished Beginning) 來自未來的方舟Pick Up2召喚」"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/vanished_beginning_pu2_xgdwt/top_banner.png);"></div></a><a href="event_vanished_beginning.html" title="「失落的創世(Vanished Beginning) 來自未來的方舟」"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/vanished_beginning_fdhqw/top_banner.png);"></div></a><a href="event_grand_rider_cp.html" title="『「冠位戴冠戰：Rider」開幕前夕宣傳活動』"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/grand_rider_cp_wlaop/top_banner.png);"></div></a><a href="gacha_2025_rider_pu.html" title="『「冠位戴冠戰：Rider」Pick Up召喚』"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/2025_rider_pu_ajgat/top_banner.png);"></div></a><a href="event_0901info25.html" title="魔力稜鏡交換限定概念禮裝追加！"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/0901info_kxfim/top_banner.png);"></div></a><a href="event_3200man.html" title="「3200萬DL突破宣傳活動」"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/3200man_ywshe/top_banner.png);"></div></a><a href="gacha_3200man_pu.html" title="「3200萬DL記念 摩根Pick Up召喚」"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/3200man_pu_mojod/top_banner.png);"></div></a><a href="gacha_start_dash_summon_2.html title="「新手衝刺期間限定★5確定召喚 第2彈」"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/start_dash_summon_2_tjpvy/top_banner.png);"></div></a><div style="height:35px;"></div>');
+	$('#div_right_sidebar').append('<a href="./"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar01.png);">首頁</div></a><a href="https://www.facebook.com/472978160149131/" target="_blank"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar17.png);">Facebook</div></a><a href="https://discord.gg/nEaXVvS" target="_blank"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar17.png);">Discord</div></a><a href="servant.html"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar05.png);">從者</div></a><a href="skill.html"><div class="sidebar" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar00.png);">技能</div></a><a href="noble_phantasm.html"><div class="sidebar" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar00.png);">寶具</div></a><a href="lv100.html"><div class="sidebar" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar00.png);">HP與ATK</div></a><a href="hidden.html"><div class="sidebar" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar00.png);">隱藏數値</div></a><a href="relate_quest.html"><div class="sidebar" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar00.png);">幕間與強化</div></a><a href="craft_essence.html"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar09.png);">概念禮裝</div></a><a href="command_code.html"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar18.png);">指令紋章</div></a><a href="item_drop.html"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar15.png);">素材道具</div></a><a href="quest.html"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar04.png);">關卡</div></a><a href="master_equip.html"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar03.png);">御主相關</div></a><a href="donate.html"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar11.png);"><span class="red">贊助支持</span></div></a><div class="sidebarl" id="survey_bannner" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar08.png);">意見回饋</div><a href="event_history.html"><div class="sidebarl" style="background-image:url(https://fgo.kazemai.io/common/images/sidebar10.png);">過去活動</div></a><a href="event_grand_rider.html" title="「冠位戴冠戰：Rider」"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/grand_rider_hbllu/top_banner02.png);"></div></a><a href="event_2025_lb5_clear_cp.html" title="「Final Order Project [Lostbelt No.5]通過聲援宣傳活動」"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/2025_lb5_clear_cp_xzonz/top_banner.png);"></div></a><a href="gacha_vanished_beginning_pu2.html" title="「失落的創世(Vanished Beginning) 來自未來的方舟Pick Up2召喚」"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/vanished_beginning_pu2_xgdwt/top_banner.png);"></div></a><a href="event_vanished_beginning.html" title="「失落的創世(Vanished Beginning) 來自未來的方舟」"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/vanished_beginning_fdhqw/top_banner.png);"></div></a><a href="event_grand_rider_cp.html" title="『「冠位戴冠戰：Rider」開幕前夕宣傳活動』"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/grand_rider_cp_wlaop/top_banner.png);"></div></a><a href="gacha_2025_rider_pu.html" title="『「冠位戴冠戰：Rider」Pick Up召喚』"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/2025_rider_pu_ajgat/top_banner.png);"></div></a><a href="event_0901info25.html" title="魔力稜鏡交換限定概念禮裝追加！"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/0901info_kxfim/top_banner.png);"></div></a><a href="event_3200man.html" title="「3200萬DL突破宣傳活動」"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/3200man_ywshe/top_banner.png);"></div></a><a href="gacha_3200man_pu.html" title="「3200萬DL記念 摩根Pick Up召喚」"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/3200man_pu_mojod/top_banner.png);"></div></a><a href="gacha_start_dash_summon_2.html title="「新手衝刺期間限定★5確定召喚 第2彈」"><div class="sidebar_event" style="background-image:url(https://fgo.kazemai.io/common/images/2025/start_dash_summon_2_tjpvy/top_banner.png);"></div></a><div style="height:35px;"></div>');
 	$('#survey_bannner').on("click", function() {
 		if(!confirm ('本站與FGO官方無任何關係，不受理任何投訴\n點擊[取消]前往') ){
 			var newwin = window.open();
@@ -367,6 +367,74 @@ function svtFace(svtId)
 		}
 	}
 	return txt;
+}
+function giftRead(giftId)
+{
+	var giftTxt = '',giftCount = 0;
+	for(var gi in master.mstGift)
+	{
+		if(giftId==master.mstGift[gi].id)
+		{
+			switch(master.mstGift[gi].type)
+			{
+				case 2:
+					var tmpItem = master.mstItem[findName(master.mstItem,master.mstGift[gi].objectId)];
+					giftTxt+='<div class="itemST" style="background-image: url(\'https://fgo.kazemai.io/Asset/JP/Items/'+tmpItem.imageId+'.png\')" title="'+tmpItem.name+'">'+(( master.mstGift[gi].num >1) ? addCommas(master.mstGift[gi].num) : "" )+'</div>';
+					break;
+				case 8:
+					giftTxt+='<div class="itemST" style="background-image: url(\'https://fgo.kazemai.io/Asset/JP/Items/'+master.mstGift[gi].objectId+'.png\')" title="'+tmpItem.name+'">'+(( master.mstGift[gi].num >1) ? addCommas(master.mstGift[gi].num) : "" )+'</div>';
+					break;
+				case 1:
+				case 7:
+					giftTxt+='<div class="itemST" style="background-image: url(\'https://fgo.kazemai.io/Asset/JP/Faces/f_'+master.mstGift[gi].objectId;
+					var svtType=master.mstSvt[findName(master.mstSvt,master.mstGift[gi].objectId)].type;
+					//if(!(svtType==6||svtType==3)) giftTxt += '0';
+					giftTxt += '0.png" title="'+findSvtNameZh2(master.mstGift[gi].objectId)+'">'+(( master.mstGift[gi].num >1) ? addCommas(master.mstGift[gi].num) : "" )+'</div>';
+					break;
+				case 3:
+					giftTxt += addCommas(master.mstGift[gi].num)+'絆';
+					break;
+				case 4:
+					giftTxt += addCommas(master.mstGift[gi].num)+'Exp';
+					break;
+				case 5://裝備
+					var tmpEquip = master.mstEquip[findName(master.mstEquip,master.mstGift[gi].objectId)];
+					giftTxt+='<div class="itemST" style="background-image: url(\'https://fgo.kazemai.io/Asset/JP/Items/masterequip'+padLeft(tmpEquip.maleImageId, 5)+'.png\')" title="'+tmpEquip.name+'"></div><div class="itemST" style="background-image: url(\'https://fgo.kazemai.io/Asset/JP/Items/masterequip'+padLeft(tmpEquip.femaleImageId, 5)+'.png\')" title="'+tmpEquip.name+'"></div>';
+					break;
+				case 6://暫時加入從者
+					giftTxt+='<div class="itemST" style="background-image: url(\'https://fgo.kazemai.io/Asset/JP/Faces/f_'+master.mstGift[gi].objectId+'0.png\')" title="'+findSvtNameZh2(master.mstGift[gi].objectId)+'">限時</div>';
+					break;
+				case 9:
+				case 10://靈衣
+					for(var sc in master.mstSvtCostume)
+					{
+						if(master.mstSvtCostume[sc].svtId*100+master.mstSvtCostume[sc].id==master.mstGift[gi].objectId)
+						{
+							for(var sl in master.mstSvtLimitAdd)
+							{
+								if(master.mstSvtLimitAdd[sl].svtId == master.mstSvtCostume[sc].svtId && master.mstSvtLimitAdd[sl].limitCount == master.mstSvtCostume[sc].id )
+								{
+									giftTxt+='<div class="itemST" style="background-image: url(\'https://fgo.kazemai.io/Asset/JP/Faces/f_'+master.mstSvtLimitAdd[sl].battleCharaId+'0.png\')" title="'+master.mstSvtCostume[sc].name+'"><img src="https://fgo.kazemai.io/Asset/JP/Items/23.png" style="width:50%;"/></div>';
+									break;
+								}
+							}
+							break;
+						}
+					}
+					break;
+				case 11://紋章
+					var tmpCC = master.mstCommandCode[findName(master.mstCommandCode,master.mstGift[gi].objectId)];
+					giftTxt +='<a href="ccData.html?no='+tmpCC.collectionNo+'"><div class="itemST" style="background-image: url(\'https://fgo.kazemai.io/Asset/JP/CommandCodes/Texture/'+tmpCC.id+'/c_'+tmpCC.id+'.png\')" title="'+tmpCC.name+'">'+(( master.mstGift[gi].num >1) ? addCommas(master.mstGift[gi].num) : "" )+'</div></a>';
+					break;
+				default:
+					break;
+			}
+			//if(giftCount%2==1) giftTxt +='<br>';
+			giftCount++;
+		}
+	}
+	if(giftCount!=0) {giftTxt+='<div style="float: none;" />';}
+	return giftTxt;
 }
 function changeURL(url)
 {
