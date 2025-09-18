@@ -2129,6 +2129,123 @@ dl.accordion_mnt dd {
 dl.accordion_mnt dd.open{
     display:none;
 }
+/******class_bg_list*******/
+
+/***セイバー**/
+.class_bg_01 {
+    background: url(https://fgo.kazemai.io/common/images/all_item_list/bg_01.png) no-repeat #d1ebeb center;
+    background-size: 45%;
+    font-weight: bold;
+    color: #114E4D;
+    text-align: center;
+}
+/***アーチャー**/
+.class_bg_02 {
+    background: url(https://fgo.kazemai.io/common/images/all_item_list/bg_02.png) no-repeat #f7edc5 center;
+    background-size: 45%;
+    font-weight: bold;
+    color: #574318;
+    text-align: center;
+}
+/***ランサー**/
+.class_bg_03 {
+    background: url(https://fgo.kazemai.io/common/images/all_item_list/bg_03.png) no-repeat #eccdc8 center;
+    background-size: 45%;
+    font-weight: bold;
+    color: #311011;
+    text-align: center;
+}
+/***ライダー**/
+.class_bg_04 {
+    background: url(https://fgo.kazemai.io/common/images/all_item_list/bg_04.png) no-repeat #d5ebd1 center;
+    background-size: 40%;
+    font-weight: bold;
+    color: #183116;
+    text-align: center;
+}
+/***キャスター**/
+.class_bg_05 {
+    background: url(https://fgo.kazemai.io/common/images/all_item_list/bg_05.png) no-repeat #dec6ec center;
+    background-size: 40%;
+    font-weight: bold;
+    color: #431D4E;
+    text-align: center;
+}
+/***アサシン**/
+.class_bg_06 {
+    background: url(https://fgo.kazemai.io/common/images/all_item_list/bg_06.png) no-repeat #A4A4A4 center;
+    background-size: 45%;
+    font-weight: bold;
+    color: #121212;
+    text-align: center;
+}
+
+/***バーサーカー**/
+.class_bg_07 {
+    background: url(https://fgo.kazemai.io/common/images/all_item_list/bg_07.png) no-repeat #C9BFB9 center;
+    background-size: 40%;
+    font-weight: bold;
+    color: #2B1D0E;
+    text-align: center;
+}
+
+/***ルーラー**/
+.class_bg_08 {
+    background: url(https://fgo.kazemai.io/common/images/all_item_list/bg_08.png) no-repeat #A4AFD8 center;
+    background-size: 45%;
+    font-weight: bold;
+    color: #170E37;
+    padding: 10px 0 10px 0;
+    text-align: center;
+}
+/***アヴェンジャー**/
+.class_bg_09 {
+    background: url(https://fgo.kazemai.io/common/images/all_item_list/bg_10.png) no-repeat #d79292 center;
+    background-size: 45%;
+    font-weight: bold;
+    color: #510404;
+    padding: 20px 0 20px 0;
+    text-align: center;
+}
+/***アルターエゴ**/
+.class_bg_10 {
+    background: url(https://fgo.kazemai.io/common/images/all_item_list/bg_11.png) no-repeat #dbabb5 center;
+    background-size: 45%;
+    font-weight: bold;
+    color: #510404;
+    padding: 20px 0 20px 0;
+    text-align: center;
+}
+
+/***ムーンキャンサー**/
+.class_bg_11 {
+    background: url(https://fgo.kazemai.io/common/images/all_item_list/bg_09.png) no-repeat #dedebf center;
+    background-size: 45%;
+    font-weight: bold;
+    color: #5c5c40;
+    padding: 20px 0 20px 0;
+    text-align: center;
+}
+/***フォーリナー**/
+.class_bg_12 {
+    background: url(https://fgo.kazemai.io/common/images/all_item_list/bg_13.png) no-repeat #5c8f96 center;
+    background-size: 45%;
+    font-weight: bold;
+    color: #142b2e;
+    padding: 20px 0 20px 0;
+    text-align: center;
+}
+
+/***プリテンダー**/
+.class_bg_13 {
+    background: url(https://fgo.kazemai.io/common/images/all_item_list/bg_14.png) no-repeat #807896 center;
+    background-size: 45%;
+    font-weight: bold;
+    color: #231e33;
+    padding: 20px 0 20px 0;
+    text-align: center;
+}
+
 
 /* news.css END */
 table.noborder tr td
