@@ -98,6 +98,30 @@
     float: none;
 }
 
+.bg_cp_tb_col {
+    background-color: #EBFFF5;
+}
+
+.bg_cp_tb_col_02 {
+    background-color: #FFFCEB;
+}
+
+.bg_cp_tb_col_03 {
+    background-color: #FAF0FF;
+}
+
+.bg_cp_tb_col_04 {
+    background-color: #FFEEE4;
+}
+
+.bg_cp_tb_col_05 {
+    background-color: #8da0d4;
+}
+
+.bg_cp_tb_col_06 {
+    background-color: #95f590;
+}
+
 /*****btn*******/
 .btn_wrap {
     width: 100%;
@@ -158,7 +182,7 @@
 }
 
 .m_top {
-    margin-top: -25px !important;
+    margin-top: -5px !important;
 }
 
 
@@ -228,7 +252,7 @@
 }
 
 .heading_ttl .hd_text{
-    text-shadow: 0 0 0;
+    text-shadow: 0 0 0px;
     color: #445677;
 }
 
@@ -299,7 +323,47 @@
     box-shadow: 0px 1px 3px rgba(000, 000, 000, 0.5), inset 0px 0px 1px rgba(255, 255, 255, 0.5);
     text-shadow: 0px -1px 0px rgba(000, 000, 000, 0.7), 0px 1px 0px rgba(255, 255, 255, 0.3);
 }
+
+/* アコーディオン */
+.open_content {
+  display: none;
+}
+
+.ic_change {
+    position: relative;
+    padding-left: 1.2em;
+}
+
+.ic_change::before {
+    content: "▼";
+    margin-right: 4px;
+    color: #000;
+    font-size: 1em;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.ic_change.open::before {
+    transform: translateY(-50%) rotate(180deg);
+}
+.attention_end {
+    padding: 1em 1em 0 1em;
+    border: solid 1.5px #cdd8f7;
+    margin-bottom: 10px;
+    background: #cdd8f7;
+}
 </style>
+<script>
+$(function(){
+    $(".btn_tggle").on("click", function() {
+    $(this).next('.open_content').slideToggle();
+    $(this).find('.ic_change').toggleClass('open');
+  });
+});
+</script>
 </head>
 <body onload="loadsidebar();">
 <!--二欄橫幅主要區塊開始-->
@@ -316,15 +380,23 @@
 <div class="attention">
 <p>
 <span class="diamond">◆</span><span class="strong">公告的主要追記・更新履歷</span><span class="diamond">◆</span><br/>
-<span class="highlight">【11月10日(一) 17:00追記】</span><br/>
+<span class="highlight">【11月20日(四) 17:00追記】</span><br/>
 <span class="strong">
 <span class="indent">
 <a href="#ttl1">■「『第2部 終章』當前！最終倒數特別每日交替登入獎勵！」更新！</a>
 </span>
 </span>
 </p>
+<p>
+<span class="highlight">【11月17日(一) 17:00追記】</span><br/>
+<span class="strong">
+<span class="indent">
+<a href="#index_ttl_2">■「Final Order Project 『第2部 終章』當前！最終倒數宣傳活動 第2彈」情報追加！</a>
+</span>
+</span>
+</p>
 </div>
-<p><img alt="" src="https://fgo.kazemai.io/common/images/2025/2025_fop_final_countdown_cp_zqqcn/info_image_01.png"/> </p>
+<p><img alt="" src="https://fgo.kazemai.io/common/images/2025/2025_fop_final_countdown_cp_3_iogqt/info_image_01.png"/> </p>
 <p><span class="diamond">◆</span><span class="strong">宣傳活動舉辦期間</span><span class="diamond">◆</span><br/>
 <span class="em01">2025年10月31日(五) 17:00～12月20日(六) 11:59</span></p>
 <div class="attention_gray">
@@ -338,6 +410,30 @@
 <!--block-->
 <p class="heading" id="index_ttl"><img alt="" src="https://fgo.kazemai.io/common/images/2025/2025_fop_final_countdown_cp_zqqcn/info_index_ttl.png"/></p>
 <p>
+<span class="txt_border"></span>
+<span class="highlight">【11月17日(一) 17:00更新】</span><br/>
+<span class="strong">【「第2彈」追加宣傳活動】</span>
+<span class="cp_link">
+<span class="cp_link_txt">
+<span class="notice">【期間限定】</span><a href="#ttl11">通過「奏章Ⅳ」後，所有進階關卡的初次通過為止消耗AP0！</a></span>
+</span>
+<!----->
+<span class="cp_link">
+<span class="cp_link_txt">
+<span class="notice">【期間限定】</span><a href="#ttl12">通過「奏章Ⅳ」後，「監獄塔內復仇鬼的哭泣」「All The States’Men!」＆「體驗關卡」「概念禮裝獲得關卡」「魔術禮裝獲得關卡」等特殊關卡的消耗AP0！</a></span>
+</span>
+<!----->
+<span class="cp_link">
+<span class="cp_link_txt">
+<span class="notice">【期間限定】</span><a href="#ttl13">「幕間物語」就算未持有從者也開放！</a></span>
+</span>
+<!----->
+<span class="cp_link">
+<span class="cp_link_txt">
+<span class="notice">【期間限定】</span><a href="#ttl14">從者的「幕間物語」＆「強化關卡」的消耗AP0！</a></span>
+</span>
+<!----->
+<br/>
 <span class="txt_border"></span>
 <span class="strong">【邁向「第2部 終章」開幕的特別宣傳活動】</span>
 <span class="cp_link">
@@ -381,7 +477,7 @@
 <!-------------------->
 <br/>
 <span class="txt_border"></span>
-<span class="strong">【從者強化的チャンス】</span>
+<span class="strong">【從者強化的機會】</span>
 <span class="cp_link">
 <span class="cp_link_txt">
 <span class="notice">【期間限定】</span><a href="#ttl8">全種類所有的每日關卡開放！＆所有的每日關卡的消耗AP1/2！</a></span>
@@ -398,9 +494,654 @@
 </span>
 </p>
 <!-- -->
+<br/>
+<p class="heading" id="index_ttl_2"><img alt="" src="https://fgo.kazemai.io/common/images/2025/2025_fop_final_countdown_cp_3_iogqt/info_index_ttl_2.png"/></p>
+<!-- block--->
+<p>
+<span class="highlight">【11月17日(一) 17:00更新】</span>
+</p>
+<div class="heading_ttl m_top" id="ttl11">
+<div class="item_box_ex">
+<span class="hd_text txt_fx">
+<span class="txt_fc txt_con t_red">期間<br/>限定</span>
+<span class="txt_fc"><span class="notice">第2彈追加！</span>通過「奏章Ⅳ」後，所有進階關卡的初次通過為止<span class="notice">消耗AP0！</span>
+</span>
+</span>
+</div>
+</div>
+<p><img alt="" src="https://fgo.kazemai.io/common/images/2025/2025_fop_final_countdown_cp_3_iogqt/info_image_03.png"/></p>
+<div class="em01">
+<p>
+通過「奏章Ⅳ 人類裁決法庭 三位一體・梅塔特隆尼奥斯」後，下述的期間中，所有的進階關卡的初次通過為止<span class="notice">消耗AP變成0</span>！<br/>
+(就算在戰鬥中撤退的情況，也會是同様的消耗量)<br/>
+通過進階關卡的話可獲得增加對象強化素材掉落率的概念禮裝。<br/>
+還有尚未通過的御主玩家，請務必活用此機會，以通過為目標試著挑戰！
+</p>
+</div>
+<p>
+<span class="diamond">◆</span><span class="strong">舉辦期間</span><span class="diamond">◆</span><br/>
+<span class="em01">
+2025年11月17日(一) 17:00～12月20日(六) 11:59
+</span>
+</p>
+<p>
+<span class="diamond">◆</span><span class="strong">對象關卡</span><span class="diamond">◆</span><br/>
+<span class="em01">
+<span class="indent">所有的進階關卡</span>
+</span>
+</p>
+<p class="mb_5">
+<span class="diamond">◆</span><span class="strong">增加對象強化素材掉落率的概念禮裝一覧</span><span class="diamond">◆</span>
+</p>
+<p><img alt="" src="https://fgo.kazemai.io/common/images/2025/3300man_rugcn/gainenreisou_image.png"/></p>
+<div class="return_btn">
+<a href="#index_ttl">返回一覽▲</a>
+</div>
 <!----/block------>
 <!-- block--->
-<div class="heading_ttl" id="ttl1">
+<p>
+<span class="highlight">【11月17日(一) 17:00更新】</span>
+</p>
+<div class="heading_ttl m_top" id="ttl12">
+<div class="item_box_ex">
+<span class="hd_text txt_fx">
+<span class="txt_fc txt_con t_red">期間<br/>限定</span>
+<span class="txt_fc"><span class="notice">第2彈追加！</span>通過「奏章Ⅳ」後，「監獄塔內復仇鬼的哭泣」「All The States’Men!」＆「體驗關卡」「概念禮裝獲得關卡」「魔術禮裝獲得關卡」等特殊關卡的<span class="notice">消耗AP0！</span>
+</span>
+</span>
+</div>
+</div>
+<p><img alt="" src="https://fgo.kazemai.io/common/images/2025/2025_fop_final_countdown_cp_3_iogqt/info_image_04.png"/></p>
+<div class="em01">
+<p>
+通過「奏章Ⅳ 人類裁決法庭 三位一體・梅塔特隆尼奥斯」後，下述的期間中，<span class="blue_txt">「監獄塔內復仇鬼的哭泣」「All The States’Men! ～看漫畫搞懂合眾國開拓史～」</span>＆<span class="blue_txt">「體驗關卡」「概念禮裝獲得關卡」「魔術禮裝獲得關卡」</span>等特殊關卡的<span class="notice">消耗AP變成0</span>！<br/>
+(就算在戰鬥中撤退的情況，也會是同様的消耗量)<br/>
+這些關卡除了進行主線關卡後開放外，可藉由達・文西工房的「稀有稜鏡交換」「靈衣縫製」中交換關卡開放權、對象從者到特定靈基再臨階段等開放。<br/>
+務必活用此機會，獲得概念禮裝等吧！
+</p>
+</div>
+<p>
+<span class="diamond">◆</span><span class="strong">舉辦期間</span><span class="diamond">◆</span><br/>
+<span class="em01">
+2025年11月17日(一) 17:00～12月20日(六) 11:59
+</span>
+</p>
+<div class="attention_end btn_tggle">
+<p class="ic_change strong">
+對象關卡在此
+</p>
+</div>
+<div class="open_content">
+<table align="center" class="trbgcolor" style=";;margin-bottom: 10px;" width="100%">
+<tbody>
+<!----->
+<tr>
+<th width="40%">對象關卡</th>
+<th width="60%">關卡名</th>
+</tr>
+<!----->
+<tr>
+<td class="bg_cp_tb_col" rowspan="2">
+活動關卡
+</td>
+<td>
+監獄塔內復仇鬼的哭泣
+</td>
+</tr><tr>
+<td>
+All The States’Men! ～看漫畫搞懂合眾國開拓史～
+</td>
+</tr>
+<!----->
+<tr>
+<td class="bg_cp_tb_col_02" rowspan="10">
+體驗關卡
+</td>
+<td>
+斯卡薩哈體驗關卡
+</td>
+</tr>
+<tr>
+<td>
+阿周那&amp;迦爾納體驗關卡
+</td>
+</tr>
+<tr>
+<td>
+布倫希爾德體驗關卡
+</td>
+</tr>
+<tr>
+<td>
+天草四郎體驗關卡
+</td>
+</tr>
+<tr>
+<td>
+宮本武藏體驗關卡
+</td>
+</tr>
+<tr>
+<td>
+謎之女主角X〔Alter〕體驗關卡
+</td>
+</tr>
+<tr>
+<td>
+亞瑟・潘德拉剛〔Prototype〕體驗關卡
+</td>
+</tr>
+<tr>
+<td>
+夏洛克・福爾摩斯體驗關卡
+</td>
+</tr>
+<tr>
+<td>
+帕爾瓦蒂體驗關卡
+</td>
+</tr>
+<tr>
+<td>
+葛飾北齋體驗關卡
+</td>
+</tr>
+<!----->
+<tr>
+<td class="bg_cp_tb_col_03" rowspan="21">
+概念禮裝獲得關卡
+</td>
+<td>
+Fate/EXTELLA獲得關卡
+</td>
+</tr>
+<tr>
+<td>
+女主角眾週年慶獲得關卡
+</td>
+</tr>
+<tr>
+<td>
+「劇場版Fate/kaleid liner 魔法少女☆伊莉雅 雪下的誓言」公開記念關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+Replica;Agateram獲得關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+[Heaven’s Feel]獲得關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+Fate/Apocrypha獲得關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+向劍祈禱為命許願獲得關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+Last Encore獲得關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+FGO THE STAGE獲得關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+「FGO冬祭り 2017-2018 ～冬之法老大感謝祭～」舉辦記念關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+「Fate/EXTELLA LINK」獲得關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+Fate/Grand Order Arcade稼働記念關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+「Fate/Grand Order Memories」始動記念關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+「看漫畫搞懂！Fate/Grand Order」第2冊發售記念關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+TV動畫「君主・埃爾梅羅Ⅱ世事件簿 -魔眼蒐集列車 Grace note-」放送記念關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+「Fate/Grand Order Memories Ⅱ」發售記念關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+「FGO 迦勒底樂園巡迴車隊 2019-2020」舉辦記念關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+「Fate/Grand Order Waltz in the MOONLIGHT/LOSTROOM」配信記念關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+「FGO 冬季車隊Online 2021」配信記念關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+MELTY BLOOD: TYPE LUMINA Saber參戰記念關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+MELTY BLOOD: TYPE LUMINA瑪修參戰記念關卡
+</td>
+</tr>
+<!----->
+<tr>
+<td class="bg_cp_tb_col_04" rowspan="10">
+魔術禮裝獲得關卡
+</td>
+<td>
+魔術禮裝關卡・阿特拉斯院制服
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+魔術禮裝關卡・魔術協會制服
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+魔術禮裝關卡・迦勒底戰鬥服
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+金色慶典獲得關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+王室品牌獲得關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+月之海的記憶獲得關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+月之背面的記憶獲得關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+2004年的碎片獲得關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+華美的新年獲得關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+新春裝束
+</td>
+</tr>
+<!----->
+<tr>
+<td class="bg_cp_tb_col_05" rowspan="26">
+靈衣獲得關卡<br/>
+靈基解放關卡<br/>
+靈基獲得關卡
+</td>
+<td>
+美露莘靈衣獲得關卡(妖精騎士蘭斯洛特)
+</td>
+</tr><tr>
+<td>
+美露莘靈衣獲得關卡(赤熱偏位)
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+Kingprotea靈衣獲得關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+埃列什基伽勒靈衣獲得關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+特斯卡特利波卡靈衣獲得關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+阿周那靈衣獲得關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+李奧納多・達・文西靈衣獲得關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+ネロ靈衣獲得關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+岡田以藏靈衣獲得關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+保羅・班揚靈衣獲得關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+伊吹童子靈衣獲得關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+摩根靈衣獲得關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+海灘之花
+</td>
+</tr>
+<!----->
+<tr>
+<td>
+靈基解放關卡 查里曼
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+靈基解放關卡 圖坦卡門
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+靈基解放關卡 比修內
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+靈基解放關卡 因陀羅
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+靈基解放關卡 小野小町
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+靈基解放關卡 千利休
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+靈基解放關卡 蘆屋道滿
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+靈基解放關卡 ＢＢ杜拜
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+靈基解放關卡 奧伯隆
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+靈基解放關卡 堤豐・厄斐莫洛斯
+</td>
+</tr>
+<!----->
+<tr>
+<td>
+靈基解放關卡 所多瑪之獸／德拉科
+</td>
+</tr>
+<!----->
+<tr>
+<td>
+靈基獲得關卡 岸波白野(男性)
+</td>
+</tr>
+<!----->
+<td>
+靈基獲得關卡 岸波白野(女性)
+</td>
+<!----->
+<tr>
+<td class="bg_cp_tb_col_06" rowspan="8">
+白紙化地球上的高難易度關卡
+</td>
+<td>
+俄羅斯區域的高難易度關卡
+</td>
+</tr><tr>
+<td>
+東歐區域的高難易度關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+大洋洲北部區域的高難易度關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+北歐區域的高難易度關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+東亞區域的高難易度關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+南亞區域的高難易度關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+北大西洋區域的高難易度關卡
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+夏威夷區域的高難易度關卡
+</td>
+</tr>
+<!-- -->
+</tbody>
+</table>
+</div>
+<div class="return_btn">
+<a href="#index_ttl">返回一覽▲</a>
+</div>
+<!----/block------>
+<!-- block--->
+<p>
+<span class="highlight">【11月17日(一) 17:00更新】</span>
+</p>
+<div class="heading_ttl m_top" id="ttl13">
+<div class="item_box_ex">
+<span class="hd_text txt_fx">
+<span class="txt_fc txt_con t_red">期間<br/>限定</span>
+<span class="txt_fc"><span class="notice">第2彈追加！</span>「幕間物語」就算未持有從者也開放！</span>
+</span>
+</div>
+</div>
+<p><img alt="" src="https://fgo.kazemai.io/common/images/2025/2025_fop_final_countdown_cp_3_iogqt/info_image_05.png"/></p>
+<div class="em01">
+<p>
+<span class="blue_txt">「幕間物語」</span>以期間限定變成「就算未持有對象從者也能開放」！<br/>
+「幕間物語」的開放條件，平常時對象從者的「絆Lv.」「靈基再臨階段」也成為條件，<span class="notice">也緩和成只限「特定的主線關卡的通過」或「幕間物語的前節的通過」</span>。<br/>
+藉此機會享受從者的「幕間物語」！
+</p>
+</div>
+<p>
+<span class="diamond">◆</span><span class="strong">舉辦期間</span><span class="diamond">◆</span><br/>
+<span class="em01">
+2025年11月17日(一) 17:00～12月20日(六) 11:59
+</span>
+</p>
+<div class="attention_gray">
+<p>
+<span class="indent notice">※關卡通過時的報酬內容沒有變化。</span>
+<span class="indent notice">※對象從者有多個「幕間物語」的情況，全部幕間物語皆為對象。</span>
+<span class="indent">※「靈基解放關卡」為對象外。</span>
+<span class="indent">※在編制限制等以持有從者為前提的關卡中，未持有對象從者的情況，在隊伍編制時能選擇GUEST從者。</span>
+<span class="indent">※在滿足期間限定的開放條件後通過「幕間物語」時未持有對象從者的情況，在入手對象從者的時間點會反映強化內容</span>
+<span class="indent">※對象從者的「幕間物語」就算在未持有的狀態下通過的情況，會計算在特殊特殊(エクストラ)任務的進行度。</span>
+<span class="indent">※對象從者的「幕間物語」，在未通過的狀態超過舉辦期間的情況，對象從者的「幕間物語」會回到未開放，切換成平常的開放條件。</span>
+<span class="indent">※已經通過對象從者的幕間物語的情況，無法再度遊玩。</span>
+</p>
+</div>
+<div class="return_btn">
+<a href="#index_ttl">返回一覽▲</a>
+</div>
+<!----/block------>
+<!-- block--->
+<p>
+<span class="highlight">【11月17日(一) 17:00更新】</span>
+</p>
+<div class="heading_ttl m_top" id="ttl14">
+<div class="item_box_ex">
+<span class="hd_text txt_fx">
+<span class="txt_fc txt_con t_red">期間<br/>限定</span>
+<span class="txt_fc"><span class="notice">第2彈追加！</span>從者的「幕間物語」＆「強化關卡」的<span class="notice">消耗AP0！</span></span>
+</span>
+</div>
+</div>
+<p>
+<img alt="" src="https://fgo.kazemai.io/common/images/2025/2025_fop_final_countdown_cp_3_iogqt/info_txt_01.png"/>
+</p>
+<div class="em01">
+<p>
+下述的期間中，所有的從者的<span class="blue_txt">「幕間物語」</span>與<span class="blue_txt">「強化關卡」</span>的<span class="notice">消耗AP變成0</span>！<br/>
+藉此機會強化從者，準備「第2部 終章」開幕吧！
+</p>
+</div>
+<p>
+<span class="diamond">◆</span><span class="strong">舉辦期間</span><span class="diamond">◆</span><br/>
+<span class="em01">
+2025年11月17日(一) 17:00～12月20日(六) 11:59
+</span>
+</p>
+<p>
+<span class="diamond">◆</span><span class="strong">對象關卡</span><span class="diamond">◆</span><br/>
+<span class="em01">
+<span class="indent">・所有的幕間物語</span>
+<span class="indent">・所有的強化關卡</span>
+</span>
+</p>
+<div class="attention_gray">
+<p>
+<span class="indent">※就算在戰鬥中撤退的情況，也會是同様的消耗量。</span>
+<span class="indent">※未通過「奏章Ⅳ」的情況，「靈基解放關卡」為消耗AP0的對象外。</span>
+</p>
+</div>
+<div class="return_btn">
+<a href="#index_ttl">返回一覽▲</a>
+</div>
+<!----/block------>
+<!-- block--->
+<p class="heading" id="index_ttl_1"><img alt="" src="https://fgo.kazemai.io/common/images/2025/2025_fop_final_countdown_cp_3_iogqt/info_index_ttl_1.png"/></p>
+<div class="heading_ttl m_top" id="ttl1">
+<p>
+<span class="highlight">【11月20日(四) 17:00更新】</span>
+</p>
 <div class="item_box_ex">
 <span class="hd_text txt_fx">
 <span class="txt_fc txt_con t_red">期間<br/>限定</span>
@@ -589,72 +1330,74 @@
 <tr>
 <td>11月21日(五) 3:00～<span class="sut_col">11月22日(六) 2:59</span></td>
 <td class="item_list" width="12%">
-<span class="item_img"><img alt="" src="https://fgo.kazemai.io/common/images/2025/10th_anniversary_cp_02_cpmwy/list_item10.png" width="100%"/></span>
+<span class="item_img"><img alt="" src="https://fgo.kazemai.io/common/images/all_item_list/list_item11.png" width="100%"/></span>
 </td>
-<td class="bd_l_none">？？？</td>
+<td class="bd_l_none"> 聖晶石 1個</td>
 </tr>
 <tr>
 <td><span class="sut_col">11月22日(六) 3:00～</span><span class="sun_col">11月23日(日) 2:59</span></td>
 <td class="item_list" width="12%">
-<span class="item_img"><img alt="" src="https://fgo.kazemai.io/common/images/2025/10th_anniversary_cp_02_cpmwy/list_item10.png" width="100%"/></span>
+<span class="item_img"><img alt="" src="https://fgo.kazemai.io/common/images/all_item_list/list_item11.png" width="100%"/></span>
 </td>
-<td class="bd_l_none">？？？</td>
+<td class="bd_l_none"> 聖晶石 1個</td>
 </tr>
 <tr>
 <td><span class="sun_col">11月23日(日) 3:00～11月24日(一) 2:59</span></td>
 <td class="item_list" width="12%">
-<span class="item_img"><img alt="" src="https://fgo.kazemai.io/common/images/2025/10th_anniversary_cp_02_cpmwy/list_item10.png" width="100%"/></span>
+<span class="item_img"><img alt="" src="https://fgo.kazemai.io/common/images/all_item_list/list_item11.png" width="100%"/></span>
 </td>
-<td class="bd_l_none">？？？</td>
+<td class="bd_l_none"> 聖晶石 1個</td>
 </tr>
 <tr>
 <td><span class="sun_col">11月24日(一) 3:00～</span>11月25日(二) 2:59</td>
 <td class="item_list" width="12%">
-<span class="item_img"><img alt="" src="https://fgo.kazemai.io/common/images/2025/10th_anniversary_cp_02_cpmwy/list_item10.png" width="100%"/></span>
+<span class="item_img"><img alt="" src="https://fgo.kazemai.io/common/images/all_item_list/list_item11.png" width="100%"/></span>
 </td>
-<td class="bd_l_none">？？？</td>
+<td class="bd_l_none"> 聖晶石 1個</td>
 </tr>
 <tr>
 <td>11月25日(二) 3:00～11月26日(三) 2:59</td>
 <td class="item_list" width="12%">
-<span class="item_img"><img alt="" src="https://fgo.kazemai.io/common/images/2025/10th_anniversary_cp_02_cpmwy/list_item10.png" width="100%"/></span>
+<span class="item_img"><img alt="" src="https://fgo.kazemai.io/common/images/all_item_list/list_item06.png" width="100%"/></span>
+<span class="item_img"><img alt="" src="https://fgo.kazemai.io/common/images/all_item_list/list_item11.png" width="100%"/></span>
 </td>
-<td class="bd_l_none">？？？</td>
+<td class="bd_l_none"><span class="notice">魔力稜鏡 200個</span><br/><span class="notice">聖晶石 1個</span></td>
 </tr>
 <tr>
 <td>11月26日(三) 3:00～11月27日(四) 2:59</td>
 <td class="item_list" width="12%">
-<span class="item_img"><img alt="" src="https://fgo.kazemai.io/common/images/2025/10th_anniversary_cp_02_cpmwy/list_item10.png" width="100%"/></span>
+<span class="item_img"><img alt="" src="https://fgo.kazemai.io/common/images/all_item_list/list_item11.png" width="100%"/></span>
 </td>
-<td class="bd_l_none">？？？</td>
+<td class="bd_l_none"> 聖晶石 1個</td>
 </tr>
 <tr>
 <td>11月27日(四) 3:00～11月28日(五) 2:59</td>
 <td class="item_list" width="12%">
-<span class="item_img"><img alt="" src="https://fgo.kazemai.io/common/images/2025/10th_anniversary_cp_02_cpmwy/list_item10.png" width="100%"/></span>
+<span class="item_img"><img alt="" src="https://fgo.kazemai.io/common/images/all_item_list/list_item11.png" width="100%"/></span>
 </td>
-<td class="bd_l_none">？？？</td>
+<td class="bd_l_none"> 聖晶石 1個</td>
 </tr>
 <tr>
 <td>11月28日(五) 3:00～<span class="sut_col">11月29日(六) 2:59</span></td>
 <td class="item_list" width="12%">
-<span class="item_img"><img alt="" src="https://fgo.kazemai.io/common/images/2025/10th_anniversary_cp_02_cpmwy/list_item10.png" width="100%"/></span>
+<span class="item_img"><img alt="" src="https://fgo.kazemai.io/common/images/all_item_list/list_item11.png" width="100%"/></span>
 </td>
-<td class="bd_l_none">？？？</td>
+<td class="bd_l_none"> 聖晶石 1個</td>
 </tr>
 <tr>
 <td><span class="sut_col">11月29日(六) 3:00～</span><span class="sun_col">11月30日(日) 2:59</span></td>
 <td class="item_list" width="12%">
-<span class="item_img"><img alt="" src="https://fgo.kazemai.io/common/images/2025/10th_anniversary_cp_02_cpmwy/list_item10.png" width="100%"/></span>
+<span class="item_img"><img alt="" src="https://fgo.kazemai.io/common/images/all_item_list/list_item11.png" width="100%"/></span>
 </td>
-<td class="bd_l_none">？？？</td>
+<td class="bd_l_none"> 聖晶石 1個</td>
 </tr>
 <tr>
 <td><span class="sun_col">11月30日(日) 3:00～</span>12月1日(一) 2:59</td>
 <td class="item_list" width="12%">
-<span class="item_img"><img alt="" src="https://fgo.kazemai.io/common/images/2025/10th_anniversary_cp_02_cpmwy/list_item10.png" width="100%"/></span>
+<span class="item_img"><img alt="" src="https://fgo.kazemai.io/common/images/all_item_list/list_item22.png" width="100%"/></span>
+<span class="item_img"><img alt="" src="https://fgo.kazemai.io/common/images/all_item_list/list_item11.png" width="100%"/></span>
 </td>
-<td class="bd_l_none">？？？</td>
+<td class="bd_l_none"><span class="notice">傳承結晶 1個</span><br/><span class="notice">聖晶石 5個</span></td>
 </tr>
 <tr>
 <td>12月1日(一) 3:00～12月2日(二) 2:59</td>
