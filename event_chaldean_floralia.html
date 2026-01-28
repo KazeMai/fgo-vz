@@ -3,11 +3,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta property="og:url"                content="https://kazemai.github.io/fgo-vz/event_chaldean_floralia.html" />
-<meta property="og:title"              content="「迦勒底的花神節 當你的花朵綻放時」期間限定活動決定開幕！" />
+<meta property="og:title"              content="「迦勒底的花神節 當你的花朵綻放時」期間限定活動開幕！" />
 <meta property="og:description"        content="雖然本活動的主線關卡的參加條件為通過「將來的開端」，但通過「第1部序章(特異點F 炎上汙染都市 冬木)」後可遊玩自由關卡。" />
-<meta property="og:image"              content="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_1_zzrwx/top_banner.png?t=260117" />
+<meta property="og:image"              content="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_1_zzrwx/top_banner.png?t=260123" />
 <meta property="og:type"               content="website" />
-<title>「迦勒底的花神節 當你的花朵綻放時」期間限定活動決定開幕！</title>
+<title>「迦勒底的花神節 當你的花朵綻放時」期間限定活動開幕！</title>
 <link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon">
 <link href="common/css/common.css" rel="stylesheet" type="text/css" />
 <link href="common/css/detail_info.css" rel="stylesheet" type="text/css" />
@@ -34,182 +34,122 @@
 }
 
 /* 小見出し */
-
 .tips {
-    font-weight: bold;
-    font-size: 17px!important;
-    border-bottom: solid 3px #ffcade;
-    position: relative;
-    padding: 3px;
-    line-height: 30px;
+    border-color: #FFC083;
+	font-size: 17px!important;
 }
 
 .tips::before {
-    content: "▶︎";
-    color: #ef6390;;
-    font-size: 1.2em;
-    display: inline-block;
-    vertical-align: middle;
+    color: #7dcd3a;
 }
 
-/* 赤ハイライト */
-.highlight_red {
-	background: linear-gradient(transparent 10%, #FF0000 10% 90%, transparent 90%);
-	font-weight: bold;
-	color: #FFF;
-	padding: 2px 3px;
+.bd_blue{
+	border-bottom: 2px solid #699df2;
 }
 
 
-/**title**/
+/* 見出し */
+.heading_ttl p{
+padding-bottom: 1em;
+}
 
-.heading_ttl .item_box .text_box{
+.heading_ttl .item_box {
+    background: url(https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/midashi_bg.png) no-repeat bottom/100% auto;
+}
+
+.heading_ttl .item_box::before {
+    content: url(https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/midashi_icon.png);
+}
+
+.heading_ttl .item_box .text_box {
     padding-left: 8%;
     display: flex;
 }
 
-.heading_ttl .item_box {
-    background: url(https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_1_zzrwx/midashi_bg.png) no-repeat top/100% auto;
+.m_top{
+	margin-top: -10px !important;	
 }
 
-.heading_ttl .item_box::before {
-    content: url(https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_1_zzrwx/midashi_icon.png);
+.text_box img {
+    translate: 0 5%;
 }
 
-/**title tx**/
-
-.heading_ttl.hd_sub .item_box {
-    background: url(https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_fmsmo/midashi_bg.png) no-repeat bottom/100% auto;
-}
-
-.heading_ttl.hd_sub .item_box::before {
-    content: url(https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_fmsmo/midashi_icon.png);
-}
-
-.heading_ttl.hd_sub .hd_text {
-    text-shadow: none;
-    color: #387537;
-}
-
-.heading_ttl.hd_sub .item_box .text_box{
-    padding-left: 11.5%!important;
-}
-
-
-.txt_red {
-    position: relative;
-    color: #FF0000;
-}
-
-.txt_blue {
-    position: relative;
-    color: #0053FC;
-}
-
-.table_box .item_img_ny_one {
-    max-width: 40%;
-    margin: 0 auto;
-    display: block;
-}
-
-/****table_item****/
-.table_box .item_image{
-    display: block;
-    width: 100%;
-    max-width: 53px;
-    margin: 5px auto 0;
-}
-
-.table_box .image_container {
-    display: flex;
-    gap: 5px;
-    justify-content: center;
-}
-
-.table_box .image_container .item_image{
-    margin: 5px 0 0 0!important;
-}
-
-.attention_gold2 {
-    padding: 1em 1em 0 1em;
-    border: solid 2px #DDBE1C;
-    margin: 10px 0;
-    background-color: #FCF5D3;
-}
-
-/*****btn*******/
-.btn_wrap {
+/************************/
+.ev_btn_wrap {
     width: 100%;
     clear: both;
     overflow: hidden;
-    padding: 0.5em 0.5em 1.2em 0.5em;
+	margin: 0 auto;
+	display: inline-flex;
+	justify-content: center;
 }
 
-.right_cl a {
-	color: #763dd1;
-    background-image: linear-gradient(#f7fffe 0%, #e1ccff  100%);
+.ev_btn_wrap .link_btn {
+	display: block;
+	width: 33.3%;
+}
+
+.ev_btn_wrap .link_btn a {
+	display: block;
+	padding: 0px 3px 0px 0px;
+	margin: 0 0 15px 0;
+}
+
+
+.ev_btn_wrap .link_btn a:hover {
+	opacity:0.5;
+	filter:alpha(opacity=50);
+	-ms-filter: “alpha( opacity=50 )”;
+}
+
+.ev_btn_wrap .link_bnr a:hover {
+	opacity:0.5;
+	filter:alpha(opacity=50);
+	-ms-filter: “alpha( opacity=50 )”;
+}
+
+.ank_link_box{
+	width: 100%;
+    overflow: hidden;
+    display: block;
+}
+
+.komidashi_top{
+	margin-top: -1em !important;
+}
+
+/***btn****/
+
+
+.dl_btn{
+	display: block;
+	margin:0 auto;
+	padding: 5px 0;
+	width: 100%;
+	text-align: center!important;
+}
+
+
+.dl_btn a {
+	color: #6C0C0C;
+	font-size: 15px;
+	font-weight: 600;
+	display: block;
+	text-decoration: none;
+	width: 70%;
+	padding: 15px 3px;
+	margin: 0 auto;
+	border-radius: 10px;
+    background-image: linear-gradient(#dddbd2  0%, #fafafa 100%);
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.40);
 }
 
-.right_cl a:hover {
-    color: #563dd1;
-    background-image: linear-gradient(#f7fffe 0%, #ccd0ff 60%);
-	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.30);
-}
 
-.attention_btn_st {
-    margin: 0 auto;
-}
-
-/*アイコン*/
-.float_box_sum .float_right_box {
-    float: left !important;
-	padding-left: 5px;
-	padding-top: 7px;
-}
-.float_box_sum .float_left_box{
-	float: left;
-	margin-top: 39px;
-}
-
-/*ボックス内アイコン*/
-
-.float_box_sum_box{
-	overflow: hidden;
-}
-
-.float_box_sum_box .float_left_box {
-    float: left;
-}
-
-.float_box_sum_box .float_right_box {
-   float: left !important;
-	padding-left: 5px;
-	padding-top: 7px;
-}
-
-.attention_gold .heading_ttl{
-    margin: 0 0 0.5em 0 !important;
-}
-
-.attention_gold .heading_ttl .hd_text {
-    text-shadow: none;
-    color: #000000;
-    font-weight: bold;
-}
-
-.attention_gold .heading_ttl .txt_fx .txt_fc:first-child{
-    margin-right: 2%;
-}
-
-.bg_white{
-    background-color: #ffffff;
-}
+/*表アイコン*/
 
 .tb_noticeicon_01{
- 	width: auto;
+ 	width: 30%;
 	padding: 2px 4px;
-	float:right;
     text-align: center;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
@@ -226,8 +166,63 @@
 	text-shadow: 0px -1px 0px rgba(000,000,000,0.7),  0px 1px 0px rgba(255,255,255,0.3);
 }
 
-.f_nomal{
-    font-weight: normal!important;
+
+.komidashi_top{
+	margin-top: -1.5em !important;
+}
+
+.noticeicon_day{
+	width: 170px;
+}
+
+/*ボタン*/
+
+.btn_wrap {
+    width: 100%;
+    clear: both;
+    overflow: hidden;
+    padding: 0 0.5em 0.5em 0.5em;
+}
+.attention_btn{
+	display: block;
+	margin:0 auto;
+	padding: 5px 0;
+	width: 100%;
+	text-align: center!important;
+}
+
+
+.attention_btn a {
+    color: #501C97;
+    font-size: 15px;
+    font-weight: 600;
+    display: block;
+    text-decoration: none;
+    width: 50%;
+    padding: 15px 3px;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-image: linear-gradient(#f7f9ff 0%, #bfb3f5 60%);	
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.40);
+}
+
+
+.attention_btn a:hover {
+    color: #7F32E9;
+    background-image: linear-gradient(#f1fafb 0%, #bfb3f5  100%);;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.30);
+}
+
+/*************アイテムラインナップ************/
+.skil_item_txt{
+	clear: both;
+	display: block;
+}
+
+.skil_item{
+	float: left;
+	width: 6%;
+	margin: 0 1% 0 0;
 }
 </style>
 </head>
@@ -241,484 +236,1682 @@
     <div id="div_content"><div class="container">
 <article class="content textsize" style="width:840px">
 <!-- block--->
-<p><img alt="TOPバナー" height="300" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_1_zzrwx/top_banner.png" width="800"/></p>
-<div class="attention">
-<p>
-<span class="diamond">◆</span><span class="strong">公告的主要追記・更新履歷</span><span class="diamond">◆</span><br/>
-<span class="highlight">【1月17日(六) 18:00追記】</span><br/>
-在2026年1月17日(六)舉辦的「Fate/Grand Order 迦勒底衛星站 2026」福井會場的舞台活動發表的以下情報追加到公告！
-</p>
-<p>
-<span class="strong">
-<span class="indent">■活動限定的配布從者</span>
-<span class="indent">■期間限定從者</span>
-<span class="indent">■活動限定概念禮裝</span>
-<span class="indent">■期間限定概念禮裝</span>
-<span class="indent">■活動報酬指令紋章</span>
-<span class="indent">■告知電視廣告</span>
-</span>
-</p>
+<p><img alt="TOPバナー" height="300" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/top_banner.png" width="800"/></p>
+<div style="height:10px; margin-top:-15px;"></div>
+<div class="ev_btn_wrap" id="top_anc">
+<div class="link_btn">
+<a href="#ttl_link01"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/btn_01.png"/></a>
 </div>
-<p><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_1_zzrwx/prologue.png"/></p>
-<!-- block--->
-<div class="heading_ttl m_top" id="ttl1">
-<div class="item_box">
-<div class="text_box"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_1_zzrwx/midashi_01.png"/></div>
+<!-- -->
+<div class="link_btn">
+<a href="#ttl_link02"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/btn_02.png"/></a>
 </div>
+<!-- -->
+<div class="link_btn">
+<a href="#ttl_link03"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/btn_03.png"/></a>
+</div>
+</div>
+<p><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/prologue.png"/></p>
+<!-------info-------->
+<!-- block -->
+<div class="heading_ttl" id="ttl1">
+<div class="item_box"><div class="text_box"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/midashi_01.png"/></div></div>
 </div>
 <div class="em01">
 <p>
-新期間限定活動「迦勒底的花神節 當你的花朵綻放時」預定在2026年1月23日(五) 17:00開幕！<br/>
-本活動的<span class="notice">主線關卡參加條件為通過</span><span class="blue_txt">「將來的開端」</span>，<span class="notice">通過</span><span class="blue_txt">「第1部序章(特異點F 炎上汙染都市 冬木)」</span>的話可遊玩<span class="notice">自由關卡</span>。
+期間限定活動「迦勒底的花神節 當你的花朵綻放時」開幕！<br/>
+特異點修復的關鍵是花!?<br/>
+為了回收與櫻花樹童話的聖杯，讓花在大地上盛開吧！
 </p>
 <p>
-續報預定將在2026年1月17日(六)舉辦的「Fate/Grand Order 迦勒底衛星站 2026」福井會場的舞台活動發表。
+本活動的<span class="notice">主線關卡參加條件為通過</span><span class="blue_txt">「將來的開端」</span>，<span class="notice">通過</span><span class="blue_txt">「第1部序章(特異點F 炎上汙染都市 冬木)」</span>的話可遊玩<span class="notice">自由關卡</span>。
 </p>
 </div>
 <p>
-<span class="diamond">◆</span><span class="strong">活動開幕預定</span><span class="diamond">◆</span><br/>
+<span class="diamond">◆</span><span class="strong">活動舉辦期間(3週內)</span><span class="diamond">◆</span><br/>
 <span class="em01">
-2026年1月23日(五) 17:00～(預定)
+2026年1月23日(五) 17:00～2月13日(五) 11:59
 </span>
 </p>
 <p>
 <span class="diamond">◆</span><span class="strong">活動參加條件</span><span class="diamond">◆</span><br/>
+<span class="strong">【主線關卡】</span>
 <span class="em01">
-<span class="strong">【主線關卡】</span><br/>
-<span class="notice">滿足以下條件的御主才能參加</span>
-<span class="indent blue_txt">・通過「將來的開端」</span>
+<span class="notice">
+滿足以下條件的御主才能參加
+<span class="indent blue_txt">
+・通過「將來的開端」
+</span>
+</span>
 </span>
 </p>
 <p>
+<span class="strong">【自由關卡】</span>
 <span class="em01">
-<span class="strong">【自由關卡】</span><br/>
-<span class="notice">滿足以下條件的御主才能參加</span>
-<span class="indent blue_txt">・通過「第1部序章(特異點F 炎上汙染都市 冬木)」</span>
+<span class="notice">
+滿足以下條件的御主才能參加
+<span class="indent blue_txt">
+・通過「第1部序章(特異點F 炎上汙染都市 冬木)」
+</span>
+</span>
 </span>
 </p>
 <div class="attention_gray">
 <p>
-<span class="indent">※不需要通過亞種特異點(從Ⅰ到Ⅳ)、主線關卡第2部 第5.5章、第2部 第6.5章、「第2部 終章_序」。</span>
-<span class="indent">※在2018年12月31日(二) 23:00以後新配信的主線故事及期間限定活動、一部份關卡、宣傳活動及召喚中，會顯示隱藏真名的對象從者真名。</span>
-</p>
-</div>
-<!-- block--->
-<div class="heading_ttl m_top" id="ttl2">
-<div class="item_box">
-<div class="text_box"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_1_zzrwx/midashi_02.png"/></div>
-</div>
-</div>
-<div class="card_box">
-<p><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_1_zzrwx/servant_details_l_01.png"/></p>
-</div>
-<div class="attention_red">
-<p class="txt_center" style="font-size: 100%;"><span class="diamond">◆</span><span class="strong">有關「★4(SR)芙蘿拉」加入的注意</span><span class="diamond">◆</span></p>
-<p>
-<span class="em01">
-<span class="indent">※想讓活動限定的配布從者「★4(SR)芙蘿拉」加入，必須<span class="notice">通過「將來的開端」</span>並推進活動的主線關卡，請注意。</span>
+<span class="indent">
+※不需要通過亞種特異點(從Ⅰ到Ⅳ)、主線關卡第2部 第5.5章、第2部 第6.5章、「第2部 終章_序」。
 </span>
 </p>
 </div>
-<!--/block--->
-<!-- block--->
-<div class="heading_ttl m_top" id="ttl3">
-<div class="item_box">
-<div class="text_box"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_1_zzrwx/midashi_03.png"/></div>
+<p><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/summary.png"/></p>
+<div class="attention_gray">
+<p>
+<span class="indent">
+※一部份的關卡為日後開放。	
+</span>
+<span class="indent">
+※從2026年2月13日(五) 12:00在「圖鑑(陳列室)」追加本活動的事件CG和影片。
+</span>
+<span class="indent">
+※本頁面皆為開發中圖片。會有與實際圖片相異的情況。
+</span>
+<span class="indent">
+※在2018年12月31日(二) 23:00以後新配信的主線故事及期間限定活動、一部份關卡、宣傳活動及召喚中，會顯示隱藏真名的對象從者真名。
+</span>
+</p>
 </div>
+<!-- //block -->
+<!-- block -->
+<div class="heading_ttl" id="ttl2">
+<div class="item_box"><div class="text_box"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/midashi_02.png"/></div></div>
 </div>
+<p><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/servant_details_l.png"/></p>
+<p>
+<span class="tips">
+介紹「★4(SR)芙蘿拉」的寶具演出！
+</span>
+</p>
+<!-- <p><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/info_ss_01.png"/></p> -->
+<div style="position:relative;height:0;padding-bottom:56.25%">
+<iframe src="https://www.youtube.com/embed/8eag85N8gy8?si=sya55vMk4zfYUbQ1" width="640" height="360" frameborder="0" gesture="media" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe></div>
+<!-- <div class="em01"> -->
+<!-- <p> -->
+<!-- 「Fate/Grand Order」在官方網站內的公告中，以影片公開寶具演出，敬請確認。	 -->
+<!-- </p> -->
+<!-- </div> -->
+<!-- //block -->
+<!-- block -->
+<div class="heading_ttl" id="ttl3">
+<div class="item_box"><div class="text_box"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/midashi_03.png"/></div></div>
+</div>
+<p><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/info_image_01.png"/></p>
 <div class="em01">
-<p>與本活動同時開始，新的從者「★5(SSR)花咲翁」與「★4(SR)蛇女房」在期間限定的聖晶石召喚登場！</p>
+<p>
+新魔術禮裝「標準迦勒底制服」登場！<br/>
+本魔術禮裝<span class="blue_txt">通過「將來的開端」</span>的話可在2026年2月13日(五) 17:00以後入手，期間限定活動「迦勒底的花神節 當你的花朵綻放時」的期間中は<span class="blue_txt">通過活動的主線關卡「序幕(プロローグ) 進行度1」</span>的話可<span class="notice">先行入手</span>！
+</p>
 </div>
 <p>
-<span class="tips">期間限定從者</span>
+<span class="diamond">◆</span><span class="strong">入手條件</span><span class="diamond">◆</span><br/>
+<span class="em01">
+在2026年2月13日(五) 17:00以後<span class="blue_txt">通過「將來的開端」</span>
+</span>
 </p>
-<div class="heading_ttl hd_sub" id="ttl4">
-<div class="item_box">
-<div class="text_box">
-<span class="hd_text">花咲翁</span>
+<p>
+<span class="diamond">◆</span><span class="strong">先行入手條件</span><span class="diamond">◆</span><br/>
+<span class="em01">
+在期間限定活動「迦勒底的花神節 當你的花朵綻放時」的期間中<span class="blue_txt">通過活動的主線關卡「序幕(プロローグ) 進行度1」</span>
+</span>
+</p>
+<div class="attention_gray">
+<p>
+<span class="indent">
+※2026年2月13日(五) 17:00時間點，在活動舉辦期間中未入手魔術禮裝「標準迦勒底制服」且已通過<span class="blue_txt">「將來的開端」</span>的情況，魔術禮裝「標準迦勒底制服」會送至禮物箱。
+</span>
+</p>
 </div>
-</div>
-</div>
-<div class="card_box">
-<p><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_1_zzrwx/servant_details_l_02.png"/></p>
-</div>
-<div class="heading_ttl hd_sub" id="ttl5">
-<div class="item_box">
-<div class="text_box">
-<span class="hd_text">蛇女房</span>
-</div>
-</div>
-</div>
-<div class="card_box">
-<p><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_1_zzrwx/servant_details_l_03.png"/></p>
-</div>
-<!--/block--->
-<!-- block--->
-<div class="heading_ttl m_top" id="ttl6">
-<div class="item_box">
-<div class="text_box"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_1_zzrwx/midashi_04.png"/></div>
-</div>
-</div>
-<p><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_1_zzrwx/info_image_01.png"/></p>
-<div class="em01">
-<p>介紹期間限定活動「迦勒底的花神節 當你的花朵綻放時」中能獲得的活動限定概念禮裝的插圖！</p>
-</div>
-<!--/block--->
-<!-- block--->
-<div class="heading_ttl m_top" id="ttl7">
-<div class="item_box">
-<div class="text_box"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_1_zzrwx/midashi_05.png"/></div>
-</div>
-</div>
-<p><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_1_zzrwx/info_image_02.png"/></p>
-<div class="em01">
-<p>介紹在期間限定的聖晶石召喚登場的期間限定概念禮裝的插圖！</p>
-</div>
-<!--/block--->
-<!-- block--->
-<div class="heading_ttl m_top" id="ttl8">
-<div class="item_box">
-<div class="text_box"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_1_zzrwx/midashi_06.png"/></div>
-</div>
-</div>
-<p><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_1_zzrwx/info_image_03.png"/></p>
-<div class="em01">
-<p>介紹期間限定活動「迦勒底的花神節 當你的花朵綻放時」中能獲得的指令紋章的插圖！</p>
-</div>
-<!--/block--->
-<!-- block--->
-<div class="heading_ttl m_top" id="ttl9">
-<div class="item_box">
-<div class="text_box"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_1_zzrwx/midashi_07.png"/></div>
-</div>
+<!-- //block -->
+<!-- block -->
+<div class="heading_ttl" id="ttl4">
+<div class="item_box"><div class="text_box"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/midashi_04.png"/></div></div>
 </div>
 <div class="em01">
-<p>【「迦勒底的花神節 當你的花朵綻放時」告知電視廣告】</p>
+<p>
+【「迦勒底的花神節 當你的花朵綻放時」告知電視廣告】
+</p>
 </div>
-<!-- <p><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_1_zzrwx/info_ss_01.png"/></p> -->
+<!-- <p><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/info_ss_02.png"/></p> -->
 <div style="position:relative;height:0;padding-bottom:56.25%">
-<iframe src="https://www.youtube.com/embed/EYA8NT92oVI?si=rMBaYi3s2azdHLgL" width="640" height="360" frameborder="0" gesture="media" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe></div>
+<iframe src="https://www.youtube.com/embed/EYA8NT92oVI?si=LR-JmGphsNbBpHFA" width="640" height="360" frameborder="0" gesture="media" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe></div>
+<br/>
 <div class="em01">
-<p>動畫製作：WIT STUDIO</p>
+<p>
+動畫製作：WIT STUDIO
+</p>
 </div>
-<!-- <p>「Fate/Grand Order」官方網站內的お知らせでは動畫CM動画で公開しております。<br/> -->
-<!-- 敬請確認。</p> -->
-<!--/block--->
-<!-- block--->
-<div class="heading_ttl m_top" id="ttl10">
-<div class="item_box">
-<div class="text_box"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_1_zzrwx/midashi_08.png"/></div>
+<!-- <div class="em01"> -->
+<!-- <p> -->
+<!-- 「Fate/Grand Order」官方網站內的お知らせでは告知TVCM動画で公開しております。<br/> -->
+<!-- 敬請確認。 -->
+<!-- </p> -->
+<!-- </div> -->
+<br/>
+<div class="ank_link_box">
+<p class="heading" id="ttl_link01"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/komidashi_01.png"/></p>
 </div>
+<!--block-進め方--->
+<p>
+<span class="tips">
+活動的遊玩方式
+</span>
+</p>
+<p>
+<img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/info_proc_01.png"/>
+<img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/info_proc_02.png"/>
+<img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/info_proc_03.png"/>
+<img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/info_proc_04.png"/>
+<img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/info_proc_05.png"/>
+<img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/info_proc_06.png"/>
+<img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/info_proc_07.png"/>
+</p>
+<!-- //block -->
+<!-- block -->
+<div class="heading_ttl" id="ttl5">
+<div class="item_box"><div class="text_box"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/midashi_05.png"/></div></div>
 </div>
-<p><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_1_zzrwx/info_image_04.png"/></p>
-<!---table---->
+<!-- table--->
+<br/>
 <div class="table_box">
-<p><span class="diamond">◆</span><span class="strong">活動加成的對象從者</span><span class="diamond">◆</span></p>
-<table align="center" class="trbgcolor" style=";;" width="100%">
+<p>
+【關卡的開放時間表】
+</p>
+<table align="center" class="trbgcolor" style=";;margin-bottom: 10px;" width="100%">
 <tbody>
 <tr>
-<th width="25%">職階</th>
-<th width="30%">稀有度</th>
-<th width="45%">從者名</th>
+<th width="27%">關卡的種類</th>
+<th width="38%">開放期間</th>
+<th width="35%">開放所需的關卡與<br/>花開點數</th>
 </tr>
 <tr>
+<td>
+主線關卡序幕(プロローグ)～第2節<br/>
+自由關卡
+</td>
+<td>
+2026年1月23日(五) 17:00～<br/>
+2月13日(五) 11:59
+</td>
+<td>
+ー
+</td>
+</tr>
+<tr>
+<td>
+主線關卡第3節～第4節<br/>
+自由關卡
+</td>
+<td>
+<span class="sut_col">2026年1月24日(六) 17:00～</span><br/>
+2月13日(五) 11:59
+</td>
+<td>
+<span class="notice">
+<span class="indent blue_txt">
+・通過主線關卡第2節
+</span>
+<span class="indent blue_txt">
+・累計25,000點數
+</span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+主線關卡第5節～第7節<br/>
+自由關卡
+</td>
+<td>
+<span class="sun_col">2026年1月25日(日) 17:00～</span><br/>
+2月13日(五) 11:59
+</td>
+<td>
+<span class="notice">
+<span class="indent blue_txt">
+・通過主線關卡第4節
+</span>
+<span class="indent blue_txt">
+・累計60,000點數</span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+主線關卡第8節～第9節<br/>
+自由關卡
+</td>
+<td>
+2026年1月26日(一) 17:00～
+<br/>
+2月13日(五) 11:59
+</td>
+<td>
+<span class="notice">
+<span class="indent blue_txt">
+・通過主線關卡第7節
+</span>
+<span class="indent blue_txt">
+・累計100,000點數</span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+主線關卡第10節～第11節<br/>
+自由關卡
+</td>
+<td>
+<span>
+2026年1月27日(二) 17:00～
+</span>
+<br/>
+2月13日(五) 11:59
+</td>
+<td>
+<span class="notice">
+<span class="indent blue_txt">
+・通過主線關卡第9節
+</span>
+<span class="indent blue_txt">
+・累計160,000點數</span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+主線關卡第12節～第13節<br/>
+自由關卡
+</td>
+<td>
+<span>
+2026年1月28日(三) 17:00～
+</span>
+<br/>
+2月13日(五) 11:59
+</td>
+<td>
+<span class="notice">
+<span class="indent blue_txt">
+・通過主線關卡第11節
+</span>
+<span class="indent blue_txt">
+・累計310,000點數</span>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+主線關卡第14節～後記(エピローグ)<br/>
+自由關卡
+</td>
+<td>
+<div class="noticeicon">
+芙蘿拉<br/>正式加入
+</div>
+<div class="noticeicon_day">
+2026年1月29日(四) 17:00～<br/>
+2月13日(五) 11:59
+</div>
+</td>
+<td>
+<span class="notice">
+<span class="indent blue_txt">
+・通過主線關卡第13節
+</span>
+<span class="indent blue_txt">
+・累計460,000點數</span>
+</span>
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+おまけ關卡
+</td>
+<td>
+2026年1月29日(四) 17:00～<br/>
+2月13日(五) 11:59
+</td>
+<td>
+<span class="notice">
+<span class="indent blue_txt">
+・通過後記(エピローグ)
+</span>
+<span class="indent blue_txt">
+<p>
+※各關卡需要一定以上的花開點數。
+</p>
+</span>
+</span>
+</td>
+</tr>
+<!-- -->
+<tr>
+<td>
+挑戰關卡
+</td>
+<td>
+2026年1月30日(五) 17:00～<br/>
+2月13日(五) 11:59
+</td>
+<td>
+<span class="notice">
+<span class="indent blue_txt">
+・終局特異點通過
+</span>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--/table--->
+<div class="em01">
+<p>
+享受故事的<span class="notice">主線關卡會逐日開放。</span><br/>
+推進主線關卡到最後，活動限定的配布從者「<span class="notice">★4(SR)芙蘿拉</span>」將會加入正式加入。<br/>
+</p>
+<p>
+另外，收集花開點數和活動道具的自由關卡也會逐日開放。<br/>
+並且本活動中，可靠主線關卡的<span class="notice">進行度通過報酬獲得純淨稜鏡和青銅樹苗。</span>
+</p>
+</div>
+<div class="attention_gray">
+<p>
+<span class="indent">
+※想推進每天的主線關卡，需要對應關卡進行的一定量的花開點數。
+</span>
+<span class="indent">
+※想遊玩主線關卡必須通過「將來的開端」。
+</span>
+<span class="indent">
+※未通過「將來的開端」的情況，只有自由關卡會逐日開放。
+</span>
+</p>
+</div>
+<!-- //block -->
+<!-- block -->
+<div class="heading_ttl" id="ttl6">
+<div class="item_box"><div class="text_box"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/midashi_06.png"/></div></div>
+</div>
+<p>
+<img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/info_image_02.png"/>
+</p>
+<div class="em01">
+<p>
+2026年1月24日(六)～1月29日(四)的6天內，每天3:00會開放「照料關卡」。<br/>
+「照料關卡」為<span class="notice">只能通過1次的關卡</span>，通過的話可<span class="notice">獲得更多的花開點數和從者的強化素材</span>。
+</p>
+<p>
+照料花田來獲得活動點數吧！
+</p>
+</div>
+<p>
+<span class="diamond">◆</span><span class="strong">照料關卡開放期間</span><span class="diamond">◆</span><br/>
+<span class="em01">
+2026年1月24日(六) 3:00～2月13日(五) 11:59
+</span>
+</p>
+<p>
+<span class="diamond">◆</span><span class="strong">照料關卡參加條件</span><span class="diamond">◆</span><br/>
+<span class="em01">
+<span class="indent">・通過期間限定活動「迦勒底的花神節 當你的花朵綻放時」的主線關卡第1節</span>
+</span>
+</p>
+<div class="attention_gray">
+<p>
+<span class="indent">
+※開放的「照料關卡」，期間中無論何時都可挑戰。
+</span>
+</p>
+</div>
+<!-- block -->
+<div class="heading_ttl" id="ttl7">
+<div class="item_box"><div class="text_box"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/midashi_07.png"/></div></div>
+</div>
+<p><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/info_image_03.png"/> </p>
+<span class="em01">
+<p>
+推進本活動後，選擇在花田種植花朵的「花田製作關卡」會登場。<br/>
+「花田製作關卡」會透過選擇的花朵讓花田的模樣變化，<span class="notice">在戰鬥中會自動發動「花田技能」的效果</span>。<br/>
+另外，活動期間中個人空間(マイルーム)的背景會變成自己培育的「花田」。
+</p>
+<p>
+種植喜愛的花朵，打造屬於你的花田吧！
+</p>
+</span>
+<div class="attention_gray">
+<p>
+<span class="indent">
+※「花田製作關卡」為推進日後開放的特定主線關卡後登場。
+</span>
+<span class="indent">
+※執行「花田製作關卡」的話，剩下未選擇的「花田製作關卡」會消失。
+</span>
+<span class="indent notice">
+※通過後記(エピローグ)的話「花田製作關卡」會再次開放，可重新選擇其他的「花田製作關卡」後重新製作花田。
+</span>
+</p>
+</div>
+<p>
+<span class="tips">
+根據種植的花朵發動不同的「花田技能」！
+</span>
+</p>
+<p><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/info_image_04.png"/> </p>
+<div class="em01">
+<p>
+「花田製作關卡」中製作花田的話，在本活動的特定的主線關卡、自由關卡的戰鬥開始時會自動發動「花田技能」。<br/>
+<span class="notice">「花田技能」的效果會根據在花田種植的花朵種類變化</span>。
+</p>
+</div>
+<p><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/info_image_05.png"/> </p>
+<!-- block -->
+<!-- block -->
+<div class="heading_ttl" id="ttl8">
+<div class="item_box"><div class="text_box"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/midashi_08.png"/></div></div>
+</div>
+<p><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/info_image_06.png"/></p>
+<div class="em01">
+<p>
+「花開點數」的總獲得量每到達一定量，可獲得各種從者的培育素材外<span class="notice">傳承結晶</span>等做為達成報酬。<br/>
+達成報酬可在點擊管理室(ターミナル)畫面右上的「活動報酬」鍵後顯示的「花開點數報酬」畫面確認。
+</p>
+</div>
+<div class="attention_gray">
+<p>
+<span class="indent">
+※「花開點數」的總獲得量是計算在活動關卡掉落所獲得的「花開點數」。
+</span>
+</p>
+</div>
+<!-- block -->
+<div class="heading_ttl" id="ttl9">
+<div class="item_box"><div class="text_box"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/midashi_09.png"/></div></div>
+</div>
+<span class="em01">
+<p>
+本活動的舉辦期間中，向通過「終局特異點」的御主對象開放高難易度的「挑戰關卡」。<br/>
+另外，就算未滿足本活動主線關卡參加條件的御主，<span class="notice">通過「終局特異點」的話也可挑戰挑戰關卡。</span>
+</p>
+<p>
+「挑戰關卡」就算通過後也不會消失，可以變更從者和概念禮裝的組合後無數次挑戰。
+</p>
+</span>
+<p>
+<span class="diamond">◆</span><span class="strong">挑戰關卡開放時間</span><span class="diamond">◆</span><br/>
+<span class="em01">
+2026年1月30日(五) 17:00～
+</span>
+</p>
+<p>
+<span class="diamond">◆</span><span class="strong">挑戰關卡參加條件</span><span class="diamond">◆</span><br/>
+<span class="em01">
+滿足以下條件的御主才能參加
+<span class="indent">
+・通過「終局特異點」
+</span>
+</span>
+</p>
+<p>
+<span class="diamond">◆</span><span class="strong">挑戰關卡初次通過報酬</span><span class="diamond">◆</span><br/>
+<span class="em01">
+傳承結晶 1個    
+</span>
+</p>
+<div class="attention_gray">
+<p>
+<span class="indent notice">
+※關卡通過報酬、戰利品、御主EXP、魔術禮裝EXP、絆點數只可在初次通過時獲得。
+</span>
+</p>
+</div>
+<!-- block -->
+<div class="heading_ttl" id="ttl10">
+<div class="item_box"><div class="text_box"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/midashi_10.png"/></div></div>
+</div>
+<p>
+<span class="em01">
+可在<span class="notice">活動道具交換</span>入手芙蘿拉的靈基再臨所需的「花園的胸花」。
+</span>
+</p>
+<p>
+<img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/info_image_07.png"/>
+</p>
+<div class="attention_gray">
+<p>
+<span class="indent notice">
+※「★4(SR)芙蘿拉」不會隨靈基再臨使戰鬥角色的外觀變化。
+</span>
+</p>
+</div>
+<div class="attention">
+<p>
+<span class="diamond">◆</span><span class="strong">關於「★4(SR)芙蘿拉」的從者幣</span><span class="diamond">◆</span><br/>
+<span class="em01">
+「★4(SR)芙蘿拉」的從者幣，在本活動中可在活動道具交換入手。<br/>
+最多可入手下述的枚數。
+</span>
+</p>
+<div class="float_box_sum">
+<div class="float_left_box" style="width: 17%;"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/servant_coin_01.png"/></div>
+<div class="float_right_box" style="width: 70%;">
+<p>
+<span class="indent">
+・活動道具交換:最多<span class="notice">480枚</span>
+</span>
+</p>
+</div>
+</div>
+</div>
+<!-- //block -->
+<br/>
+<div class="ank_link_box">
+<p class="heading" id="ttl_link02"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/komidashi_02.png"/></p>
+</div>
+<!-- //block -->
+<!-- block -->
+<div class="heading_ttl m_top" id="ttl11">
+<div class="item_box"><div class="text_box"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/midashi_11.png"/></div></div>
+</div>
+<br/>
+<p>
+<span class="tips">
+超值攻略方法・其1	
+</span>
+</p>
+<p><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/info_howto_01.png"/></p>
+<!----table--->
+<div class="table_box">
+<p style="margin:0 0 5px 0;"><span class="strong">【活動加成的效果與對象從者】</span></p>
+<table align="center" class="trbgcolor" style=";;margin-bottom: 10px;" width="100%">
+<tbody>
+<tr>
+<th width="15%">自身的<br/>攻擊的<br/>威力</th>
+<th width="15%">絆<br/>點數<br/>獲得量</th>
+<th width="20%">職階</th>
+<th width="20%">稀有度</th>
+<th width="30%">從者名</th>
+</tr>
+<tr>
+<td class="bg02" rowspan="2">＋100％</td>
+<td class="bg03" rowspan="2">只限自身<br/>＋50％</td>
+<td class="bg01">Caster</td>
+<td class="servant_star">★★★★★</td>
+<td>花咲翁</td>
+</tr>
+<tr>
+<td class="bg01">Alterego</td>
+<td class="servant_star">★★★★</td>
+<td>芙蘿拉</td>
+</tr>
+<tr>
+<td class="bg02" rowspan="4">＋50％</td>
+<td class="bg03" rowspan="4">只限自身<br/>＋20％</td>
+<td class="bg01">Archer</td>
+<td class="servant_star">★★★</td>
+<td>羅賓漢</td>
+</tr>
+<tr>
+<td class="bg01">Lancer</td>
+<td class="servant_star">★★★★★</td>
+<td>埃列什基伽勒</td>
+</tr>
+<tr>
+<td class="bg01">Caster</td>
+<td class="servant_star">★★★</td>
+<td>張角</td>
+</tr>
+<tr>
+<td class="bg01">Assassin</td>
+<td class="servant_star">★★★★</td>
+<td>蛇女房</td>
+</tr>
+<tr>
+<td class="bg02" rowspan="43">＋30％</td>
+<td class="bg03" rowspan="43">只限自身<br/>＋20％</td>
 <td class="bg01" rowspan="6">Saber</td>
 <td class="servant_star">★★★★★</td>
 <td>尼祿・克勞狄烏斯〔Bride〕</td>
 </tr>
-<!-- -->
 <tr>
 <td class="servant_star">★★★★★</td>
 <td>Passionlip</td>
 </tr>
-<!-- -->
 <tr>
 <td class="servant_star">★★★★★</td>
 <td>宮本武藏</td>
 </tr>
-<!-- -->
 <tr>
 <td class="servant_star">★★★★</td>
 <td>阿爾托莉亞・潘德拉剛〔Lily〕</td>
 </tr>
-<!-- -->
 <tr>
 <td class="servant_star">★★★★</td>
 <td>騎士德翁</td>
 </tr>
-<!-- -->
 <tr>
 <td class="servant_star">★★★★</td>
 <td>尼祿・克勞狄烏斯</td>
 </tr>
-<!-------->
 <tr>
-<td class="bg01" rowspan="5">Archer</td>
+<td class="bg01" rowspan="4">Archer</td>
 <td class="servant_star">★★★★★</td>
 <td>清少納言</td>
 </tr>
-<!-- -->
 <tr>
 <td class="servant_star">★★★★★</td>
 <td>杜爾迦</td>
 </tr>
-<!-- -->
 <tr>
 <td class="servant_star">★★★★★</td>
 <td>拿破崙</td>
 </tr>
-<!-- -->
 <tr>
 <td class="servant_star">★★★★</td>
 <td>凱隆</td>
 </tr>
-<!-- -->
 <tr>
-<td class="servant_star">★★★</td>
-<td>羅賓漢</td>
-</tr>
-<!-------->
-<tr>
-<td class="bg01" rowspan="6">Lancer</td>
+<td class="bg01" rowspan="5">Lancer</td>
 <td class="servant_star">★★★★★</td>
 <td>恩奇都</td>
 </tr>
-<!-- -->
-<tr>
-<td class="servant_star">★★★★★</td>
-<td>埃列什基伽勒</td>
-</tr>
-<!-- -->
 <tr>
 <td class="servant_star">★★★★</td>
 <td>虞美人</td>
 </tr>
-<!-- -->
 <tr>
 <td class="servant_star">★★★★</td>
 <td>謎之Alterego・Λ</td>
 </tr>
-<!-- -->
 <tr>
 <td class="servant_star">★★★★</td>
 <td>哪吒</td>
 </tr>
-<!-- -->
 <tr>
 <td class="servant_star">★★★★</td>
 <td>帕爾瓦蒂</td>
 </tr>
-<!-------->
 <tr>
 <td class="bg01">Rider</td>
 <td class="servant_star">★★★★</td>
 <td>瑪莉・安東尼</td>
 </tr>
-<!-------->
 <tr>
-<td class="bg01" rowspan="10">Caster</td>
+<td class="bg01" rowspan="8">Caster</td>
 <td class="servant_star">★★★★★</td>
 <td>救世主托內莉可(雨之魔女托內莉可)</td>
 </tr>
-<!-- -->
 <tr>
 <td class="servant_star">★★★★★</td>
 <td>尼祿・克勞狄烏斯</td>
 </tr>
-<!-- -->
-<tr>
-<td class="servant_star">★★★★★</td>
-<td>【近日登場！】花咲翁<div class="tb_noticeicon_01">NEW!</div></td>
-</tr>
-<!-- -->
 <tr>
 <td class="servant_star">★★★★★</td>
 <td>梅林</td>
 </tr>
-<!-- -->
 <tr>
 <td class="servant_star">★★★★</td>
 <td>喀耳刻(俄刻阿諾斯的Caster)</td>
 </tr>
-<!-- -->
 <tr>
 <td class="servant_star">★★★★</td>
 <td>瑪莉・安東尼</td>
 </tr>
-<!-- -->
 <tr>
 <td class="servant_star">★★★</td>
 <td>阿斯克勒庇俄斯</td>
 </tr>
-<!-- -->
-<tr>
-<td class="servant_star">★★★</td>
-<td>張角</td>
-</tr>
-<!-- -->
 <tr>
 <td class="servant_star">★★</td>
 <td>威廉・莎士比亞</td>
 </tr>
-<!-- -->
 <tr>
 <td class="servant_star">★★</td>
 <td>漢斯・克里斯蒂安・安徒生</td>
 </tr>
-<!-------->
 <tr>
-<td class="bg01" rowspan="4">Assassin</td>
+<td class="bg01" rowspan="3">Assassin</td>
 <td class="servant_star">★★★★★</td>
 <td>迦摩</td>
 </tr>
-<!-- -->
 <tr>
 <td class="servant_star">★★★★</td>
 <td>虞美人</td>
 </tr>
-<!-- -->
 <tr>
 <td class="servant_star">★★★★</td>
 <td>武則天(不夜城的Assassin)</td>
 </tr>
-<!-- -->
-<tr>
-<td class="servant_star">★★★★</td>
-<td>【近日登場！】蛇女房<div class="tb_noticeicon_01">NEW!</div></td>
-</tr>
-<!-------->
 <tr>
 <td class="bg01" rowspan="3">Berserker</td>
 <td class="servant_star">★★★★★</td>
 <td>項羽</td>
 </tr>
-<!-- -->
 <tr>
 <td class="servant_star">★★★★★</td>
 <td>千利休</td>
 </tr>
-<!-- -->
 <tr>
 <td class="servant_star">★★★★★</td>
 <td>宮本武藏</td>
 </tr>
-<!-------->
 <tr>
 <td class="bg01" rowspan="2">Avenger</td>
 <td class="servant_star">★★★★★</td>
 <td>迦摩</td>
 </tr>
-<!-- -->
 <tr>
 <td class="servant_star">★★★★★</td>
 <td>瑪莉・安東尼〔Alter〕</td>
 </tr>
-<!-------->
 <tr>
-<td class="bg01" rowspan="5">Alterego</td>
+<td class="bg01" rowspan="4">Alterego</td>
 <td class="servant_star">★★★★★</td>
 <td>Kazuradrop</td>
 </tr>
-<!-- -->
 <tr>
 <td class="servant_star">★★★★★</td>
 <td>Kingprotea</td>
 </tr>
-<!-- -->
 <tr>
 <td class="servant_star">★★★★★</td>
 <td>Meltryllis</td>
 </tr>
-<!-- -->
 <tr>
 <td class="servant_star">★★★★</td>
 <td>Passionlip</td>
 </tr>
-<!-- -->
-<tr>
-<td class="servant_star">★★★★</td>
-<td><div class="tb_noticeicon_01">NEW!</div>【近日登場！】芙蘿拉</td>
-</tr>
-<!-------->
 <tr>
 <td class="bg01" rowspan="3">MoonCancer</td>
 <td class="servant_star">★★★★★</td>
 <td>ＢＢ</td>
 </tr>
-<!-- -->
 <tr>
 <td class="servant_star">★★★★★</td>
 <td>ＢＢ杜拜</td>
 </tr>
-<!-- -->
 <tr>
 <td class="servant_star">★★★★</td>
 <td>ＢＢ</td>
 </tr>
-<!-------->
 <tr>
 <td class="bg01" rowspan="2">Foreigner</td>
 <td class="servant_star">★★★★★</td>
 <td>梵谷</td>
 </tr>
-<!-- -->
 <tr>
 <td class="servant_star">★★★★★</td>
 <td>葛飾北齋</td>
 </tr>
-<!-------->
 <tr>
 <td class="bg01" rowspan="2">Pretender</td>
 <td class="servant_star">★★★★★</td>
 <td>堤豐・厄斐莫洛斯</td>
 </tr>
-<!-- -->
 <tr>
 <td class="servant_star">★★★★★</td>
 <td>阿瓦隆女士</td>
 </tr>
 </tbody>
 </table>
-<div class="em01">
-<p class="f_nomal">
-<span class="indent">※1月17日(六) 18:00更新</span>
+</div>
+<!----/table--->
+<div class="attention_gray">
+<p>
+<span class="indent notice">
+※就算成為對象從者也會有未在本活動的主線劇本登場的情況。
+</span>
+<span class="indent">
+※自1月13日(二) 17:00，在從者選擇畫面和從者強化畫面等，追加活動加成篩選器。由於是只顯示於活動活躍從者的便利功能，敬請也配合此處活用。
+</span>
+<span class="indent">
+※「★5(SSR)救世主托內莉可(雨之魔女托內莉可)」是「★5(SSR)雨之魔女托內莉可」靈基再臨到第2階段後名稱會變成「★5(SSR)救世主托內莉可」。
+</span>
 </p>
 </div>
-</div>
-<!-------table------->
+<p>
+<span class="tips">
+超值攻略方法・其2	
+</span>
+</p>
+<p><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/info_howto_02.png"/></p>
 <div class="em01">
 <p>
-期間限定活動「迦勒底的花神節 當你的花朵綻放時」的期間中，<span class="notice">一部份的從者</span>在活動關卡中會得到「<span class="notice">自身的攻擊威力提升</span>」與「<span class="notice">絆點數獲得量提升</span>」的加成！<br/>
-強化對象的從者，挑戰活動吧！
+本活動的期間中，強化「<span class="notice">★4(SR)芙蘿拉</span>」時的<span class="notice">獲得經驗值變成2倍</span>。<br/>
+是讓成為活動加成對象的「<span class="notice">★4(SR)終結的伊莉莎白</span>」等級一口氣上升的機會！	
 </p>
+</div>
+<p>
+<span class="diamond">◆</span><span class="strong">舉辦期間(3週內)</span><span class="diamond">◆</span><br/>
+<span class="em01">
+2026年1月23日(五) 17:00～2月13日(五) 11:59
+</span>
+</p>
+<p>
+<span class="tips">
+超值攻略方法・其3	
+</span>
+</p>
+<p><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/info_howto_03.png"/></p>
+<div class="attention_gray">
+<p>
+<span class="indent">
+※請注意各關卡的道具掉落率並非100％。
+</span>
+</p>
+</div>
+<br/>
+<div class="ank_link_box">
+<p class="heading" id="ttl_link03"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/komidashi_03.png"/></p>
+</div>
+<!-- //block -->
+<div class="heading_ttl" id="ttl12">
+<div class="item_box"><div class="text_box"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/midashi_12.png"/></div></div>
+</div>
+<div class="em01">
+<p>
+活動道具可自點擊管理室(ターミナル)畫面右上「活動報酬」鍵所顯示的「活動道具交換」畫面，交換以下的道具。	
+</p>
+</div>
+<p>
+<span class="diamond">◆</span><span class="strong">交換期間(4週內)</span><span class="diamond">◆</span><br/>
+<span class="em01">
+2026年1月23日(五) 17:00～2月20日(五) 11:59
+</span>
+</p>
+<p><span class="diamond">◆</span><span class="strong">能用茁壯肥料交換的道具</span><span class="diamond">◆</span>
+</p>
+<table class="table_non mt-15 table_color">
+<tbody>
+<tr>
+<td style="width:35%; vertical-align:top;"><p><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/info_item_01.png"/></p></td>
+<td style="width:65%; vertical-align:top;">
+<p>【活動限定概念禮裝】<br/>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/item_01.png"/></span>
+★5(SSR)「<span class="notice">戯れの蕾</span>」
+</span>
+</span>
+</p>
+<!-- -->
+<p>【活動限定從者靈基再臨素材】<br/>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/item_02.png"/></span>
+花園的胸花
+</span>
+</span>
+</p>
+<!-- -->
+<p>【寶具強化専用靈基】<br/>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/item_03.png"/></span>
+★4(SR)芙蘿拉【寶具強化専用】
+</span>
+</span>
+</p>
+<!-- -->
+<p>【從者幣】<br/>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/item_04.png"/></span>
+★4(SR)芙蘿拉
+</span>
+</span>
+</p>
+<!-- -->
+<p>【技能強化＆靈基再臨素材】<br/>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item22.png"/></span>
+<span class="notice">傳承結晶</span><br/>
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item101.png"/></span>
+天命的聖水<br/>
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item142.png"/></span>
+起源的胎毛<br/>
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item145.png"/></span>
+太陽皮<br/>
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item146.png"/></span>
+人工生命體幼體
+</span>
+</span>
+</p>
+<!-- -->
+<p>【技能強化素材】<br/>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item105.png"/></span>
+弓之秘石<br/>
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item128.png"/></span>
+術之秘石<br/>
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item129.png"/></span>
+殺之秘石
+</span>
+</span>
+</p>
+<!-- -->
+<p>【靈基再臨素材】<br/>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item24.png"/></span>
+弓階金棋<br/>
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item28.png"/></span>
+術階金棋<br/>
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item26.png"/></span>
+殺階金棋<br/>
+</span>
+</span>
+</p>
+<!-- -->
+<p>【其他道具】<br/>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item08.png"/></span>
+<span class="notice">英靈結晶・流星之芙芙ALL★4(HP)</span>
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item09.png"/></span>
+<span class="notice">英靈結晶・日輪之芙芙ALL★4(ATK)</span>
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item46.png"/></span>
+巡靈之葉<br/>
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item20.png"/></span>
+紋章移除器<br/>
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item01.png"/></span>
+10,000QP<br/>
+</span>
+</span>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- -->
+<p><span class="diamond">◆</span><span class="strong">能用舒展肥料交換的道具</span><span class="diamond">◆</span>
+</p>
+<table class="table_non mt-15 table_color">
+<tbody>
+<tr>
+<td style="width:35%; vertical-align:top;"><p><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/info_item_02.png"/></p></td>
+<td style="width:65%; vertical-align:top;">
+<p>【活動限定概念禮裝】<br/>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/item_01.png"/></span>
+★5(SSR)「<span class="notice">戯れの蕾</span>」
+</span>
+</span>
+</p>
+<!-- -->
+<p>【活動限定從者靈基再臨素材】<br/>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/item_02.png"/></span>
+花園的胸花
+</span>
+</span>
+</p>
+<!-- -->
+<p>【從者幣】<br/>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/item_04.png"/></span>
+★4(SR)芙蘿拉
+</span>
+</span>
+</p>
+<!-- -->
+<p>【技能強化＆靈基再臨素材】<br/>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item22.png"/></span>
+<span class="notice">傳承結晶</span><br/>
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item147.png"/></span>
+鬼炎鬼燈<br/>
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item148.png"/></span>
+蛇之寶玉<br/>
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item149.png"/></span>
+終之花<br/>
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item150.png"/></span>
+虛影之塵
+</span>
+</span>
+</p>
+<!-- -->
+<p>【技能強化素材】<br/>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item112.png"/></span>
+弓之魔石
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item132.png"/></span>
+術之魔石
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item133.png"/></span>
+殺之魔石
+</span>
+</span>
+</p>
+<!-- -->
+<p>【靈基再臨素材】<br/>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item25.png"/></span>
+弓階銀像<br/>
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item29.png"/></span>
+術階銀像<br/>
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item27.png"/></span>
+殺階銀像<br/>
+</span>
+</span>
+</p>
+<!-- -->
+<p>【其他道具】<br/>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item09.png"/></span>
+<span class="notice">英靈結晶・日輪之芙芙ALL★4(ATK)</span>
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item46.png"/></span>
+巡靈之葉<br/>
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item20.png"/></span>
+紋章移除器<br/>
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/item_05.png"/></span>
+茁壯肥料<br/>
+</span>
+</span>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- -->
+<p><span class="diamond">◆</span><span class="strong">能用順遂肥料交換的道具</span><span class="diamond">◆</span>
+</p>
+<table class="table_non mt-15 table_color">
+<tbody>
+<tr>
+<td style="width:35%; vertical-align:top;"><p><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/info_item_03.png"/></p></td>
+<td style="width:65%; vertical-align:top;">
+<p>【活動限定概念禮裝】<br/>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/item_01.png"/></span>
+★5(SSR)「<span class="notice">戯れの蕾</span>」
+</span>
+</span>
+</p>
+<!-- -->
+<p>【活動限定從者靈基再臨素材】<br/>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/item_02.png"/></span>
+花園的胸花
+</span>
+</span>
+</p>
+<!-- -->
+<p>【從者幣】<br/>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/item_04.png"/></span>
+★4(SR)芙蘿拉
+</span>
+</span>
+</p>
+<!-- -->
+<p>【技能強化＆靈基再臨素材】<br/>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item22.png"/></span>
+<span class="notice">傳承結晶</span><br/>
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item151.png"/></span>
+血之淚石<br/>
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item152.png"/></span>
+枯淡勾玉<br/>
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item153.png"/></span>
+世界樹之種<br/>
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item154.png"/></span>
+不忘之灰
+</span>
+</span>
+</p>
+<!-- -->
+<p>【技能強化素材】<br/>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item119.png"/></span>
+弓之輝石<br/>
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item136.png"/></span>
+術之輝石
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item137.png"/></span>
+殺之輝石
+</span>
+</span>
+</p>
+<!-- -->
+<p>【其他道具】<br/>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item08.png"/></span>
+<span class="notice">英靈結晶・流星之芙芙ALL★4(HP)</span>
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item05.png"/></span>
+英靈結晶・星之芙芙ALL★3(HP)
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item04.png"/></span>
+英靈結晶・太陽之芙芙ALL★3(ATK)
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item15.png"/></span>
+睿智的業火ALL★5(SSR)
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item03.png"/></span>
+睿智的猛火ALL★4(SR)
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item122.png"/></span>
+睿智的大火ALL★3(R)
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item46.png"/></span>
+巡靈之葉<br/>
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/mini_icon_list/icon_item20.png"/></span>
+紋章移除器<br/>
+</span>
+</span>
+<span class="em01">
+<span class="skil_item_txt">
+<span class="skil_item"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/item_06.png"/></span>
+舒展肥料
+</span>
+</span>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- -->
+<div class="attention_gray">
+<p>
+<span class="indent notice">
+※「★4(SR)芙蘿拉」的靈基再臨素材「花園的胸花」及寶具強化専用靈基，在通過特定的主線關卡通過後才能交換。
+</span>
+<span class="indent notice">
+※關於「★4(SR)芙蘿拉」的從者幣、傳承結晶、英靈結晶・流星之芙芙ALL★4(HP)、英靈結晶・日輪之芙芙ALL★4(ATK)，在通過本活動的「主線關卡 後記(エピローグ)」後才能交換。
+</span>
+<span class="indent">
+※活動道具交換期間結束後「茁壯肥料」「舒展肥料」「順遂肥料」會消失。
+</span>
+</p>
+</div>
+<!-- block -->
+<!-- block -->
+<div class="heading_ttl" id="ttl13">
+<div class="item_box"><div class="text_box"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/midashi_13.png"/></div></div>
+</div>
+<table class="table_non mt-15 table_color">
+<tbody>
+<tr>
+<td class="reisou_left">
+<img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/gainenreisou_01.png"/>
+</td>
+<td class="reisou_right">
+<p>
+<span class="star">★★★★★SSR</span><br/>
+　<span class="gainen_ttl">戯れの蕾<br/>
+　(たわむれのつぼみ)
+</span><br/>
+　<span class="gainen_atk">ATK</span> 250(最大:1000)　<span class="gainen_hp">HP</span> 400(最大:1600)<br/>
+　<span class="gainen_skill">技能</span><br/>
+<span class="skill01">對自身賦予〔魔性〕特攻15%狀態＆賦予〔惡〕特攻15%狀態＆NP以30%累積狀態開始戰鬥 ＋ 花開點數的掉落獲得量增加30%<br/>【『迦勒底的花神節』活動期間限定】</span>
+</p>
+<div class="em01">
+<p>
+<span class="diamond">◆</span><span class="strong">最大解放時效果</span><span class="diamond">◆</span><br/>
+<span class="em01">
+對自身〔魔性〕特攻20%狀態<span class="notice"></span>賦予＆〔惡〕特攻20%狀態<span class="notice"></span>賦予＆NP以<span class="notice">50%</span>累積狀態開始戰鬥 ＋ 花開點數的掉落獲得量增加<span class="notice">60%</span>【『迦勒底的花神節』活動期間限定】
+</span>
+</p>
+</div>
+<p>
+<img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/info_gainenmax_01.png"/>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- //block -->
+<!-- block -->
+<div class="heading_ttl" id="ttl14">
+<div class="item_box"><div class="text_box"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/midashi_14.png"/></div></div>
+</div>
+<table class="table_non mt-15 table_color">
+<tbody>
+<tr>
+<td class="reisou_left">
+<img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/commandcode_01.png"/>
+</td>
+<td class="reisou_right">
+<p>
+<span class="notice">【活動限定】</span><br/>
+<span class="star">★★★★★SSR</span><br/>
+　<span class="gainen_ttl">森の守り手<br/>
+　(もりのまもりて)
+  </span><br/>
+　<span class="gainen_skill">技能</span><br/>
+<span class="skill01">
+對刻印卡賦予〔毒〕特攻20%效果
+</span>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<table class="table_non mt-15 table_color">
+<tbody>
+<tr>
+<td class="reisou_left">
+<img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/commandcode_02.png"/>
+</td>
+<td class="reisou_right">
+<p>
+<span class="star">★★★★SR</span><br/>
+　<span class="gainen_ttl">キングメイカーの杖<br/>
+　(きんぐめいかーのつえ)
+　</span><br/>
+　<span class="gainen_skill">技能</span><br/>
+<span class="skill01">
+ 在透過刻印卡攻擊時，自身的NP增加5%<br/>(1度使用的話再使用に3回合必要)
+</span>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<table class="table_non mt-15 table_color">
+<tbody>
+<tr>
+<td class="reisou_left">
+<img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/commandcode_03.png"/>
+</td>
+<td class="reisou_right">
+<p>
+<span class="star">★★★R</span><br/>
+　<span class="gainen_ttl">白き咆哮<br/>
+　(しろきほうこう)
+　</span><br/>
+　<span class="gainen_skill">技能</span><br/>
+<span class="skill01">
+刻印卡的爆擊威力提升5%＆NP獲得量提升3%
+</span>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<!-- //block -->
+<!-- block -->
+<div class="heading_ttl m_top" id="ttl15">
+<div class="item_box"><div class="text_box"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/midashi_15.png"/></div></div>
+</div>
+<p><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/info_reinforcement_1.png"/></p>
+<div class="em01">
+<p>
+強化「★3(R)張角」的特別關卡「從者強化關卡」，在迦勒底之門永久追加。<br/>
+不僅進行對象從者的強化，也可獲得聖晶石做為關卡通過報酬。
+</p>
+</div>
+<p>
+<span class="diamond">◆</span><span class="strong">追加時間</span><span class="diamond">◆</span><br/>
+<span class="em01">
+2026年1月23日(五) 17:00～
+</span>
+</p>
+<p>
+<span class="diamond">◆</span><span class="strong">開放條件</span><span class="diamond">◆</span><br/>
+<span class="em01">
+持有強化對象的從者，必須使其<span class="notice">最終再臨</span>。
+</span>
+</p>
+<div class="attention_gray">
+<p>
+<span class="indent">
+※請注意在從者強化關卡沒有文字冒險部份。	
+</span>
+<span class="indent notice">
+※未持有對象從者的情況，不會出現關卡。	
+</span>
+<span class="indent">
+※關卡沒有舉辦期限。	
+</span>
+</p>
+</div>
+<!-- //block -->
+<!-- block -->
+<div class="heading_ttl" id="ttl16">
+<div class="item_box"><div class="text_box"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/midashi_16.png"/></div></div>
+</div>
+<div class="float_box ovh_vi">
+<div class="float_right_box" style="width: 23%;">
+<p><img alt="" src="https://fgo.kazemai.io/common/images/all_item_list/info_item_02.png"/></p>
+</div>
+<div class="float_none_box">
+<span class="em01">
+<p>	
+為了記念期間限定活動「迦勒底的花神節 當你的花朵綻放時」的開幕，實施<span class="notice">特別<span class="green_txt2">次數</span>登入獎勵</span>。<br/>
+<span class="notice">在期間中登入21次(1天算1次)</span>的話，贈送<span class="notice">黃金果實3個、白銀果實18個</span>！
+</p>
+<p>
+<span class="diamond">◆</span><span class="strong">舉辦期間(3週內)</span><span class="diamond">◆</span><br/>
+<span class="em01">
+2026年1月23日(五) 17:00～2月13日(五) 11:59
+</span>
+</p>
+<p>
+<span class="diamond">◆</span><span class="strong">贈送對象</span><span class="diamond">◆</span><br/>
+<span class="em01">
+<span class="notice">
+在舉辦期間中通過「第1部序章(特異點F 炎上汙染都市 冬木)」的御主對象
+</span>
+</span>
+</p>
+</span>
+</div>
 </div>
 <div class="attention_gray">
 <p>
-<span class="indent notice">※就算成為對象從者也會有未在本活動的主線劇本登場的情況。</span>
-<span class="indent">※活動加成的效果量因從者而異。</span>
-<span class="indent">※自1月13日(二) 17:000，在從者選擇畫面和從者強化畫面等，追加活動加成篩選器。由於是只顯示於活動活躍從者的便利功能，敬請也配合此處活用。</span>
-<span class="indent">※「★5(SSR)救世主托內莉可(雨之魔女托內莉可)」是「★5(SSR)雨之魔女托內莉可」靈基再臨到第2階段後名稱會變成「★5(SSR)救世主托內莉可」。</span>
+<span class="indent notice">
+※束時間前，在管理室(ターミナル)畫面的關卡看板必須要有「CLEAR」的文字顯示。	
+</span>
 </p>
 </div>
-<!--/block--->
-<!------block----->
+<!-- table-->
+<div class="table_box pdd_regulation">
+<p style="margin:0 0 5px 0;"><span class="strong">【特別<span class="green_txt2">次數</span>登入獎勵】</span></p>
+<table align="center" class="trbgcolor" style=";;margin-bottom: 10px;" width="100%">
+<tbody>
+<tr>
+<th width="25%">登入次數</th>
+<th colspan="2" width="75%">贈送內容</th>
+</tr>
+<tr>
+<td><span class="notice">第1次</span></td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="https://fgo.kazemai.io/common/images/all_item_list/list_item12.png" width="100%"/></span>
+</td>
+<td class="bd_l_none notice">黃金果實 1個</td>
+</tr>
+<tr>
+<td>第2～7次</td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="https://fgo.kazemai.io/common/images/all_item_list/list_item13.png" width="100%"/></span>
+</td>
+<td class="bd_l_none">白銀果實 1個</td>
+</tr>
+<tr>
+<td><span class="notice">第8次</span></td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="https://fgo.kazemai.io/common/images/all_item_list/list_item12.png" width="100%"/></span>
+</td>
+<td class="bd_l_none notice">黃金果實 1個</td>
+</tr>
+<tr>
+<td>第9～14次</td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="https://fgo.kazemai.io/common/images/all_item_list/list_item13.png" width="100%"/></span>
+</td>
+<td class="bd_l_none">白銀果實 1個</td>
+</tr>
+<tr>
+<td><span class="notice">第15次</span></td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="https://fgo.kazemai.io/common/images/all_item_list/list_item12.png" width="100%"/></span>
+</td>
+<td class="bd_l_none notice">黃金果實 1個</td>
+</tr>
+<tr>
+<td>第16次～第21次</td>
+<td class="item_list" width="12%">
+<span class="item_img"><img alt="" src="https://fgo.kazemai.io/common/images/all_item_list/list_item13.png" width="100%"/></span>
+</td>
+<td class="bd_l_none">白銀果實 1個</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--/table-->
+<div class="attention_gray">
+<p>
+<span class="indent notice">
+※第1次的登入獎勵會在1月23日(五) 17:00以後配發。
+</span>
+<span class="indent notice">
+※之後的登入獎勵，會在每天3:00配發。	
+</span>
+<span class="indent">
+※合計21天內能領取，但根據成為贈送對象的時間點，可能無法到此上限。	
+</span>
+</p>
+</div>
+<!-- //block -->
+<!-- block -->
+<div class="heading_ttl" id="ttl18">
+<div class="item_box"><div class="text_box"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/midashi_18.png"/></div></div>
+</div>
+<p>
+<img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/info_image_ap.png"/>
+</p>
+<div class="em01">
+<p>
+下述的期間中，在白紙化地球上自由關卡的消耗AP變成<span class="notice">1/2</span>！<br/>
+(就算在戰鬥中撤退的情況，也會是同様的消耗量)<br/>
+請活用此機會可實惠地挑戰白紙化地球上的自由關卡！
+</p>
+</div>
+<p>
+<span class="diamond">◆</span><span class="strong">舉辦期間(3週內)</span><span class="diamond">◆</span><br/>
+<span class="em01">
+2026年1月23日(五) 17:00～2月13日(五) 11:59
+</span>
+</p>
+<p>
+<span class="diamond">◆</span><span class="strong">對象關卡</span><span class="diamond">◆</span><br/>
+<span class="em01">
+<span class="indent">
+・白紙化地球上的自由關卡(「奏章Ⅰ～Ⅳ」的自由關卡除外)	
+</span>
+</span>
+</p>
+<div class="attention_gray">
+<p>
+<span class="indent">
+※「Storm Pod」跟平常一樣消耗。	
+</span>
+</p>
+</div>
+<!-- //block -->
+<!-- block -->
+<div class="heading_ttl" id="ttl19">
+<div class="item_box"><div class="text_box"><img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/midashi_19.png"/></div></div>
+</div>
+<p>
+<img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_full_twlkv/wallpaper.png"/>
+</p>
+<div class="em01">
+<p>
+在期間限定活動「迦勒底的花神節 當你的花朵綻放時」的特設頁面，智慧型手機用桌布的贈送實施中！<br/>
+在社群媒體分享特設頁面就能下載原創桌布，請務必使用。
+</p>
+</div>
+<p>
+<span class="diamond">◆</span><span class="strong">配發期間(3週內)</span><span class="diamond">◆</span><br/>
+<span class="em01">
+2026年1月23日(五) 17:00～2月13日(五) 11:59
+</span>
+</p>
+<p>
+<span class="diamond">◆</span><span class="strong">特設頁面</span><span class="diamond">◆</span><br/>
+<span class="em01">
+<a href="https://www.fate-go.jp/special/2026-chaldean_floralia/" target="_blank" rel="noopener noreferrer">https://www.fate-go.jp/special/2026-chaldean_floralia/</a>
+</span>
+</p>
+<!-- -->
 <hr/>
 <div class="em01">
 <p>
-其他還有，『「迦勒底的花神節 當你的花朵綻放時」開幕前夕宣傳活動』等的情報公開中！<br/>
+其他還有，「迦勒底的花神節 花咲翁Pick Up召喚」等的情報公開中！<br/>
 關於詳情，請自下述橫幅確認。
 </p>
 </div>
 <p>
-<span class="indent">■『「迦勒底的花神節 當你的花朵綻放時」開幕前夕宣傳活動』詳細情報</span>
-<a href="event_chaldean_floralia_cp.html">
-<img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_cp_ndvnu/top_banner.png"/>
-</a>
-</p>
-<p>
-<span class="indent">■『「迦勒底的花神節」開幕前夕Pick Up召喚』詳細情報</span>
-<a href="gacha_chaldean_floralia_cp_pu.html">
-<img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_cp_pu_wafpn/top_banner.png"/>
+<span class="indent">■「迦勒底的花神節 花咲翁Pick Up召喚」詳細情報</span>
+<a href="gacha_chaldean_floralia_pu.html">
+<img alt="" src="https://fgo.kazemai.io/common/images/2026/01/chaldean_floralia_pu_tgtvc/top_banner.png"/>
 </a>
 </p>
 <!--/block--->
