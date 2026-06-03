@@ -119,6 +119,13 @@ function timeConverter(UNIX_timestamp){
 	var time = year + '/' + month + '/' + date + ' ' + hour + ':' + min + ':' + sec;
 	return time;
 }
+function addZero(d){
+	if(d/10<1)
+	{
+		d='0'+d
+	}
+	return d;
+}
 function condtionRead(cType,cId,cNum)
 {
 	switch(cType)
@@ -191,6 +198,9 @@ function condtionRead(cType,cId,cNum)
 				}
 			}
             return txt;
+            break;
+        case 233://BEFORE_QUEST_CLEAR_TIME
+            return '在'+timeConverter(cNum)+'前通過'+questRea(cId);
             break;
         case 242://USER_LEVEL_ABOVE
             return '御主等級不小於Lv.'+cId
